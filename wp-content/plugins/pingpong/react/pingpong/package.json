@@ -1,0 +1,25 @@
+{
+  "name": "pingpong",
+  "version": "10.0.0",
+  "description": "Full React PWA as WordPress theme header",
+  "repository": "https://github.com/listingslab-software/listingslab_src",
+  "author": "listingslab <listingslab@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build"
+  },
+  "dependencies": {
+    "react": "16.12.0",
+    "react-dom": "16.12.0",
+    "react-scripts": "2.1.1",
+  },
+  "devDependencies": {
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
