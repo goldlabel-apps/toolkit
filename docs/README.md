@@ -11,7 +11,7 @@
 	- [PullRequests](./md/006_Pull_Requests.md)
 		- [Example Pull Request](./md/005_Pull_Request.md) 
 		- [Sprint Demo](./md/008_Sprint_Demo.md) 
-		- [GitHub Packages](./md/013_NPM.md) 
+		- [NPM & GitHub Packages](./md/013_NPM.md) 
 
 > **Role: Fullstack PHP/JS Developer**
 - [Install for development](./md/011_Install.md) 
