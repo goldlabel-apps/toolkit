@@ -1,0 +1,12 @@
+#!/bin/bash
+# chmod ug+x wp
+clear
+
+echo 'WordPressifying...'
+echo 'Compiling & compressing Kart with WP Admin ...'
+
+cd ./wordpress/listingslab-kart/react/kart && yarn build
+
+cd ../wp-kart  && yarn && yarn build
+
+echo 'BASTA'

@@ -1,0 +1,10 @@
+#!/bin/bash
+# chmod ug+x dev
+clear
+
+echo 'Starting Kart Dev Server...'
+
+cd ./plugins/listingslab-kart/react/$1
+yarn
+yarn start
+
