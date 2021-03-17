@@ -1,5 +1,4 @@
 
-
 ## Listingslab ToolKit for WordPress 
 
 [PROD listingslab.com](https://listingslab.com)&nbsp;|&nbsp;[DEV thebay.site](https://thebay.site) 
