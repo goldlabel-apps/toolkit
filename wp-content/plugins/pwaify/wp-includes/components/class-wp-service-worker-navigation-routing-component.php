@@ -68,7 +68,7 @@ final class WP_Service_Worker_Navigation_Routing_Component implements WP_Service
 		$template   = get_template();
 		$stylesheet = get_stylesheet();
 
-		$revision = PWA_VERSION;
+		$revision = PWAIFY_VERSION;
 
 		$revision .= sprintf( ';%s=%s', $template, wp_get_theme( $template )->version );
 		if ( $template !== $stylesheet ) {
@@ -202,12 +202,12 @@ final class WP_Service_Worker_Navigation_Routing_Component implements WP_Service
 
 			$caching_strategy_args_js = WP_Service_Worker_Caching_Routes::prepare_strategy_args_for_js_export( $config );
 
-			$offline_error_template_file  = pwa_locate_template( array( 'offline.php', 'error.php' ) );
+			$offline_error_template_file  = pwaify_locate_template( array( 'offline.php', 'error.php' ) );
 			$offline_error_precache_entry = array(
 				'url'      => add_query_arg( 'wp_error_template', 'offline', home_url( '/' ) ),
 				'revision' => $revision . ';' . md5( $offline_error_template_file . file_get_contents( $offline_error_template_file ) ), // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
 			);
-			$server_error_template_file   = pwa_locate_template( array( '500.php', 'error.php' ) );
+			$server_error_template_file   = pwaify_locate_template( array( '500.php', 'error.php' ) );
 			$server_error_precache_entry  = array(
 				'url'      => add_query_arg( 'wp_error_template', '500', home_url( '/' ) ),
 				'revision' => $revision . ';' . md5( $server_error_template_file . file_get_contents( $server_error_template_file ) ), // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
@@ -276,12 +276,12 @@ final class WP_Service_Worker_Navigation_Routing_Component implements WP_Service
 			// Only network strategy for admin (for now).
 			$caching_strategy = WP_Service_Worker_Caching_Routes::STRATEGY_NETWORK_ONLY;
 
-			$revision = PWA_VERSION;
+			$revision = PWAIFY_VERSION;
 
-			// Force revision to be extra fresh during development (e.g. when PWA_VERSION is x.y-alpha).
-			if ( false !== strpos( PWA_VERSION, '-' ) ) {
-				$revision .= filemtime( PWA_PLUGIN_DIR . '/wp-admin/error.php' );
-				$revision .= filemtime( PWA_PLUGIN_DIR . '/wp-includes/service-workers.php' );
+			// Force revision to be extra fresh during development (e.g. when PWAIFY_VERSION is x.y-alpha).
+			if ( false !== strpos( PWAIFY_VERSION, '-' ) ) {
+				$revision .= filemtime( PWAIFY_PLUGIN_DIR . '/wp-admin/error.php' );
+				$revision .= filemtime( PWAIFY_PLUGIN_DIR . '/wp-includes/service-workers.php' );
 			}
 
 			$offline_error_precache_entry = array(
@@ -364,7 +364,7 @@ final class WP_Service_Worker_Navigation_Routing_Component implements WP_Service
 					'add_filter',
 					sprintf(
 						/* translators: %s is the wp_service_worker_navigation_preload filter name */
-						esc_html__( 'PWA: Navigation preload should not be disabled (via the %s filter) when using a navigation caching strategy (and app shell is not being used). It is being forcibly re-enabled.', 'pwa' ),
+						esc_html__( 'PWA: Navigation preload should not be disabled (via the %s filter) when using a navigation caching strategy (and app shell is not being used). It is being forcibly re-enabled.', 'pwaify' ),
 						'wp_service_worker_navigation_preload'
 					),
 					'0.3'
@@ -455,7 +455,7 @@ final class WP_Service_Worker_Navigation_Routing_Component implements WP_Service
 	 * @return string Script.
 	 */
 	public function get_script() {
-		$script = file_get_contents( PWA_PLUGIN_DIR . '/wp-includes/js/service-worker-navigation-routing.js' ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+		$script = file_get_contents( PWAIFY_PLUGIN_DIR . '/wp-includes/js/service-worker-navigation-routing.js' ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
 		$script = preg_replace( '#/\*\s*global.+?\*/#s', '', $script );
 
 		return preg_replace_callback(
@@ -471,7 +471,7 @@ final class WP_Service_Worker_Navigation_Routing_Component implements WP_Service
 	 * @return string Script.
 	 */
 	public function get_offline_commenting_script() {
-		$script = file_get_contents( PWA_PLUGIN_DIR . '/wp-includes/js/service-worker-offline-commenting.js' ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+		$script = file_get_contents( PWAIFY_PLUGIN_DIR . '/wp-includes/js/service-worker-offline-commenting.js' ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
 		$script = preg_replace( '#/\*\s*global.+?\*/#', '', $script );
 
 		return str_replace(

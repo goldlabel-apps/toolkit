@@ -90,7 +90,7 @@ function wp_get_service_worker_url( $scope = WP_Service_Workers::SCOPE_FRONT ) {
 	global $wp_rewrite;
 
 	if ( WP_Service_Workers::SCOPE_FRONT !== $scope && WP_Service_Workers::SCOPE_ADMIN !== $scope ) {
-		_doing_it_wrong( __FUNCTION__, esc_html__( 'Scope must be either WP_Service_Workers::SCOPE_FRONT or WP_Service_Workers::SCOPE_ADMIN.', 'pwa' ), '?' );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Scope must be either WP_Service_Workers::SCOPE_FRONT or WP_Service_Workers::SCOPE_ADMIN.', 'pwaify' ), '?' );
 		$scope = WP_Service_Workers::SCOPE_FRONT;
 	}
 

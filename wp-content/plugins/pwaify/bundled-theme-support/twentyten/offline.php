@@ -14,7 +14,7 @@ get_header(); ?>
 	<div id="content" role="main">
 
 		<div id="post-0" class="post error404 not-found">
-			<h1 class="entry-title"><?php esc_html_e( 'Offline', 'pwa' ); ?></h1>
+			<h1 class="entry-title"><?php esc_html_e( 'Offline', 'pwaify' ); ?></h1>
 			<div class="entry-content">
 				<?php
 				if ( function_exists( 'wp_service_worker_error_message_placeholder' ) ) {

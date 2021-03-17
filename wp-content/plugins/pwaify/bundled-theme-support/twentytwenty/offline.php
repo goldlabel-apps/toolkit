@@ -35,7 +35,7 @@ get_header();
 
 	<div class="section-inner thin error404-content">
 
-		<h1 class="entry-title"><?php esc_html_e( 'Offline', 'pwa' ); ?></h1>
+		<h1 class="entry-title"><?php esc_html_e( 'Offline', 'pwaify' ); ?></h1>
 
 		<div class="intro-text">
 			<?php

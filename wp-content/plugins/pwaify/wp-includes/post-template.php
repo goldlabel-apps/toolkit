@@ -21,7 +21,7 @@
  * @param array $classes One or more classes.
  * @return array Array of classes.
  */
-function pwa_filter_body_class( $classes ) {
+function pwaify_filter_body_class( $classes ) {
 	if ( is_500() ) {
 		$classes[] = 'error';
 		$classes[] = 'error500';
@@ -31,4 +31,4 @@ function pwa_filter_body_class( $classes ) {
 	}
 	return $classes;
 }
-add_filter( 'body_class', 'pwa_filter_body_class' );
+add_filter( 'body_class', 'pwaify_filter_body_class' );

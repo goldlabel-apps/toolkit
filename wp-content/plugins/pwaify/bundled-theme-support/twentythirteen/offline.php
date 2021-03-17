@@ -31,7 +31,7 @@ get_header(); ?>
 
 		<div class="page-wrapper">
 			<div class="page-content">
-				<h1 class="offline-page-title"><?php esc_html_e( 'Offline', 'pwa' ); ?></h1>
+				<h1 class="offline-page-title"><?php esc_html_e( 'Offline', 'pwaify' ); ?></h1>
 
 				<?php
 				if ( function_exists( 'wp_service_worker_error_message_placeholder' ) ) {

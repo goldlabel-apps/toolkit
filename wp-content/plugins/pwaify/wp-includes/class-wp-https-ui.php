@@ -122,7 +122,7 @@ final class WP_HTTPS_UI {
 	public function add_settings_field() {
 		add_settings_field(
 			self::HTTPS_SETTING_ID,
-			__( 'HTTPS', 'pwa' ),
+			__( 'HTTPS', 'pwaify' ),
 			array( $this, 'render_https_settings' ),
 			self::OPTION_GROUP
 		);
@@ -140,8 +140,8 @@ final class WP_HTTPS_UI {
 		$upgrade_https_value = (bool) get_option( self::UPGRADE_HTTPS_OPTION );
 		$https_more_details  = sprintf(
 			'<a href="%s">%s</a>',
-			esc_url( __( 'https://make.wordpress.org/support/user-manual/web-publishing/https-for-wordpress/', 'pwa' ) ),
-			esc_html__( 'More details', 'pwa' )
+			esc_url( __( 'https://make.wordpress.org/support/user-manual/web-publishing/https-for-wordpress/', 'pwaify' ) ),
+			esc_html__( 'More details', 'pwaify' )
 		);
 
 		?>
@@ -150,7 +150,7 @@ final class WP_HTTPS_UI {
 			echo wp_kses_post(
 				sprintf(
 					/* translators: %s: a link for more details */
-					__( 'HTTPS is essential to securing your WordPress site, we strongly suggest upgrading to it. %s', 'pwa' ),
+					__( 'HTTPS is essential to securing your WordPress site, we strongly suggest upgrading to it. %s', 'pwaify' ),
 					$https_more_details
 				)
 			);
@@ -170,7 +170,7 @@ final class WP_HTTPS_UI {
 		<p>
 			<label>
 				<input name="<?php echo esc_attr( self::UPGRADE_HTTPS_OPTION ); ?>" type="checkbox" <?php checked( $upgrade_https_value ); ?> value="<?php echo esc_attr( self::OPTION_CHECKED_VALUE ); ?>">
-				<?php esc_html_e( 'Force secure connections', 'pwa' ); ?>
+				<?php esc_html_e( 'Force secure connections', 'pwaify' ); ?>
 			</label>
 		</p>
 		<script>
@@ -194,11 +194,11 @@ final class WP_HTTPS_UI {
 		$insecure_urls_class = 'insecure-urls';
 		$description         = sprintf(
 			/* translators: %s is a link for more details */
-			__( 'We found content on your site that wasn&#39;t loading correctly over HTTPS. While we will try to fix these links automatically, you might check to be sure your pages work as expected. %s', 'pwa' ),
+			__( 'We found content on your site that wasn&#39;t loading correctly over HTTPS. While we will try to fix these links automatically, you might check to be sure your pages work as expected. %s', 'pwaify' ),
 			sprintf(
 				'<a href="%s">%s</a>',
-				esc_url( __( 'https://developer.mozilla.org/en-US/docs/Web/Security/Mixed_content/How_to_fix_website_with_mixed_content', 'pwa' ) ),
-				esc_html__( 'More details', 'pwa' )
+				esc_url( __( 'https://developer.mozilla.org/en-US/docs/Web/Security/Mixed_content/How_to_fix_website_with_mixed_content', 'pwaify' ) ),
+				esc_html__( 'More details', 'pwaify' )
 			)
 		);
 
@@ -243,7 +243,7 @@ final class WP_HTTPS_UI {
 				</ul>
 			<?php endwhile; ?>
 			<?php if ( $total_urls_count > self::NUMBER_INITIAL_URLS ) : ?>
-				<button id="<?php echo esc_attr( $show_more_button_id ); ?>" class="button button-secondary"><?php esc_html_e( 'Show more', 'pwa' ); ?></button>
+				<button id="<?php echo esc_attr( $show_more_button_id ); ?>" class="button button-secondary"><?php esc_html_e( 'Show more', 'pwaify' ); ?></button>
 			<?php endif; ?>
 		</div>
 		<script>

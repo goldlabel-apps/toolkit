@@ -28,7 +28,7 @@
  * @param bool         $require_once   Whether to require_once or require. Default true. Has no effect if $load is false.
  * @return string The template filename if one is located.
  */
-function pwa_locate_template( $template_names, $load = false, $require_once = true ) {
+function pwaify_locate_template( $template_names, $load = false, $require_once = true ) {
 	$located = '';
 	foreach ( (array) $template_names as $template_name ) {
 		if ( ! $template_name ) {
@@ -41,12 +41,12 @@ function pwa_locate_template( $template_names, $load = false, $require_once = tr
 		} elseif ( file_exists( TEMPLATEPATH . '/' . $template_name ) ) {
 			$located = TEMPLATEPATH . '/' . $template_name;
 			break;
-		} elseif ( preg_match( '/^twenty\w+$/', $theme_slug ) && file_exists( PWA_PLUGIN_DIR . '/bundled-theme-support/' . $theme_slug . '/offline.php' ) ) {
-			$located = PWA_PLUGIN_DIR . '/bundled-theme-support/' . $theme_slug . '/offline.php';
+		} elseif ( preg_match( '/^twenty\w+$/', $theme_slug ) && file_exists( PWAIFY_PLUGIN_DIR . '/bundled-theme-support/' . $theme_slug . '/offline.php' ) ) {
+			$located = PWAIFY_PLUGIN_DIR . '/bundled-theme-support/' . $theme_slug . '/offline.php';
 			break;
 			// Begin core patch.
-		} elseif ( file_exists( PWA_PLUGIN_DIR . '/' . WPINC . '/theme-compat/' . $template_name ) ) {
-			$located = PWA_PLUGIN_DIR . '/' . WPINC . '/theme-compat/' . $template_name;
+		} elseif ( file_exists( PWAIFY_PLUGIN_DIR . '/' . WPINC . '/theme-compat/' . $template_name ) ) {
+			$located = PWAIFY_PLUGIN_DIR . '/' . WPINC . '/theme-compat/' . $template_name;
 			break;
 			// Begin core patch.
 		} elseif ( file_exists( ABSPATH . WPINC . '/theme-compat/' . $template_name ) ) {
@@ -72,13 +72,13 @@ function pwa_locate_template( $template_names, $load = false, $require_once = tr
  * without the use of the other get_*_template() functions.
  *
  * @since 0.2.0
- * @see get_query_template() This is a clone of the core function but uses `pwa_locate_template()` instead of `locate_template()`.
+ * @see get_query_template() This is a clone of the core function but uses `pwaify_locate_template()` instead of `locate_template()`.
  *
  * @param string $type      Filename without extension.
  * @param array  $templates An optional list of template candidates.
  * @return string Full path to template file.
  */
-function pwa_get_query_template( $type, $templates = array() ) {
+function pwaify_get_query_template( $type, $templates = array() ) {
 	$type = preg_replace( '|[^a-z0-9-]+|', '', $type );
 
 	if ( empty( $templates ) ) {
@@ -88,7 +88,7 @@ function pwa_get_query_template( $type, $templates = array() ) {
 	/** This filter is documented in wp-includes/template.php */
 	$templates = apply_filters( "{$type}_template_hierarchy", $templates );
 
-	$template = pwa_locate_template( $templates );
+	$template = pwaify_locate_template( $templates );
 
 	/** This filter is documented in wp-includes/template.php */
 	return apply_filters( "{$type}_template", $template, $type, $templates );
@@ -111,7 +111,7 @@ function get_offline_template() {
 		'error.php',
 	);
 
-	return pwa_get_query_template( 'offline', $templates );
+	return pwaify_get_query_template( 'offline', $templates );
 }
 
 /**
@@ -131,7 +131,7 @@ function get_500_template() {
 		'error.php',
 	);
 
-	return pwa_get_query_template( 'offline', $templates );
+	return pwaify_get_query_template( 'offline', $templates );
 }
 
 /**
@@ -143,10 +143,10 @@ function wp_service_worker_get_error_messages() {
 	return apply_filters(
 		'wp_service_worker_error_messages',
 		array(
-			'clientOffline' => __( 'It seems you are offline. Please check your internet connection and try again.', 'pwa' ),
-			'serverOffline' => __( 'The server appears to be down, or your connection isn\'t working as expected. Please try again later.', 'pwa' ),
-			'error'         => __( 'Something prevented the page from being rendered. Please try again.', 'pwa' ),
-			'comment'       => __( 'Your comment will be submitted once you are back online!', 'pwa' ),
+			'clientOffline' => __( 'It seems you are offline. Please check your internet connection and try again.', 'pwaify' ),
+			'serverOffline' => __( 'The server appears to be down, or your connection isn\'t working as expected. Please try again later.', 'pwaify' ),
+			'error'         => __( 'Something prevented the page from being rendered. Please try again.', 'pwaify' ),
+			'comment'       => __( 'Your comment will be submitted once you are back online!', 'pwaify' ),
 		)
 	);
 }
@@ -158,7 +158,7 @@ function wp_service_worker_get_error_messages() {
  */
 function wp_service_worker_error_details_template( $output = '' ) {
 	if ( empty( $output ) ) {
-		$output = '<details id="error-details"><summary>' . esc_html__( 'More Details', 'pwa' ) . '</summary>{{{error_details_iframe}}}</details>';
+		$output = '<details id="error-details"><summary>' . esc_html__( 'More Details', 'pwaify' ) . '</summary>{{{error_details_iframe}}}</details>';
 	}
 	echo '<!--WP_SERVICE_WORKER_ERROR_TEMPLATE_BEGIN-->';
 	echo wp_kses_post( $output );

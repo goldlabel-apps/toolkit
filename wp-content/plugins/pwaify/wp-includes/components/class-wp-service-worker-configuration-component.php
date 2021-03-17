@@ -52,7 +52,7 @@ final class WP_Service_Worker_Configuration_Component implements WP_Service_Work
 	 */
 	public function get_script() {
 		$current_scope = wp_service_workers()->get_current_scope();
-		$workbox_dir   = sprintf( 'wp-includes/js/workbox-v%s/', PWA_WORKBOX_VERSION );
+		$workbox_dir   = sprintf( 'wp-includes/js/workbox-v%s/', PWAIFY_WORKBOX_VERSION );
 
 		$script = '';
 		if ( SCRIPT_DEBUG ) {
@@ -64,17 +64,17 @@ final class WP_Service_Worker_Configuration_Component implements WP_Service_Work
 			// Load with importScripts() so that source map is available.
 			$script .= sprintf(
 				"importScripts( %s );\n",
-				wp_json_encode( PWA_PLUGIN_URL . $workbox_dir . 'workbox-sw.js' )
+				wp_json_encode( PWAIFY_PLUGIN_URL . $workbox_dir . 'workbox-sw.js' )
 			);
 		} else {
 			// Inline the workbox-sw.js to avoid an additional HTTP request.
-			$wbjs    = file_get_contents( PWA_PLUGIN_DIR . '/' . $workbox_dir . 'workbox-sw.js' ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+			$wbjs    = file_get_contents( PWAIFY_PLUGIN_DIR . '/' . $workbox_dir . 'workbox-sw.js' ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
 			$script .= preg_replace( '://# sourceMappingURL=.+?\.map\s*$:s', '', $wbjs );
 		}
 
 		$options = array(
 			'debug'            => SCRIPT_DEBUG, // When true, the dev builds are loaded. Otherwise, the prod builds are used.
-			'modulePathPrefix' => PWA_PLUGIN_URL . $workbox_dir,
+			'modulePathPrefix' => PWAIFY_PLUGIN_URL . $workbox_dir,
 		);
 		$script .= sprintf( "workbox.setConfig( %s );\n", wp_json_encode( $options ) );
 
@@ -122,7 +122,7 @@ final class WP_Service_Worker_Configuration_Component implements WP_Service_Work
 		}
 
 		// Note: This includes the aliasing of `workbox` to `wp.serviceWorker`.
-		$script .= file_get_contents( PWA_PLUGIN_DIR . '/wp-includes/js/service-worker.js' ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+		$script .= file_get_contents( PWAIFY_PLUGIN_DIR . '/wp-includes/js/service-worker.js' ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
 
 		return $script;
 	}

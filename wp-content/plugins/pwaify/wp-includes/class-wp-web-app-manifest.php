@@ -8,7 +8,7 @@
 /**
  * WP_Web_App_Manifest class.
  *
- * Mainly copied from Jetpack_PWA_Manifest and Jetpack_PWA_Helpers.
+ * Mainly copied from Jetpack_PWAIFY_Manifest and Jetpack_PWAIFY_Helpers.
  */
 final class WP_Web_App_Manifest {
 
@@ -46,7 +46,7 @@ final class WP_Web_App_Manifest {
 	/**
 	 * The default manifest icon sizes.
 	 *
-	 * Copied from Jetpack_PWA_Helpers::get_default_manifest_icon_sizes().
+	 * Copied from Jetpack_PWAIFY_Helpers::get_default_manifest_icon_sizes().
 	 * Based on a conversation in https://github.com/GoogleChrome/lighthouse/issues/291
 	 *
 	 * @var int[]
@@ -56,7 +56,7 @@ final class WP_Web_App_Manifest {
 	/**
 	 * Inits the class.
 	 *
-	 * Mainly copied from Jetpack_PWA_Manifest::__construct().
+	 * Mainly copied from Jetpack_PWAIFY_Manifest::__construct().
 	 */
 	public function init() {
 		add_action( 'wp_head', array( $this, 'manifest_link_and_meta' ) );
@@ -67,7 +67,7 @@ final class WP_Web_App_Manifest {
 	/**
 	 * Outputs the <link> and <meta> tags for the app manifest.
 	 *
-	 * Mainly copied from Jetpack_PWA_Manifest::render_manifest_link().
+	 * Mainly copied from Jetpack_PWAIFY_Manifest::render_manifest_link().
 	 */
 	public function manifest_link_and_meta() {
 		$manifest = $this->get_manifest();
@@ -95,7 +95,7 @@ final class WP_Web_App_Manifest {
 	/**
 	 * Gets the theme color for the manifest.
 	 *
-	 * Mainly copied from Jetpack_PWA_Helpers::get_theme_color().
+	 * Mainly copied from Jetpack_PWAIFY_Helpers::get_theme_color().
 	 * This color displays on loading the app.
 	 *
 	 * @return string $theme_color The theme color for the manifest.json file, as a hex value.
@@ -125,7 +125,7 @@ final class WP_Web_App_Manifest {
 	/**
 	 * Gets the manifest data for the REST API response.
 	 *
-	 * Mainly copied from Jetpack_PWA_Helpers::render_manifest_json().
+	 * Mainly copied from Jetpack_PWAIFY_Helpers::render_manifest_json().
 	 */
 	public function get_manifest() {
 		$manifest = array(
@@ -190,7 +190,7 @@ final class WP_Web_App_Manifest {
 	 */
 	public function add_short_name_site_status_test( $tests ) {
 		$tests['direct']['web_app_manifest_short_name'] = array(
-			'label' => __( 'Short Name in Web App Manifest', 'pwa' ),
+			'label' => __( 'Short Name in Web App Manifest', 'pwaify' ),
 			'test'  => array( $this, 'test_short_name_present_in_manifest' ),
 		);
 		return $tests;
@@ -209,24 +209,24 @@ final class WP_Web_App_Manifest {
 
 		$description = sprintf(
 			/* translators: %1$s is `short_name`, %2$d is the max length as a number */
-			__( 'The %1$s is a short version of your website&#8217;s name. It is displayed when there is not enough space for the full name, for example with the site icon on a phone&#8217;s homescreen. It should be a maximum of %2$d characters long.', 'pwa' ),
+			__( 'The %1$s is a short version of your website&#8217;s name. It is displayed when there is not enough space for the full name, for example with the site icon on a phone&#8217;s homescreen. It should be a maximum of %2$d characters long.', 'pwaify' ),
 			'<code>short_name</code>',
 			self::SHORT_NAME_MAX_LENGTH
 		);
 
 		$actions = sprintf(
 			/* translators: %1$s is `web_app_manifest`, %2$s is `functions.php` */
-			__( 'You currently may use %1$s filter to set the short name, for example in your theme&#8217;s %2$s.', 'pwa' ),
+			__( 'You currently may use %1$s filter to set the short name, for example in your theme&#8217;s %2$s.', 'pwaify' ),
 			'<code>web_app_manifest</code>',
 			'<code>functions.php</code>'
 		);
 
 		if ( empty( $manifest['short_name'] ) ) {
 			$result = array(
-				'label'       => __( 'Web App Manifest lacks a short name entry', 'pwa' ),
+				'label'       => __( 'Web App Manifest lacks a short name entry', 'pwaify' ),
 				'status'      => 'recommended',
 				'badge'       => array(
-					'label' => __( 'Progressive Web App', 'pwa' ),
+					'label' => __( 'Progressive Web App', 'pwaify' ),
 					'color' => 'orange',
 				),
 				'description' => wp_kses_post( sprintf( '<p>%s</p>', $description ) ),
@@ -237,12 +237,12 @@ final class WP_Web_App_Manifest {
 				'label'       =>
 					sprintf(
 						/* translators: %1$s is the short name */
-						__( 'Web App Manifest has a short name (%s) that is too long', 'pwa' ),
+						__( 'Web App Manifest has a short name (%s) that is too long', 'pwaify' ),
 						esc_html( $manifest['short_name'] )
 					),
 				'status'      => 'recommended',
 				'badge'       => array(
-					'label' => __( 'Progressive Web App', 'pwa' ),
+					'label' => __( 'Progressive Web App', 'pwaify' ),
 					'color' => 'orange',
 				),
 				'description' => wp_kses_post( sprintf( '<p>%s</p>', $description ) ),
@@ -253,12 +253,12 @@ final class WP_Web_App_Manifest {
 				'label'       =>
 					sprintf(
 						/* translators: %1$s is the short name */
-						__( 'Web App Manifest has a short name (%s)', 'pwa' ),
+						__( 'Web App Manifest has a short name (%s)', 'pwaify' ),
 						esc_html( $manifest['short_name'] )
 					),
 				'status'      => 'good',
 				'badge'       => array(
-					'label' => __( 'Progressive Web App', 'pwa' ),
+					'label' => __( 'Progressive Web App', 'pwaify' ),
 					'color' => 'green',
 				),
 				'description' => wp_kses_post( sprintf( '<p>%s</p>', $description ) ),
@@ -318,7 +318,7 @@ final class WP_Web_App_Manifest {
 	/**
 	 * Gets the manifest icons.
 	 *
-	 * Mainly copied from Jetpack_PWA_Manifest::build_icon_object() and Jetpack_PWA_Helpers::site_icon_url().
+	 * Mainly copied from Jetpack_PWAIFY_Manifest::build_icon_object() and Jetpack_PWAIFY_Helpers::site_icon_url().
 	 *
 	 * @return array $icon_object An array of icons, which may be empty.
 	 */

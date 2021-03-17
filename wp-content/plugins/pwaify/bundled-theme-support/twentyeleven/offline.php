@@ -19,7 +19,7 @@ get_header(); ?>
 
 		<article id="post-0">
 			<header class="entry-header">
-				<h1 class="entry-title"><?php esc_html_e( 'Offline', 'pwa' ); ?></h1>
+				<h1 class="entry-title"><?php esc_html_e( 'Offline', 'pwaify' ); ?></h1>
 			</header>
 
 			<div class="entry-content">

@@ -134,7 +134,7 @@ final class WP_HTTPS_Detection {
 				if ( ! $this->has_proper_manifest( $body ) ) {
 					$support_errors->add(
 						'invalid_https_validation_source',
-						__( 'There was an issue in the request for HTTPS verification.', 'pwa' )
+						__( 'There was an issue in the request for HTTPS verification.', 'pwaify' )
 					);
 				}
 			}

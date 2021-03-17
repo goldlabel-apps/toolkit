@@ -16,7 +16,7 @@
  * @param string $template Template.
  * @return string Template to include.
  */
-function _pwa_filter_template_include( $template ) {
+function _pwaify_filter_template_include( $template ) {
 	$located_template = null;
 	if ( is_offline() ) {
 		$located_template = get_offline_template();
@@ -28,4 +28,4 @@ function _pwa_filter_template_include( $template ) {
 	}
 	return $template;
 }
-add_filter( 'template_include', '_pwa_filter_template_include' );
+add_filter( 'template_include', '_pwaify_filter_template_include' );

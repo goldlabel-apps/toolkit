@@ -25,7 +25,7 @@ get_header(); ?>
 		<div id="content" class="site-content" role="main">
 
 			<header class="page-header">
-				<h1 class="page-title"><?php esc_html_e( 'Offline', 'pwa' ); ?></h1>
+				<h1 class="page-title"><?php esc_html_e( 'Offline', 'pwaify' ); ?></h1>
 			</header>
 
 			<div class="page-content">

@@ -7,7 +7,7 @@
  * @package PWA
  */
 
-namespace PWA_WP;
+namespace PWAIFY_WP;
 
 /**
  * Register offline browsing setting.
@@ -30,7 +30,7 @@ add_action( 'init', __NAMESPACE__ . '\register_offline_browsing_setting' );
 function add_offline_browsing_setting_field() {
 	add_settings_field(
 		'offline_browsing',
-		__( 'Offline browsing', 'pwa' ),
+		__( 'Offline browsing', 'pwaify' ),
 		__NAMESPACE__ . '\render_offline_browsing_setting_field',
 		'reading'
 	);
@@ -43,15 +43,15 @@ add_action( 'admin_init', __NAMESPACE__ . '\add_offline_browsing_setting_field' 
 function render_offline_browsing_setting_field() {
 	?>
 	<fieldset>
-		<legend class="screen-reader-text"><span><?php esc_html_e( 'Offline browsing', 'pwa' ); ?> </span></legend>
+		<legend class="screen-reader-text"><span><?php esc_html_e( 'Offline browsing', 'pwaify' ); ?> </span></legend>
 		<label for="offline_browsing">
 			<input name="offline_browsing" type="checkbox" id="offline_browsing" value="1" <?php checked( '1', get_option( 'offline_browsing' ) ); ?> />
-			<?php esc_html_e( 'Cache visited pages in the browser so visitors can re-access them when offline.', 'pwa' ); ?>
+			<?php esc_html_e( 'Cache visited pages in the browser so visitors can re-access them when offline.', 'pwaify' ); ?>
 		</label>
 		<p class="description">
 			<?php
 			echo wp_kses(
-				__( 'This makes your site dependable regardless of the network. Such reliability is important for the site to be a <a href="https://web.dev/what-are-pwas/" rel="noreferrer noopener" target="_blank">Progressive Web App</a>.', 'pwa' ),
+				__( 'This makes your site dependable regardless of the network. Such reliability is important for the site to be a <a href="https://web.dev/what-are-pwas/" rel="noreferrer noopener" target="_blank">Progressive Web App</a>.', 'pwaify' ),
 				array( 'a' => array_fill_keys( array( 'href', 'rel', 'target' ), true ) )
 			);
 			?>
@@ -75,7 +75,7 @@ function print_admin_pointer() {
 		return;
 	}
 
-	$pointer = 'pwa_offline_browsing';
+	$pointer = 'pwaify_offline_browsing';
 
 	// Skip showing admin pointer if dismissed.
 	$dismissed_pointers = explode( ',', (string) get_user_meta( get_current_user_id(), 'dismissed_wp_pointers', true ) );
@@ -86,8 +86,8 @@ function print_admin_pointer() {
 	wp_print_scripts( array( 'wp-pointer' ) );
 	wp_print_styles( array( 'wp-pointer' ) );
 
-	$content  = '<h3>' . esc_html__( 'PWA', 'pwa' ) . '</h3>';
-	$content .= '<p>' . esc_html__( 'Offline browsing is now available in Reading settings.', 'pwa' ) . '</p>';
+	$content  = '<h3>' . esc_html__( 'PWA', 'pwaify' ) . '</h3>';
+	$content .= '<p>' . esc_html__( 'Offline browsing is now available in Reading settings.', 'pwaify' ) . '</p>';
 
 	$args = array(
 		'content'  => $content,

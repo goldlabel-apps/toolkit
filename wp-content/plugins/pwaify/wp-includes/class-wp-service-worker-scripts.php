@@ -131,7 +131,7 @@ final class WP_Service_Worker_Scripts extends WP_Scripts {
 		if ( empty( $args['src'] ) ) {
 			_doing_it_wrong(
 				__METHOD__,
-				esc_html__( 'The src argument must be provided.', 'pwa' ),
+				esc_html__( 'The src argument must be provided.', 'pwaify' ),
 				'0.2'
 			);
 			return;
@@ -180,7 +180,7 @@ final class WP_Service_Worker_Scripts extends WP_Scripts {
 
 		if ( $invalid ) {
 			/* translators: %s is script handle */
-			$error = sprintf( __( 'Service worker src is invalid for handle "%s".', 'pwa' ), $handle );
+			$error = sprintf( __( 'Service worker src is invalid for handle "%s".', 'pwaify' ), $handle );
 			@_doing_it_wrong( 'WP_Service_Worker_Scripts::register', esc_html( $error ), '0.1' ); // phpcs:ignore Generic.PHP.NoSilencedErrors.Discouraged, WordPress.PHP.NoSilencedErrors.Discouraged -- We want the error in the PHP log, but not in the JS output.
 			printf( "console.warn( %s );\n", wp_json_encode( $error ) ); // phpcs:ignore WordPress.XSS.EscapeOutput, WordPress.Security.EscapeOutput
 		}
@@ -225,7 +225,7 @@ final class WP_Service_Worker_Scripts extends WP_Scripts {
 
 		if ( ! in_array( $url_host, $allowed_hosts, true ) ) {
 			/* translators: %s is file URL */
-			return new WP_Error( 'external_file_url', sprintf( __( 'URL is located on an external domain: %s.', 'pwa' ), $url_host ) );
+			return new WP_Error( 'external_file_url', sprintf( __( 'URL is located on an external domain: %s.', 'pwaify' ), $url_host ) );
 		}
 
 		$base_path = null;
@@ -243,11 +243,11 @@ final class WP_Service_Worker_Scripts extends WP_Scripts {
 
 		if ( ! $file_path || false !== strpos( $file_path, '../' ) || false !== strpos( $file_path, '..\\' ) ) {
 			/* translators: %s is file URL */
-			return new WP_Error( 'file_path_not_allowed', sprintf( __( 'Disallowed URL filesystem path for %s.', 'pwa' ), $url ) );
+			return new WP_Error( 'file_path_not_allowed', sprintf( __( 'Disallowed URL filesystem path for %s.', 'pwaify' ), $url ) );
 		}
 		if ( ! file_exists( $base_path . $file_path ) ) {
 			/* translators: %s is file URL */
-			return new WP_Error( 'file_path_not_found', sprintf( __( 'Unable to locate filesystem path for %s.', 'pwa' ), $url ) );
+			return new WP_Error( 'file_path_not_found', sprintf( __( 'Unable to locate filesystem path for %s.', 'pwaify' ), $url ) );
 		}
 
 		return $base_path . $file_path;

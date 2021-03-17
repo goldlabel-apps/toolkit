@@ -19,12 +19,12 @@
  * "special".
  *
  * @since 0.2
- * @see get_header() This is a clone of the core function but replaces `locate_template()` with `pwa_locate_template()`.
+ * @see get_header() This is a clone of the core function but replaces `locate_template()` with `pwaify_locate_template()`.
  * @link https://core.trac.wordpress.org/ticket/13239 The reason why this patched function is needed.
  *
  * @param string $name The name of the specialised header.
  */
-function pwa_get_header( $name = null ) {
+function pwaify_get_header( $name = null ) {
 	/**
 	 * Fires before the header template file is loaded.
 	 *
@@ -44,7 +44,7 @@ function pwa_get_header( $name = null ) {
 	$templates[] = 'header.php';
 
 	// Begin core patch.
-	pwa_locate_template( $templates, true );
+	pwaify_locate_template( $templates, true );
 	// End core patch.
 }
 
@@ -58,12 +58,12 @@ function pwa_get_header( $name = null ) {
  * "special".
  *
  * @since 0.2
- * @see get_footer() This is a clone of the core function but replaces `locate_template()` with `pwa_locate_template()`.
+ * @see get_footer() This is a clone of the core function but replaces `locate_template()` with `pwaify_locate_template()`.
  * @link https://core.trac.wordpress.org/ticket/13239 The reason why this patched function is needed.
  *
  * @param string $name The name of the specialised footer.
  */
-function pwa_get_footer( $name = null ) {
+function pwaify_get_footer( $name = null ) {
 	/**
 	 * Fires before the footer template file is loaded.
 	 *
@@ -83,7 +83,7 @@ function pwa_get_footer( $name = null ) {
 	$templates[] = 'footer.php';
 
 	// Begin core patch.
-	pwa_locate_template( $templates, true );
+	pwaify_locate_template( $templates, true );
 	// End core patch.
 }
 
@@ -132,15 +132,15 @@ function wp_unauthenticate_error_template_requests() {
  * }
  * @return array $title Filtered title.
  */
-function pwa_filter_document_title_parts( $parts ) {
+function pwaify_filter_document_title_parts( $parts ) {
 	if ( ! empty( $parts['title'] ) ) {
 		return $parts;
 	}
 	if ( is_offline() ) {
-		$parts['title'] = __( 'Offline', 'pwa' );
+		$parts['title'] = __( 'Offline', 'pwaify' );
 	} elseif ( is_500() ) {
-		$parts['title'] = __( 'Internal Server Error', 'pwa' );
+		$parts['title'] = __( 'Internal Server Error', 'pwaify' );
 	}
 	return $parts;
 }
-add_filter( 'document_title_parts', 'pwa_filter_document_title_parts' );
+add_filter( 'document_title_parts', 'pwaify_filter_document_title_parts' );

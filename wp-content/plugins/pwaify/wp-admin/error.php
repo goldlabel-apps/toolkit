@@ -14,26 +14,26 @@ header( 'X-Robots-Tag: noindex' );
 
 switch ( isset( $_REQUEST['code'] ) ? sanitize_key( $_REQUEST['code'] ) : null ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended, WordPress.Security.NonceVerification.NoNonceVerification
 	case 'offline':
-		$title_prefix = __( 'Offline', 'pwa' );
-		$content      = sprintf( '<h1>%s</h1>', esc_html__( 'Offline', 'pwa' ) );
+		$title_prefix = __( 'Offline', 'pwaify' );
+		$content      = sprintf( '<h1>%s</h1>', esc_html__( 'Offline', 'pwaify' ) );
 		$content     .= '<p><!--WP_SERVICE_WORKER_ERROR_MESSAGE--></p>';
-		$content     .= sprintf( '<p>%s</p>', esc_html__( 'In the future, this error screen could provide you with actions you can perform while offline, like edit recent drafts in Gutenberg.', 'pwa' ) );
+		$content     .= sprintf( '<p>%s</p>', esc_html__( 'In the future, this error screen could provide you with actions you can perform while offline, like edit recent drafts in Gutenberg.', 'pwaify' ) );
 		break;
 	case '500':
-		$title_prefix = __( 'Internal Server Error', 'pwa' );
-		$content      = sprintf( '<h1>%s</h1>', esc_html__( 'A server error occurred.', 'pwa' ) );
+		$title_prefix = __( 'Internal Server Error', 'pwaify' );
+		$content      = sprintf( '<h1>%s</h1>', esc_html__( 'A server error occurred.', 'pwaify' ) );
 		$content     .= '<p><!--WP_SERVICE_WORKER_ERROR_MESSAGE--></p>';
 		$content     .= sprintf(
 			'<p>%s</p>',
-			esc_html__( 'Something went wrong which prevented WordPress from serving a response. Please check your error logs.', 'pwa' )
+			esc_html__( 'Something went wrong which prevented WordPress from serving a response. Please check your error logs.', 'pwaify' )
 		);
 		ob_start();
 		wp_service_worker_error_details_template();
 		$content .= ob_get_clean();
 		break;
 	default:
-		$title_prefix = __( 'Unrecognized Error', 'pwa' );
-		$content      = sprintf( '<p>%s</p>', esc_html__( 'An unrecognized error occurred.', 'pwa' ) );
+		$title_prefix = __( 'Unrecognized Error', 'pwaify' );
+		$content      = sprintf( '<p>%s</p>', esc_html__( 'An unrecognized error occurred.', 'pwaify' ) );
 }
 
 $admin_title = get_bloginfo( 'name' );

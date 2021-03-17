@@ -32,7 +32,7 @@
  *
  * @param WP_Service_Worker_Scripts $scripts Instance to register service worker behavior with.
  */
-function pwa_register_service_worker_integrations( WP_Service_Worker_Scripts $scripts ) {
+function pwaify_register_service_worker_integrations( WP_Service_Worker_Scripts $scripts ) {
 	// Bail if not supported by theme.
 	$theme_support = get_theme_support( 'service_worker' );
 	if ( ! $theme_support ) {
@@ -45,8 +45,8 @@ function pwa_register_service_worker_integrations( WP_Service_Worker_Scripts $sc
 	$scripts->default_version = get_bloginfo( 'version' );
 
 	// Load integration base.
-	require_once PWA_PLUGIN_DIR . '/integrations/interface-wp-service-worker-integration.php';
-	require_once PWA_PLUGIN_DIR . '/integrations/class-wp-service-worker-base-integration.php';
+	require_once PWAIFY_PLUGIN_DIR . '/integrations/interface-wp-service-worker-integration.php';
+	require_once PWAIFY_PLUGIN_DIR . '/integrations/class-wp-service-worker-base-integration.php';
 
 	$integrations = array(
 		'wp-site-icon'         => 'WP_Service_Worker_Site_Icon_Integration',
@@ -72,7 +72,7 @@ function pwa_register_service_worker_integrations( WP_Service_Worker_Scripts $sc
 
 	// Load, instantiate and register each integration supported by the theme.
 	foreach ( $integrations as $slug => $integration_class ) {
-		require_once PWA_PLUGIN_DIR . '/integrations/class-' . str_replace( '_', '-', strtolower( $integration_class ) ) . '.php';
+		require_once PWAIFY_PLUGIN_DIR . '/integrations/class-' . str_replace( '_', '-', strtolower( $integration_class ) ) . '.php';
 
 		$integration = new $integration_class();
 		if ( ! $integration instanceof WP_Service_Worker_Integration ) {
@@ -80,7 +80,7 @@ function pwa_register_service_worker_integrations( WP_Service_Worker_Scripts $sc
 				__FUNCTION__,
 				sprintf(
 					/* translators: 1: integration slug, 2: interface name */
-					esc_html__( 'The integration with slug %1$s does not implement the %2$s interface.', 'pwa' ),
+					esc_html__( 'The integration with slug %1$s does not implement the %2$s interface.', 'pwaify' ),
 					esc_html( $slug ),
 					'WP_Service_Worker_Integration'
 				),
@@ -108,7 +108,7 @@ function pwa_register_service_worker_integrations( WP_Service_Worker_Scripts $sc
 					__FUNCTION__,
 					sprintf(
 						/* translators: 1: integration slug, 2: a comma-separated list of valid scopes */
-						esc_html__( 'Scope for integration %1$s must be one out of %2$s.', 'pwa' ),
+						esc_html__( 'Scope for integration %1$s must be one out of %2$s.', 'pwaify' ),
 						esc_html( $slug ),
 						esc_html( implode( ', ', $valid_scopes ) )
 					),

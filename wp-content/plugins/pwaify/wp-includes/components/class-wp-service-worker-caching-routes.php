@@ -110,7 +110,7 @@ final class WP_Service_Worker_Caching_Routes {
 		if ( empty( $strategy ) || ! is_string( $strategy ) ) {
 			_doing_it_wrong(
 				__METHOD__,
-				esc_html__( 'Strategy must be supplied.', 'pwa' ),
+				esc_html__( 'Strategy must be supplied.', 'pwaify' ),
 				'0.6'
 			);
 			return false;
@@ -120,7 +120,7 @@ final class WP_Service_Worker_Caching_Routes {
 		if ( empty( $route ) || ! is_string( $route ) ) {
 			_doing_it_wrong(
 				__METHOD__,
-				esc_html__( 'Route must be a non-empty string.', 'pwa' ),
+				esc_html__( 'Route must be a non-empty string.', 'pwaify' ),
 				'0.2'
 			);
 			return false;
@@ -167,7 +167,7 @@ final class WP_Service_Worker_Caching_Routes {
 				'missing_strategy',
 				sprintf(
 					/* translators: %s is a comma-separated list of valid strategies */
-					__( 'Strategy must be one out of %s.', 'pwa' ),
+					__( 'Strategy must be one out of %s.', 'pwaify' ),
 					implode( ', ', $valid_strategies )
 				)
 			);
@@ -180,7 +180,7 @@ final class WP_Service_Worker_Caching_Routes {
 					'invalid_strategy',
 					sprintf(
 						/* translators: %s is a comma-separated list of valid strategies */
-						__( 'Strategy must be one out of %s.', 'pwa' ),
+						__( 'Strategy must be one out of %s.', 'pwaify' ),
 						implode( ', ', $valid_strategies )
 					)
 				);
@@ -191,7 +191,7 @@ final class WP_Service_Worker_Caching_Routes {
 		if ( isset( $config['plugins'] ) ) {
 			$errors->add(
 				'obsolete_plugins_key',
-				__( 'The plugins configuration key is obsolete. Define Workbox plugin configuration at the top level.', 'pwa' )
+				__( 'The plugins configuration key is obsolete. Define Workbox plugin configuration at the top level.', 'pwaify' )
 			);
 			$config = array_merge( $config, $config['plugins'] );
 			unset( $config['plugins'] );
@@ -217,7 +217,7 @@ final class WP_Service_Worker_Caching_Routes {
 				'unexpected_keys',
 				sprintf(
 					/* translators: %s is a comma-separated list of valid strategies */
-					__( 'Unexpected caching strategy keys: %s.', 'pwa' ),
+					__( 'Unexpected caching strategy keys: %s.', 'pwaify' ),
 					implode( ', ', $unexpected_keys )
 				),
 				array(
@@ -238,7 +238,7 @@ final class WP_Service_Worker_Caching_Routes {
 				$errors->add(
 					'unexpected_plugin_config',
 					/* translators: %s is plugin name */
-					sprintf( __( 'Non-array configuration for %s. Normalized to empty array.', 'pwa' ), $plugin_name )
+					sprintf( __( 'Non-array configuration for %s. Normalized to empty array.', 'pwaify' ), $plugin_name )
 				);
 				$config[ $plugin_name ] = array();
 			}

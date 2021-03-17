@@ -81,7 +81,7 @@ final class WP_Service_Worker_Precaching_Routes_Component implements WP_Service_
 			'PRECACHE_ENTRIES' => wp_json_encode( $routes ),
 		);
 
-		$script = file_get_contents( PWA_PLUGIN_DIR . '/wp-includes/js/service-worker-precaching.js' ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+		$script = file_get_contents( PWAIFY_PLUGIN_DIR . '/wp-includes/js/service-worker-precaching.js' ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
 		$script = preg_replace( '#/\*\s*global.+?\*/#', '', $script );
 
 		return str_replace(

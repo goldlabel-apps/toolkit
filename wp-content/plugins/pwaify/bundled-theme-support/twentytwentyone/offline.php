@@ -17,7 +17,7 @@ get_header();
 ?>
 
 	<header class="page-header alignwide">
-		<h1 class="page-title"><?php esc_html_e( 'Offline', 'pwa' ); ?></h1>
+		<h1 class="page-title"><?php esc_html_e( 'Offline', 'pwaify' ); ?></h1>
 	</header><!-- .page-header -->
 
 	<div class="default-max-width">

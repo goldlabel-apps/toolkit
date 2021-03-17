@@ -179,12 +179,12 @@ final class WP_Service_Workers {
 		ob_end_clean(); // Finish guarding against themes/plugins printing anything at wp_enqueue_scripts admin_enqueue_scripts.
 
 		ob_start();
-		printf( "/* PWA v%s-%s */\n\n", esc_html( PWA_VERSION ), is_admin() ? 'admin' : 'front' );
+		printf( "/* PWA v%s-%s */\n\n", esc_html( PWAIFY_VERSION ), is_admin() ? 'admin' : 'front' );
 		echo '/* ';
 		printf(
 			esc_js(
 				/* translators: %s is the WordPress action hook */
-				__( 'Note: This file is dynamically generated. To manipulate the contents of this file, use the `%s` action in WordPress.', 'pwa' )
+				__( 'Note: This file is dynamically generated. To manipulate the contents of this file, use the `%s` action in WordPress.', 'pwaify' )
 			),
 			is_admin() ? 'wp_admin_service_worker' : 'wp_front_service_worker'
 		);
