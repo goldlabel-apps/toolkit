@@ -4,10 +4,5 @@
 	"version": "10.0.0",
 	"repository": "https://github.com/listingslab-software/toolkit.git",
 	"author": "listingslab <listingslab@gmail.com>",
-	"license": "MIT",
-	"scripts": {
-		"dev:kart": "$PWD/unix/dev kart",
-		"dev:wp-kart": "$PWD/unix/dev wp-kart",
-		"wp": "$PWD/unix/wp"
-	}
+	"license": "MIT"
 }

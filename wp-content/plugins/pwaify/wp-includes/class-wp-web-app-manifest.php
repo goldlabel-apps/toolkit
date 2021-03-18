@@ -72,18 +72,20 @@ final class WP_Web_App_Manifest {
 	public function manifest_link_and_meta() {
 		$manifest = $this->get_manifest();
 		?>
-		<link rel="manifest" href="<?php echo esc_url( static::get_url() ); ?>">
-		<meta name="theme-color" content="<?php echo esc_attr( $manifest['theme_color'] ); ?>">
+		<!-- Listingslab Hacked -->
+
+		<link rel="manifest" href="/manifest.json">
+		<meta name="theme-color" content="#18a3ae">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="mobile-web-app-capable" content="yes">
 		<meta name="apple-touch-fullscreen" content="YES">
 		<?php
-		$icons = isset( $manifest['icons'] ) ? $manifest['icons'] : array();
-		usort( $icons, array( $this, 'sort_icons_callback' ) );
-		$icon = array_shift( $icons );
+			$icons = isset( $manifest['icons'] ) ? $manifest['icons'] : array();
+			usort( $icons, array( $this, 'sort_icons_callback' ) );
+			$icon = array_shift( $icons );
 		?>
 		<?php if ( ! empty( $icon ) ) : ?>
-			<link rel="apple-touch-startup-image" href="<?php echo esc_url( $icon['src'] ); ?>">
+			<link rel="apple-touch-startup-image" href="https://listingslab.com/wp-content/uploads/2021/03/cropped-ListingslabIcon.png">
 		<?php endif; ?>
 
 		<?php $name = isset( $manifest['short_name'] ) ? $manifest['short_name'] : $manifest['name']; ?>

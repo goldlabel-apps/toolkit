@@ -10,6 +10,8 @@ ln -s ~/Desktop/Node/toolkit/wp-content/plugins/pingpong ~/Desktop/Node/wordpres
 ln -s ~/Desktop/Node/toolkit/wp-content/plugins/pwaify ~/Desktop/Node/wordpress/listingslab.com/wp-content/plugins/
 
 ln -s ~/Desktop/Node/toolkit/wp-content/plugins/toolkit-admin ~/Desktop/Node/wordpress/listingslab.com/wp-content/plugins/
+
+ln -s ~/Desktop/Node/toolkit/wp-content/themes/listingslab-astra ~/Desktop/Node/wordpress/listingslab.com/wp-content/themes/
 ```
 
 Show all the scripts in the package.json
