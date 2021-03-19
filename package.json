@@ -6,8 +6,8 @@
 	"author": "listingslab <listingslab@gmail.com>",
 	"license": "MIT",
 	"scripts": {
-		"dev:toolkit-admin": "$PWD/unix/dev wp-content/plugins/toolkit-admin/react",
-		"dev:pingpong": "$PWD/unix/dev wp-content/plugins/pingpong/react",
+		"dev:toolkit-admin": "$PWD/unix/dev wp-content/plugins/listingslab-toolkit/react",
+		"dev:pingpong": "$PWD/unix/dev wp-content/plugins/listingslab-pingpong/react",
 		"wp": "$PWD/unix/wp"
 	}
 }

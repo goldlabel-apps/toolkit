@@ -5,7 +5,7 @@ clear
 echo 'WordPressifying...'
 echo 'Compiling & compressing WordPress Plugins & Themes...'
 
-cd ./wp-content/plugins/toolkit-admin/react && yarn build
-cd ../../pingpong/react  && yarn && yarn build
+cd ./wp-content/plugins/listingslab-toolkit/react && yarn build
+# cd ../../listingslab-pingpong/react  && yarn && yarn build
 
 echo 'BASTA'
