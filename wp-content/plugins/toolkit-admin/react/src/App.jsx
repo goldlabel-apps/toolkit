@@ -14,9 +14,9 @@ import {
   CardHeader,
   Grid,
 } from '@material-ui/core/'
-import { 
-  Visitors,
- } from './components'
+// import { 
+//   Visitors,
+//  } from './components'
 
 const useStyles = makeStyles((theme) => ({
   app: {
@@ -24,7 +24,11 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(),
   },
   card:{
-    margin: theme.spacing(),
+    // margin: theme.spacing(),
+    background: 'none',
+    boxRadius: 'none',
+    boxShadow: 'none',
+    border: 'none',
   },
 }))
 
@@ -57,7 +61,7 @@ export default function App() {
                 </Card>
                 <Grid container>
                   <Grid item xs={ 12 } >
-                    <Visitors />
+                    
                   </Grid>
                 </Grid>
               </div>

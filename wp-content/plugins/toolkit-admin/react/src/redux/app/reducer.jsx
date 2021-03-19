@@ -8,8 +8,8 @@ import {
 } from "./actions"
 
 const devWpBloginfo = {
-  name: `@ToolKit`,
-  description: `Full React/WordPress`,
+  name: `Listingslab @ToolKit`,
+  description: `Full React/WordPress Integration`,
   wpurl: `https://listingslab.com/`,
   admin_email: `listingslab@gmail.com`,
   icon: `https://listingslab.com/wp-content/uploads/2021/03/cropped-cropped-ListingslabIconGreen.png`,
