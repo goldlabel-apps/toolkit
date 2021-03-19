@@ -3,9 +3,9 @@
 clear
 
 echo 'WordPressifying...'
-echo 'Compiling & compressing WordPress Plugins ...'
+echo 'Compiling & compressing WordPress Plugins & Themes...'
 
-cd ./wp-content/plugins/react/toolkit-admin && yarn build
-cd ../pingpong  && yarn && yarn build
+cd ./wp-content/plugins/toolkit-admin/react && yarn build
+cd ../../pingpong/react  && yarn && yarn build
 
 echo 'BASTA'

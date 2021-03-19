@@ -14,21 +14,22 @@ import {
   CardHeader,
   Grid,
 } from '@material-ui/core/'
-// import { 
-//   Visitors,
-//  } from './components'
+import { 
+  PingPong,
+  Kart,
+ } from './components'
 
 const useStyles = makeStyles((theme) => ({
   app: {
-    marginTop: theme.spacing(),
+    marginTop: theme.spacing(2),
     marginRight: theme.spacing(),
   },
   card:{
-    // margin: theme.spacing(),
-    background: 'none',
-    boxRadius: 'none',
-    boxShadow: 'none',
-    border: 'none',
+    margin: theme.spacing(),
+    // background: 'none',
+    // boxRadius: 'none',
+    // boxShadow: 'none',
+    // border: 'none',
   },
 }))
 
@@ -60,9 +61,13 @@ export default function App() {
                   />
                 </Card>
                 <Grid container>
-                  <Grid item xs={ 12 } >
-                    
+                  <Grid item xs={ 6 } >
+                    <PingPong />
                   </Grid>
+                  <Grid item xs={ 6 } >
+                    <Kart />
+                  </Grid>
+
                 </Grid>
               </div>
             </MuiThemeProvider> 

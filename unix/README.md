@@ -1,5 +1,9 @@
 #### Useful Unix
 
+zip up a dir
+```bash
+zip -r archivename.zip directory_name
+```
 
 Commit and push your branch with a dot commit
 ```bash

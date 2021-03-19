@@ -4,6 +4,9 @@ import SiteSelect from './SiteSelect'
 import Settings from './Settings'
 import About from './About'
 import SwitchesGroup from './SwitchesGroup'
+import PingPong from './PingPong'
+import Kart from './Kart'
+
 
 export {
 	Visitors,
@@ -12,4 +15,6 @@ export {
 	Settings,
 	About,
 	SwitchesGroup,
+	PingPong,
+	Kart,
 }
