@@ -3,10 +3,9 @@
 clear
 
 echo 'WordPressifying...'
-echo 'Compiling & compressing Kart with WP Admin ...'
+echo 'Compiling & compressing WordPress Plugins ...'
 
-cd ./wordpress/listingslab-kart/react/kart && yarn build
-
-cd ../wp-kart  && yarn && yarn build
+cd ./wp-content/plugins/react/toolkit-admin && yarn build
+cd ../pingpong  && yarn && yarn build
 
 echo 'BASTA'

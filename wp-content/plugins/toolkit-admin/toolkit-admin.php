@@ -1,14 +1,14 @@
 <?php
 
 /**
- * @link              https://listingslab.com?s=wordpress
+ * @link              https://listingslab.com?s=toolkit
  * @package           listingslab
  *
  * @wordpress-plugin
- * Version:           10.0.1
+ * Version:           10.0.2
  * Plugin Name:       @ToolKit
  * Description:       Listingslab ToolKit Plugin &nbsp;<a href="/wp-admin/admin.php?page=toolkitadmin">Settings</a>
- * Plugin URI:        https://toolkitadmin.com/wordpress-plugin
+ * Plugin URI:        https://listingslab.com?s=toolkit
  * Author:            listingslab
  * Author URI:        https://listingslab.com?s=author
  * License:           GPL-2.0+
@@ -18,7 +18,7 @@
  */
 
 if ( ! defined( 'WPINC' ) ) { die; }
-define( 'toolkitadmin_VERSION', '10.0.1' );
+define( 'toolkitadmin_VERSION', '10.0.2' );
 
 // toolkitadmin WordPress Plugin Settings Page
 

@@ -1,5 +1,11 @@
 #### Useful Unix
 
+
+Commit and push your branch with a dot commit
+```bash
+git add . && git commit -m '.' && git push
+```
+
 Symlink 
 ```bash
 
@@ -19,10 +25,6 @@ Show all the scripts in the package.json
 yarn run
 ```
 
-Commit and push your branch with a dot commit
-```bash
-git add . && git commit -m '.' && git push
-```
 
 SSH to hostgator
 
