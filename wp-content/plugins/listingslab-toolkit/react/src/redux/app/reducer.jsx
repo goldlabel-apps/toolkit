@@ -7,13 +7,20 @@ import {
   themeMode,
 } from "./actions"
 
-const devWpBloginfo = {
-  name: `Listingslab @ToolKit`,
-  description: `Full React/WordPress Integration`,
-  wpurl: `https://listingslab.com/`,
-  admin_email: `listingslab@gmail.com`,
-  icon: `https://listingslab.com/wp-content/uploads/2021/03/cropped-cropped-ListingslabIconGreen.png`,
-}
+const toolkitData = {
+    "name": "Listingslab",
+    "description": "ToolKit for WordPress",
+    "wpurl": "http:\/\/localhost:8888",
+    "url": "http:\/\/localhost:8888",
+    "admin_email": "listingslab@gmail.com",
+    "charset": "UTF-8",
+    "version": "5.7",
+    "html_type": "text\/html",
+    "language": "en-US",
+    "pingpong_active": false,
+    "pwaify_active": false,
+    "kart_active": false
+}   
 
 export const appSlice = {
   pJSON,
@@ -21,7 +28,7 @@ export const appSlice = {
   fullScreen: false,
   appMenuOpen: false,
   themeMode: `light`,
-  wpBloginfo: devWpBloginfo,
+  toolkitData,
 }
 
 const appReducer = createReducer(appSlice, {
