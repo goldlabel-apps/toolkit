@@ -2,11 +2,22 @@
 # chmod ug+x wp
 clear
 
-echo 'WordPressifying...'
-echo 'Compiling & compressing WordPress Plugins & Themes...'
-
 cd ./wp-content/plugins/
 mkdir temp
+
+clear
+echo 'WordPressifying listingslab-toolkit ...'
+cd ./listingslab-toolkit/react && yarn build && cd ../../
+mv ./listingslab-toolkit/react/ ./temp
+mkdir ./listingslab-toolkit/react && mkdir ./listingslab-toolkit/react/build
+mv ./temp/react/build ./listingslab-toolkit/react
+zip -r listingslab-toolkit.zip listingslab-toolkit
+rm -rf ./listingslab-toolkit/react
+mkdir ./listingslab-toolkit/react
+mv ./temp/react ./listingslab-toolkit
+
+clear
+echo 'WordPressifying listingslab-pingpong ...'
 cd ./listingslab-pingpong/react && yarn build && cd ../../
 mv ./listingslab-pingpong/react/ ./temp
 mkdir ./listingslab-pingpong/react && mkdir ./listingslab-pingpong/react/build
@@ -15,6 +26,8 @@ zip -r listingslab-pingpong.zip listingslab-pingpong
 rm -rf ./listingslab-pingpong/react
 mkdir ./listingslab-pingpong/react
 mv ./temp/react ./listingslab-pingpong
+
 rm -rf ./temp
 
-echo 'BASTA'
+clear
+echo 'WordPressifying completed'
