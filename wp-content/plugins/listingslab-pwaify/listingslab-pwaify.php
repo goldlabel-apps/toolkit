@@ -8,8 +8,8 @@
  * @wordpress-plugin
  * Plugin Name: @PWAify
  * Plugin URI:  https://listingslab.com?s=pwa
- * Description: Listingslab ToolKit Plugin &nbsp;<a href="/wp-admin/admin.php?page=toolkitadmin">Settings</a>
- * Version:     10.0.1
+ * Description: Manage Listingslab ToolKit Plugin
+ * Version:     10.0.2
  * Author:      Forked from PWA
  * Author URI:  https://github.com/GoogleChromeLabs/pwa-wp/graphs/contributors
  * Text Domain: pwaify
@@ -17,7 +17,7 @@
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  */
 
-define( 'PWAIFY_VERSION', '10.0.1' );
+define( 'PWAIFY_VERSION', '10.0.2' );
 define( 'PWAIFY_PLUGIN_FILE', __FILE__ );
 define( 'PWAIFY_PLUGIN_DIR', dirname( __FILE__ ) );
 define( 'PWAIFY_WORKBOX_VERSION', '5.1.4' );
@@ -72,7 +72,7 @@ function _pwaify_incorrect_plugin_slug_admin_notice() {
 	</div>
 	<?php
 }
-if ( 'pwaify' !== basename( PWAIFY_PLUGIN_DIR ) ) {
+if ( 'listingslab-pwaify' !== basename( PWAIFY_PLUGIN_DIR ) ) {
 	add_action( 'admin_notices', '_pwaify_incorrect_plugin_slug_admin_notice' );
 }
 

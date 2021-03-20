@@ -15,6 +15,9 @@ WordPress feature plugin to bring Progressive Web App (PWA) capabilities to Core
 
 == Description ==
 
+
+ln -s ~/Desktop/Node/toolkit/wp-content/plugins/listingslab-pwaify ~/Desktop/Node/wordpress/listingslab.com/wp-content/plugins/
+
 <blockquote cite="https://developers.google.com/web/progressive-web-apps/">
 Progressive Web Apps are user experiences that have the reach of the web, and are:
 

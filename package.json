@@ -11,6 +11,7 @@
 		"dev:pingpong": "$PWD/unix/dev wp-content/plugins/listingslab-pingpong/react",
 		"build:pingpong": "$PWD/unix/build wp-content/plugins/listingslab-pingpong/react",
 		"wp": "$PWD/unix/wp",
-		"git": "$PWD/unix/git"
+		"git": "$PWD/unix/git",
+		"publish": "yarn wp && yarn git"
 	}
 }

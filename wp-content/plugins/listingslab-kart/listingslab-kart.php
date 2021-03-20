@@ -2,12 +2,12 @@
 
 /**
  * @link              https://listingslab.com?s=kart
- * @package           listingslab
+ * @package           listingslab-kart
  *
  * @wordpress-plugin
- * Version:           10.0.1
+ * Version:           10.0.2
  * Plugin Name:       @Kart
- * Description:       Listingslab ToolKit Plugin &nbsp;<a href="/wp-admin/admin.php?page=toolkitadmin">Settings</a>
+ * Description:       Manage Listingslab ToolKit Plugin
  * Plugin URI:        https://listingslab.com?s=kart
  * Author:            listingslab
  * Author URI:        https://listingslab.com?s=author

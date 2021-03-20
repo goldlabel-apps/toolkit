@@ -14,7 +14,7 @@ class ToolKit{
       
       public function PluginMenu(){
 
-        $this->toolkit_screen_name = add_menu_page(
+              $this->toolkit_screen_name = add_menu_page(
                     '@ToolKit', 
                     '@ToolKit', 
                     'manage_options',
@@ -23,43 +23,59 @@ class ToolKit{
                     plugins_url('/listingslab-toolkit/public/png/admin20px.png'),
                     2
               );
-        // if ( is_plugin_active('listingslab-pingpong')){
-                $this->toolkit_screen_name = add_submenu_page(
-                    __FILE__, 
-                    '@PingPong', 
-                    '@PingPong', 
-                    'manage_options', 
-                    __FILE__.'/?plugin=pingpong', 
-                    array($this, 'RenderPage')
-                );
+
+              $this->toolkit_screen_name = add_submenu_page(
+                  __FILE__, 
+                  '@PWAify', 
+                  '@PWAify', 
+                  'manage_options', 
+                  __FILE__.'/?plugin=pwaify', 
+                  array($this, 'RenderPage')
+              );
+
+              $this->toolkit_screen_name = add_submenu_page(
+                  __FILE__, 
+                  '@PingPong', 
+                  '@PingPong', 
+                  'manage_options', 
+                  __FILE__.'/?plugin=pingpong', 
+                  array($this, 'RenderPage')
+              );
             }
-        // }
 
       
       public function RenderPage(){ ?>
 
         <div class='none'>
           <?php 
+            $toolkitData = array();
             $fields = array(
                 'name', 'description', 'wpurl', 
                 'admin_email', 'language'
             );
-            $toolkitData = array();
             foreach($fields as $field) {
                 $toolkitData[$field] = get_bloginfo($field);
             }
             $toolkitData[ 'pingpong' ] = false;
-            if ( is_plugin_active( 'listingslab-pingpong' )){
-              $toolkitData[ 'pingpong' ] = true;
-            };
             $toolkitData[ 'pwaify' ] = false;
-            if ( is_plugin_active( 'listingslab-pwaify' )){
-              $toolkitData[ 'pwaify' ] = true;
-            };
             $toolkitData[ 'kart' ] = false;
-            if ( is_plugin_active( 'listingslab-kart' )){
-              $toolkitData[ 'kart' ] = true;
-            };
+            $apl=get_option('active_plugins');
+            $plugins=get_plugins();
+            $activated_plugins=array();
+            foreach ($apl as $p){           
+                if(isset($plugins[$p])){
+                  if ( $plugins[$p]['Name'] == '@PingPong' ){
+                    $toolkitData[ 'pingpong' ] = true;
+                  }
+                  if ( $plugins[$p]['Name'] == '@PWAify' ){
+                    $toolkitData[ 'pwaify' ] = true;
+                  }
+                  if ( $plugins[$p]['Name'] == '@Kart' ){
+                    $toolkitData[ 'kart' ] = true;
+                  }
+                }           
+            }
+
             echo '<script>';
             echo 'var toolkitData = ' . json_encode( $toolkitData ) . ';';
             echo '</script>';
@@ -72,6 +88,7 @@ class ToolKit{
           ?>
 
 <pre><?php echo json_encode( $toolkitData, JSON_PRETTY_PRINT ); ?></pre>
+
 
           <ul>
             <li><a href="https://github.com/listingslab-software/toolkit/blob/master/wp-content/plugins/listingslab-pingpong.zip?raw=true" target="_blank">pingpong</a></li>

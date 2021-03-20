@@ -5,7 +5,6 @@ clear
 cd ./wp-content/plugins/
 mkdir temp
 
-clear
 echo 'WordPressifying listingslab-toolkit ...'
 cd ./listingslab-toolkit/react && yarn build && cd ../../
 mv ./listingslab-toolkit/react/ ./temp
@@ -16,7 +15,6 @@ rm -rf ./listingslab-toolkit/react
 mkdir ./listingslab-toolkit/react
 mv ./temp/react ./listingslab-toolkit
 
-clear
 echo 'WordPressifying listingslab-pingpong ...'
 cd ./listingslab-pingpong/react && yarn build && cd ../../
 mv ./listingslab-pingpong/react/ ./temp
@@ -27,7 +25,9 @@ rm -rf ./listingslab-pingpong/react
 mkdir ./listingslab-pingpong/react
 mv ./temp/react ./listingslab-pingpong
 
+echo 'WordPressifying listingslab-pwaify ...'
+zip -r listingslab-pwaify.zip listingslab-pwaify
+
 rm -rf ./temp
 
-clear
 echo 'WordPressifying completed'
