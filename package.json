@@ -10,6 +10,8 @@
 		"build:toolkit": "$PWD/unix/build wp-content/plugins/listingslab-toolkit/react",
 		"dev:pingpong": "$PWD/unix/dev wp-content/plugins/listingslab-pingpong/react",
 		"build:pingpong": "$PWD/unix/build wp-content/plugins/listingslab-pingpong/react",
+		"dev:kart": "$PWD/unix/dev wp-content/plugins/listingslab-kart/react",
+		"build:kart": "$PWD/unix/build wp-content/plugins/listingslab-kart/react",
 		"wp": "$PWD/unix/wp",
 		"git": "$PWD/unix/git",
 		"publish": "yarn wp && yarn git"

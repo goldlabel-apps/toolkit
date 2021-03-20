@@ -41,6 +41,17 @@ class ToolKit{
                   __FILE__.'/?plugin=pingpong', 
                   array($this, 'RenderPage')
               );
+
+              $this->toolkit_screen_name = add_submenu_page(
+                  __FILE__, 
+                  '@Kart', 
+                  '@Kart', 
+                  'manage_options', 
+                  __FILE__.'/?plugin=kart', 
+                  array($this, 'RenderPage')
+              );
+
+
             }
 
       
