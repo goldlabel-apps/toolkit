@@ -38,7 +38,7 @@ mv ./temp/react ./listingslab-kart
 echo 'WordPressifying listingslab-pwaify ...'
 zip -r listingslab-pwaify.zip listingslab-pwaify
 
-zip -r listingslab-all.zip listingslab-pwaify.zip listingslab-kart.zip listingslab-pingpong.zip listingslab-toolkit.zip
+# zip -r listingslab-all.zip listingslab-pwaify.zip listingslab-kart.zip listingslab-pingpong.zip listingslab-toolkit.zip
 
 rm -rf ./temp
 
