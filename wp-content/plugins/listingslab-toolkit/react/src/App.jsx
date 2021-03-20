@@ -16,8 +16,8 @@ import {
 } from '@material-ui/core/'
 import { 
   PingPong,
-  Kart,
-  PWAify,
+  // Kart,
+  // PWAify,
  } from './components'
 
 const useStyles = makeStyles((theme) => ({
@@ -65,14 +65,18 @@ export default function App() {
                   <Grid item xs={ 4 } >
                     <PingPong />
                   </Grid>
-                  <Grid item xs={ 4 } >
-                    <Kart />
-                  </Grid>
-                  <Grid item xs={ 4 } >
-                    <PWAify />
-                  </Grid>
+                  
 
                 </Grid>
               </div>
             </MuiThemeProvider> 
 }
+
+/*
+<Grid item xs={ 4 } >
+                    <Kart />
+                  </Grid>
+                  <Grid item xs={ 4 } >
+                    <PWAify />
+                  </Grid>
+*/

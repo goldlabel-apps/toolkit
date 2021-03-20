@@ -2,12 +2,12 @@
 
 /**
  * @link              https://listingslab.com?s=pingpong
- * @package           listingslab
+ * @package           listingslab-pingpong
  *
  * @wordpress-plugin
- * Version:           10.0.1
+ * Version:           10.0.2
  * Plugin Name:       @PingPong
- * Description:       Listingslab ToolKit Plugin &nbsp;<a href="/wp-admin/admin.php?page=toolkitadmin">Settings</a>
+ * Description:       Manage Listingslab ToolKit Plugin
  * Plugin URI:        https://listingslab.com?s=pingpong
  * Author:            listingslab
  * Author URI:        https://listingslab.com?s=author
@@ -16,3 +16,6 @@
  * Text Domain:       listingslab
  * Domain Path:       /languages
  */
+
+defined( 'ABSPATH' ) or die( 'Really?' );
+define( 'pingpong_VERSION', '10.0.2' );

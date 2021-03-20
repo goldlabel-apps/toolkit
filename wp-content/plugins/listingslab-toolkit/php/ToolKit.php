@@ -23,7 +23,7 @@ class ToolKit{
                     plugins_url('/listingslab-toolkit/public/png/admin20px.png'),
                     2
               );
-        if ( is_plugin_active('listingslab_pingpong')){
+        // if ( is_plugin_active('listingslab-pingpong')){
                 $this->toolkit_screen_name = add_submenu_page(
                     __FILE__, 
                     '@PingPong', 
@@ -33,7 +33,7 @@ class ToolKit{
                     array($this, 'RenderPage')
                 );
             }
-        }
+        // }
 
       
       public function RenderPage(){ ?>
@@ -49,17 +49,17 @@ class ToolKit{
             foreach($fields as $field) {
                 $toolkitData[$field] = get_bloginfo($field);
             }
-            $toolkitData[ 'pingpong_active' ] = false;
-            if ( is_plugin_active('listingslab_pingpong')){
-              $toolkitData[ 'active' ] = true;
+            $toolkitData[ 'pingpong' ] = false;
+            if ( is_plugin_active( 'listingslab-pingpong' )){
+              $toolkitData[ 'pingpong' ] = true;
             };
-            $toolkitData[ 'pwaify_active' ] = false;
-            if ( is_plugin_active('listingslab_pwaify')){
-              $toolkitData[ 'pwaify_active' ] = true;
+            $toolkitData[ 'pwaify' ] = false;
+            if ( is_plugin_active( 'listingslab-pwaify' )){
+              $toolkitData[ 'pwaify' ] = true;
             };
-            $toolkitData[ 'kart_active' ] = false;
-            if ( is_plugin_active('listingslab_kart')){
-              $toolkitData[ 'pwaify_active' ] = true;
+            $toolkitData[ 'kart' ] = false;
+            if ( is_plugin_active( 'listingslab-kart' )){
+              $toolkitData[ 'kart' ] = true;
             };
             echo '<script>';
             echo 'var toolkitData = ' . json_encode( $toolkitData ) . ';';
@@ -71,7 +71,8 @@ class ToolKit{
           'react/build/static', $html);
             echo $html;
           ?>
-<!-- <pre><?php echo json_encode( $toolkitData, JSON_PRETTY_PRINT ); ?></pre> -->
+
+<pre><?php echo json_encode( $toolkitData, JSON_PRETTY_PRINT ); ?></pre>
 
           <ul>
             <li><a href="https://github.com/listingslab-software/toolkit/blob/master/wp-content/plugins/listingslab-pingpong.zip?raw=true" target="_blank">pingpong</a></li>
