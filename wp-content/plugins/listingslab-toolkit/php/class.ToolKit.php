@@ -72,6 +72,14 @@ class ToolKit{
             echo $html;
           ?>
 <!-- <pre><?php echo json_encode( $toolkitData, JSON_PRETTY_PRINT ); ?></pre> -->
+
+          <ul>
+            <li><a href="https://github.com/listingslab-software/toolkit/blob/master/wp-content/plugins/listingslab-pingpong.zip?raw=true" target="_blank">pingpong</a></li>
+            <li><a href="https://github.com/listingslab-software/toolkit/blob/master/wp-content/plugins/listingslab-pwaify.zip?raw=true" target="_blank">pwaify</a></li>
+            <li><a href="https://github.com/listingslab-software/toolkit/blob/master/wp-content/plugins/listingslab-kart.zip?raw=true" target="_blank">kart</a></li>
+
+            <li><a href="https://github.com/listingslab-software/toolkit/" target="_blank">GitHub</a></li>
+          </ul>
          </div>
 
        <?php }

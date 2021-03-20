@@ -16,4 +16,3 @@
  * Text Domain:       listingslab
  * Domain Path:       /languages
  */
-
