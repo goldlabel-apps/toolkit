@@ -8,6 +8,7 @@
 	"scripts": {
 		"dev:toolkit-admin": "$PWD/unix/dev wp-content/plugins/listingslab-toolkit/react",
 		"dev:pingpong": "$PWD/unix/dev wp-content/plugins/listingslab-pingpong/react",
-		"wp": "$PWD/unix/wp"
+		"wp": "$PWD/unix/wp",
+		"git": "$PWD/unix/git"
 	}
 }

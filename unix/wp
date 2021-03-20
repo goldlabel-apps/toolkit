@@ -7,14 +7,13 @@ echo 'Compiling & compressing WordPress Plugins & Themes...'
 
 cd ./wp-content/plugins/
 mkdir temp
-
 cd ./listingslab-pingpong/react && yarn build && cd ../../
-
 mv ./listingslab-pingpong/react/ ./temp
-mkdir ./listingslab-pingpong/react
-mv ./temp/react/build ./listingslab-pingpong/react/
+mkdir ./listingslab-pingpong/react && mkdir ./listingslab-pingpong/react/build
+mv ./temp/react/build ./listingslab-pingpong/react
 zip -r listingslab-pingpong.zip listingslab-pingpong
 rm -rf ./listingslab-pingpong/react
+mkdir ./listingslab-pingpong/react
 mv ./temp/react ./listingslab-pingpong
 rm -rf ./temp
 
