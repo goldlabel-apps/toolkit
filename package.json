@@ -14,6 +14,6 @@
 		"build:kart": "$PWD/unix/build wp-content/plugins/listingslab-kart/react",
 		"wp": "$PWD/unix/wp",
 		"git": "$PWD/unix/git",
-		"publish": "yarn wp && yarn git"
+		"pub": "yarn wp && yarn git"
 	}
 }
