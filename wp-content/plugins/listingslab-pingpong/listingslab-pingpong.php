@@ -19,3 +19,8 @@
 
 defined( 'ABSPATH' ) or die( 'Really?' );
 define( 'pingpong_VERSION', '10.0.2' );
+
+// Load Listingslab PingPong Plugin.
+require_once 'php/PingPong.php';
+$PingPong = PingPong::GetInstance();
+$PingPong->InitPlugin();

@@ -41,9 +41,8 @@ class ToolKit{
         <div class='none'>
           <?php 
             $fields = array(
-                'name', 'description', 'wpurl', 'url', 
-                'admin_email', 'charset','version', 
-                'html_type', 'language'
+                'name', 'description', 'wpurl', 
+                'admin_email', 'language'
             );
             $toolkitData = array();
             foreach($fields as $field) {

@@ -20,7 +20,7 @@
 defined( 'ABSPATH' ) or die( 'Really?' );
 define( 'toolkit_VERSION', '10.0.2' );
 
-// Load Listinslab ToolKit Admin Plugin.
+// Load Listingslab ToolKit Admin Plugin.
 require_once 'php/ToolKit.php';
 $ToolKit = ToolKit::GetInstance();
 $ToolKit->InitPlugin();
