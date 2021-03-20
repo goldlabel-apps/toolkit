@@ -40,7 +40,7 @@ export default function App() {
     const appSlice = useSelector(state => state.app)
     const {
       themeMode,
-      wpBloginfo,
+      toolkitData,
     } = appSlice
     let theme = themeDark
 
@@ -48,7 +48,7 @@ export default function App() {
       name,
       description,
       icon,
-    } = wpBloginfo
+    } = toolkitData
 
     if ( themeMode === `light` ) theme = themeLight
 

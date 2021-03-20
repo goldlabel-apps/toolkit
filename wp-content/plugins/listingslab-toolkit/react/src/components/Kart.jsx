@@ -24,11 +24,11 @@ export default function PingPong( props ) {
 	const classes = useStyles()
 	const appSlice = useSelector(state => state.app)
     const {
-      wpBloginfo,
+      toolkitData,
     } = appSlice
     const {
       icon,
-    } = wpBloginfo
+    } = toolkitData
 
 	return	<Card className={ clsx( classes.card ) }>
 				<CardHeader 

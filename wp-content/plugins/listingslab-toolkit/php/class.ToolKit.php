@@ -20,7 +20,7 @@ class ToolKit{
                     'manage_options',
                     __FILE__, 
                     array($this, 'RenderPage'), 
-                    plugins_url('/toolkit-admin/public/png/admin20px.png'),
+                    plugins_url('/listingslab-toolkit/public/png/admin20px.png'),
                     2
               );
         if ( is_plugin_active('listingslab_pingpong')){
@@ -71,8 +71,7 @@ class ToolKit{
           'react/build/static', $html);
             echo $html;
           ?>
-<pre><?php echo json_encode( $toolkitData, JSON_PRETTY_PRINT ); ?>
-          </pre>
+<!-- <pre><?php echo json_encode( $toolkitData, JSON_PRETTY_PRINT ); ?></pre> -->
          </div>
 
        <?php }
