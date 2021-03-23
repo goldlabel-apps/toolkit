@@ -8,8 +8,8 @@ import {
 } from "./actions"
 
 const toolkitData = {
-    "name": "Listingslab",
-    "description": "ToolKit for WordPress",
+    "name": "@ToolKit",
+    "description": "by Listingslab",
     "wpurl": "http://localhost:8888",
     "url": "http://localhost:8888",
     "admin_email": "listingslab@gmail.com",

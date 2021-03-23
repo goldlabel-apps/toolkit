@@ -13,13 +13,11 @@ import {
   Card,
   CardHeader,
   Typography,
-  // Grid,
+  Grid,
 } from '@material-ui/core/'
-// import { 
-//   PingPong,
-//   // Kart,
-//   // PWAify,
-//  } from './components'
+import { 
+  APIKey,
+} from './components'
 
 const useStyles = makeStyles((theme) => ({
   app: {
@@ -67,6 +65,12 @@ export default function App() {
                                 </Typography> }
                   />
                 </Card>
+
+                 <Grid container>
+                  <Grid item xs={ 6 } >
+                    <APIKey />
+                  </Grid>
+                </Grid>
                
               </div>
             </MuiThemeProvider> 
@@ -74,13 +78,7 @@ export default function App() {
 
 /*
 
- <Grid container>
-                  <Grid item xs={ 4 } >
-                    <PingPong />
-                  </Grid>
-                  
 
-                </Grid>
 
 
 <Grid item xs={ 4 } >

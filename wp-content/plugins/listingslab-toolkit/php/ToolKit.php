@@ -24,32 +24,32 @@ class ToolKit{
                     2
               );
 
-              $this->toolkit_screen_name = add_submenu_page(
-                  __FILE__, 
-                  '@PWAify', 
-                  '@PWAify', 
-                  'manage_options', 
-                  __FILE__.'/?plugin=pwaify', 
-                  array($this, 'RenderPage')
-              );
+              // $this->toolkit_screen_name = add_submenu_page(
+              //     __FILE__, 
+              //     '@PWAify', 
+              //     '@PWAify', 
+              //     'manage_options', 
+              //     __FILE__.'/?plugin=pwaify', 
+              //     array($this, 'RenderPage')
+              // );
 
-              $this->toolkit_screen_name = add_submenu_page(
-                  __FILE__, 
-                  '@PingPong', 
-                  '@PingPong', 
-                  'manage_options', 
-                  __FILE__.'/?plugin=pingpong', 
-                  array($this, 'RenderPage')
-              );
+              // $this->toolkit_screen_name = add_submenu_page(
+              //     __FILE__, 
+              //     '@PingPong', 
+              //     '@PingPong', 
+              //     'manage_options', 
+              //     __FILE__.'/?plugin=pingpong', 
+              //     array($this, 'RenderPage')
+              // );
 
-              $this->toolkit_screen_name = add_submenu_page(
-                  __FILE__, 
-                  '@Kart', 
-                  '@Kart', 
-                  'manage_options', 
-                  __FILE__.'/?plugin=kart', 
-                  array($this, 'RenderPage')
-              );
+              // $this->toolkit_screen_name = add_submenu_page(
+              //     __FILE__, 
+              //     '@Kart', 
+              //     '@Kart', 
+              //     'manage_options', 
+              //     __FILE__.'/?plugin=kart', 
+              //     array($this, 'RenderPage')
+              // );
 
 
             }

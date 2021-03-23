@@ -7,6 +7,7 @@ import SwitchesGroup from './SwitchesGroup'
 import PingPong from './PingPong'
 import Kart from './Kart'
 import PWAify from './PWAify'
+import APIKey from './APIKey'
 
 export {
 	Visitors,
@@ -18,4 +19,5 @@ export {
 	PingPong,
 	Kart,
 	PWAify,
+	APIKey,
 }
