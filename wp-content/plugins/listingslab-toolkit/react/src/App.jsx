@@ -12,13 +12,14 @@ import {
   Avatar,
   Card,
   CardHeader,
-  Grid,
+  Typography,
+  // Grid,
 } from '@material-ui/core/'
-import { 
-  PingPong,
-  // Kart,
-  // PWAify,
- } from './components'
+// import { 
+//   PingPong,
+//   // Kart,
+//   // PWAify,
+//  } from './components'
 
 const useStyles = makeStyles((theme) => ({
   app: {
@@ -47,7 +48,7 @@ export default function App() {
     const {
       name,
       description,
-      icon,
+      avatar,
     } = toolkitData
 
     if ( themeMode === `light` ) theme = themeLight
@@ -56,23 +57,32 @@ export default function App() {
               <div className={ clsx( classes.app ) }>
                 <Card className={ clsx( classes.card ) }>
                   <CardHeader 
-                    avatar={ <Avatar src={ icon } /> }
-                    title={ name }
-                    subheader={ description }
+                    disableTypography
+                    avatar={ <Avatar src={ avatar } /> }
+                    title={ <Typography variant={ `h6` }>
+                              { name }
+                            </Typography> }
+                    subheader={ <Typography  variant={ `body1` }>
+                                  { description }
+                                </Typography> }
                   />
                 </Card>
-                <Grid container>
+               
+              </div>
+            </MuiThemeProvider> 
+}
+
+/*
+
+ <Grid container>
                   <Grid item xs={ 4 } >
                     <PingPong />
                   </Grid>
                   
 
                 </Grid>
-              </div>
-            </MuiThemeProvider> 
-}
 
-/*
+
 <Grid item xs={ 4 } >
                     <Kart />
                   </Grid>

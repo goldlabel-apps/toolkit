@@ -98,7 +98,7 @@ class ToolKit{
             echo $html;
           ?>
 
-<pre><?php echo json_encode( $toolkitData, JSON_PRETTY_PRINT ); ?></pre>
+<!-- <pre><?php echo json_encode( $toolkitData, JSON_PRETTY_PRINT ); ?></pre>
 
 
           <ul>
@@ -107,7 +107,7 @@ class ToolKit{
             <li><a href="https://github.com/listingslab-software/toolkit/blob/master/wp-content/plugins/listingslab-kart.zip?raw=true" target="_blank">kart</a></li>
 
             <li><a href="https://github.com/listingslab-software/toolkit/" target="_blank">GitHub</a></li>
-          </ul>
+          </ul> -->
          </div>
 
        <?php }

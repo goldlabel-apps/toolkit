@@ -19,7 +19,8 @@ const toolkitData = {
     "language": "en-US",
     "pingpong_active": false,
     "pwaify_active": false,
-    "kart_active": false
+    "kart_active": false,
+    "avatar": "http://localhost:8888/wp-content/plugins/listingslab-toolkit/public/png/avatar.png"
 }   
 
 export const appSlice = {
