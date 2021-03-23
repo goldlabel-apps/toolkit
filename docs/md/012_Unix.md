@@ -9,15 +9,13 @@ git add . && git commit -m '.' && git push
 Symlink 
 ```bash
 
-ln -s ~/Desktop/Node/toolkit/wp-content/plugins/toolkit-admin ~/Desktop/Node/wordpress/listingslab.com/wp-content/plugins/
+ln -s ~/Desktop/Node/toolkit/wp-content/plugins/listingslab-toolkit ~/Desktop/Node/wordpress/20210321/wp-content/plugins/
 
-ln -s ~/Desktop/Node/toolkit/wp-content/plugins/kart ~/Desktop/Node/wordpress/listingslab.com/wp-content/plugins/
+ln -s ~/Desktop/Node/toolkit/wp-content/plugins/listingslab-kart ~/Desktop/Node/wordpress/20210321/wp-content/plugins/
 
-ln -s ~/Desktop/Node/toolkit/wp-content/plugins/pingpong ~/Desktop/Node/wordpress/listingslab.com/wp-content/plugins/
+ln -s ~/Desktop/Node/toolkit/wp-content/plugins/listingslab-pingpong ~/Desktop/Node/wordpress/20210321/wp-content/plugins/
 
-ln -s ~/Desktop/Node/toolkit/wp-content/plugins/pwaify ~/Desktop/Node/wordpress/listingslab.com/wp-content/plugins/
-
-ln -s ~/Desktop/Node/toolkit/wp-content/themes/listingslab-astra ~/Desktop/Node/wordpress/listingslab.com/wp-content/themes/
+ln -s ~/Desktop/Node/toolkit/wp-content/plugins/listingslab-pwaify ~/Desktop/Node/wordpress/20210321/wp-content/plugins/
 ```
 
 Show all the scripts in the package.json

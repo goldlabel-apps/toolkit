@@ -5,7 +5,7 @@
  * @package           listingslab-toolkit
  *
  * @wordpress-plugin
- * Version:           10.0.2
+ * Version:           10.0.3
  * Plugin Name:       @ToolKit
  * Description:       Manage Listingslab ToolKit Plugin
  * Plugin URI:        https://listingslab.com?s=toolkit

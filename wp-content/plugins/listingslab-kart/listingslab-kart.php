@@ -5,7 +5,7 @@
  * @package           listingslab-kart
  *
  * @wordpress-plugin
- * Version:           10.0.2
+ * Version:           10.0.3
  * Plugin Name:       @Kart
  * Description:       Manage Listingslab ToolKit Plugin
  * Plugin URI:        https://listingslab.com?s=kart
