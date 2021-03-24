@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="320px" height="160px" viewBox="0 0 320 160" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 60.1 (88133) - https://sketch.com -->
+    <title>KartLogo_320</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#18A3AE" offset="0%"></stop>
+            <stop stop-color="#126A71" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="KartLogo_320">
+            <rect id="required-bg" fill-opacity="0.01" fill="#FFFFFF" x="0" y="0" width="320" height="160"></rect>
+            <g id="listingslab" transform="translate(120.000000, 7.000000)" fill-rule="nonzero">
+                <path d="M22.8346025,0 L57.1653976,0 C65.1054864,0 67.9847544,0.8267281 70.887532,2.37915064 C73.79031,3.93157319 76.0684268,6.20969016 77.6208492,9.11246796 C79.173272,12.0152457 80,14.8945138 80,22.8346025 L80,57.1653976 C80,65.1054864 79.173272,67.9847544 77.6208492,70.887532 C76.0684268,73.79031 73.79031,76.0684268 70.887532,77.6208492 C67.9847544,79.173272 65.1054864,80 57.1653976,80 L22.8346025,80 C14.8945138,80 12.0152457,79.173272 9.11246796,77.6208492 C6.20969016,76.0684268 3.93157319,73.79031 2.37915064,70.887532 C0.8267281,67.9847544 0,65.1054864 0,57.1653976 L0,22.8346025 C0,14.8945138 0.8267281,12.0152457 2.37915064,9.11246796 C3.93157319,6.20969016 6.20969016,3.93157319 9.11246796,2.37915064 C12.0152457,0.8267281 14.8945138,0 22.8346025,0 Z" id="blue" fill="url(#linearGradient-1)"></path>
+                <g id="Blokey" transform="translate(16.000000, 13.000000)" fill="#FFFFFF">
+                    <ellipse id="Oval" cx="23.2307692" cy="5.91852169" rx="5.84615385" ry="5.91852169"></ellipse>
+                    <path d="M34.549652,17.9859202 C33.4164001,16.8378827 31.4695317,14.7184289 27.6920255,14.7184289 C27.0818131,14.7184289 23.5658266,14.7184289 20.3113597,14.7184289 C12.3204814,14.6889921 5.81154784,8.09513593 5.81154784,0 L0,0 C0,9.30204709 6.13118299,17.191125 14.5288697,19.7521316 L14.5288697,58.8737158 L20.3404175,58.8737158 L20.3404175,41.211601 L26.1519654,41.211601 L26.1519654,58.8737158 L31.9635132,58.8737158 L31.9635132,23.6966706 L43.4413202,35.3242295 L47.5384615,31.1736325 L34.549652,17.9859202 Z" id="Path"></path>
+                </g>
+            </g>
+            <text id="kart" font-family="MarioKartF2, Mario Kart F2" font-size="50" font-weight="normal" fill="#000000">
+                <tspan x="35.8847656" y="149">kart</tspan>
+            </text>
+            <text id="listingslab" font-family="MarioKartF2, Mario Kart F2" font-size="24" font-weight="normal" fill="#126A71">
+                <tspan x="21.859375" y="111">listingslab</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

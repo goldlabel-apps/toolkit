@@ -180,7 +180,7 @@ class Icon extends Component {
             case `food`:
                 return (<IconFood color={iconColor} />) 
 
-            case `p2t`:
+            case `pingpong`:
                 return (<IconPushtotalk color={iconColor} />) 
 
             case `push2Talk`:
