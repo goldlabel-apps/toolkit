@@ -17,6 +17,7 @@ import {
     ListItem,
     ListItemText,
     ListItemIcon,
+    Typography,
 } from '@material-ui/core/'
 import { 
 	Icon,
@@ -66,11 +67,13 @@ export default function PingPongDialog( props ) {
 					<Grid container>
 						<Grid item >
 							<div className={clsx( classes.dialogTitleIcon )}>
-								<Icon icon={ `wordpress` } color={ secondary } />
+								<Icon icon={ `pingpong` } color={ `secondary` } />
 							</div>
 						</Grid>
 						<Grid item>
-							{ `Ping Pong Dialog` }
+							<Typography variant={ `h6` } color={ `textSecondary` } >
+								{ `@PingPong` }
+							</Typography>
 						</Grid>
 					</Grid>
 	            </DialogTitle>
@@ -88,74 +91,13 @@ export default function PingPongDialog( props ) {
 									toggleDialog( false )
 								}}>
 								<ListItemIcon>
-									<Icon icon={ `settings` } color={ `secondary` } />
+									<Icon icon={ `wordpress` } color={ secondary } />
 								</ListItemIcon>
 								<ListItemText 
 									primary={ `Dashboard` }
+									secondary={ `Greet your visitors` }
 								/>
 							</ListItem>
-
-							<ListItem 
-								button
-								onClick={ e => {
-									e.preventDefault()
-									window.open(`/wp-admin/customize.php?return=%2Fwp-admin%2Fthemes.php`, `_self`)
-									toggleDialog( false )
-								}}>
-								<ListItemIcon>
-									<Icon icon={ `theme` } color={ `secondary` } />
-								</ListItemIcon>
-								<ListItemText 
-									primary={ `Theme` }
-								/>
-							</ListItem>
-
-							<ListItem 
-								button
-								onClick={ e => {
-									e.preventDefault()
-									window.open(`/wp-admin/admin.php?page=pingpong`, `_self`)
-									toggleDialog( false )
-								}}>
-								<ListItemIcon>
-									<Icon icon={ `p2t` } color={ `secondary` } />
-								</ListItemIcon>
-								<ListItemText 
-									primary={ `PingPong` }
-								/>
-							</ListItem>
-
-							<ListItem 
-								button
-								onClick={ e => {
-									e.preventDefault()
-									window.open(`/wp-admin/post-new.php`, `_self`)
-									toggleDialog( false )
-								}}>
-								<ListItemIcon>
-									<Icon icon={ `add` } color={ `secondary` } />
-								</ListItemIcon>
-								<ListItemText 
-									primary={ `New Blog` }
-								/>
-							</ListItem>
-
-
-							<ListItem 
-								button
-								onClick={ e => {
-									e.preventDefault()
-									window.open(`/wp-admin/post-new.php?post_type=product`, `_self`)
-									toggleDialog( false )
-								}}>
-								<ListItemIcon>
-									<Icon icon={ `add` } color={ `secondary` } />
-								</ListItemIcon>
-								<ListItemText 
-									primary={ `New Store Item` }
-								/>
-							</ListItem>
-
 						</List>
 					</div>
 
