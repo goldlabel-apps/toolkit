@@ -4,6 +4,7 @@ import {
   error,
   feedback,
   feedbackObj,
+  dialog,
 } from "./actions"
 
 export const pingpongSlice = {
@@ -11,9 +12,15 @@ export const pingpongSlice = {
   error: null,
   feedback: false,
   feedbackObj: null,
+  dialog: false,
 }
 
 const pingpongReducer = createReducer(pingpongSlice, {
+
+  [dialog]: (state, action) => {
+    state.dialog = action.dialog
+    return state
+  },
 
   [feedbackObj]: (state, action) => {
     state.feedbackObj = action.feedbackObj

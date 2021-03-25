@@ -2,8 +2,9 @@ import React from 'react'
 import clsx from 'clsx'
 import { useSelector } from 'react-redux'
 import { 
-  toggleFeedback, 
-  setFeedback,
+  // toggleFeedback, 
+  // setFeedback,
+  toggleDialog,
 } from './redux/pingpong/actions'
 import {
   theme, 
@@ -18,6 +19,7 @@ import {
 import { Icon } from './theme'
 import { 
   Feedback,
+  PingPongDialog,
 } from './components'
 
 const useStyles = makeStyles((theme) => ({
@@ -31,10 +33,11 @@ export default function App() {
 
     const pingpongSlice = useSelector(state => state.pingpong)
     const {
+      dialog,
       feedback,
     } = pingpongSlice
 
-    // console.log( 'feedback', feedback )
+    console.log( 'dialog', dialog )
 
     return <MuiThemeProvider theme={createMuiTheme(theme)}>
               <div className={ clsx( classes.appWrap ) }>
@@ -42,12 +45,12 @@ export default function App() {
                     component={ `div` }
                     onClick={ (e) => {
                       e.preventDefault()
-                      setFeedback( {
-                        message: `Nice one bruv`,
-                        severity: `success`,
-                      } )
-                      toggleFeedback( true )
-
+                      // setFeedback( {
+                      //   message: `Nice one bruv`,
+                      //   severity: `success`,
+                      // } )
+                      // toggleFeedback( true )
+                      toggleDialog( true )
                     }}                      
                   >
                     <Badge badgeContent={ 0 } color={ `secondary` } >
@@ -55,6 +58,9 @@ export default function App() {
                     </Badge>
                   </IconButton>    
 
+                  <PingPongDialog />
+
+                  { dialog ? <PingPongDialog /> : null }
                   { feedback ? <Feedback /> : null }
 
               </div>
