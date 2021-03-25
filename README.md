@@ -1,19 +1,21 @@
-
+![Listingslab @ToolKit](./docs/png/react_wordpress.png)
 ## @ToolKit for WordPress
 
 > A suite of WordPress Plugins which open up a world of good stuff to any tired old WordPress site
 
-![Listingslab @ToolKit](./docs/png/react_wordpress.png)
+- __@ToolKit__ 
+	React WordPress Admin Page to manage settings for all plugins
 
-- @ToolKit
-	React WordPress Admin Page which manages settings for the whole suite of plugins
+- __@PingPong__ 
+	Greet your visitors 
 
-- @PingPong
-- @PWAify
+- __@PWAify__ 
+	Brings Progressive Web App (PWA) capabilities to Core
 
-[PROD listingslab.com](https://listingslab.com) 
 
-> __Run the Aptitude Test__. Answer the following multiple choice question correctly to continue  
+> Is Listingslab @ToolKit suitable for your needs? Run this Aptitude Test to find out. 
+
+Answer the following multiple choice question correctly to continue  
 Select all true statements from the following  
   
 :negative_squared_cross_mark: &nbsp;&nbsp;WordPress is Great  
