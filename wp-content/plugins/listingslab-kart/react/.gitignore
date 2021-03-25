@@ -1,6 +1,7 @@
-_DEV_
-
 # See https://help.github.com/ignore-files/ for more about ignoring files.
+
+.env.development
+.env.production
 
 # dependencies
 /node_modules

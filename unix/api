@@ -1,0 +1,7 @@
+#!/bin/bash
+# chmod ug+x api
+clear
+
+echo 'Starting API /Users/listingslab/Desktop/Node/src/api'
+cd  ~/Desktop/Node/src/api
+yarn start
