@@ -17,11 +17,11 @@ export const theme = {
     info: {
       main: customisedTheme.lightBg,
     },
-    warning:{
-      main: `#eeeeee`,
-    },
-    error:{
-      main: `#fff`,
-    },
+    // warning:{
+    //   main: `#eeeeee`,
+    // },
+    // error:{
+    //   main: `#fff`,
+    // },
   }
 }

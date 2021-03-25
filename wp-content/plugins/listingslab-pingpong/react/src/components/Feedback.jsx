@@ -2,8 +2,8 @@ import React from 'react'
 import clsx from 'clsx'
 import { useSelector } from 'react-redux'
 import {
-  closeFeedback,
-} from '../redux/actions'
+  toggleFeedback,
+} from '../redux/pingpong/actions'
 import {    
   makeStyles,
   Snackbar,
@@ -27,31 +27,33 @@ export default function Feedback() {
   
   const classes = useStyles()
   const feedbackTime = 5000
-  const p2TSlice = useSelector(state => state.p2T) 
-  const { 
-    feedback,
-    feedbackShow,
-  } = p2TSlice
-  const {
-    message,
-    status,
-  } = feedback
 
+  const pingpongSlice = useSelector(state => state.pingpong)
+  const {
+    
+    feedbackObj,
+  } = pingpongSlice
+  if ( !feedbackObj ) return null
+  const { 
+    severity,
+    message,
+  } = feedbackObj
+  
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
       return
     }
-    closeFeedback()
+    toggleFeedback( false )
   }
 
   return <Snackbar 
             className={ clsx( classes.none ) }
-            open={ feedbackShow } 
+            open={ true } 
             autoHideDuration={ feedbackTime } 
             onClose={ handleClose }>
             <Alert 
               onClose={ handleClose } 
-              severity={ status }>
+              severity={ severity }>
                 { message }
             </Alert>
           </Snackbar>

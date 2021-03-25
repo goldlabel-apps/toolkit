@@ -1,6 +1,10 @@
 import React from 'react'
 import clsx from 'clsx'
-// import { useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
+import { 
+  toggleFeedback, 
+  setFeedback,
+} from './redux/pingpong/actions'
 import {
   theme, 
 } from './theme'
@@ -8,45 +12,51 @@ import {
   makeStyles,
   MuiThemeProvider, 
   createMuiTheme,
-  CssBaseline,
   IconButton,
   Badge,
 } from '@material-ui/core/'
 import { Icon } from './theme'
+import { 
+  Feedback,
+} from './components'
 
 const useStyles = makeStyles((theme) => ({
   appWrap: {
-    // border: '1px solid red',
-    // margin: 'auto',
-    // paddingBottom: theme.spacing(0.75),
-  },
-  iconBut:{
-    // border: '1px solid green',
   },
 }))
 
 export default function App() {  
+
     const classes = useStyles()
 
+    const pingpongSlice = useSelector(state => state.pingpong)
+    const {
+      feedback,
+    } = pingpongSlice
+
+    // console.log( 'feedback', feedback )
+
     return <MuiThemeProvider theme={createMuiTheme(theme)}>
-              <CssBaseline />              
               <div className={ clsx( classes.appWrap ) }>
-                
                   <IconButton
                     component={ `div` }
-                    className={ clsx( classes.iconBut ) }
                     onClick={ (e) => {
                       e.preventDefault()
-                      console.log ('@PP')
-                    }}>
-                  <Badge 
-                    badgeContent={4} 
-                    color={ `secondary` }
+                      setFeedback( {
+                        message: `Nice one bruv`,
+                        severity: `success`,
+                      } )
+                      toggleFeedback( true )
+
+                    }}                      
                   >
-                    <Icon icon={ `pingpong` } color={ `primary` } />
+                    <Badge badgeContent={ 0 } color={ `secondary` } >
+                      <Icon icon={ `pingpong` } color={ `primary` } />
                     </Badge>
-                  </IconButton>
-                
+                  </IconButton>    
+
+                  { feedback ? <Feedback /> : null }
+
               </div>
             </MuiThemeProvider> 
 }

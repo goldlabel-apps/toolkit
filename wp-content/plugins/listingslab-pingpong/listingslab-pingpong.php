@@ -5,7 +5,7 @@
  * @package           listingslab-pingpong
  *
  * @wordpress-plugin
- * Version:           10.0.4
+ * Version:           10.0.5
  * Plugin Name:       @PingPong
  * Description:       Manage Listingslab ToolKit Plugin
  * Plugin URI:        https://listingslab.com?s=pingpong
@@ -18,7 +18,7 @@
  */
 
 defined( 'ABSPATH' ) or die( 'Really?' );
-define( 'pingpong_VERSION', '10.0.4' );
+define( 'pingpong_VERSION', '10.0.5' );
 
 // Load Listingslab PingPong Plugin.
 require_once 'php/PingPong.php';

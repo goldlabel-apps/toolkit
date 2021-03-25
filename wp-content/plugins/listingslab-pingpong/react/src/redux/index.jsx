@@ -1,17 +1,14 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
 import { combineReducers } from 'redux'
-import { appReducer, appSlice } from './app/reducer'
-import { p2TReducer, p2TSlice } from '../modules/Push2Talk/redux/reducer'
+import { pingpongReducer, pingpongSlice } from './pingpong/reducer'
 
 const reduxStore = () => {
   const reducer = combineReducers({
-    app: appReducer,
-    p2T: p2TReducer,
+    pingpong: pingpongReducer,
   })
 
   const preloadedState = {
-    app: appSlice,
-    p2T: p2TSlice,
+    pingpong: pingpongSlice,
   }
   
   const middleware = [

@@ -1,7 +1,7 @@
 const getCustomisedTheme = () => {
 	return {
 	  darkBg: window.darkBg ? window.darkBg : '#126b72',
-	  lightBg: window.darkBg ? window.darkBg : '#126b72',
+	  lightBg: window.darkBg ? window.darkBg : '#18a3ad',
 	  lightText: window.lightText ? window.lightText : '#FFFFFF',
 	  darkText: window.darkText ? window.darkText : '#FFFFFF',
 	}
