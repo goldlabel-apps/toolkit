@@ -3,43 +3,30 @@
 clear
 
 cd ./wp-content/plugins/
-mkdir temp
+mkdir wordpressifying
 
-# echo 'WordPressifying listingslab-toolkit ...'
-# cd ./listingslab-toolkit/react && yarn build && cd ../../
-# mv ./listingslab-toolkit/react/ ./temp
-# mkdir ./listingslab-toolkit/react && mkdir ./listingslab-toolkit/react/build
-# cp ./temp/react/build ./listingslab-toolkit/react
-# zip -r listingslab-toolkit.zip listingslab-toolkit
-# rm -rf ./listingslab-toolkit/react
-# mkdir ./listingslab-toolkit/react
-# mv ./temp/react ./listingslab-toolkit
+echo 'wordpressifying @ToolKit ...'
+cd ./listingslab-toolkit/react && yarn build && cd ../../
+mv ./listingslab-toolkit/react ./wordpressifying 
+mkdir ./listingslab-toolkit/react 
+cp -r ./wordpressifying/react/build ./listingslab-toolkit/react
+zip -r listingslab-toolkit.zip listingslab-toolkit 
+rm -rf ./listingslab-toolkit/react 
+mkdir ./listingslab-toolkit/react 
+mv ./wordpressifying/react ./listingslab-toolkit
 
-echo 'WordPressifying listingslab-pingpong ...'
+echo 'wordpressifying @PingPong ...'
 cd ./listingslab-pingpong/react && yarn build && cd ../../
-mv ./listingslab-pingpong/react/ ./temp
-# mkdir ./listingslab-pingpong/react && mkdir ./listingslab-pingpong/react/build
-# cp ./temp/react/build ./listingslab-pingpong/react
-# zip -r listingslab-pingpong.zip listingslab-pingpong
-# rm -rf ./listingslab-pingpong/react
-# mkdir ./listingslab-pingpong/react
-# mv ./temp/react ./listingslab-pingpong
+mv ./listingslab-pingpong/react ./wordpressifying
+mkdir ./listingslab-pingpong/react
+cp -r ./wordpressifying/react/build ./listingslab-pingpong/react
+zip -r listingslab-pingpong.zip listingslab-pingpong 
+rm -rf ./listingslab-pingpong/react
+mkdir ./listingslab-pingpong/react
+mv ./wordpressifying/react ./listingslab-pingpong
 
-# echo 'WordPressifying listingslab-kart ...'
-# cd ./listingslab-kart/react && yarn build && cd ../../
-# mv ./listingslab-kart/react/ ./temp
-# mkdir ./listingslab-kart/react && mkdir ./listingslab-kart/react/build
-# cp ./temp/react/build ./listingslab-kart/react
-# zip -r listingslab-kart.zip listingslab-kart
-# rm -rf ./listingslab-kart/react
-# mkdir ./listingslab-kart/react
-# mv ./temp/react ./listingslab-kart
+echo 'wordpressifying @PWAify ...'
+zip -r listingslab-pwaify.zip listingslab-pwaify
 
-# echo 'WordPressifying listingslab-pwaify ...'
-# zip -r listingslab-pwaify.zip listingslab-pwaify
-
-# zip -r listingslab-all.zip listingslab-pwaify.zip listingslab-kart.zip listingslab-pingpong.zip listingslab-toolkit.zip
-
-# rm -rf ./temp
-
+rm -rf ./wordpressifying
 echo 'WordPressifying completed'
