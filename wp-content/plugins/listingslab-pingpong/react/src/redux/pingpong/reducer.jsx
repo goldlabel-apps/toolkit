@@ -6,6 +6,9 @@ import {
   feedbackObj,
   dialog,
   overlay,
+  connectedAPI,
+  connectingAPI,
+  connectAPIDone,
 } from "./actions"
 
 export const pingpongSlice = {
@@ -15,9 +18,27 @@ export const pingpongSlice = {
   overlay: false,
   feedback: false,
   feedbackObj: null,
+  connectedAPI: false,
+  connectingAPI: false,
+  connectAPIDone: false,
 }
 
 const pingpongReducer = createReducer(pingpongSlice, {
+
+  [connectAPIDone]: (state, action) => {
+    state.connectAPIDone = action.connectAPIDone
+    return state
+  },
+
+  [connectingAPI]: (state, action) => {
+    state.connectingAPI = action.connectingAPI
+    return state
+  },
+
+  [connectedAPI]: (state, action) => {
+    state.connectedAPI = action.connectedAPI
+    return state
+  },
 
   [overlay]: (state, action) => {
     state.overlay = action.overlay

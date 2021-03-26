@@ -3,6 +3,7 @@ import clsx from 'clsx'
 import { useSelector } from 'react-redux'
 import { 
   toggleDialog,
+  connectAPI,
 } from './redux/pingpong/actions'
 import {
   theme, 
@@ -35,11 +36,21 @@ export default function App() {
       dialog,
       overlay,
       feedback,
+      connectedAPI,
     } = pingpongSlice
+
+    React.useEffect(() => {
+        const {
+          connectedAPI,
+          connectingAPI,
+          connectAPIDone,
+        } = pingpongSlice
+        if ( !connectedAPI && !connectingAPI && !connectAPIDone ) connectAPI()
+    }, [pingpongSlice])
 
     return <MuiThemeProvider theme={createMuiTheme(theme)}>
               <div className={ clsx( classes.appWrap ) }>
-                  <IconButton
+                  { connectedAPI ? <IconButton
                     component={ `div` }
                     onClick={ (e) => {
                       e.preventDefault()
@@ -48,7 +59,7 @@ export default function App() {
                     <Badge badgeContent={ null } color={ `secondary` } >
                       <Icon icon={ `pingpong` } color={ `primary` } />
                     </Badge>
-                  </IconButton>    
+                  </IconButton>  : null }
                   { overlay ? <Overlay /> : null }
                   { dialog ? <PingPongDialog /> : null }
                   { feedback ? <Feedback /> : null }
