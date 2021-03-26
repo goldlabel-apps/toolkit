@@ -4,19 +4,15 @@ Contributors:      google, xwp, westonruter, albertomedina, listingslab
 Tags:              pwa, progressive web apps, service workers, web app manifest, https
 Requires at least: 5.5
 Tested up to:      5.6
-Stable tag:        0.6.0
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 Requires PHP:      5.6
 
-> Forked by listingslab as pwify on 17th March 2021
+> Forked by listingslab as PWAify on 17th March 2021
 
 WordPress feature plugin to bring Progressive Web App (PWA) capabilities to Core
 
 == Description ==
-
-
-ln -s ~/Desktop/Node/toolkit/wp-content/plugins/listingslab-pwaify ~/Desktop/Node/wordpress/listingslab.com/wp-content/plugins/
 
 <blockquote cite="https://developers.google.com/web/progressive-web-apps/">
 Progressive Web Apps are user experiences that have the reach of the web, and are:

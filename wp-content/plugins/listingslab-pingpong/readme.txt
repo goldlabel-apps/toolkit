@@ -10,4 +10,4 @@ Requires PHP:      5.6
 
 == Description ==
 
-ln -s ~/Desktop/Node/toolkit/wp-content/plugins/listingslab-pingpong ~/Desktop/Node/wordpress/listingslab.com/wp-content/plugins/
+

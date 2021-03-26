@@ -75,7 +75,7 @@ final class WP_Web_App_Manifest {
 		<!-- Listingslab Hacked -->
 
 		<link rel="manifest" href="/manifest.json">
-		<meta name="theme-color" content="#18a3ae">
+		<meta name="theme-color" content="#ffffff">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="mobile-web-app-capable" content="yes">
 		<meta name="apple-touch-fullscreen" content="YES">

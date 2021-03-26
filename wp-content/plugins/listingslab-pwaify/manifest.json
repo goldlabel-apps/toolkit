@@ -1,0 +1,16 @@
+{
+  "short_name": "Listingslab",
+  "name": "Globally Relevant JavaScript",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "sizes": "1024x1024",
+      "src": "https://listingslab.com/wp-content/uploads/2021/03/ListingslabIcon.png",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
