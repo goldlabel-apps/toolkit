@@ -118,3 +118,5 @@ Please see the following url:
 == Upgrade Notice ==
 
 Please use our ticketing system when submitting your logs.  Please do not post to the forums.
+
+![Listingslab @ToolKit](../png/react_wordpress.png)

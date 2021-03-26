@@ -43,3 +43,5 @@ Duplicator is the most powerful migrator available. It enables you to:
 * Duplicate a live site to a staging area or vice versa
 * Bundle up an entire WordPress site for easy reuse or distribution
 * Perform a full WordPress migration without struggling with messy import/export sql scripts
+
+![Listingslab @ToolKit](../png/react_wordpress.png)
