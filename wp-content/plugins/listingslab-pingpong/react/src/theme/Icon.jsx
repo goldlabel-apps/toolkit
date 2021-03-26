@@ -1,7 +1,11 @@
+// https://material-ui.com/components/material-icons/
 import React, { Component } from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import Blokey from './jsx/Blokey'
 import WordPress from './jsx/WordPress'
+
+import IconMessage from '@material-ui/icons/QuestionAnswer'
+
 import Account from './jsx/Account'
 import IconMail from '@material-ui/icons/Mail'
 import IconDefault from '@material-ui/icons/Help'
@@ -14,7 +18,7 @@ import IconFullscreen from '@material-ui/icons/Fullscreen'
 import IconFullscreenExit from '@material-ui/icons/FullscreenExit'
 import IconPhoto from '@material-ui/icons/CameraAlt'
 import IconFilm from '@material-ui/icons/MovieCreation'
-import IconInfo from '@material-ui/icons/Help'
+import IconInfo from '@material-ui/icons/HelpOutline'
 import IconHome from '@material-ui/icons/Home'
 import IconPalette from '@material-ui/icons/Palette'
 import IconMenu from '@material-ui/icons/MoreVert'
@@ -219,6 +223,9 @@ class Icon extends Component {
             case `info`:
                 return (<IconInfo color={iconColor} />)
 
+            case `instructions`:
+                return (<IconInfo color={iconColor} />)
+
             case `edit`:
                 return (<IconEdit color={iconColor} />)
 
@@ -264,6 +271,9 @@ class Icon extends Component {
             case `user`:
                 return (<IconUser color={iconColor} />)
 
+            case `visitor`:
+                return (<IconUser color={iconColor} />)
+
             case `story`:
                 return (<IconStory color={iconColor} />)
 
@@ -287,6 +297,10 @@ class Icon extends Component {
 
             case `import`:
                 return (<IconImport color={iconColor} />)
+
+            case `message`:
+                return (<IconMessage color={iconColor} />)
+
 
             case `start`:
                 return (<IconStart color={iconColor} />)    

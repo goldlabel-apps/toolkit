@@ -5,7 +5,7 @@
  * @package           listingslab-toolkit
  *
  * @wordpress-plugin
- * Version:           10.0.4
+ * Version:           10.0.6
  * Plugin Name:       @ToolKit
  * Description:       Manage Listingslab ToolKit Plugin
  * Plugin URI:        https://listingslab.com?s=toolkit
@@ -18,7 +18,7 @@
  */
 
 defined( 'ABSPATH' ) or die( 'Really?' );
-define( 'toolkit_VERSION', '10.0.4' );
+define( 'toolkit_VERSION', '10.0.6' );
 
 // Load Listingslab ToolKit Admin Plugin.
 require_once 'php/ToolKit.php';

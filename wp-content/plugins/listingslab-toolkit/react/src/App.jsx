@@ -17,6 +17,7 @@ import {
 } from '@material-ui/core/'
 import { 
   APIKey,
+  PingPong,
 } from './components'
 
 const useStyles = makeStyles((theme) => ({
@@ -26,10 +27,10 @@ const useStyles = makeStyles((theme) => ({
   },
   card:{
     margin: theme.spacing(),
-    // background: 'none',
-    // boxRadius: 'none',
-    // boxShadow: 'none',
-    // border: 'none',
+    background: 'none',
+    boxRadius: 'none',
+    boxShadow: 'none',
+    border: 'none',
   },
 }))
 
@@ -70,21 +71,11 @@ export default function App() {
                   <Grid item xs={ 6 } >
                     <APIKey />
                   </Grid>
+                  <Grid item xs={ 6 } >
+                    <PingPong />
+                  </Grid>
                 </Grid>
                
               </div>
             </MuiThemeProvider> 
 }
-
-/*
-
-
-
-
-<Grid item xs={ 4 } >
-                    <Kart />
-                  </Grid>
-                  <Grid item xs={ 4 } >
-                    <PWAify />
-                  </Grid>
-*/

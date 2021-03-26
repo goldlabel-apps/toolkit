@@ -1,11 +1,9 @@
 import React from 'react'
 import clsx from 'clsx'
-import { useSelector } from 'react-redux'
 import {
     makeStyles,
     Card,
     CardHeader,
-    //Avatar,
     Typography,
 } from '@material-ui/core/'
 
@@ -23,37 +21,17 @@ const useStyles = makeStyles(theme => ({
 export default function APIKey( props ) {
 	
 	const classes = useStyles()
-	const appSlice = useSelector(state => state.app)
-    const {
-      toolkitData,
-    } = appSlice
-    const {
-      wpurl,
-
-    } = toolkitData
 
 	return	<Card className={ clsx( classes.card ) }>
 				<CardHeader 
                     disableTypography
                     
                     title={ <Typography variant={ `h6` }>
-                              APIKey
+                              Your API Key
                             </Typography> }
                     subheader={ <Typography  variant={ `body1` }>
-                                  { wpurl }
+                                  Single click signup
                                 </Typography> }
                   />
 			</Card>
 }
-
-
-/*
-avatar={ <Avatar src={ avatar } /> }
-action={ <React.Fragment>
-								<IconButton
-									color={ `secondary` }
-									onClick={ () => {} }>
-									<Icon icon={ `close` } />
-								</IconButton>
-							</React.Fragment> }
-*/

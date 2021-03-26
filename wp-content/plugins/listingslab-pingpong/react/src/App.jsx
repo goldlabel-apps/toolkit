@@ -18,6 +18,7 @@ import { Icon } from './theme'
 import { 
   Feedback,
   PingPongDialog,
+  Overlay,
 } from './components'
 
 const useStyles = makeStyles((theme) => ({
@@ -32,6 +33,7 @@ export default function App() {
     const pingpongSlice = useSelector(state => state.pingpong)
     const {
       dialog,
+      overlay,
       feedback,
     } = pingpongSlice
 
@@ -43,10 +45,11 @@ export default function App() {
                       e.preventDefault()
                       toggleDialog( true )
                     }}>
-                    <Badge badgeContent={ 0 } color={ `secondary` } >
+                    <Badge badgeContent={ null } color={ `secondary` } >
                       <Icon icon={ `pingpong` } color={ `primary` } />
                     </Badge>
                   </IconButton>    
+                  { overlay ? <Overlay /> : null }
                   { dialog ? <PingPongDialog /> : null }
                   { feedback ? <Feedback /> : null }
               </div>

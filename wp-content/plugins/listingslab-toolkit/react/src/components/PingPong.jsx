@@ -1,14 +1,11 @@
 import React from 'react'
 import clsx from 'clsx'
-import { useSelector } from 'react-redux'
 import {
     makeStyles,
     Card,
     CardHeader,
-    Avatar,
+    Typography,
 } from '@material-ui/core/'
-// import  { Icon } from '../theme'
-// import { SwitchesGroup } from './'
 
 const useStyles = makeStyles(theme => ({
 	card:{
@@ -24,40 +21,16 @@ const useStyles = makeStyles(theme => ({
 export default function PingPong( props ) {
 	
 	const classes = useStyles()
-	const appSlice = useSelector(state => state.app)
-    const {
-      toolkitData,
-    } = appSlice
-    const {
-      icon,
-    } = toolkitData
 
 	return	<Card className={ clsx( classes.card ) }>
 				<CardHeader 
-					title={ `@PingPong` }
-					// subheader={ `Advicator Plugin` }
-					avatar={ <Avatar src={ icon } /> }
+					disableTypography
+					title={ <Typography variant={ `h6` }>
+                              @PingPong
+                            </Typography> }
+					subheader={ <Typography  variant={ `body1` }>
+                                  Greet your visitors
+                                </Typography> }
 				/>
-
-				
 			</Card>
 }
-
-
-/*
-
-<CardContent>
-					<Typography variant={ `body1` } gutterBottom>
-						Enable?
-					</Typography>
-				</CardContent>
-
-
-action={ <React.Fragment>
-								<IconButton
-									color={ `secondary` }
-									onClick={ () => {} }>
-									<Icon icon={ `close` } />
-								</IconButton>
-							</React.Fragment> }
-*/

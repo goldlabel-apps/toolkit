@@ -5,17 +5,24 @@ import {
   feedback,
   feedbackObj,
   dialog,
+  overlay,
 } from "./actions"
 
 export const pingpongSlice = {
   pJSON,
   error: null,
+  dialog: false,
+  overlay: false,
   feedback: false,
   feedbackObj: null,
-  dialog: false,
 }
 
 const pingpongReducer = createReducer(pingpongSlice, {
+
+  [overlay]: (state, action) => {
+    state.overlay = action.overlay
+    return state
+  },
 
   [dialog]: (state, action) => {
     state.dialog = action.dialog
