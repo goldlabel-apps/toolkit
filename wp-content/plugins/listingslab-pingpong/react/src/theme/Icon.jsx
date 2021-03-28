@@ -71,6 +71,7 @@ import IconNotConnected from '@material-ui/icons/WifiOff'
 import IconLocale from '@material-ui/icons/PersonPin'
 import IconSearch from '@material-ui/icons/Search'
 import IconCart from '@material-ui/icons/AddShoppingCart'
+import IconError from '@material-ui/icons/Error'
 
 const styles = theme => ({
     iconButton: {
@@ -310,6 +311,9 @@ class Icon extends Component {
 
             case `home`:
                 return (<IconHome color={iconColor} />)
+
+            case `error`:
+                return (<IconError color={iconColor} />)
 
             case `mail`:
                 return (<IconMail color={iconColor} />)

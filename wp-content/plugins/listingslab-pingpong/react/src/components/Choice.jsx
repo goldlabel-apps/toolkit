@@ -64,6 +64,7 @@ export default function Choice( props ) {
 									primary={ `Leave a message` }
 									secondary={ `no email required` }
 								/>
+								
 							</ListItem>
 							<ListItem 
 								button
@@ -76,8 +77,8 @@ export default function Choice( props ) {
 									<Icon icon={ `wordpress` } color={ secondary } />
 								</ListItemIcon>
 								<ListItemText 
-									primary={ `WordPress Admin Page` }
-									secondary={ `Login to interact with your visitors` }
+									primary={ `@_ToolKit Manager` }
+									secondary={ `WordPress Admin Page` }
 								/>
 							</ListItem>
 						</List>

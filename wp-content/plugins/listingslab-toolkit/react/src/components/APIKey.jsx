@@ -7,6 +7,7 @@ import {
     CardHeader,
     Typography,
 } from '@material-ui/core/'
+import { Footer } from './'
 
 const useStyles = makeStyles(theme => ({ 
 	plainAccordion:{
@@ -47,6 +48,20 @@ export default function APIKey( props ) {
     } = appSlice
 
 	return	<Card className={ clsx( classes.card ) }>
+
+
+	            <CardHeader 
+                    disableTypography
+                    
+                    title={ <Typography variant={ `h6` }>
+                              Fingerprint
+                            </Typography> }
+                    subheader={ <Typography  variant={ `body1` }>
+                                  { fingerprint }
+                                </Typography> }
+                />
+
+
 				<CardHeader 
                     disableTypography
                     
@@ -58,16 +73,9 @@ export default function APIKey( props ) {
                                 </Typography> }
                   />
 
-                  				<CardHeader 
-                    disableTypography
-                    
-                    title={ <Typography variant={ `h6` }>
-                              Fingerprint
-                            </Typography> }
-                    subheader={ <Typography  variant={ `body1` }>
-                                  { fingerprint }
-                                </Typography> }
-                  />
+
+
+                  <Footer />
 
 
 			</Card>

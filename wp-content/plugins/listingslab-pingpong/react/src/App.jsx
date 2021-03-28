@@ -33,6 +33,7 @@ export default function App() {
 
     const pingpongSlice = useSelector(state => state.pingpong)
     const {
+      error,
       dialog,
       overlay,
       feedback,
@@ -50,6 +51,16 @@ export default function App() {
 
     return <MuiThemeProvider theme={createMuiTheme(theme)}>
               <div className={ clsx( classes.appWrap ) }>
+
+                  { error ? <IconButton
+                    component={ `div` }
+                    onClick={ (e) => {
+                      e.preventDefault()
+                      alert ('API Connection Failed :(')
+                    }}>
+                      <Icon icon={ `error` } color={ `primary` } />
+                  </IconButton> : null }
+
                   { connectedAPI ? <IconButton
                     component={ `div` }
                     onClick={ (e) => {

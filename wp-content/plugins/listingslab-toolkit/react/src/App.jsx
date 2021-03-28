@@ -17,8 +17,7 @@ import {
 } from '@material-ui/core/'
 import { 
   APIKey,
-  PingPong, 
-  Footer, 
+  PingPong,
   Overlay,
 } from './components'
 
@@ -72,19 +71,17 @@ export default function App() {
                 </Card>
 
                  <Grid container>
+
+                 <Grid item xs={ 4 } >
+                    <APIKey />
+                    
+                  </Grid>
                   
-                  <Grid item xs={ 9 } >
+                  <Grid item xs={ 8 } >
                     <PingPong />
                   </Grid>
 
-                  <Grid item xs={ 3 } >
-                    <APIKey />
-                  </Grid>
-
-                  <Grid item xs={ 12 } >
-                    <Footer />
-                  </Grid>
-
+                  
                   
                 </Grid>
                

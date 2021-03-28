@@ -1,7 +1,7 @@
 {
 	"name": "toolkit",
 	"description": "Suite of WordPress Plugins which open up a world of good stuff to any tired old WordPress site",
-	"version": "10.0.6",
+	"version": "10.0.7c",
 	"repository": "https://github.com/listingslab-software/toolkit.git",
 	"author": "listingslab <listingslab@gmail.com>",
 	"license": "MIT",
@@ -11,8 +11,6 @@
 		"build:toolkit": "$PWD/unix/build wp-content/plugins/listingslab-toolkit/react",
 		"dev:pingpong": "$PWD/unix/dev wp-content/plugins/listingslab-pingpong/react",
 		"build:pingpong": "$PWD/unix/build wp-content/plugins/listingslab-pingpong/react",
-		"dev:kart": "$PWD/unix/dev wp-content/plugins/listingslab-kart/react",
-		"build:kart": "$PWD/unix/build wp-content/plugins/listingslab-kart/react",
 		"wp": "$PWD/unix/wp",
 		"git": "$PWD/unix/git",
 		"pub": "yarn wp && yarn git"
