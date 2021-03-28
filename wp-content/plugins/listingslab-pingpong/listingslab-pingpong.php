@@ -7,7 +7,7 @@
  * @wordpress-plugin
  * Version:           10.0.7
  * Plugin Name:       @PingPong
- * Description:       Manage Listingslab ToolKit Plugin
+ * Description:       Greet your visitors. No need to wait for them to contact you. Handles GDPR issues too
  * Plugin URI:        https://listingslab.com?s=pingpong
  * Author:            listingslab
  * Author URI:        https://listingslab.com?s=author

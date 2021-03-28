@@ -17,24 +17,22 @@ export const connectAPI = () => {
 	store.dispatch({ type: `PINGPONG/API/CONNECTING`, connectingAPI: true })
 	axios.get( endpoint )
 		.then(function( res ) {
-			
 			if (res.data.response.data.message === `pong` ){
 				store.dispatch({ type: `PINGPONG/API/CONNECTED`, connectedAPI: true })
 				store.dispatch({ type: `PINGPONG/API/CONNECTING`, connectingAPI: false })
 				store.dispatch({ type: `PINGPONG/API/CONNECT/DONE`, connectAPIDone: true })
 			}
-
 			return true
-
 		})
-
 		.catch(function( error ) {
+			throwError( error )
 			store.dispatch({ type: `PINGPONG/API/CONNECTING`, connectingAPI: false })
 			store.dispatch({ type: `PINGPONG/API/CONNECTED`, connectedAPI: false })
 			store.dispatch({ type: `PINGPONG/API/CONNECT/DONE`, connectAPIDone: true })
 			setFeedback({ 
-				severity: `error`,
-				message: error.toString(),
+				severity: `success`, 
+				message: `Error connecting to API`, 
+				// message: error.toString(),
 			})
 			toggleFeedback( true)
 			return false

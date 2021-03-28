@@ -1,6 +1,6 @@
 {
 	"name": "toolkit",
-	"description": "A suite of WordPress Plugins which open up a world of good stuff to any tired old WordPress site",
+	"description": "Suite of WordPress Plugins which open up a world of good stuff to any tired old WordPress site",
 	"version": "10.0.6",
 	"repository": "https://github.com/listingslab-software/toolkit.git",
 	"author": "listingslab <listingslab@gmail.com>",

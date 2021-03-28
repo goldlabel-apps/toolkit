@@ -3,8 +3,8 @@
 clear
 
 echo 'GitHub...'
-echo 'dot committing to master. Not reccomended ...'
+echo 'This is not really reccomended as good practice...'
 
-git add . && git commit -m '.' && git push
+git add . && git commit -m 'Release candidate 10.0.7' && git push
 
 echo 'BASTA'

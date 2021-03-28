@@ -5,9 +5,9 @@
  * @package           listingslab-toolkit
  *
  * @wordpress-plugin
- * Version:           10.0.6
+ * Version:           10.0.7
  * Plugin Name:       @ToolKit
- * Description:       Manage Listingslab ToolKit Plugin
+ * Description:       Suite of WordPress Plugins which open up a world of good stuff to any tired old WordPress site
  * Plugin URI:        https://listingslab.com?s=toolkit
  * Author:            listingslab
  * Author URI:        https://listingslab.com?s=author
@@ -18,7 +18,7 @@
  */
 
 defined( 'ABSPATH' ) or die( 'Really?' );
-define( 'toolkit_VERSION', '10.0.6' );
+define( 'toolkit_VERSION', '10.0.7' );
 
 // Load Listingslab ToolKit Admin Plugin.
 require_once 'php/ToolKit.php';

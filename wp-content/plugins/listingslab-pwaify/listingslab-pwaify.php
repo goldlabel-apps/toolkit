@@ -8,7 +8,7 @@
  * @wordpress-plugin
  * Plugin Name: @PWAify
  * Plugin URI:  https://listingslab.com?s=pwa
- * Description: Manage Listingslab ToolKit Plugin
+ * Description: Brings Progressive Web App (PWA) capabilities to Core
  * Version:     10.0.7
  * Author:      Forked from PWA
  * Author URI:  https://github.com/GoogleChromeLabs/pwa-wp/graphs/contributors

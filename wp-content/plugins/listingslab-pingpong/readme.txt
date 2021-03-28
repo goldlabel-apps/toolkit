@@ -10,4 +10,5 @@ Requires PHP:      5.6
 
 == Description ==
 
+Greet your visitors. No need to wait for them to contact you. Handles GDPR issues too
 
