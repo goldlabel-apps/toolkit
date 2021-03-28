@@ -77,7 +77,7 @@ export default function App() {
                           toggleDialog( true )
                         }}>
                     <Badge badgeContent={ null } color={ `secondary` } >
-                      <Icon icon={ `logo` } color={ '#46afe7' } />
+                      <Icon icon={ `logo` } color={ '#57b3f2' } />
                     </Badge>
                   </IconButton></Tooltip>  : null }
                   { overlay ? <Overlay /> : null }
