@@ -4,8 +4,8 @@
 
 ```bash
 cd <working-dir>
-git clone https://github.com/listingslab-software/kart.git
-cd kart
+git clone https://github.com/listingslab-software/toolkit.git
+cd toolkit
 yarn
 yarn run
 ```
