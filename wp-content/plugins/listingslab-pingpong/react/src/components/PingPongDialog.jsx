@@ -5,10 +5,8 @@ import {
 import {
 	useMediaQuery,
     Dialog,
-    DialogContent,
     DialogActions,
     IconButton,
-    Typography,
 } from '@material-ui/core/'
 import { 
 	Help,
@@ -30,12 +28,10 @@ export default function PingPongDialog( props ) {
 				open
 				fullWidth
 				fullScreen={ isMobile}
-				maxWidth={ `xs` }
+				maxWidth={ `sm` }
 				onClose={ closeDialog } >
 				<DialogActions>
-					<Typography variant={ `body2` } color={ `textSecondary` }>
-						@PingPong
-					</Typography>
+					
 					<IconButton
 						variant={ `outlined` }
 						color={ `primary` }
@@ -44,9 +40,7 @@ export default function PingPongDialog( props ) {
 					</IconButton>
 				</DialogActions>
 
-				<DialogContent>
 					<Choice />
 					<Help />
-				</DialogContent>
 			</Dialog>
 }

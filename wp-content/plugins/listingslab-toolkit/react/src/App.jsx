@@ -9,16 +9,13 @@ import {
   makeStyles,
   MuiThemeProvider, 
   createMuiTheme,
-  Avatar,
-  Card,
-  CardHeader,
-  Typography,
   Grid,
 } from '@material-ui/core/'
 import { 
   APIKey,
   PingPong,
   Overlay,
+  ButtonAppBar,
 } from './components'
 
 const useStyles = makeStyles((theme) => ({
@@ -41,26 +38,43 @@ export default function App() {
     const appSlice = useSelector(state => state.app)
     const {
       themeMode,
-      toolkitData,
     } = appSlice
     
     let theme = themeDark
-
-    const {
-      name,
-      // description,
-      avatar,
-    } = toolkitData
 
     if ( themeMode === `light` ) theme = themeLight
 
     return <MuiThemeProvider theme={createMuiTheme(theme)}>
               <Overlay />
               <div className={ clsx( classes.app ) }>
-                <Card className={ clsx( classes.card ) }>
+                
+                  
+                 <Grid container>
+
+                    <Grid item xs={ 12 } >
+                      <ButtonAppBar />
+                    </Grid>
+
+                    <Grid item xs={ 4 } >
+                      <APIKey />
+                    </Grid>
+
+                    <Grid item xs={ 8 } >
+                      <PingPong />
+                    </Grid>
+
+                  </Grid>
+               
+              </div>
+            </MuiThemeProvider> 
+}
+
+
+/*
+<Card className={ clsx( classes.card ) }>
                   <CardHeader 
                     disableTypography
-                    avatar={ <Avatar src={ avatar } /> }
+                    action={ <Avatar src={ avatar } /> }
                     title={ <Typography variant={ `h6` }>
                               { name }
                             </Typography> }
@@ -69,22 +83,4 @@ export default function App() {
                     //             </Typography> }
                   />
                 </Card>
-
-                 <Grid container>
-
-                 <Grid item xs={ 4 } >
-                    <APIKey />
-                    
-                  </Grid>
-                  
-                  <Grid item xs={ 8 } >
-                    <PingPong />
-                  </Grid>
-
-                  
-                  
-                </Grid>
-               
-              </div>
-            </MuiThemeProvider> 
-}
+*/

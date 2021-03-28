@@ -35,7 +35,8 @@ export default function Footer( props ) {
 
 	const appSlice = useSelector(state => state.app)
 	const {
-      admin_email,
+		name,
+     	admin_email,
     } = appSlice.toolkitData
 
 	return	<List dense className={ clsx (classes.none) }>
@@ -50,7 +51,7 @@ export default function Footer( props ) {
 						<Icon icon={ `right` } color={ `secondary` } />
 					</ListItemIcon>
 					<ListItemText 
-						primary={ `GitHub Respository` }
+						primary={ `GitHub` }
 						secondary={ `Open Source & Free` }
 					/>
 				</ListItem>
@@ -67,6 +68,7 @@ export default function Footer( props ) {
 					</ListItemIcon>
 					<ListItemText 
 						primary={ `Home` }
+						secondary={ `${name} homepage` }
 					/>
 				</ListItem>
 			</List>

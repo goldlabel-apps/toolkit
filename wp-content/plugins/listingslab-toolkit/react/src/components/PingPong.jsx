@@ -29,7 +29,7 @@ export default function PingPong( props ) {
                               @PingPong
                             </Typography> }
 					subheader={ <Typography  variant={ `body1` }>
-                                  Greet your visitors
+                                  Greet your visitors. No need to wait for them to contact you. Handles GDPR issues too
                                 </Typography> }
 				/>
 			</Card>

@@ -1,7 +1,7 @@
 {
   "name": "listingslab-pingpong",
   "version": "10.0.7d",
-  "description": "Get to know your visitors",
+  "description": "Greet your visitors. No need to wait for them to contact you. Handles GDPR issues too",
   "repository": "https://github.com/listingslab-software/toolkit",
   "author": "listingslab <listingslab@gmail.com>",
   "license": "MIT",

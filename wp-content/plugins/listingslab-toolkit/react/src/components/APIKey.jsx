@@ -1,11 +1,9 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+// import { useSelector } from 'react-redux'
 import clsx from 'clsx'
 import {
     makeStyles,
     Card,
-    CardHeader,
-    Typography,
 } from '@material-ui/core/'
 import { Footer } from './'
 
@@ -41,27 +39,18 @@ const useStyles = makeStyles(theme => ({
 export default function APIKey( props ) {
 	
 	const classes = useStyles() 
-	const appSlice = useSelector(state => state.app)
-	const {
-      apiKey,
-      fingerprint,
-    } = appSlice
+	// const appSlice = useSelector(state => state.app)
+	// const {
+ //      // apiKey,
+ //      fingerprint,
+ //    } = appSlice
 
 	return	<Card className={ clsx( classes.card ) }>
+				<Footer />
+			</Card>
+}
 
-
-	            <CardHeader 
-                    disableTypography
-                    
-                    title={ <Typography variant={ `h6` }>
-                              Fingerprint
-                            </Typography> }
-                    subheader={ <Typography  variant={ `body1` }>
-                                  { fingerprint }
-                                </Typography> }
-                />
-
-
+/*
 				<CardHeader 
                     disableTypography
                     
@@ -72,11 +61,4 @@ export default function APIKey( props ) {
                                   { apiKey }
                                 </Typography> }
                   />
-
-
-
-                  <Footer />
-
-
-			</Card>
-}
+*/

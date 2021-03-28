@@ -52,7 +52,30 @@ export default function Choice( props ) {
 
 	return	<div className={clsx( classes.none )}>
 						<List dense>
+							
 							<ListItem 
+								button
+								onClick={ e => {
+									e.preventDefault()
+									gotoURL(`/wp-admin/admin.php?page=listingslab-toolkit%2Fphp%2FToolKit.php`, `_self`)
+									toggleDialog( false )
+								}}>
+								<ListItemIcon>
+									<Icon icon={ `wordpress` } color={ secondary } />
+								</ListItemIcon>
+								<ListItemText 
+									primary={ `@_ToolKit Manager` }
+									// secondary={ `WordPress Admin Page` }
+								/>
+
+								
+							</ListItem>
+						</List>
+					</div>
+}
+
+/*
+<ListItem 
 								button
 								onClick={ e => {
 									e.preventDefault()
@@ -66,21 +89,4 @@ export default function Choice( props ) {
 								/>
 								
 							</ListItem>
-							<ListItem 
-								button
-								onClick={ e => {
-									e.preventDefault()
-									gotoURL(`/wp-admin/admin.php?page=listingslab-toolkit%2Fphp%2FToolKit.php`, `_self`)
-									toggleDialog( false )
-								}}>
-								<ListItemIcon>
-									<Icon icon={ `wordpress` } color={ secondary } />
-								</ListItemIcon>
-								<ListItemText 
-									primary={ `@_ToolKit Manager` }
-									secondary={ `WordPress Admin Page` }
-								/>
-							</ListItem>
-						</List>
-					</div>
-}
+*/

@@ -58,7 +58,7 @@ export default function App() {
                       e.preventDefault()
                       alert ('API Connection Failed :(')
                     }}>
-                      <Icon icon={ `error` } color={ `primary` } />
+                      <Icon icon={ `error` } color={ `error` } />
                   </IconButton> : null }
 
                   { connectedAPI ? <IconButton
