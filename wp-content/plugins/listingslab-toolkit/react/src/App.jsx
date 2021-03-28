@@ -17,7 +17,9 @@ import {
 } from '@material-ui/core/'
 import { 
   APIKey,
-  PingPong,
+  PingPong, 
+  Footer, 
+  Overlay,
 } from './components'
 
 const useStyles = makeStyles((theme) => ({
@@ -42,17 +44,19 @@ export default function App() {
       themeMode,
       toolkitData,
     } = appSlice
+    
     let theme = themeDark
 
     const {
       name,
-      description,
+      // description,
       avatar,
     } = toolkitData
 
     if ( themeMode === `light` ) theme = themeLight
 
     return <MuiThemeProvider theme={createMuiTheme(theme)}>
+              <Overlay />
               <div className={ clsx( classes.app ) }>
                 <Card className={ clsx( classes.card ) }>
                   <CardHeader 
@@ -61,21 +65,27 @@ export default function App() {
                     title={ <Typography variant={ `h6` }>
                               { name }
                             </Typography> }
-                    subheader={ <Typography  variant={ `body1` }>
-                                  { description }
-                                </Typography> }
+                    // subheader={ <Typography  variant={ `body1` }>
+                    //               { description }
+                    //             </Typography> }
                   />
                 </Card>
 
                  <Grid container>
                   
-                  <Grid item xs={ 8 } >
+                  <Grid item xs={ 9 } >
                     <PingPong />
                   </Grid>
 
-                  <Grid item xs={ 4 } >
+                  <Grid item xs={ 3 } >
                     <APIKey />
                   </Grid>
+
+                  <Grid item xs={ 12 } >
+                    <Footer />
+                  </Grid>
+
+                  
                 </Grid>
                
               </div>

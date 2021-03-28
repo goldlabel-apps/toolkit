@@ -5,9 +5,24 @@ export const error = createAction(`APP/ERROR`)
 export const appMenuOpen = createAction(`APP/APPMENUOPEN`)
 export const fullScreen = createAction(`APP/FULLSCREEN`)
 export const themeMode = createAction(`APP/THEMEMODE`)
+export const overlay = createAction(`APP/OVERLAY`)
+
+export const gotoURL = (url, target) => { 
+	window.open(url, target)
+	if ( target === `_self` ){
+		const store = getStore()
+		store.dispatch({type: `APP/OVERLAY`, overlay: true })
+	}
+	return true
+}
+
+export const toggleOverlay = bool => {
+	const store = getStore()
+	store.dispatch({type: `APP/OVERLAY`, overlay: bool })
+	return true
+}
 
 export const toggleThemeMode = mode => {
-
 	const store = getStore()
 	let newMode = `dark`
 	if (mode === `dark`) newMode = `light`

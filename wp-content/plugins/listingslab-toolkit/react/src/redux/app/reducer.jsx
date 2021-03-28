@@ -1,38 +1,33 @@
 import pJSON from '../../../package.json'
 import { createReducer } from '@reduxjs/toolkit'
+import { localDev } from './localDev'
 import {
   error,
   appMenuOpen,
   fullScreen,
   themeMode,
+  overlay,
 } from "./actions"
 
-const toolkitData = {
-    "name": "@ToolKit",
-    "description": "by Listingslab",
-    "wpurl": "http://localhost:8888",
-    "url": "http://localhost:8888",
-    "admin_email": "listingslab@gmail.com",
-    "charset": "UTF-8",
-    "version": "5.7",
-    "html_type": "text/html",
-    "language": "en-US",
-    "pingpong_active": false,
-    "pwaify_active": false,
-    "kart_active": false,
-    "avatar": "http://localhost:8888/wp-content/plugins/listingslab-toolkit/public/png/avatar.png"
-}   
+const toolkitData = localDev 
 
 export const appSlice = {
   pJSON,
   error: null,
+  toolkitData,
+  overlay: false,
   fullScreen: false,
   appMenuOpen: false,
   themeMode: `light`,
-  toolkitData,
+  apiKey: `xyza-1234-asdf-9876`,
 }
 
 const appReducer = createReducer(appSlice, {
+
+  [overlay]: (state, action) => {
+    state.overlay = action.overlay
+    return state
+  },
 
   [themeMode]: (state, action) => {
     state.themeMode = action.themeMode
