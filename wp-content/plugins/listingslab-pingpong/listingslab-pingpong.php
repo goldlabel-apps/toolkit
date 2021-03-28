@@ -7,7 +7,7 @@
  * @wordpress-plugin
  * Version:           10.0.7
  * Plugin Name:       @PingPong
- * Description:       Greet your visitors. No need to wait for them to contact you. Handles GDPR issues too
+ * Description:       Greet your visitors. No need to wait for them to contact you. Handles GDPR issues too. Requires @_ToolKit Manager
  * Plugin URI:        https://github.com/listingslab-software/toolkit
  * Author:            listingslab
  * Author URI:        https://listingslab.com?s=author
