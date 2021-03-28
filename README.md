@@ -14,9 +14,9 @@ __[@ToolKit](https://github.com/listingslab-software/toolkit/raw/master/wp-conte
 
 ## Subplugins
 
-__[@PingPong](https://github.com/listingslab-software/toolkit/raw/master/wp-content/plugins/listingslab-pingpong.zip)__ Greet your visitors. No need to wait for them to contact you. Handles GDPR issues too
+- __[@PingPong](https://github.com/listingslab-software/toolkit/raw/master/wp-content/plugins/listingslab-pingpong.zip)__ Greet your visitors. No need to wait for them to contact you. Handles GDPR issues too
 
-__[@PWAify](https://github.com/listingslab-software/toolkit/raw/master/wp-content/plugins/listingslab-pwaify.zip)__ Brings Progressive Web App (PWA) capabilities to Core
+- __[@PWAify](https://github.com/listingslab-software/toolkit/raw/master/wp-content/plugins/listingslab-pwaify.zip)__ Brings Progressive Web App (PWA) capabilities to Core
 
 
 #### Latest zip files
