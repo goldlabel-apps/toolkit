@@ -68,11 +68,13 @@ export default function App() {
                 </Card>
 
                  <Grid container>
-                  <Grid item xs={ 6 } >
-                    <APIKey />
-                  </Grid>
-                  <Grid item xs={ 6 } >
+                  
+                  <Grid item xs={ 8 } >
                     <PingPong />
+                  </Grid>
+
+                  <Grid item xs={ 4 } >
+                    <APIKey />
                   </Grid>
                 </Grid>
                

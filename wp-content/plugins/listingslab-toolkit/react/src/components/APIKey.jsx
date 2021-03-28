@@ -27,7 +27,7 @@ export default function APIKey( props ) {
                     disableTypography
                     
                     title={ <Typography variant={ `h6` }>
-                              Your API Key
+                              API Key
                             </Typography> }
                     subheader={ <Typography  variant={ `body1` }>
                                   Single click signup
