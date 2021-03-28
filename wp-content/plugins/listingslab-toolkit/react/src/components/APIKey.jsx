@@ -8,31 +8,12 @@ import {
 import { Footer } from './'
 
 const useStyles = makeStyles(theme => ({ 
-	plainAccordion:{
-		boxShadow: 'none',
-	},
-	grow: {
-		flexGrow: 1,
-	},
-	dialogTitleIcon: {
-		marginTop: theme.spacing( 0.5 ),
-		marginRight: theme.spacing( 2 ),
-	},
-	root: {
-    	width: '100%',
-	},
-	heading: {
-		marginTop: theme.spacing( 0.5 ),
-	    fontSize: theme.typography.pxToRem( 15 ),
-	    fontWeight: theme.typography.fontWeightRegular,
-	},
 	card:{
 		margin: theme.spacing(),
 		// minHeight: 325,
 	},
-	btnTxt: {
-		marginRight: theme.spacing(),
-		marginLeft: theme.spacing(),
+	noShadow: {
+		boxShadow: 'none',
 	},
 }))
 
@@ -45,7 +26,7 @@ export default function APIKey( props ) {
  //      fingerprint,
  //    } = appSlice
 
-	return	<Card className={ clsx( classes.card ) }>
+	return	<Card className={ clsx( classes.card, classes.noShadow ) }>
 				<Footer />
 			</Card>
 }

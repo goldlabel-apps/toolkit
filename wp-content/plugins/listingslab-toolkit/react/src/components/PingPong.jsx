@@ -16,13 +16,16 @@ const useStyles = makeStyles(theme => ({
 		marginRight: theme.spacing(),
 		marginLeft: theme.spacing(),
 	},
+	noShadow: {
+		boxShadow: 'none',
+	},
 }))
 
 export default function PingPong( props ) {
 	
 	const classes = useStyles()
 
-	return	<Card className={ clsx( classes.card ) }>
+	return	<Card className={ clsx( classes.card, classes.noShadow ) }>
 				<CardHeader 
 					disableTypography
 					title={ <Typography variant={ `h6` }>

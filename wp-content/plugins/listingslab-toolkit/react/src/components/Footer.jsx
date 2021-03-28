@@ -40,21 +40,6 @@ export default function Footer( props ) {
     } = appSlice.toolkitData
 
 	return	<List dense className={ clsx (classes.none) }>
-				<ListItem 
-					button
-					onClick={ e => {
-						e.preventDefault()
-						console.log ( 'secondary', secondary )
-						gotoURL(`https://github.com/listingslab-software/toolkit`, `_blank`)
-					}}>
-					<ListItemIcon>
-						<Icon icon={ `right` } color={ `secondary` } />
-					</ListItemIcon>
-					<ListItemText 
-						primary={ `GitHub` }
-						secondary={ `Open Source & Free` }
-					/>
-				</ListItem>
 
 				<ListItem 
 					button
@@ -64,12 +49,29 @@ export default function Footer( props ) {
 						gotoURL(`/`, `_self`)
 					}}>
 					<ListItemIcon>
-						<Icon icon={ `right` } color={ `secondary` } />
+						<Icon icon={ `right` } color={ `inherit` } />
 					</ListItemIcon>
 					<ListItemText 
 						primary={ `Home` }
-						secondary={ `${name} homepage` }
+						// secondary={ `${name} homepage` }
 					/>
 				</ListItem>
+				<ListItem 
+					button
+					onClick={ e => {
+						e.preventDefault()
+						console.log ( 'secondary', secondary )
+						gotoURL(`https://github.com/listingslab-software/toolkit`, `_blank`)
+					}}>
+					<ListItemIcon>
+						<Icon icon={ `right` } color={ `inherit` } />
+					</ListItemIcon>
+					<ListItemText 
+						primary={ `GitHub` }
+						// secondary={ `Open Source & Free` }
+					/>
+				</ListItem>
+
+				
 			</List>
 }

@@ -1,17 +1,17 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import clsx from 'clsx'
 import {
   makeStyles,
   AppBar, 
   Toolbar,
-  Button,
-  IconButton, 
+  Button, 
   Typography
 } from '@material-ui/core/'
 import { Icon } from '../theme'
 
 const useStyles = makeStyles((theme) => ({
-  root: {
+  buttonAppBar: {
     margin: theme.spacing(),
     flexGrow: 1,
   },
@@ -20,6 +20,13 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
+  },
+  noShadow: {
+    boxShadow: 'none',
+  },
+  btnTxt: {
+    marginRight: theme.spacing(),
+    marginLeft: theme.spacing(),
   },
 }))
 
@@ -32,28 +39,25 @@ export default function ButtonAppBar() {
   } = appSlice.toolkitData
 
   return (
-    <div className={classes.root}>
+    <div className={ classes.buttonAppBar }>
       <AppBar 
+        className={ classes.noShadow }
         position={ `static` }
-        color={`primary`}
+        color={`default`}
       >
         <Toolbar>
-          <IconButton 
-            edge={ `start` }
-            className={ classes.menuButton }
-          >
-            <Icon icon={`settings`} color={ `secondary` } />
-          </IconButton>
+          
           <Typography 
             variant={ `h6` } 
-            className={classes.title}>
+            className={ classes.title }>
             { name }
           </Typography> 
 
           <Button 
-            variant={ `contained` }
-            color={ `secondary` }>
-              Account
+            variant={ `outlined` }
+            color={ `default` }>
+              <Icon icon={ `account` } color={ `inherit` } />
+              <span className={ clsx( classes.btnTxt )  }>Account</span>
           </Button> 
 
         </Toolbar>
@@ -61,3 +65,12 @@ export default function ButtonAppBar() {
     </div>
   )
 }
+
+/*
+<IconButton 
+            edge={ `start` }
+            className={ classes.menuButton }
+          >
+            <Icon icon={`settings`} color={ `secondary` } />
+          </IconButton>
+*/

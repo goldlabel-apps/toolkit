@@ -247,7 +247,7 @@ class Icon extends Component {
             case `fire`:
                 return (<IconFire color={iconColor} />)
 
-            case `visitor`:
+            case `account`:
                 return (<IconUser color={iconColor} />)
 
             case `story`:

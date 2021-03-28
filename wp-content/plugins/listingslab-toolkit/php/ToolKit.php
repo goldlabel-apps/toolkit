@@ -15,8 +15,8 @@ class ToolKit{
       public function PluginMenu(){
 
               $this->toolkit_screen_name = add_menu_page(
-                    '@ToolKit', 
-                    '@ToolKit', 
+                    '@_ToolKit', 
+                    '@_ToolKit', 
                     'manage_options',
                     __FILE__, 
                     array($this, 'RenderPage'), 
