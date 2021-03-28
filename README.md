@@ -1,5 +1,3 @@
-![Listingslab @ToolKit](./docs/png/react_wordpress.png) 
-
 # Listingslab @ToolKit
 
 > A suite of WordPress Plugins which open up a world of good stuff to any tired old WordPress site. [Documentation](./docs) for WordPress Administrators, Developers and DevOps
@@ -20,3 +18,4 @@ __[@PingPong](https://github.com/listingslab-software/toolkit/raw/master/wp-cont
 __[@PWAify](https://github.com/listingslab-software/toolkit/raw/master/wp-content/plugins/listingslab-pwaify.zip)__ Brings Progressive Web App (PWA) capabilities to Core
 
 
+![Listingslab @ToolKit](./docs/png/react_wordpress.png) 
