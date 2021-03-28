@@ -1,9 +1,8 @@
 import React from 'react'
 import clsx from 'clsx'
-import { useSelector } from 'react-redux'
-import { 
-  themeDark, 
-  themeLight, 
+// import { useSelector } from 'react-redux'
+import {
+  theme, 
 } from './theme'
 import {
   makeStyles,
@@ -33,38 +32,31 @@ const useStyles = makeStyles((theme) => ({
 
 export default function App() {
   
-    const classes = useStyles()
-    const appSlice = useSelector(state => state.app)
-    const {
-      themeMode,
-    } = appSlice
-    
-    let theme = themeDark
-
-    if ( themeMode === `light` ) theme = themeLight
+    const classes = useStyles()    
 
     return <MuiThemeProvider theme={createMuiTheme(theme)}>
               <Overlay />
               <div className={ clsx( classes.app ) }>
-                
-                  
                  <Grid container>
-
-                    
-
-                    <Grid item xs={ 4 } >
+                  <Grid item xs={ 4 } >
                       <APIKey />
                     </Grid>
-
                     <Grid item xs={ 8 } >
                       <PingPong />
                     </Grid>
-
                   </Grid>
-               
               </div>
             </MuiThemeProvider> 
 }
+
+
+
+
+
+
+
+
+
 
 
 /*

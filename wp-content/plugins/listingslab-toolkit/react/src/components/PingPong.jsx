@@ -19,6 +19,9 @@ const useStyles = makeStyles(theme => ({
 	noShadow: {
 		boxShadow: 'none',
 	},
+	title: {
+		color: theme.palette.secondary.main,
+	}
 }))
 
 export default function PingPong( props ) {
@@ -28,10 +31,10 @@ export default function PingPong( props ) {
 	return	<Card className={ clsx( classes.card, classes.noShadow ) }>
 				<CardHeader 
 					disableTypography
-					title={ <Typography variant={ `h6` }>
+					title={ <Typography gutterBottom className={ clsx( classes.title ) }>
                               @PingPong
                             </Typography> }
-					subheader={ <Typography  variant={ `body1` }>
+					subheader={ <Typography>
                                   Greet your visitors. No need to wait for them to contact you. Handles GDPR issues too
                                 </Typography> }
 				/>

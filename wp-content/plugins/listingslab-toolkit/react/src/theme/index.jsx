@@ -1,9 +1,7 @@
-import { themeDark } from './themeDark'
-import { themeLight } from './themeLight'
+import { theme } from './theme'
 import Icon from './Icon'
 
 export {
 	Icon,
-	themeDark,
-	themeLight,
+	theme,
 }

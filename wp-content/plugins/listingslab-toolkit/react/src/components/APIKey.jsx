@@ -5,7 +5,7 @@ import {
     makeStyles,
     Card,
 } from '@material-ui/core/'
-import { Footer } from './'
+import { Nav } from './'
 
 const useStyles = makeStyles(theme => ({ 
 	card:{
@@ -27,7 +27,7 @@ export default function APIKey( props ) {
  //    } = appSlice
 
 	return	<Card className={ clsx( classes.card, classes.noShadow ) }>
-				<Footer />
+				<Nav />
 			</Card>
 }
 
