@@ -1,4 +1,4 @@
-# @ToolKit Documentation
+# @ToolKit [Docs](../README.md)
 
 ## JavaScript/PHP Developer
 
