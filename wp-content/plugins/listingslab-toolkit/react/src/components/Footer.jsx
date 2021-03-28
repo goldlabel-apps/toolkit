@@ -35,7 +35,7 @@ export default function Footer( props ) {
 
 	const appSlice = useSelector(state => state.app)
 	const {
-		name,
+		// name,
      	admin_email,
     } = appSlice.toolkitData
 
@@ -49,13 +49,42 @@ export default function Footer( props ) {
 						gotoURL(`/`, `_self`)
 					}}>
 					<ListItemIcon>
+						<Icon icon={ `link` } color={ `inherit` } />
+					</ListItemIcon>
+					<ListItemText 
+						primary={ `Homepage` }
+					/>
+				</ListItem>
+
+				<ListItem 
+					button
+					onClick={ e => {
+						e.preventDefault() 
+						console.log ( '@PingPong', admin_email )
+					}}>
+					<ListItemIcon>
 						<Icon icon={ `right` } color={ `inherit` } />
 					</ListItemIcon>
 					<ListItemText 
-						primary={ `Home` }
+						primary={ `@PingPong` }
+					/>
+				</ListItem>
+
+				<ListItem 
+					button
+					onClick={ e => {
+						e.preventDefault() 
+						console.log ( '@PingPong', admin_email )
+					}}>
+					<ListItemIcon>
+						<Icon icon={ `right` } color={ `inherit` } />
+					</ListItemIcon>
+					<ListItemText 
+						primary={ `@PWAify` }
 						// secondary={ `${name} homepage` }
 					/>
 				</ListItem>
+
 				<ListItem 
 					button
 					onClick={ e => {
@@ -64,13 +93,29 @@ export default function Footer( props ) {
 						gotoURL(`https://github.com/listingslab-software/toolkit`, `_blank`)
 					}}>
 					<ListItemIcon>
-						<Icon icon={ `right` } color={ `inherit` } />
+						<Icon icon={ `link` } color={ `inherit` } />
 					</ListItemIcon>
 					<ListItemText 
 						primary={ `GitHub` }
 						// secondary={ `Open Source & Free` }
 					/>
 				</ListItem>
+
+				<ListItem 
+					button
+					onClick={ e => {
+						e.preventDefault()
+						gotoURL(`https://listingslab.com`, `_blank`)
+					}}>
+					<ListItemIcon>
+						<Icon icon={ `link` } color={ `inherit` } />
+					</ListItemIcon>
+					<ListItemText 
+						primary={ `listingslab.com` }
+					/>
+				</ListItem>
+
+				
 
 				
 			</List>

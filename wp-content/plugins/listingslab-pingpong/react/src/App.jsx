@@ -10,6 +10,7 @@ import {
 } from './theme'
 import {
   makeStyles,
+  Tooltip,
   MuiThemeProvider, 
   createMuiTheme,
   IconButton,
@@ -30,6 +31,9 @@ const useStyles = makeStyles((theme) => ({
 export default function App() {  
 
     const classes = useStyles()
+    // const themeObj = useTheme()
+    // const primaryColor = themeObj.palette.primary.main
+    // const secondaryColor = themeObj.palette.secondary.main
 
     const pingpongSlice = useSelector(state => state.pingpong)
     const {
@@ -42,6 +46,7 @@ export default function App() {
 
     React.useEffect(() => {
         const {
+          
           connectedAPI,
           connectingAPI,
           connectAPIDone,
@@ -61,16 +66,20 @@ export default function App() {
                       <Icon icon={ `error` } color={ `error` } />
                   </IconButton> : null }
 
-                  { connectedAPI ? <IconButton
-                    component={ `div` }
-                    onClick={ (e) => {
-                      e.preventDefault()
-                      toggleDialog( true )
-                    }}>
+                  { connectedAPI ? <Tooltip
+                       title={ `@_ToolKit` }
+                       aria-label={ `by Listingslan` }
+                     >
+                      <IconButton
+                        component={ `div` }
+                        onClick={ (e) => {
+                          e.preventDefault()
+                          toggleDialog( true )
+                        }}>
                     <Badge badgeContent={ null } color={ `secondary` } >
-                      <Icon icon={ `pingpong` } color={ `primary` } />
+                      <Icon icon={ `logo` } color={ '#46afe7' } />
                     </Badge>
-                  </IconButton>  : null }
+                  </IconButton></Tooltip>  : null }
                   { overlay ? <Overlay /> : null }
                   { dialog ? <PingPongDialog /> : null }
                   { feedback ? <Feedback /> : null }

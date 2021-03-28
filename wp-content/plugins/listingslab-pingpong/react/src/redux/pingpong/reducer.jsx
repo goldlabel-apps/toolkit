@@ -14,7 +14,7 @@ import {
 export const pingpongSlice = {
   pJSON,
   error: null,
-  dialog: true,
+  dialog: false,
   overlay: false,
   feedback: false,
   feedbackObj: null,

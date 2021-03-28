@@ -1,27 +1,12 @@
-import { getCustomisedTheme } from '../lib'
-const customisedTheme = getCustomisedTheme()
 
 export const theme = { 
-
   palette: {
     type: 'light',
     primary: {
-      main: customisedTheme.darkBg,
+      main: '#46afe7',
     },
     secondary: {
-      main: customisedTheme.lightBg,
+      main: '#f08b53',
     },
-    success: {
-      main: customisedTheme.darkBg,
-    },
-    info: {
-      main: customisedTheme.lightBg,
-    },
-    // warning:{
-    //   main: `#eeeeee`,
-    // },
-    // error:{
-    //   main: `#fff`,
-    // },
   }
 }

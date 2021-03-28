@@ -12,6 +12,8 @@ import {
     ListItem,
     ListItemText,
     ListItemIcon,
+    Typography,
+    CardContent,
 } from '@material-ui/core/'
 import { 
 	Icon,
@@ -47,31 +49,34 @@ const useStyles = makeStyles( theme => ({
 export default function Choice( props ) {
 	
 	const classes = useStyles()
-	const theme = useTheme()
-	const secondary = theme.palette.secondary.main
+	const themeObj = useTheme()
+	const primaryColor = themeObj.palette.primary.main
+	// const secondaryColor = themeObj.palette.secondary.main
 
 	return	<div className={clsx( classes.none )}>
-						<List dense>
-							
-							<ListItem 
-								button
-								onClick={ e => {
-									e.preventDefault()
-									gotoURL(`/wp-admin/admin.php?page=listingslab-toolkit%2Fphp%2FToolKit.php`, `_self`)
-									toggleDialog( false )
-								}}>
-								<ListItemIcon>
-									<Icon icon={ `wordpress` } color={ secondary } />
-								</ListItemIcon>
-								<ListItemText 
-									primary={ `@_ToolKit Manager` }
-									// secondary={ `WordPress Admin Page` }
-								/>
-
-								
-							</ListItem>
-						</List>
-					</div>
+					<CardContent>
+						<Typography variant={ `button` }>
+							Quick Links
+						</Typography>
+					</CardContent>
+					<List dense>
+						<ListItem 
+							button
+							onClick={ e => {
+								e.preventDefault()
+								gotoURL(`/wp-admin/admin.php?page=listingslab-toolkit%2Fphp%2FToolKit.php`, `_self`)
+								toggleDialog( false )
+							}}>
+							<ListItemIcon>
+								<Icon icon={ `wordpress` } color={ primaryColor } />
+							</ListItemIcon>
+							<ListItemText 
+								primary={ `WordPress Admin` }
+								// secondary={ `WordPress Admin Page` }
+							/>
+						</ListItem>
+					</List>
+				</div>
 }
 
 /*

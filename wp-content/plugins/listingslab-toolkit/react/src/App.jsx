@@ -15,7 +15,6 @@ import {
   APIKey,
   PingPong,
   Overlay,
-  ButtonAppBar,
 } from './components'
 
 const useStyles = makeStyles((theme) => ({
@@ -51,9 +50,7 @@ export default function App() {
                   
                  <Grid container>
 
-                    <Grid item xs={ 12 } >
-                      <ButtonAppBar />
-                    </Grid>
+                    
 
                     <Grid item xs={ 4 } >
                       <APIKey />
@@ -71,6 +68,11 @@ export default function App() {
 
 
 /*
+
+<Grid item xs={ 12 } >
+                      <ButtonAppBar />
+                    </Grid>
+
 <Card className={ clsx( classes.card ) }>
                   <CardHeader 
                     disableTypography

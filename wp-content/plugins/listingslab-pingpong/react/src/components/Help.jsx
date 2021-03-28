@@ -39,7 +39,8 @@ const useStyles = makeStyles( theme => ({
     	width: '100%',
 	},
 	heading: {
-		marginTop: theme.spacing( 0.5 ),
+		display: 'block',
+		marginTop: theme.spacing( 0.45 ),
 	},
 }))
 
@@ -51,23 +52,21 @@ export default function Help( props ) {
 
 	return	<div className={clsx( classes.help )}>
 				<Accordion 
-					defaultExpanded={ false }
+					defaultExpanded={ true }
 					className={clsx( classes.plainAccordion )}>
-
 					<AccordionSummary
-			          expandIcon={ <Icon icon={`panel-toggle`} color={ `secondary` }/> }
+			          expandIcon={ <Icon icon={`panel-toggle`} color={ `primary` }/> }
 			          aria-controls={ `Help` }
 			          id={ `help` } >
-
 				        <Grid container>
 							<Grid item >
 								<div className={clsx( classes.dialogTitleIcon )}>
-									<Icon icon={ `instructions` } color={ `secondary` } />
+									<Icon icon={ `settings` } color={ `primary` } />
 								</div>
 							</Grid>
 							<Grid item>
-								<Typography className={classes.heading}>
-									{ `Help` }
+								<Typography variant={ `body1` } className={classes.heading}>
+									{ `@_ToolKit` }
 								</Typography>
 							</Grid>
 						</Grid>
