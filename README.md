@@ -3,14 +3,13 @@
 
 > A suite of WordPress Plugins which open up a world of good stuff to any tired old WordPress site
 
-- __@ToolKit__ 
-	React WordPress Admin Page to manage settings for all plugins
+__@ToolKit__ React WordPress Admin Page to manage settings for all plugins
 
-- __@PingPong__ 
-	Greet your visitors 
 
-- __@PWAify__ 
-	Brings Progressive Web App (PWA) capabilities to Core
+
+__[@PingPong](https://github.com/listingslab-software/toolkit/raw/master/wp-content/plugins/listingslab-pingpong.zip)__ Greet your visitors 
+
+__@PWAify__ Brings Progressive Web App (PWA) capabilities to Core
 
 
 > Is Listingslab @ToolKit suitable for your needs? Run this Aptitude Test to find out. 
