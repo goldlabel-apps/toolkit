@@ -9,16 +9,18 @@ Is Listingslab @ToolKit suitable for your needs? Run this Aptitude Test to find 
 :negative_squared_cross_mark: &nbsp;&nbsp;WordPress is Rubbish  
 :negative_squared_cross_mark: &nbsp;&nbsp;WordPress is the platform on which up to 60% of ALL websites are built
 
-# Plugins
+## Plugins
 
-__[@ToolKit](https://github.com/listingslab-software/toolkit/raw/master/wp-content/plugins/listingslab-toolkit.zip)__ React WordPress Admin Page to manage settings for all plugins
+__[@ToolKit](https://github.com/listingslab-software/toolkit/raw/master/wp-content/plugins/listingslab-toolkit.zip)__ React WordPress Admin Page to manage settings & API for all subplugins
 
-__[@PingPong](https://github.com/listingslab-software/toolkit/raw/master/wp-content/plugins/listingslab-pingpong.zip)__ Greet your visitors 
+## Subplugins
+
+__[@PingPong](https://github.com/listingslab-software/toolkit/raw/master/wp-content/plugins/listingslab-pingpong.zip)__ Greet your visitors. No need to wait for them to contact you. Handles GDPR issues too. Requires @ToolKit Manager 
 
 __[@PWAify](https://github.com/listingslab-software/toolkit/raw/master/wp-content/plugins/listingslab-pwaify.zip)__ Brings Progressive Web App (PWA) capabilities to Core
 
 
-## Latest zip files
+#### Latest zip files
 
 - [listingslab-toolkit.zip](https://github.com/listingslab-software/toolkit/raw/master/wp-content/plugins/listingslab-toolkit.zip)
 - [listingslab-pingpong.zip](https://github.com/listingslab-software/toolkit/raw/master/wp-content/plugins/listingslab-pingpong.zip)

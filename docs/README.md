@@ -7,6 +7,7 @@ Depending on your role, some of the docs will be of more use than others
 - [Install for development](./md/011_Install.md) 
 - [API for PingPong](./md/030_PingPongAPI.md) 
 - [Lorem Ipsum](./md/014_LoremIpsum.md) 
+- [Subplugins](./md/040_subplugins.md) 
 - [JavaScript/PHP Developer](./md/009_JS_Dev.md)
 	- [PHP](./md/004_PHP.md)
 
