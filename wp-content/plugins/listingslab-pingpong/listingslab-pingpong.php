@@ -8,7 +8,7 @@
  * Version:           10.0.7
  * Plugin Name:       @PingPong
  * Description:       Greet your visitors. No need to wait for them to contact you. Handles GDPR issues too
- * Plugin URI:        https://listingslab.com?s=pingpong
+ * Plugin URI:        https://github.com/listingslab-software/toolkit
  * Author:            listingslab
  * Author URI:        https://listingslab.com?s=author
  * License:           GPL-2.0+

@@ -8,7 +8,7 @@
  * Version:           10.0.7
  * Plugin Name:       @ToolKit
  * Description:       Suite of WordPress Plugins which open up a world of good stuff to any tired old WordPress site
- * Plugin URI:        https://listingslab.com?s=toolkit
+ * Plugin URI:        https://github.com/listingslab-software/toolkit
  * Author:            listingslab
  * Author URI:        https://listingslab.com?s=author
  * License:           GPL-2.0+
