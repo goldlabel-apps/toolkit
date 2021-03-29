@@ -31,9 +31,6 @@ const useStyles = makeStyles((theme) => ({
 export default function App() {  
 
     const classes = useStyles()
-    // const themeObj = useTheme()
-    // const primaryColor = themeObj.palette.primary.main
-    // const secondaryColor = themeObj.palette.secondary.main
 
     const pingpongSlice = useSelector(state => state.pingpong)
     const {
@@ -77,7 +74,7 @@ export default function App() {
                           toggleDialog( true )
                         }}>
                     <Badge badgeContent={ 1 } color={ `primary` } >
-                      <Icon icon={ `settings` } color={ 'secondary' } />
+                      <Icon icon={ `toolkit` } color={ 'primary' } />
                     </Badge>
                   </IconButton></Tooltip>  : null }
                   { overlay ? <Overlay /> : null }

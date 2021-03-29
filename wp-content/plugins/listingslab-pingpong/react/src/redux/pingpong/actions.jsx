@@ -41,8 +41,10 @@ export const connectAPI = () => {
 
 export const gotoURL = (url, target) => { 
 	window.open(url, target)
-	const store = getStore()
-	store.dispatch({type: `PINGPONG/OVERLAY`, overlay: true })
+	if ( target === `_self` ){
+		const store = getStore()
+		store.dispatch({type: `PINGPONG/OVERLAY`, overlay: true })
+	}
 	return true
 }
 

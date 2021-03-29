@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import Blokey from './jsx/Blokey'
 import WordPress from './jsx/WordPress'
+import IconToolKit from './svgIcon/IconToolKit'
 import IconMessage from '@material-ui/icons/QuestionAnswer'
 import Account from './jsx/Account'
 import IconMail from '@material-ui/icons/Mail'
@@ -119,6 +120,9 @@ class Icon extends Component {
 
             case `locale`:
                 return (<IconLocale color={iconColor} />)   
+
+           case `toolkit`:
+                return (<IconToolKit color={ iconColor } />)  
 
             case `create`:
                 return (<IconCreate color={iconColor} />)   

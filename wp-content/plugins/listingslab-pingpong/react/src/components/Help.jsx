@@ -1,11 +1,12 @@
 import React from 'react'
 import clsx from 'clsx'
-// import { 
-//   toggleDialog,
-// } from '../redux/pingpong/actions'
+import { 
+  gotoURL,
+} from '../redux/pingpong/actions'
 import {
     makeStyles,
     // useTheme,
+    Link,
     Accordion,
     AccordionSummary,
     AccordionDetails,
@@ -19,6 +20,9 @@ import {
 const useStyles = makeStyles( theme => ({
 	help: {
 		marginBottom: theme.spacing( 1.5 ),
+	},
+	link: {
+		cursor: 'pointer',
 	},
 	plainAccordion: {
 		border: 'none',
@@ -48,7 +52,7 @@ export default function Help( props ) {
 	
 	const classes = useStyles()
 	// const theme = useTheme()
-	// const secondary = theme.palette.secondary.main
+	// const secondaryColor = theme.palette.secondary.main
 
 	return	<div className={clsx( classes.help )}>
 				<Accordion 
@@ -59,21 +63,30 @@ export default function Help( props ) {
 			          aria-controls={ `Help` }
 			          id={ `help` } >
 				        <Grid container>
-							<Grid item >
+							<Grid item>
 								<div className={clsx( classes.dialogTitleIcon )}>
-									<Icon icon={ `settings` } color={ `primary` } />
+									<Icon icon={ `toolkit` } color={ `inherit` } />
 								</div>
 							</Grid>
-							<Grid item>
-								<Typography variant={ `body1` } className={classes.heading}>
-									{ `@_ToolKit` }
-								</Typography>
-							</Grid>
+							
 						</Grid>
         			</AccordionSummary>
         			<AccordionDetails>
         				<Typography variant={ `body2` }>
-						Modules are a new concept we are playing with. They’re along the lines of components, but bigger. They’re more like whole standalone apps which can be inclued into other apps
+							A suite of WordPress Plugins which open up a world of 
+							good stuff to any tired old WordPress site. 
+							<Link 
+								className={clsx( classes.link )}
+								onClick={ (e) => {
+									e.preventDefault()
+									gotoURL(`https://github.com/listingslab-software/toolkit/tree/master/docs`, `_blank`)
+								}}
+								
+								
+							>
+							Documentation
+							</Link> for WordPress 
+							Administrators, Developers and DevOps
 						</Typography>
 					</AccordionDetails>
 				</Accordion>
