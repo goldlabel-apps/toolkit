@@ -5,6 +5,5 @@ clear
 echo 'GitHub...'
 echo 'This is not really good practice...'
 
-git add . && git commit -m 'Release 10.0.7b' && git push
+git add . && git commit -m 'Release 10.0.7' && git push
 
-echo 'BASTA'
