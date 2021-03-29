@@ -18,6 +18,7 @@ import {
     Typography,
 } from '@material-ui/core/'
 import { Icon } from '../theme'
+
 const useStyles = makeStyles(theme => ({
 	card:{
 		margin: theme.spacing(),
@@ -26,21 +27,25 @@ const useStyles = makeStyles(theme => ({
 	    boxShadow: 'none',
 	    border: 'none',
 	},
+	fullW: {
+		width: '100%',
+	},
 	btnTxt: {
 		marginRight: theme.spacing(),
 		marginLeft: theme.spacing(),
 	},
-	
+	title: {
+		color: theme.palette.primary.main,
+	}
 }))
 
 export default function QuickLinks( props ) {
 	
 	const classes = useStyles() 
 
-
 	return	<React.Fragment>
 				<Accordion 
-						defaultExpanded={ false }
+						defaultExpanded={ true }
 						className={clsx( classes.plainAccordion )
 					}>
 					<AccordionSummary
@@ -48,9 +53,9 @@ export default function QuickLinks( props ) {
 			          aria-controls={ `Help` }
 			          id={ `help` } >
 				        <Grid container>
-							
 							<Grid item>
-								<Typography variant={ `button` } className={classes.btnTxt}>
+								<Typography variant={ `button` } 
+									className={ clsx( classes.btnTxt, classes.title ) }>
 									{ `Quick Links` }
 								</Typography>
 							</Grid>
@@ -58,7 +63,7 @@ export default function QuickLinks( props ) {
         			</AccordionSummary>
         			<AccordionDetails>
         				
-        				<List dense className={ clsx (classes.none) }>
+        				<List dense className={ clsx (classes.fullW) }>
         					<ListItem 
 								button
 								onClick={ e => {
@@ -69,22 +74,9 @@ export default function QuickLinks( props ) {
 									<Icon icon={ `link` } color={ `primary` } />
 								</ListItemIcon>
 								<ListItemText 
-									primary={ `Homepage` }
+									primary={ `WordPress Home` }
 								/>
 							</ListItem>
-        					<ListItem 
-								button
-								onClick={ e => {
-									e.preventDefault()
-									gotoURL(`https://github.com/listingslab-software/toolkit`, `_blank`)
-								}}>
-								<ListItemIcon>
-									<Icon icon={ `link` } color={ `primary` } />
-								</ListItemIcon>
-								<ListItemText 
-									primary={ `GitHub` }
-								/>
-							</ListItem> 
 
 							<ListItem 
 								button
@@ -99,6 +91,70 @@ export default function QuickLinks( props ) {
 									primary={ `listingslab.com` }
 								/>
 							</ListItem>
+
+
+        					<ListItem 
+								button
+								onClick={ e => {
+									e.preventDefault()
+									gotoURL(`https://github.com/listingslab-software/toolkit`, `_blank`)
+								}}>
+								<ListItemIcon>
+									<Icon icon={ `link` } color={ `primary` } />
+								</ListItemIcon>
+								<ListItemText 
+									primary={ `GitHub` }
+								/>
+							</ListItem> 
+
+							
+
+
+							<ListItem 
+								button
+								onClick={ e => {
+									e.preventDefault()
+									gotoURL(`/wp-admin/plugin-install.php`, `_self`)
+								}}>
+								<ListItemIcon>
+									<Icon icon={ `link` } color={ `primary` } />
+								</ListItemIcon>
+								<ListItemText 
+									primary={ `Update plugin` }
+								/>
+							</ListItem>
+
+							<ListItem 
+								button
+								onClick={ e => {
+									e.preventDefault()
+									gotoURL(`https://github.com/listingslab-software/toolkit/raw/master/wp-content/plugins/listingslab-toolkit.zip`, `_blank`)
+								}}>
+								<ListItemIcon>
+									<Icon icon={ `link` } color={ `primary` } />
+								</ListItemIcon>
+								<ListItemText 
+									primary={ `Latest Zip` }
+								/>
+							</ListItem>
+
+
+
+							<ListItem 
+								button
+								onClick={ e => {
+									e.preventDefault()
+									gotoURL(`/wp-admin/customize.php?return=%2Fwp-admin%2Fadmin.php%3Fpage%3Dlistingslab-toolkit%252Fphp%252FToolKit.php`, `_self`)
+								}}>
+								<ListItemIcon>
+									<Icon icon={ `link` } color={ `primary` } />
+								</ListItemIcon>
+								<ListItemText 
+									primary={ `Customizer` }
+								/>
+							</ListItem>
+
+
         				</List>
 					</AccordionDetails>
 				</Accordion>

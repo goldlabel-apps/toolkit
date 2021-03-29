@@ -31,7 +31,7 @@ export default function Nav( props ) {
 	const classes = useStyles() 
 
 	return	<React.Fragment>
-
+				<QuickLinks />
 					
 				<List dense className={ clsx (classes.none) }>
 					<ListItem 
@@ -74,10 +74,6 @@ export default function Nav( props ) {
 					</ListItem>
 					
 				</List>
-
-				<QuickLinks />
-				
-
 
 			</React.Fragment>
 }

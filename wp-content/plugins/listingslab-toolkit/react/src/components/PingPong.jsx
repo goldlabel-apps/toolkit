@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
 		boxShadow: 'none',
 	},
 	title: {
-		color: theme.palette.secondary.main,
+		color: theme.palette.primary.main,
 	}
 }))
 
