@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import { 
   toggleDialog,
   connectAPI,
+  initPingPong,
 } from './redux/pingpong/actions'
 import {
   theme, 
@@ -47,8 +48,10 @@ export default function App() {
           connectedAPI,
           connectingAPI,
           connectAPIDone,
+          visitor,
         } = pingpongSlice
         if ( !connectedAPI && !connectingAPI && !connectAPIDone ) connectAPI()
+        if ( !visitor.fingerprint ) initPingPong()
     }, [pingpongSlice])
 
     return <MuiThemeProvider theme={createMuiTheme(theme)}>

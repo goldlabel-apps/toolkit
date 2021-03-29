@@ -21,7 +21,10 @@ const useStyles = makeStyles( theme => ({
 	},
 	btnTxt: {
 		color: 'white',
-	}
+	},
+	grow: {
+		flexGrow: 1,
+	},
 }))
 
 const initialMessage = {
@@ -59,7 +62,7 @@ export default function MessageGDPR( props ) {
 					</Typography>
 				</CardContent>
 				<CardActions>
-						
+					<div className={ clsx ( classes.grow) } />
 						<Button 
 							color={	`primary` }
 							variant={ `contained` }
