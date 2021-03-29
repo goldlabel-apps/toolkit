@@ -5,20 +5,15 @@ import {
 import {
 	useMediaQuery,
     Dialog,
-    // DialogActions,
-    // IconButton,
 } from '@material-ui/core/'
 import { 
-	Help,
-	Choice,	
+	ToolKit,
+	MessageRead,
 } from './'
-// import { 
-// 	Icon,
-// } from '../theme'
 
 export default function PingPongDialog( props ) {
 
-	let isMobile = !useMediaQuery( '(min-width:600px)' )
+	let isMobile = !useMediaQuery( '( min-width: 600px )' )
 
 	const closeDialog = () => {
 		toggleDialog( false )
@@ -27,23 +22,10 @@ export default function PingPongDialog( props ) {
 	return	<Dialog
 				open
 				fullWidth
-				fullScreen={ isMobile}
+				fullScreen={ isMobile }
 				maxWidth={ `sm` }
 				onClose={ closeDialog } >
-					<Help />
-					<Choice />
-					
+					<ToolKit />	
+					<MessageRead />
 			</Dialog>
 }
-
-/*
-<DialogActions>
-					
-					<IconButton
-						variant={ `outlined` }
-						color={ `primary` }
-						onClick={ closeDialog }>
-						<Icon icon={ `close` } />
-					</IconButton>
-				</DialogActions>
-*/

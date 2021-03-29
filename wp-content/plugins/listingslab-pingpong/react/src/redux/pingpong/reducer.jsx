@@ -9,12 +9,15 @@ import {
   connectedAPI,
   connectingAPI,
   connectAPIDone,
+  gdpr,
 } from "./actions"
 
 export const pingpongSlice = {
   pJSON,
   error: null,
-  dialog: true,
+  siteAvatar: `https://listingslab.com/wp-content/uploads/2021/03/cropped-logo192-1.png`,
+  gdpr: false,
+  dialog: false,
   overlay: false,
   feedback: false,
   feedbackObj: null,
@@ -25,6 +28,11 @@ export const pingpongSlice = {
 
 const pingpongReducer = createReducer(pingpongSlice, {
 
+  [gdpr]: (state, action) => {
+    state.gdpr = action.gdpr
+    return state
+  },
+  
   [connectAPIDone]: (state, action) => {
     state.connectAPIDone = action.connectAPIDone
     return state

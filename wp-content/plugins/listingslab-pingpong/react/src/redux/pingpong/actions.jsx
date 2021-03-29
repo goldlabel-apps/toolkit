@@ -10,6 +10,13 @@ export const overlay = createAction(`PINGPONG/OVERLAY`)
 export const connectedAPI = createAction(`PINGPONG/API/CONNECTED`)
 export const connectingAPI = createAction(`PINGPONG/API/CONNECTING`)
 export const connectAPIDone = createAction(`PINGPONG/API/CONNECT/DONE`)
+export const gdpr = createAction(`PINGPONG/GDPR`) 
+
+export const toggleGDPR = bool => { 
+	const store = getStore()
+	store.dispatch({type: `PINGPONG/GDPR`, gdpr: bool })
+	return true
+}
 
 export const connectAPI = () => { 
 	const endpoint = `${ process.env.REACT_APP_LISTINGSLAB_API }/ping/`

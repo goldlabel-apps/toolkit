@@ -36,6 +36,7 @@ export default function App() {
     const {
       error,
       dialog,
+      gdpr,
       overlay,
       feedback,
       connectedAPI,
@@ -43,7 +44,6 @@ export default function App() {
 
     React.useEffect(() => {
         const {
-          
           connectedAPI,
           connectingAPI,
           connectAPIDone,
@@ -73,7 +73,7 @@ export default function App() {
                           e.preventDefault()
                           toggleDialog( true )
                         }}>
-                    <Badge badgeContent={ 1 } color={ `primary` } >
+                    <Badge badgeContent={ !gdpr ? 1 : 0 } color={ `primary` } >
                       <Icon icon={ `toolkit` } color={ 'primary' } />
                     </Badge>
                   </IconButton></Tooltip>  : null }
