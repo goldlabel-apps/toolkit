@@ -21,7 +21,6 @@ export const connectAPI = () => {
 	const endpoint = `${ process.env.REACT_APP_LISTINGSLAB_API }/pingpong/update/`
 	axios.post( endpoint, visitor )
 		.then(function( res ) {
-			// console.log ('reposnse', res.data.response.data.id)
 			const store = getStore()
 			store.dispatch({ type: `PINGPONG/ID`, id: res.data.response.data.id })
 			return true
@@ -47,7 +46,7 @@ export const initPingPong = () => {
 	updateVisitor(`path`, window.location.pathname)
 	FingerprintJS.load().then(fp => {
 	      fp.get().then(result => {
-	      	updateVisitor(`fingerprint`, result.visitorId )
+	      	updateVisitor(`fingerprint`, `${ window.location.host }_${ result.visitorId }` )
 	      	completeInit()
 	      })
 	    })
