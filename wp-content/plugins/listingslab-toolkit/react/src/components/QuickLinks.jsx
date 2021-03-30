@@ -27,6 +27,10 @@ const useStyles = makeStyles(theme => ({
 	    boxShadow: 'none',
 	    border: 'none',
 	},
+	plainAccordion:{
+		border: 'none',
+		boxShadow: 'none',
+	},
 	fullW: {
 		width: '100%',
 	},
@@ -42,10 +46,11 @@ const useStyles = makeStyles(theme => ({
 export default function QuickLinks( props ) {
 	
 	const classes = useStyles() 
+	const isOpen = false
 
 	return	<React.Fragment>
 				<Accordion 
-						defaultExpanded={ true }
+						defaultExpanded={ isOpen }
 						className={clsx( classes.plainAccordion )
 					}>
 					<AccordionSummary

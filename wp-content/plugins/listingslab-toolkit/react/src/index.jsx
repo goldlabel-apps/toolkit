@@ -37,5 +37,5 @@ ReactDOM.render(
 	<Provider store={store}>
 		<App />
 	</Provider>, 
-	document.getElementById('toolkit-admin')
+	document.getElementById('listingslab-toolkit')
 )

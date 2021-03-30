@@ -1,4 +1,8 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
+import {
+	subscribeTings,
+} from '../redux/pingpong/actions'
 import clsx from 'clsx'
 import {
     makeStyles,
@@ -28,6 +32,20 @@ export default function PingPong( props ) {
 	
 	const classes = useStyles()
 
+	const pingpongSlice = useSelector(state => state.pingpong)
+	const {
+		// error,
+		tings,
+	} = pingpongSlice
+
+	React.useEffect(() => {
+        const {
+          subscribedTings,
+          subscribingTings,
+        } = pingpongSlice 
+        if ( !subscribedTings && !subscribingTings ) subscribeTings()
+    }, [pingpongSlice])
+
 	return	<Card className={ clsx( classes.card, classes.noShadow ) }>
 				<CardHeader 
 					disableTypography
@@ -38,5 +56,9 @@ export default function PingPong( props ) {
                                   Greet your visitors. No need to wait for them to contact you. Handles GDPR issues too
                                 </Typography> }
 				/>
+				<pre>
+					{ JSON.stringify( tings, null, 2 ) }
+				</pre>
+
 			</Card>
 }

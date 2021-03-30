@@ -3,7 +3,6 @@ import clsx from 'clsx'
 import { useSelector } from 'react-redux'
 import { 
   toggleDialog,
-  connectAPI,
   initPingPong,
 } from './redux/pingpong/actions'
 import {
@@ -37,26 +36,28 @@ export default function App() {
     const {
       error,
       dialog,
-      gdpr,
       overlay,
       feedback,
-      connectedAPI,
+      id,
     } = pingpongSlice
+
+    const unread = 0
 
     React.useEffect(() => {
         const {
-          connectedAPI,
-          connectingAPI,
-          connectAPIDone,
-          visitor,
-        } = pingpongSlice
-        if ( !connectedAPI && !connectingAPI && !connectAPIDone ) connectAPI()
-        if ( !visitor.fingerprint ) initPingPong()
+          initting,
+          initted,
+        } = pingpongSlice 
+        if ( !initting && !initted ) initPingPong()
     }, [pingpongSlice])
+
+    if ( !id ) return null
 
     return <MuiThemeProvider theme={createMuiTheme(theme)}>
               <div className={ clsx( classes.appWrap ) }>
-
+                  { overlay ? <Overlay /> : null }
+                  { dialog ? <PingPongDialog /> : null }
+                  { feedback ? <Feedback /> : null }
                   { error ? <IconButton
                     component={ `div` }
                     onClick={ (e) => {
@@ -66,7 +67,7 @@ export default function App() {
                       <Icon icon={ `error` } color={ `error` } />
                   </IconButton> : null }
 
-                  { connectedAPI ? <Tooltip
+                  <Tooltip
                        title={ `@_ToolKit` }
                        aria-label={ `by Listingslan` }
                      >
@@ -76,13 +77,11 @@ export default function App() {
                           e.preventDefault()
                           toggleDialog( true )
                         }}>
-                    <Badge badgeContent={ !gdpr ? 1 : 0 } color={ `primary` } >
+                    <Badge badgeContent={ unread } color={ `primary` } >
                       <Icon icon={ `toolkit` } color={ 'primary' } />
                     </Badge>
-                  </IconButton></Tooltip>  : null }
-                  { overlay ? <Overlay /> : null }
-                  { dialog ? <PingPongDialog /> : null }
-                  { feedback ? <Feedback /> : null }
+                  </IconButton></Tooltip>
+                  
               </div>
             </MuiThemeProvider> 
 }

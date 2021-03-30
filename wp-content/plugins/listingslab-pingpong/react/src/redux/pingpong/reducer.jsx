@@ -6,52 +6,57 @@ import {
   feedbackObj,
   dialog,
   overlay,
-  connectedAPI,
-  connectingAPI,
-  connectAPIDone,
-  gdpr,
   visitor,
+  initted,
+  initting,
+  id,
 } from "./actions"
 
 export const pingpongSlice = {
   pJSON,
   error: null,
-  siteAvatar: `https://listingslab.com/wp-content/uploads/2021/03/cropped-logo192-1.png`,
-  visitor: {},
-  gdpr: false,
   dialog: true,
+  id: null,
+  visitor: {},
+  gdprMessage: {
+    avatar: `https://listingslab.com/wp-content/uploads/2021/03/cropped-logo192-1.png`,
+    from: `Listingslab`,
+    subject: `GDPR Privacy Policy`,
+    message: `A GDPR Privacy Policy is an important part of moving towards GDPR compliance. 
+    This document is an informative, detailed and concise Privacy Policy that informs 
+    users of the rights they have under the GDPR. If your business has a presence in the 
+    EU, provides goods or services in the EU, or tracks users and behaviours in the EU 
+    then it is likely you will require a Privacy Policy that is GDPR compliant. `,
+  },
   overlay: false,
   feedback: false,
   feedbackObj: null,
   connectedAPI: false,
   connectingAPI: false,
   connectAPIDone: false,
+  initted: false,
+  initting: false,
 }
 
 const pingpongReducer = createReducer(pingpongSlice, {
 
+  [id]: (state, action) => {
+    state.id = action.id
+    return state
+  },
+
+  [initting]: (state, action) => {
+    state.initting = action.initting
+    return state
+  },
+  
+  [initted]: (state, action) => {
+    state.initted = action.initted
+    return state
+  },
+
   [visitor]: (state, action) => {
     state.visitor = action.visitor
-    return state
-  },
-  
-  [gdpr]: (state, action) => {
-    state.gdpr = action.gdpr
-    return state
-  },
-  
-  [connectAPIDone]: (state, action) => {
-    state.connectAPIDone = action.connectAPIDone
-    return state
-  },
-
-  [connectingAPI]: (state, action) => {
-    state.connectingAPI = action.connectingAPI
-    return state
-  },
-
-  [connectedAPI]: (state, action) => {
-    state.connectedAPI = action.connectedAPI
     return state
   },
 

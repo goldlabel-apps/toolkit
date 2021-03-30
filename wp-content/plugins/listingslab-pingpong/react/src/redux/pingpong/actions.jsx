@@ -1,38 +1,127 @@
 import { createAction } from '@reduxjs/toolkit'
 import { 
 	getStore,
-	// getFStore,
 } from '../../'
 import axios from 'axios'
 import FingerprintJS from '@fingerprintjs/fingerprintjs'
 import parseUa from 'ua-parser-js'
 
-export const error = createAction(`PINGPONG/ERROR`)
+export const error = createAction(`PINGPONG/ERROR`) 
+export const initted = createAction(`PINGPONG/INITTED`) 
+export const initting = createAction(`PINGPONG/INIT`) 
 export const feedback = createAction(`PINGPONG/FEEDBACK`)
 export const feedbackObj = createAction(`PINGPONG/FEEDBACK/OBJ`)
 export const dialog = createAction(`PINGPONG/DIALOG`)
 export const overlay = createAction(`PINGPONG/OVERLAY`)
-export const connectedAPI = createAction(`PINGPONG/API/CONNECTED`)
-export const connectingAPI = createAction(`PINGPONG/API/CONNECTING`)
-export const connectAPIDone = createAction(`PINGPONG/API/CONNECT/DONE`)
-export const gdpr = createAction(`PINGPONG/GDPR`) 
 export const visitor = createAction(`PINGPONG/VISITOR`) 
+export const id = createAction(`PINGPONG/ID`) 
+
+export const connectAPI = () => { 
+	const visitor = getStore().getState().pingpong.visitor
+	const endpoint = `${ process.env.REACT_APP_LISTINGSLAB_API }/pingpong/update/`
+	axios.post( endpoint, visitor )
+		.then(function( res ) {
+			// console.log ('reposnse', res.data.response.data.id)
+			const store = getStore()
+			store.dispatch({ type: `PINGPONG/ID`, id: res.data.response.data.id })
+			return true
+		})
+		.catch(function( error ) {
+			throwError( error )
+			setFeedback({ 
+				severity: `success`, 
+				message: `Error connecting to API`,
+			})
+			toggleFeedback( true)
+			return false
+		})
+}
+
 
 export const initPingPong = () => {
-	const ua = parseUa()
+	const store = getStore()
+	store.dispatch({ type: `PINGPONG/INIT`, initting: true })
+	fetchGeo()
+	userAgent()
 	updateVisitor(`host`, window.location.host)
-	updateVisitor(`gdpr`, false)
+	updateVisitor(`path`, window.location.pathname)
+	FingerprintJS.load().then(fp => {
+	      fp.get().then(result => {
+	      	updateVisitor(`fingerprint`, result.visitorId )
+	      	completeInit()
+	      })
+	    })
+	return true
+}
+
+export const completeInit = () => {
+	const visitor = getStore().getState().pingpong.visitor
+	const {
+		fingerprint,
+		geonameId,
+	} = visitor
+	if ( !fingerprint || !geonameId) return false
+	const store = getStore()
+	store.dispatch({ type: `PINGPONG/INITTED`, initted: true })
+	connectAPI()
+	return true
+}
+
+export const fetchGeo = () => { 
+	const endpoint = `https://api.ipgeolocation.io/ipgeo?apiKey=${process.env.REACT_APP_API_IPGEO}`
+	axios.get( endpoint )
+		.then( function( response ) {
+			const ipgeo = response.data
+			updateVisitor(`callingCode`, ipgeo.calling_code)
+			updateVisitor(`city`, ipgeo.city)
+			updateVisitor(`continentCode`, ipgeo.continent_code)
+			updateVisitor(`continentName`, ipgeo.continent_name)
+			updateVisitor(`countryName`, ipgeo.country_name)
+			updateVisitor(`countryCapital`, ipgeo.country_capital)
+			updateVisitor(`countryCode2`, ipgeo.country_code2)
+			updateVisitor(`countryCode3`, ipgeo.country_code3)
+			updateVisitor(`countryTld`, ipgeo.country_tld)
+			updateVisitor(`currencyCode`, ipgeo.currency ? ipgeo.currency.code : null)
+			updateVisitor(`currencyName`, ipgeo.currency ? ipgeo.currency.name : null)
+			updateVisitor(`currencySymbol`, ipgeo.currency ? ipgeo.currency.symbol : null)
+			updateVisitor(`district`, ipgeo.district)
+			updateVisitor(`geonameId`, ipgeo.geoname_id)
+			updateVisitor(`ip`, ipgeo.ip)
+			updateVisitor(`isEu`, ipgeo.is_eu)
+			updateVisitor(`isp`, ipgeo.isp)
+			updateVisitor(`languages`, ipgeo.languages)
+			updateVisitor(`lat`, ipgeo.latitude)
+			updateVisitor(`lng`, ipgeo.longitude)
+			updateVisitor(`organization`, ipgeo.organization)
+			updateVisitor(`stateProv`, ipgeo.state_prov)
+			updateVisitor(`timeZone`, ipgeo.time_zone ? ipgeo.time_zone.name : null )
+			updateVisitor(`zipcode`, ipgeo.zipcode)
+			completeInit()
+			return true
+		})
+		.catch(function( error ) { 
+			const store = getStore()
+			store.dispatch({type: `PINGPONG/ERROR`, error})
+			setFeedback({ 
+				severity: `warning`, 
+				message: `Geo Location Error`,
+			})
+			toggleFeedback( true)
+			completeInit()
+			return false
+		})
+	return true
+}
+
+export const userAgent = () => {
+	const ua = parseUa()
 	updateVisitor(`device`, ua.device.type ? `${ ua.device.vendor } ${ua.device.model}` : `desktop` )
 	updateVisitor(`osName`, ua.os.name)
 	updateVisitor(`osVersion`, ua.os.version)
 	updateVisitor(`browserName`, ua.browser.name)
 	updateVisitor(`browserVersion`, ua.browser.version)
 	updateVisitor(`browserMajor`, ua.browser.major)
-	FingerprintJS.load().then(fp => {
-	      fp.get().then(result => {
-	      	updateVisitor(`fingerprint`, result.visitorId )
-	      })
-	    })
+	completeInit()
 	return true
 }
 
@@ -42,44 +131,10 @@ export const updateVisitor = (key, value) => {
 	visitor = {
 		...visitor,
 		[key]: value,
+		updated: Date.now(),
 	}
 	store.dispatch({type: `PINGPONG/VISITOR`, visitor })
 	return true
-}
-
-export const toggleGDPR = bool => { 
-	const store = getStore()
-	store.dispatch({type: `PINGPONG/GDPR`, gdpr: bool })
-	updateVisitor(`gdpr`, bool)
-	return true
-}
-
-export const connectAPI = () => { 
-	const endpoint = `${ process.env.REACT_APP_LISTINGSLAB_API }/ping/`
-	const store = getStore()
-	store.dispatch({ type: `PINGPONG/API/CONNECTING`, connectingAPI: true })
-	axios.get( endpoint )
-		.then(function( res ) {
-			if (res.data.response.data.message === `pong` ){
-				store.dispatch({ type: `PINGPONG/API/CONNECTED`, connectedAPI: true })
-				store.dispatch({ type: `PINGPONG/API/CONNECTING`, connectingAPI: false })
-				store.dispatch({ type: `PINGPONG/API/CONNECT/DONE`, connectAPIDone: true })
-			}
-			return true
-		})
-		.catch(function( error ) {
-			throwError( error )
-			store.dispatch({ type: `PINGPONG/API/CONNECTING`, connectingAPI: false })
-			store.dispatch({ type: `PINGPONG/API/CONNECTED`, connectedAPI: false })
-			store.dispatch({ type: `PINGPONG/API/CONNECT/DONE`, connectAPIDone: true })
-			setFeedback({ 
-				severity: `success`, 
-				message: `Error connecting to API`, 
-				// message: error.toString(),
-			})
-			toggleFeedback( true)
-			return false
-		})
 }
 
 export const gotoURL = (url, target) => { 

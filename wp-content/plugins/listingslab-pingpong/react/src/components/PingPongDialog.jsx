@@ -8,7 +8,7 @@ import {
 } from '@material-ui/core/'
 import { 
 	ToolKit,
-	MessageRead,
+	MessageSingle,
 } from './'
 
 export default function PingPongDialog( props ) {
@@ -26,6 +26,6 @@ export default function PingPongDialog( props ) {
 				maxWidth={ `sm` }
 				onClose={ closeDialog } >
 					<ToolKit />	
-					<MessageRead />
+					<MessageSingle />
 			</Dialog>
 }
