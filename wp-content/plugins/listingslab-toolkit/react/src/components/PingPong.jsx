@@ -8,6 +8,7 @@ import {
     makeStyles,
     Card,
     CardHeader,
+    CardContent,
     Typography,
 } from '@material-ui/core/'
 
@@ -56,9 +57,22 @@ export default function PingPong( props ) {
                                   Greet your visitors. No need to wait for them to contact you. Handles GDPR issues too
                                 </Typography> }
 				/>
-				<pre>
-					{ JSON.stringify( tings, null, 2 ) }
-				</pre>
+				<CardContent>
+					{ tings.map ((item, i) => {
+						return 	<React.Fragment key={ `ting_${i}` }>
+									<Typography>
+									{ item.fingerprint }
+									</Typography>
+								</React.Fragment>
+					}) }
+				</CardContent>
 
 			</Card>
 }
+
+/*
+
+				<pre>
+					{ JSON.stringify( tings, null, 2 ) }
+				</pre>
+*/

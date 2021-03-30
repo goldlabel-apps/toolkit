@@ -63,13 +63,7 @@ export default function ToolKit( props ) {
 	const classes = useStyles()
 	const theme = useTheme()
 	const primaryColor = theme.palette.primary.main
-
-	// const pingpongSlice = useSelector(state => state.pingpong)
- //    const {
- //      gdpr,
- //    } = pingpongSlice
-
- 	const isOpen = true
+ 	const isOpen = false
 
 	return	<div className={clsx( classes.help )}>
 				<Accordion 
@@ -82,7 +76,7 @@ export default function ToolKit( props ) {
 				        <Grid container>
 							<Grid item>
 								<Typography className={clsx( classes.dialogTitleText )}>
-									@_ToolKit
+									About
 								</Typography>
 							</Grid>
 						</Grid>
@@ -91,9 +85,9 @@ export default function ToolKit( props ) {
         				<Grid container>
 	        				<Grid item xs={ 12 }>
 		        				<Typography variant={ `body2` }>
-									A suite of WordPress Plugins which open up a world of 
-									good stuff to any tired old WordPress site. 
-									<Link 
+									Listingslab @_ToolKit is a suite of WordPress Plugins 
+									which open up a world of good stuff to any tired old 
+									WordPress site. View the <Link 
 										className={clsx( classes.link )}
 										onClick={ (e) => {
 											e.preventDefault()
@@ -118,10 +112,26 @@ export default function ToolKit( props ) {
 											<Icon icon={ `wordpress` } color={ primaryColor } />
 										</ListItemIcon>
 										<ListItemText 
-											primary={ `WordPress Admin` }
-											// secondary={ `WordPress Admin Page` }
+											primary={ `WordPress` }
 										/>
 									</ListItem>
+
+									<ListItem 
+										button
+										onClick={ e => {
+											e.preventDefault()
+											gotoURL(`https://github.com/listingslab-software/toolkit`, `_blank`)
+											toggleDialog( false )
+										}}>
+										<ListItemIcon>
+											<Icon icon={ `xml` } color={ `primary` } />
+										</ListItemIcon>
+										<ListItemText 
+											primary={ `GitHub` }
+										/>
+									</ListItem>
+
+
 								</List>
 							</Grid>
 						</Grid>
