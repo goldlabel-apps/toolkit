@@ -1,7 +1,7 @@
 {
   "name": "listingslab-toolkit",
-  "version": "10.0.8",
-  "description": "@_ToolKit WordPress Admin Page",
+  "version": "10.0.9",
+  "description": "Listingslab @_ToolKit WordPress Admin Page",
   "repository": "https://github.com/listingslab-software/toolkit",
   "author": "listingslab <listingslab@gmail.com>",
   "license": "MIT",

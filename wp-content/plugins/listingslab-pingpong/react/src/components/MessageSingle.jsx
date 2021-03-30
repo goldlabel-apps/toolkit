@@ -44,7 +44,6 @@ export default function MessageSingle( props ) {
 	const classes = useStyles()
 	const pingpongSlice = useSelector(state => state.pingpong)
     const {
-    	id,
      	gdprMessage,
     } = pingpongSlice
 
@@ -59,11 +58,7 @@ export default function MessageSingle( props ) {
 
 	return	<div className={clsx( classes.messageBox )}>
 				
-				<CardContent>
-					<Typography>
-						{ id }
-					</Typography>
-				</CardContent>
+				
 				
 				<Accordion 
 					defaultExpanded={ isOpen }
@@ -124,6 +119,14 @@ export default function MessageSingle( props ) {
 }
 
 /*
+
+<CardContent>
+					<Typography>
+						{ id }
+					</Typography>
+				</CardContent>
+
+
 <pre>
 	{ JSON.stringify( visitor, null, 2 )}
 </pre>

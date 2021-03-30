@@ -62,16 +62,18 @@ export default function ToolKit( props ) {
 	
 	const classes = useStyles()
 	const theme = useTheme()
-	const secondaryColor = theme.palette.secondary.main
+	const primaryColor = theme.palette.primary.main
 
 	// const pingpongSlice = useSelector(state => state.pingpong)
  //    const {
  //      gdpr,
  //    } = pingpongSlice
 
+ 	const isOpen = true
+
 	return	<div className={clsx( classes.help )}>
 				<Accordion 
-					defaultExpanded={ false }
+					defaultExpanded={ isOpen }
 					className={clsx( classes.plainAccordion )}>
 					<AccordionSummary
 			          expandIcon={ <Icon icon={`panel-toggle`} color={ `primary` }/> }
@@ -113,7 +115,7 @@ export default function ToolKit( props ) {
 											toggleDialog( false )
 										}}>
 										<ListItemIcon>
-											<Icon icon={ `wordpress` } color={ secondaryColor } />
+											<Icon icon={ `wordpress` } color={ primaryColor } />
 										</ListItemIcon>
 										<ListItemText 
 											primary={ `WordPress Admin` }

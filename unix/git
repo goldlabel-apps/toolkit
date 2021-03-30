@@ -5,4 +5,4 @@ clear
 echo 'GitHub...'
 echo 'BTW... This is not considered good practice...'
 
-git add . && git commit -m 'vs 10.0.8' && git push
+git add . && git commit -m 'vs 10.0.9' && git push
