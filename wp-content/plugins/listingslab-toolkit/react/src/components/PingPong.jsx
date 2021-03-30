@@ -11,6 +11,10 @@ import {
     CardContent,
     Typography,
 } from '@material-ui/core/'
+import {
+	TingPanel,
+	TingFilters,
+} from './'
 
 const useStyles = makeStyles(theme => ({
 	card:{
@@ -58,12 +62,13 @@ export default function PingPong( props ) {
                                 </Typography> }
 				/>
 				<CardContent>
+					<TingFilters />
 					{ tings.map ((item, i) => {
-						return 	<React.Fragment key={ `ting_${i}` }>
+						return 	<TingPanel ting={ item } key={ `ting_${i}` }>
 									<Typography>
 									{ item.fingerprint }
 									</Typography>
-								</React.Fragment>
+								</TingPanel>
 					}) }
 				</CardContent>
 

@@ -11,7 +11,7 @@ import {
   Grid,
 } from '@material-ui/core/'
 import { 
-  APIKey,
+  QuickLinks,
   PingPong,
   Overlay,
 } from './components'
@@ -39,7 +39,7 @@ export default function App() {
               <div className={ clsx( classes.app ) }>
                  <Grid container>
                   <Grid item xs={ 12 } md={ 4 } >
-                      <APIKey />
+                      <QuickLinks />
                     </Grid>
                     <Grid item xs={ 12 } md={ 8 } >
                       <PingPong />

@@ -165,14 +165,3 @@ export default function QuickLinks( props ) {
 				</Accordion>
 			</React.Fragment>
 }
-
-/*
-	const theme = useTheme()
-	const secondary = theme.palette.secondary.main
-
-	const appSlice = useSelector(state => state.app)
-	const {
-		// name,
-     	admin_email,
-    } = appSlice.toolkitData
-*/

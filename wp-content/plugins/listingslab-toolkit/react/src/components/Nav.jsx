@@ -8,7 +8,6 @@ import {
     ListItemIcon,
 } from '@material-ui/core/'
 import { Icon } from '../theme'
-import { QuickLinks } from './'
 
 
 const useStyles = makeStyles(theme => ({
@@ -31,7 +30,6 @@ export default function Nav( props ) {
 	const classes = useStyles() 
 
 	return	<React.Fragment>
-				<QuickLinks />
 					
 				<List dense className={ clsx (classes.none) }>
 					<ListItem 

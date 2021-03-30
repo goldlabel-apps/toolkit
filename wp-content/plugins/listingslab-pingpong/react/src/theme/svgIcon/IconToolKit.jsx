@@ -4,7 +4,7 @@ import { SvgIcon } from '@material-ui/core'
 const IconToolKit = props => {
     
     const { fill } = props
-    let f = `#57b3f2`
+    let f = `#2075d0`
     if (fill) {
         f = fill
     }
