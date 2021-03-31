@@ -15,7 +15,7 @@ import {
   createMuiTheme,
   IconButton,
   Badge,
-  CircularProgress,
+  LinearProgress,
 } from '@material-ui/core/'
 import { Icon } from './theme'
 import { 
@@ -30,15 +30,22 @@ const useStyles = makeStyles((theme) => ({
   topRight: {
     zIndex: 12345,
     position: 'fixed',
-    top: theme.spacing(),
-    right: theme.spacing(),
+    // top: theme.spacing(),
+    // right: theme.spacing(),
+    top: 0,
+    right: 0,
   },
+  progress:{
+    zIndex: 123456,
+    position: 'fixed',
+    width: '100%',
+    top: 0,
+  }
 }))
 
 export default function App() {  
 
     const classes = useStyles()
-
     const pingpongSlice = useSelector(state => state.pingpong)
     const {
       error,
@@ -58,34 +65,33 @@ export default function App() {
         if ( !initting && !initted ) initPingPong()
     }, [pingpongSlice])
 
-    if ( error ) return <MuiThemeProvider theme={createMuiTheme(theme)}>
+    if ( error ) return <MuiThemeProvider theme={ createMuiTheme(theme) }>
                           <Feedback />
                          </MuiThemeProvider>                         
 
-    if ( !id ) return <MuiThemeProvider theme={createMuiTheme(theme)}>
-                        <CircularProgress color={ `inherit` } />
+    if ( !id ) return <MuiThemeProvider theme={ createMuiTheme(theme) }>
+                        <div className={ clsx( classes.progress ) }>
+                          <LinearProgress color={ `secondary` } />
+                        </div>
                       </MuiThemeProvider> 
 
-    return <MuiThemeProvider theme={createMuiTheme(theme)}>
+    return <MuiThemeProvider theme={ createMuiTheme(theme) }>
               <div className={ clsx( classes.appWrap ) }>
                   { overlay ? <Overlay /> : null }
                   { feedback ? <Feedback /> : null }
                   { dialog ? <PingPongDialog /> : <div className={ clsx( classes.topRight ) }>
-
-                    <Tooltip
-                         title={ `@_ToolKit` }
-                         aria-label={ `by Listingslan` }
-                       >
+                    <Tooltip title={ `@_ToolKit` } aria-label={ `by Listingslab` }>
                         <IconButton
                           component={ `div` }
                           onClick={ (e) => {
                             e.preventDefault()
                             toggleDialog( true )
                           }}>
-                      <Badge badgeContent={ unread } color={ `primary` } >
-                        <Icon icon={ `toolkit` } color={ 'primary' } />
-                      </Badge>
-                    </IconButton></Tooltip>
+                        <Badge badgeContent={ unread } color={ `primary` } >
+                          <Icon icon={ `toolkit` } color={ 'primary' } />
+                        </Badge>
+                      </IconButton>
+                    </Tooltip>
                   </div> }
               </div>
             </MuiThemeProvider> 
