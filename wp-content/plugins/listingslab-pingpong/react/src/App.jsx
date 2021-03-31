@@ -30,8 +30,8 @@ const useStyles = makeStyles((theme) => ({
   topRight: {
     zIndex: 12345,
     position: 'fixed',
-    top: 0,
-    right: 0,
+    top: theme.spacing(),
+    right: theme.spacing(),
   },
 }))
 
@@ -69,10 +69,8 @@ export default function App() {
     return <MuiThemeProvider theme={createMuiTheme(theme)}>
               <div className={ clsx( classes.appWrap ) }>
                   { overlay ? <Overlay /> : null }
-                  { dialog ? <PingPongDialog /> : null }
                   { feedback ? <Feedback /> : null }
-
-                  <div className={ clsx( classes.topRight ) }>
+                  { dialog ? <PingPongDialog /> : <div className={ clsx( classes.topRight ) }>
 
                     <Tooltip
                          title={ `@_ToolKit` }
@@ -88,9 +86,7 @@ export default function App() {
                         <Icon icon={ `toolkit` } color={ 'primary' } />
                       </Badge>
                     </IconButton></Tooltip>
-
-                  </div>
-                  
+                  </div> }
               </div>
             </MuiThemeProvider> 
 }

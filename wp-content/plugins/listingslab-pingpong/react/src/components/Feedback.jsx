@@ -2,6 +2,7 @@ import React from 'react'
 import clsx from 'clsx'
 import { useSelector } from 'react-redux'
 import {
+  setFeedback,
   toggleFeedback,
 } from '../redux/pingpong/actions'
 import {    
@@ -41,6 +42,7 @@ export default function Feedback() {
     if (reason === 'clickaway') {
       return
     }
+    setFeedback( null )
     toggleFeedback( false )
   }
 

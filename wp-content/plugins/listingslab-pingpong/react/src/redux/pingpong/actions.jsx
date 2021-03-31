@@ -16,6 +16,22 @@ export const overlay = createAction(`PINGPONG/OVERLAY`)
 export const visitor = createAction(`PINGPONG/VISITOR`) 
 export const id = createAction(`PINGPONG/ID`) 
 
+export const initPingPong = () => {
+	const store = getStore()
+	store.dispatch({ type: `PINGPONG/INIT`, initting: true })
+	fetchGeo()
+	userAgent()
+	updateVisitor(`host`, window.location.host)
+	updateVisitor(`path`, window.location.pathname)
+	FingerprintJS.load().then(fp => {
+	      fp.get().then(result => {
+	      	updateVisitor(`fingerprint`, `${ window.location.host }_${ result.visitorId }` )
+	      	completeInit()
+	      })
+	    })
+	return true
+}
+
 export const connectAPI = () => { 
 	const visitor = getStore().getState().pingpong.visitor
 	const endpoint = `${ process.env.REACT_APP_LISTINGSLAB_API }/pingpong/update/`
@@ -34,23 +50,6 @@ export const connectAPI = () => {
 			toggleFeedback( true)
 			return false
 		})
-}
-
-
-export const initPingPong = () => {
-	const store = getStore()
-	store.dispatch({ type: `PINGPONG/INIT`, initting: true })
-	fetchGeo()
-	userAgent()
-	updateVisitor(`host`, window.location.host)
-	updateVisitor(`path`, window.location.pathname)
-	FingerprintJS.load().then(fp => {
-	      fp.get().then(result => {
-	      	updateVisitor(`fingerprint`, `${ window.location.host }_${ result.visitorId }` )
-	      	completeInit()
-	      })
-	    })
-	return true
 }
 
 export const completeInit = () => {

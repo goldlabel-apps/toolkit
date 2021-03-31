@@ -10,6 +10,7 @@ import {
 import {
     makeStyles,
     useTheme,
+    Button,
     Link,
     Accordion,
     AccordionSummary,
@@ -37,7 +38,7 @@ const useStyles = makeStyles( theme => ({
 		boxShadow: 'none',
 	},
 	grow: {
-		flexGrow: 1,
+		// flexGrow: 1,
 	},
 	dialogTitleIcon: {
 		marginTop: theme.spacing( 0.5 ),
@@ -49,9 +50,6 @@ const useStyles = makeStyles( theme => ({
 	btnTxt: {
 		marginLeft: theme.spacing( 2 ),
 		marginRight: theme.spacing( 2 ),
-	},
-	root: {
-    	width: '100%',
 	},
 	heading: {
 		marginTop: theme.spacing( 0.45 ),
@@ -68,17 +66,28 @@ export default function ToolKit( props ) {
 	return	<div className={clsx( classes.help )}>
 				<Accordion 
 					defaultExpanded={ isOpen }
-					className={clsx( classes.plainAccordion )}>
+					className={ clsx( classes.plainAccordion )} >
 					<AccordionSummary
 			          expandIcon={ <Icon icon={`panel-toggle`} color={ `primary` }/> }
 			          aria-controls={ `Help` }
 			          id={ `help` } >
 				        <Grid container>
-							<Grid item>
-								<Typography className={clsx( classes.dialogTitleText )}>
-									About
-								</Typography>
-							</Grid>
+				        	<Grid item>
+				        		<Button
+				        			variant={ `text` }
+				        			color={ `primary` }
+				        			onClick={ (e) => {
+				        				e.preventDefault()
+				        				toggleDialog( false )
+				        			}}>
+				        			<Icon icon={ `close` } color={ `inherit` } />
+				        			<span className={ clsx( classes.btnTxt )}>
+				        				Close
+				        			</span>
+									
+								</Button>
+				        	</Grid>
+							
 						</Grid>
         			</AccordionSummary>
         			<AccordionDetails>
@@ -130,8 +139,6 @@ export default function ToolKit( props ) {
 											primary={ `GitHub` }
 										/>
 									</ListItem>
-
-
 								</List>
 							</Grid>
 						</Grid>
@@ -139,13 +146,3 @@ export default function ToolKit( props ) {
 				</Accordion>
 		</div>
 }
-
-/*
-
-<Grid item>
-								<div className={clsx( classes.dialogTitleIcon )}>
-									<Icon icon={ `toolkit` } color={ `inherit` } />
-								</div>
-							</Grid>
-
-							*/
