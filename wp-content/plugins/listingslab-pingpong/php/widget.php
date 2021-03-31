@@ -8,17 +8,17 @@ class pingpong_Widget extends WP_Widget {
  
     function widget( $args, $instance ) {
 
-        $fields = array(
-            'name', 
-            'description', 
-            'wpurl',
-            'admin_email', 
-        );
+        // $fields = array(
+        //     'name', 
+        //     'description', 
+        //     'wpurl',
+        //     'admin_email', 
+        // );
 
-        $data = array();
-        foreach($fields as $field) {
-            $data[$field] = get_bloginfo($field);
-        }
+        // $data = array();
+        // foreach($fields as $field) {
+        //     $data[$field] = get_bloginfo($field);
+        // }
         
        
         $html = file_get_contents(plugin_dir_path( __DIR__ ) . 'react/build/index.html');
@@ -26,10 +26,10 @@ class pingpong_Widget extends WP_Widget {
             'react/build/static', $html);
         $html = str_replace('src="/static', 'src="'. plugin_dir_url( __DIR__ ) .
             'react/build/static', $html);
-        echo '<script>';
-        echo 'var bloginfo = ' . json_encode($data) . ';';
-        echo 'var title = "' . $instance['title'] . '";';
-        echo '</script>';
+        // echo '<script>';
+        // echo 'var bloginfo = ' . json_encode($data) . ';';
+        // echo 'var title = "' . $instance['title'] . '";';
+        // echo '</script>';
         echo $html;
     }
 

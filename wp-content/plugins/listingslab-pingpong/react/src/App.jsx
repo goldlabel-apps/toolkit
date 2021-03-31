@@ -26,6 +26,12 @@ import {
 const useStyles = makeStyles((theme) => ({
   appWrap: {
   },
+  topRight: {
+    zIndex: 12345,
+    position: 'fixed',
+    top: 0,
+    right: 0,
+  },
 }))
 
 export default function App() {  
@@ -58,29 +64,34 @@ export default function App() {
                   { overlay ? <Overlay /> : null }
                   { dialog ? <PingPongDialog /> : null }
                   { feedback ? <Feedback /> : null }
-                  { error ? <IconButton
-                    component={ `div` }
-                    onClick={ (e) => {
-                      e.preventDefault()
-                      alert ('API Connection Failed :(')
-                    }}>
-                      <Icon icon={ `error` } color={ `error` } />
-                  </IconButton> : null }
 
-                  <Tooltip
-                       title={ `@_ToolKit` }
-                       aria-label={ `by Listingslan` }
-                     >
-                      <IconButton
-                        component={ `div` }
-                        onClick={ (e) => {
-                          e.preventDefault()
-                          toggleDialog( true )
-                        }}>
-                    <Badge badgeContent={ unread } color={ `primary` } >
-                      <Icon icon={ `toolkit` } color={ 'primary' } />
-                    </Badge>
-                  </IconButton></Tooltip>
+                  <div className={ clsx( classes.topRight ) }>
+
+                    { error ? <IconButton
+                      component={ `div` }
+                      onClick={ (e) => {
+                        e.preventDefault()
+                        alert ('API Connection Failed :(')
+                      }}>
+                        <Icon icon={ `error` } color={ `error` } />
+                    </IconButton> : null }
+
+                    <Tooltip
+                         title={ `@_ToolKit` }
+                         aria-label={ `by Listingslan` }
+                       >
+                        <IconButton
+                          component={ `div` }
+                          onClick={ (e) => {
+                            e.preventDefault()
+                            toggleDialog( true )
+                          }}>
+                      <Badge badgeContent={ unread } color={ `primary` } >
+                        <Icon icon={ `toolkit` } color={ 'primary' } />
+                      </Badge>
+                    </IconButton></Tooltip>
+
+                  </div>
                   
               </div>
             </MuiThemeProvider> 

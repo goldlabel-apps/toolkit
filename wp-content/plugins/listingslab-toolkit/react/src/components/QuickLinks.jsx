@@ -46,7 +46,7 @@ const useStyles = makeStyles(theme => ({
 export default function QuickLinks( props ) {
 	
 	const classes = useStyles() 
-	const isOpen = false
+	const isOpen = true
 
 	return	<React.Fragment>
 				<Accordion 
@@ -79,24 +79,9 @@ export default function QuickLinks( props ) {
 									<Icon icon={ `link` } color={ `primary` } />
 								</ListItemIcon>
 								<ListItemText 
-									primary={ `WordPress Home` }
+									primary={ `Homepage` }
 								/>
 							</ListItem>
-
-							<ListItem 
-								button
-								onClick={ e => {
-									e.preventDefault()
-									gotoURL(`https://listingslab.com`, `_blank`)
-								}}>
-								<ListItemIcon>
-									<Icon icon={ `link` } color={ `primary` } />
-								</ListItemIcon>
-								<ListItemText 
-									primary={ `listingslab.com` }
-								/>
-							</ListItem>
-
 
         					<ListItem 
 								button
@@ -111,9 +96,6 @@ export default function QuickLinks( props ) {
 									primary={ `GitHub` }
 								/>
 							</ListItem> 
-
-							
-
 
 							<ListItem 
 								button
@@ -143,8 +125,6 @@ export default function QuickLinks( props ) {
 								/>
 							</ListItem>
 
-
-
 							<ListItem 
 								button
 								onClick={ e => {
@@ -159,6 +139,19 @@ export default function QuickLinks( props ) {
 								/>
 							</ListItem>
 
+							<ListItem 
+								button
+								onClick={ e => {
+									e.preventDefault()
+									gotoURL(`https://listingslab.com`, `_blank`)
+								}}>
+								<ListItemIcon>
+									<Icon icon={ `link` } color={ `primary` } />
+								</ListItemIcon>
+								<ListItemText 
+									primary={ `listingslab.com` }
+								/>
+							</ListItem>
 
         				</List>
 					</AccordionDetails>

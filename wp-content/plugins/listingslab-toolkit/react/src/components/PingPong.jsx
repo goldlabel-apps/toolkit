@@ -1,49 +1,61 @@
 import React from 'react'
+import clsx from 'clsx'
 import { useSelector } from 'react-redux'
 import {
-	subscribeTings,
+  subscribeTings,
 } from '../redux/pingpong/actions'
-import clsx from 'clsx'
 import {
     makeStyles,
-    Card,
-    CardHeader,
-    CardContent,
+    useScrollTrigger,
     Typography,
+    Box,
+    Container,
+    CardContent,
 } from '@material-ui/core/'
 import {
-	TingPanel,
-	TingFilters,
+  TingPanel,
+  TingFilters,
 } from './'
 
 const useStyles = makeStyles(theme => ({
-	card:{
-		margin: theme.spacing(),
-		// minHeight: 325,
-	},
-	btnTxt: {
-		marginRight: theme.spacing(),
-		marginLeft: theme.spacing(),
-	},
-	noShadow: {
-		boxShadow: 'none',
-	},
-	title: {
-		color: theme.palette.primary.main,
-	}
+  card:{
+    margin: theme.spacing(),
+    // minHeight: 325,
+  },
+  btnTxt: {
+    marginRight: theme.spacing(),
+    marginLeft: theme.spacing(),
+  },
+  noShadow: {
+    boxShadow: 'none',
+  },
+  title: {
+    color: theme.palette.primary.main,
+  }
 }))
 
-export default function PingPong( props ) {
-	
-	const classes = useStyles()
+function ElevationScroll(props) {
+  const { children, window } = props
+  const trigger = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: 0,
+    target: window ? window() : undefined,
+  })
+  return React.cloneElement(children, {
+    elevation: trigger ? 4 : 0,
+  })
+}
 
-	const pingpongSlice = useSelector(state => state.pingpong)
-	const {
-		// error,
-		tings,
-	} = pingpongSlice
+export default function PingPong(props) {
 
-	React.useEffect(() => {
+  const classes = useStyles()
+
+  const pingpongSlice = useSelector(state => state.pingpong)
+  const {
+    tings,
+  } = pingpongSlice
+
+  React.useEffect(() => {
         const {
           subscribedTings,
           subscribingTings,
@@ -51,33 +63,24 @@ export default function PingPong( props ) {
         if ( !subscribedTings && !subscribingTings ) subscribeTings()
     }, [pingpongSlice])
 
-	return	<Card className={ clsx( classes.card, classes.noShadow ) }>
-				<CardHeader 
-					disableTypography
-					title={ <Typography gutterBottom className={ clsx( classes.title ) }>
-                              @PingPong
-                            </Typography> }
-					subheader={ <Typography>
-                                  Greet your visitors. No need to wait for them to contact you. Handles GDPR issues too
-                                </Typography> }
-				/>
-				<CardContent>
-					<TingFilters />
-					{ tings.map ((item, i) => {
-						return 	<TingPanel ting={ item } key={ `ting_${i}` }>
-									<Typography>
-									{ item.fingerprint }
-									</Typography>
-								</TingPanel>
-					}) }
-				</CardContent>
-
-			</Card>
+  return (
+    <React.Fragment>
+      <ElevationScroll {...props}>
+        <CardContent>
+          <TingFilters/>
+        </CardContent>
+      </ElevationScroll>
+      <Container>
+        <Box className={ clsx( classes.none ) }>
+          { tings.map ((item, i) => {
+            return  <TingPanel ting={ item } key={ `ting_${i}` }>
+                  <Typography>
+                  { item.fingerprint }
+                  </Typography>
+                </TingPanel>
+          }) }
+        </Box>
+      </Container>
+    </React.Fragment>
+  )
 }
-
-/*
-
-				<pre>
-					{ JSON.stringify( tings, null, 2 ) }
-				</pre>
-*/
