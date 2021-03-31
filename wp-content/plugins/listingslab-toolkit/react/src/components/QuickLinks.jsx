@@ -14,8 +14,8 @@ import {
     Accordion,
     AccordionSummary,
     AccordionDetails,
-    Grid,
-    Typography,
+    // Grid,
+    // Typography,
 } from '@material-ui/core/'
 import { Icon } from '../theme'
 
@@ -46,7 +46,7 @@ const useStyles = makeStyles(theme => ({
 export default function QuickLinks( props ) {
 	
 	const classes = useStyles() 
-	const isOpen = true
+	const isOpen = false
 
 	return	<React.Fragment>
 				<Accordion 
@@ -57,14 +57,7 @@ export default function QuickLinks( props ) {
 			          expandIcon={ <Icon icon={`panel-toggle`} color={ `primary` }/> }
 			          aria-controls={ `Help` }
 			          id={ `help` } >
-				        <Grid container>
-							<Grid item>
-								<Typography variant={ `button` } 
-									className={ clsx( classes.btnTxt, classes.title ) }>
-									{ `Quick Links` }
-								</Typography>
-							</Grid>
-						</Grid>
+				        
         			</AccordionSummary>
         			<AccordionDetails>
         				
@@ -158,3 +151,14 @@ export default function QuickLinks( props ) {
 				</Accordion>
 			</React.Fragment>
 }
+
+/*
+<Grid container>
+							<Grid item>
+								<Typography variant={ `button` } 
+									className={ clsx( classes.btnTxt, classes.title ) }>
+									{ `Quick Links` }
+								</Typography>
+							</Grid>
+						</Grid>
+*/

@@ -38,10 +38,10 @@ export default function App() {
               <Overlay />
               <div className={ clsx( classes.app ) }>
                  <Grid container>
-                  <Grid item xs={ 12 } md={ 4 } >
+                  <Grid item xs={ 12 } md={ 12 } >
                       <QuickLinks />
                     </Grid>
-                    <Grid item xs={ 12 } md={ 8 } >
+                    <Grid item xs={ 12 } md={ 12 } >
                       <PingPong />
                     </Grid>
                   </Grid>

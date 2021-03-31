@@ -28,7 +28,7 @@ export const connectAPI = () => {
 		.catch(function( error ) {
 			throwError( error )
 			setFeedback({ 
-				severity: `success`, 
+				severity: `error`, 
 				message: `Error connecting to API`,
 			})
 			toggleFeedback( true)

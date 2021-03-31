@@ -5,7 +5,7 @@
  * @package           listingslab-pingpong
  *
  * @wordpress-plugin
- * Version:           10.1.0
+ * Version:           10.1.1
  * Plugin Name:       @PingPong
  * Description:       Greet your visitors. No need to wait for them to contact you. Handles GDPR issues too. Requires @_ToolKit Manager
  * Plugin URI:        https://github.com/listingslab-software/toolkit
@@ -18,7 +18,7 @@
  */
 
 defined( 'ABSPATH' ) or die( 'Really?' );
-define( 'pingpong_VERSION', '10.1.0' );
+define( 'pingpong_VERSION', '10.1.1' );
 
 require_once 'php/PingPong.php';
 $PingPong = PingPong::GetInstance();

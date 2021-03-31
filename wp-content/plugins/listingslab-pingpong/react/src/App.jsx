@@ -15,6 +15,7 @@ import {
   createMuiTheme,
   IconButton,
   Badge,
+  CircularProgress,
 } from '@material-ui/core/'
 import { Icon } from './theme'
 import { 
@@ -57,7 +58,13 @@ export default function App() {
         if ( !initting && !initted ) initPingPong()
     }, [pingpongSlice])
 
-    if ( !id ) return null
+    if ( error ) return <MuiThemeProvider theme={createMuiTheme(theme)}>
+                          <Feedback />
+                         </MuiThemeProvider>                         
+
+    if ( !id ) return <MuiThemeProvider theme={createMuiTheme(theme)}>
+                        <CircularProgress color={ `inherit` } />
+                      </MuiThemeProvider> 
 
     return <MuiThemeProvider theme={createMuiTheme(theme)}>
               <div className={ clsx( classes.appWrap ) }>
@@ -66,15 +73,6 @@ export default function App() {
                   { feedback ? <Feedback /> : null }
 
                   <div className={ clsx( classes.topRight ) }>
-
-                    { error ? <IconButton
-                      component={ `div` }
-                      onClick={ (e) => {
-                        e.preventDefault()
-                        alert ('API Connection Failed :(')
-                      }}>
-                        <Icon icon={ `error` } color={ `error` } />
-                    </IconButton> : null }
 
                     <Tooltip
                          title={ `@_ToolKit` }

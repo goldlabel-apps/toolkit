@@ -14,8 +14,7 @@ function Alert(props) {
   return  <MuiAlert 
             elevation={ 6 } 
             variant={ `filled` } 
-            {...props}
-          />
+            {...props}/>
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -30,7 +29,6 @@ export default function Feedback() {
 
   const pingpongSlice = useSelector(state => state.pingpong)
   const {
-    
     feedbackObj,
   } = pingpongSlice
   if ( !feedbackObj ) return null
