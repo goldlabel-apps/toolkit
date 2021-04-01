@@ -114,6 +114,7 @@ class ToolKit{
 
       public function InitPlugin(){
         add_action('admin_menu', array( $this, 'PluginMenu' ));
+        add_filter('show_admin_bar', '__return_false');
       }
   
  }

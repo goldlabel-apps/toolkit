@@ -30,16 +30,15 @@ const useStyles = makeStyles((theme) => ({
   topRight: {
     zIndex: 12345,
     position: 'fixed',
-    // top: theme.spacing(),
-    // right: theme.spacing(),
-    top: 0,
-    right: 0,
+    top: theme.spacing(0.5),
+    right: theme.spacing(0.5),
   },
   progress:{
     zIndex: 123456,
     position: 'fixed',
     width: '100%',
     top: 0,
+    left: 0,
   }
 }))
 
