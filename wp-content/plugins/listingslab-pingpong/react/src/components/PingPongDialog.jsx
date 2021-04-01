@@ -22,7 +22,7 @@ export default function PingPongDialog( props ) {
 
 	const classes = useStyles()
 	let isMobile = !useMediaQuery( '( min-width: 600px )' )
-	let fullScreen = true
+	let fullScreen = false
 	if (isMobile){
 		fullScreen = true
 	}
