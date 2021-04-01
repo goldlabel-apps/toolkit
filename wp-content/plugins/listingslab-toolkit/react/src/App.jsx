@@ -8,7 +8,6 @@ import {
   makeStyles,
   MuiThemeProvider, 
   createMuiTheme,
-  Grid,
 } from '@material-ui/core/'
 import { 
   QuickLinks,
@@ -18,15 +17,6 @@ import {
 
 const useStyles = makeStyles((theme) => ({
   app: {
-    marginTop: theme.spacing(2),
-    marginRight: theme.spacing(),
-  },
-  card:{
-    margin: theme.spacing(),
-    background: 'none',
-    boxRadius: 'none',
-    boxShadow: 'none',
-    border: 'none',
   },
 }))
 
@@ -35,46 +25,10 @@ export default function App() {
     const classes = useStyles()    
 
     return <MuiThemeProvider theme={createMuiTheme(theme)}>
-              <Overlay />
               <div className={ clsx( classes.app ) }>
-                 <Grid container>
-                  <Grid item xs={ 12 } md={ 12 } >
-                      <QuickLinks />
-                    </Grid>
-                    <Grid item xs={ 12 } md={ 12 } >
-                      <PingPong />
-                    </Grid>
-                  </Grid>
+                <Overlay />
+                <QuickLinks />
+                <PingPong />
               </div>
             </MuiThemeProvider> 
 }
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-<Grid item xs={ 12 } >
-                      <ButtonAppBar />
-                    </Grid>
-
-<Card className={ clsx( classes.card ) }>
-                  <CardHeader 
-                    disableTypography
-                    action={ <Avatar src={ avatar } /> }
-                    title={ <Typography variant={ `h6` }>
-                              { name }
-                            </Typography> }
-                    // subheader={ <Typography  variant={ `body1` }>
-                    //               { description }
-                    //             </Typography> }
-                  />
-                </Card>
-*/

@@ -6,6 +6,7 @@ import {
 import clsx from 'clsx'
 import {
     makeStyles,
+    Button,
     // useTheme,
     List,
     ListItem,
@@ -57,8 +58,19 @@ export default function QuickLinks( props ) {
 			          expandIcon={ <Icon icon={`panel-toggle`} color={ `primary` }/> }
 			          aria-controls={ `Help` }
 			          id={ `help` } >
+
+			              <Button 
+				            variant={ `text` }
+				            color={ `default` }>
+				              <Icon icon={ `food` } color={ `primary` } />
+				              <span className={ clsx( classes.btnTxt )  }>
+				              	Links
+				              </span>
+				          </Button> 
 				        
         			</AccordionSummary>
+        			
+
         			<AccordionDetails>
         				
         				<List dense className={ clsx (classes.fullW) }>

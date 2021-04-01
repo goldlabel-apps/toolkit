@@ -10,16 +10,20 @@ import {
     makeStyles,
     FormGroup,
 	FormControlLabel,
-    AppBar,
-    Toolbar,
     Checkbox,
+    Button,
+    Collapse,
 } from '@material-ui/core/'
-// import { Icon } from '../theme'
+import { Icon } from '../theme'
 
 const useStyles = makeStyles(theme => ({
 	tingFilters:{
 		marginLeft: theme.spacing(),
 		marginRight: theme.spacing(),
+	},
+	btnTxt: {
+		marginRight: theme.spacing(),
+		marginLeft: theme.spacing(),
 	},
 	plainAppbar:{
 		border: 'none',
@@ -40,59 +44,73 @@ export default function TingFilters( props ) {
 		showBrowser, 
 	} = pingpongSlice
 
+	const [open, setOpen] = React.useState( false )
+
 	return	<div className={ clsx( classes.tingFilters ) } >
-				<AppBar 
-					position={ `static` } 
-					color={ `default` }
-					className={ clsx( classes.plainAppbar ) }
-				>
-		          <Toolbar>
-					<FormGroup>
-
-						<FormControlLabel
-							label={ `ID` }
-					        control={
-					          <Checkbox 
-					          	checked={ showId }
-					          	color={ `secondary` }
-					            name={ `showIdToggle` }
-					          	onClick={ (e) => {
+				
+	          		<Button 
+			            variant={ `text` }
+			            color={ `default` }
+			            onClick={ (e) => {
 					          		e.preventDefault() 
-					          		toggleShowId( !showId )
-					          	}}
-					          />
-					        }/>
+					          		setOpen( !open )
+					          	}}>
+			              <Icon icon={ `settings` } color={ `primary` } />
+			              <span className={ clsx( classes.btnTxt )  }>
+			              	Filter Settings
+			              </span>
+			        </Button> 
 
-						<FormControlLabel
-							label={ `Host` }
-					        control={
-					          <Checkbox 
-					          	checked={ showHost }
-					          	color={ `secondary` }
-					            name={ `showHostToggle` }
-					          	onClick={ (e) => {
-					          		e.preventDefault() 
-					          		toggleShowHost( !showHost )
-					          	}}
-					          />
-					        }/>
+					<Collapse 
+						in={ open } 
+						timeout="auto" 
+						unmountOnExit
+					>
+						<FormGroup>
+
+							<FormControlLabel
+								label={ `ID` }
+						        control={
+						          <Checkbox 
+						          	checked={ showId }
+						          	color={ `secondary` }
+						            name={ `showIdToggle` }
+						          	onClick={ (e) => {
+						          		e.preventDefault() 
+						          		toggleShowId( !showId )
+						          	}}
+						          />
+						        }/>
+
+							<FormControlLabel
+								label={ `Host` }
+						        control={
+						          <Checkbox 
+						          	checked={ showHost }
+						          	color={ `secondary` }
+						            name={ `showHostToggle` }
+						          	onClick={ (e) => {
+						          		e.preventDefault() 
+						          		toggleShowHost( !showHost )
+						          	}}
+						          />
+						        }/>
 
 
-						<FormControlLabel
-							label={ `Browser` }
-					        control={
-					          <Checkbox 
-					          	checked={ showBrowser }
-					          	color={ `secondary` }
-					            name={ `showBrowserToggle` }
-					          	onClick={ (e) => {
-					          		e.preventDefault() 
-					          		toggleShowBrowser( !showBrowser )
-					          	}}
-					          />
-					        }/>
-    				</FormGroup>
-		          </Toolbar>
-		        </AppBar>
+							<FormControlLabel
+								label={ `Browser` }
+						        control={
+						          <Checkbox 
+						          	checked={ showBrowser }
+						          	color={ `secondary` }
+						            name={ `showBrowserToggle` }
+						          	onClick={ (e) => {
+						          		e.preventDefault() 
+						          		toggleShowBrowser( !showBrowser )
+						          	}}
+						          />
+						        }/>
+	    				</FormGroup>
+    				</Collapse>
 			</div>
 }

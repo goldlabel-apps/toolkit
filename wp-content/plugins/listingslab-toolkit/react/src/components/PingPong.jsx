@@ -19,7 +19,7 @@ import {
 
 const useStyles = makeStyles(theme => ({
   card:{
-    margin: theme.spacing(),
+    // margin: theme.spacing(),
     // minHeight: 325,
   },
   btnTxt: {

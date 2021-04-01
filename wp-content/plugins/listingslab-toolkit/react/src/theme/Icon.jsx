@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { withStyles } from '@material-ui/core/styles'
-import CannastoreLogo from './jsx/CannastoreLogo'
+import WordPress from './jsx/WordPress'
 import IconDefault from '@material-ui/icons/Help'
 import IconSkip from '@material-ui/icons/SkipNextRounded'
 import IconXML from '@material-ui/icons/Code'
@@ -91,8 +91,8 @@ class Icon extends Component {
             case `none`:
                 return null
 
-            case 'logo': 
-                return <CannastoreLogo className={classes.iconButton} color={iconColor} />
+            case 'wordpress': 
+                return <WordPress className={classes.iconButton} color={iconColor} />
 
             case `cart`:
                 return (<IconCart color={iconColor} />)   

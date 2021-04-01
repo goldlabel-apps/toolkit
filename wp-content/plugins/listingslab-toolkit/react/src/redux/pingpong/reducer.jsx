@@ -14,7 +14,7 @@ export const pingpongSlice = {
   tings: [],
   subscribedTings: false,
   subscribingTings: false,
-  showId: false,
+  showId: true,
   showHost: true,
   showBrowser: true,
 }
