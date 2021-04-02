@@ -8,9 +8,9 @@ import {
     makeStyles,
     useScrollTrigger,
     Typography,
-    Box,
     Container,
     CardContent,
+    Grid,
 } from '@material-ui/core/'
 import {
   TingPanel,
@@ -71,15 +71,31 @@ export default function PingPong(props) {
         </CardContent>
       </ElevationScroll>
       <Container>
-        <Box className={ clsx( classes.none ) }>
+
+      <Grid container>
+        
+        
+
+        <Grid item xs={ 6 } >
+          <Typography variant={ `button` } 
+            className={ clsx( classes.btnTxt, classes.title ) }>
+            { `Selected` }
+          </Typography>
+        </Grid>
+
+        <Grid item xs={ 6 } >
           { tings.map ((item, i) => {
             return  <TingPanel ting={ item } key={ `ting_${i}` }>
-                  <Typography>
-                  { item.fingerprint }
-                  </Typography>
-                </TingPanel>
-          }) }
-        </Box>
+                      <Typography>
+                      { item.fingerprint }
+                      </Typography>
+                    </TingPanel>
+          })}
+        </Grid>
+
+      </Grid>
+        
+          
       </Container>
     </React.Fragment>
   )

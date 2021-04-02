@@ -1,5 +1,4 @@
 import React from 'react'
-// import { useSelector } from 'react-redux'
 import {
 	gotoURL,
 } from '../redux/app/actions'
@@ -7,7 +6,6 @@ import clsx from 'clsx'
 import {
     makeStyles,
     Button,
-    // useTheme,
     List,
     ListItem,
     ListItemText,
@@ -15,8 +13,6 @@ import {
     Accordion,
     AccordionSummary,
     AccordionDetails,
-    // Grid,
-    // Typography,
 } from '@material-ui/core/'
 import { Icon } from '../theme'
 
@@ -159,6 +155,9 @@ export default function QuickLinks( props ) {
 							</ListItem>
 
         				</List>
+
+
+
 					</AccordionDetails>
 				</Accordion>
 			</React.Fragment>
@@ -166,11 +165,11 @@ export default function QuickLinks( props ) {
 
 /*
 <Grid container>
-							<Grid item>
-								<Typography variant={ `button` } 
-									className={ clsx( classes.btnTxt, classes.title ) }>
-									{ `Quick Links` }
-								</Typography>
-							</Grid>
-						</Grid>
+	<Grid item>
+		<Typography variant={ `button` } 
+			className={ clsx( classes.btnTxt, classes.title ) }>
+			{ `Quick Links` }
+		</Typography>
+	</Grid>
+</Grid>
 */
