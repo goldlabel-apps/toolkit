@@ -9,6 +9,8 @@ import Flickr from './Flickr'
 import Instagram from './Instagram'
 import Vimeo from './Vimeo'
 import Youtube from './Youtube'
+import ToolKit from './ToolKit'
+
 
 export {
 	Youtube,
@@ -22,4 +24,5 @@ export {
 	WordPress,
 	Blokey,
 	Firestore,
+	ToolKit,
 }

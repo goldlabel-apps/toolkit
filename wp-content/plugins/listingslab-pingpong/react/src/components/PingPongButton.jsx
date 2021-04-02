@@ -25,10 +25,9 @@ const useStyles = makeStyles( theme => ({
     flexGrow: 1,
   },
   fabButton: {
-    background: 'white',
     position: 'absolute',
-    boxShadow: 'none',
-    zIndex: 1,
+    padding: theme.spacing(),
+    zIndex: 123456,
     top: 0,
     left: 0,
     right: 0,
@@ -47,14 +46,14 @@ export default function BottomAppBar() {
           <Toolbar>
             <Fab 
               className={ clsx(classes.fabButton) }
-              color={ `default` } 
+              color={ `primary` } 
               aria-label={ `ToolKit` }
               onClick={ (e) => {
                             e.preventDefault()
                             toggleDialog( true )
                           }}
             >
-              <Icon icon={ `toolkit` } color={ `primary` } />
+              <Icon icon={ `toolkit` } color={ `white` } />
             </Fab>
           </Toolbar>
         </AppBar>

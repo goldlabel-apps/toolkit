@@ -1,6 +1,6 @@
 import React from 'react'
 import clsx from 'clsx'
-// import { useSelector } from 'react-redux' 
+import { useSelector } from 'react-redux' 
 import { 
   toggleDialog,
 } from '../redux/pingpong/actions'
@@ -11,7 +11,6 @@ import {
     makeStyles,
     useTheme,
     Button,
-    Link,
     Accordion,
     AccordionSummary,
     AccordionDetails,
@@ -61,6 +60,16 @@ export default function About( props ) {
 	const classes = useStyles()
 	const theme = useTheme()
 	const primaryColor = theme.palette.primary.main
+
+	const pingpongSlice = useSelector(state => state.pingpong)
+	const {
+     	pJSON,
+    } = pingpongSlice
+    const { 
+    	description, 
+    } = pJSON
+
+
  	const isOpen = true
 
 	return	<div className={clsx( classes.help )}>
@@ -94,17 +103,27 @@ export default function About( props ) {
         				<Grid container>
 	        				<Grid item xs={ 12 }>
 		        				<Typography gutterBottom>
-									Listingslab @_ToolKit is a suite of WordPress Plugins 
-									which open up a world of good stuff to any tired old 
-									WordPress site
+									{ description }
 								</Typography>
-
-								
-
-
 							</Grid>
 							<Grid item xs={ 12 }>
-								<List dense className={clsx( classes.fullWidth )}>
+								<List dense className={clsx( classes.fullWidth )}> 
+
+									<ListItem 
+										button
+										onClick={ e => {
+											e.preventDefault()
+											gotoURL(`https://listingslab.com/?s=toolkit`, `_blank`)
+											toggleDialog( false )
+										}}>
+										<ListItemIcon>
+											<Icon icon={ `listingslab` } color={ primaryColor } />
+										</ListItemIcon>
+										<ListItemText 
+											primary={ `Listingslab` }
+										/>
+									</ListItem>
+
 									<ListItem 
 										button
 										onClick={ e => {
@@ -140,35 +159,21 @@ export default function About( props ) {
 										button
 										onClick={ e => {
 											e.preventDefault()
-											gotoURL(`https://listingslab.com/?s=toolkit`, `_blank`)
+											gotoURL(`https://github.com/listingslab-software/toolkit/tree/master/docs`, `_blank`)
 											toggleDialog( false )
 										}}>
 										<ListItemIcon>
-											<Icon icon={ `listingslab` } color={ primaryColor } />
+											<Icon icon={ `info` } color={ `primary` } />
 										</ListItemIcon>
 										<ListItemText 
-											primary={ `Listingslab` }
+											primary={ `Docs` }
 										/>
 									</ListItem>
-
 
 								</List>
 							</Grid>
 
-							<Grid item xs={ 12 }>
-								<Typography gutterBottom>
-									<Link 
-										className={clsx( classes.link )}
-										onClick={ (e) => {
-											e.preventDefault()
-											gotoURL(`https://github.com/listingslab-software/toolkit/tree/master/docs`, `_blank`)
-										}}
-									>
-									Docs
-									</Link> for WordPress 
-									Admins, Developers and DevOps
-								</Typography>
-							</Grid>
+							
 						</Grid>
 					</AccordionDetails>
 				</Accordion>
