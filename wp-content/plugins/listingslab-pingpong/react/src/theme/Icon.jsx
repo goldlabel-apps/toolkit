@@ -4,6 +4,7 @@ import { withStyles } from '@material-ui/core/styles'
 import Blokey from './jsx/Blokey'
 import WordPress from './jsx/WordPress'
 import IconToolKit from './svgIcon/IconToolKit'
+import IconGithub from './jsx/Github'
 import IconMessage from '@material-ui/icons/QuestionAnswer'
 import Account from './jsx/Account'
 import IconMail from '@material-ui/icons/Mail'
@@ -99,12 +100,14 @@ class Icon extends Component {
             case `none`:
                 return null
 
-            case 'logo': 
+            case 'listingslab': 
                 return <Blokey className={classes.iconButton} color={iconColor} />
 
             case 'wordpress': 
                 return <WordPress className={classes.iconButton} color={iconColor} />
 
+            case 'github': 
+                return <IconGithub className={classes.iconButton} color={iconColor} />
 
             case 'privacy': 
                 return <Account className={classes.iconButton} color={iconColor} />

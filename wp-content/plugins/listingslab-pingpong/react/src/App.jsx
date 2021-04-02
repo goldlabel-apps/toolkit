@@ -1,8 +1,7 @@
 import React from 'react'
 import clsx from 'clsx'
 import { useSelector } from 'react-redux'
-import { 
-  toggleDialog,
+import {
   initPingPong,
 } from './redux/pingpong/actions'
 import {
@@ -10,18 +9,16 @@ import {
 } from './theme'
 import {
   makeStyles,
-  Tooltip,
   MuiThemeProvider, 
   createMuiTheme,
-  IconButton,
-  Badge,
   LinearProgress,
 } from '@material-ui/core/'
-import { Icon } from './theme'
+// import { Icon } from './theme'
 import { 
   Feedback,
   PingPongDialog,
   Overlay,
+  PingPongButton,
 } from './components'
 
 const useStyles = makeStyles((theme) => ({
@@ -54,8 +51,6 @@ export default function App() {
       id,
     } = pingpongSlice
 
-    const unread = 0
-
     React.useEffect(() => {
         const {
           initting,
@@ -70,7 +65,7 @@ export default function App() {
 
     if ( !id ) return <MuiThemeProvider theme={ createMuiTheme(theme) }>
                         <div className={ clsx( classes.progress ) }>
-                          <LinearProgress color={ `secondary` } />
+                          <LinearProgress color={ `primary` } />
                         </div>
                       </MuiThemeProvider> 
 
@@ -78,20 +73,8 @@ export default function App() {
               <div className={ clsx( classes.appWrap ) }>
                   { overlay ? <Overlay /> : null }
                   { feedback ? <Feedback /> : null }
-                  { dialog ? <PingPongDialog /> : <div className={ clsx( classes.topRight ) }>
-                    <Tooltip title={ `@_ToolKit` } aria-label={ `by Listingslab` }>
-                        <IconButton
-                          component={ `div` }
-                          onClick={ (e) => {
-                            e.preventDefault()
-                            toggleDialog( true )
-                          }}>
-                        <Badge badgeContent={ unread } color={ `primary` } >
-                          <Icon icon={ `toolkit` } color={ 'primary' } />
-                        </Badge>
-                      </IconButton>
-                    </Tooltip>
-                  </div> }
+                  { dialog ? <PingPongDialog /> : <PingPongButton /> }
+                  
               </div>
             </MuiThemeProvider> 
 }

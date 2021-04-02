@@ -9,8 +9,7 @@ import {
     Dialog,
 } from '@material-ui/core/'
 import { 
-	ToolKit,
-	MessageSingle,
+	About,
 } from './'
 
 const useStyles = makeStyles((theme) => ({
@@ -38,7 +37,6 @@ export default function PingPongDialog( props ) {
 				fullScreen={ fullScreen }
 				maxWidth={ `sm` }
 				onClose={ closeDialog } >
-				<ToolKit />
-				<MessageSingle />
+				<About />
 			</Dialog>
 }

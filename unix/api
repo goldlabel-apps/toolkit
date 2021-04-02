@@ -3,5 +3,5 @@
 clear
 
 echo 'Starting API /Users/listingslab/Desktop/Node/src/api'
-cd  ~/Desktop/Node/src/api
+cd  ~/Desktop/Node/api
 yarn start
