@@ -7,6 +7,8 @@ import {
   showId,
   showHost,
   showBrowser,
+  tingId,
+  showCountryName,
 } from "./actions"
 
 export const pingpongSlice = {
@@ -17,9 +19,21 @@ export const pingpongSlice = {
   showId: true,
   showHost: true,
   showBrowser: true,
+  showCountryName: true,
+  tingId: false,
 }
 
 const pingpongReducer = createReducer(pingpongSlice, {
+
+  [showCountryName]: (state, action) => {
+    state.showCountryName = action.showCountryName
+    return state
+  },
+
+  [tingId]: (state, action) => {
+    state.tingId = action.tingId
+    return state
+  },
 
   [showBrowser]: (state, action) => {
     state.showBrowser = action.showBrowser

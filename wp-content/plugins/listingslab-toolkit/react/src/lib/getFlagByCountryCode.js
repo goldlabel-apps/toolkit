@@ -2,20 +2,15 @@
 import { getStore } from '../'
 
 const getFlagByCountryCode = countryCode => {
-
 	let flagSrcPath = ``
 	const state = getStore().getState()
 	const {
-        wpBloginfo,
+        toolkitData,
     } = state.app
-
-    const { wpurl } = wpBloginfo
-    flagSrcPath = `${ wpurl }/wp-content/plugins/toolkit-admin/public/`
-    
-    if ( !countryCode ) return `${ flagSrcPath }/svg/locale_flags/gb-sct.svg`
-
-    let flagSrc = `${ flagSrcPath }/svg/flags/${ countryCode.toLowerCase() }.svg`
-    // console.log ( `flagSrc`, flagSrc )
+    const { wpurl } = toolkitData
+    flagSrcPath = `${ wpurl }/wp-content/plugins/listingslab-toolkit/public/`
+    if ( !countryCode ) return `${ flagSrcPath }svg/flags/gb-sct.svg`
+    let flagSrc = `${ flagSrcPath }svg/flags/${ countryCode.toLowerCase() }.svg`
     return flagSrc
 }
 

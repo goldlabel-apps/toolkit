@@ -5,6 +5,7 @@ import {
 import clsx from 'clsx'
 import {
     makeStyles,
+    useTheme,
     Button,
     List,
     ListItem,
@@ -44,6 +45,8 @@ export default function QuickLinks( props ) {
 	
 	const classes = useStyles() 
 	const isOpen = false
+	const theme = useTheme()
+	const primaryColor = theme.palette.primary.main
 
 	return	<React.Fragment>
 				<Accordion 
@@ -58,9 +61,9 @@ export default function QuickLinks( props ) {
 			              <Button 
 				            variant={ `text` }
 				            color={ `default` }>
-				              <Icon icon={ `food` } color={ `primary` } />
+				              <Icon icon={ `toolkit` } color={ primaryColor } />
 				              <span className={ clsx( classes.btnTxt )  }>
-				              	Links
+				              	Listingslab ToolKit
 				              </span>
 				          </Button> 
 				        

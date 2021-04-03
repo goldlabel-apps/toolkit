@@ -4,6 +4,7 @@ import {
 	toggleShowHost,
 	toggleShowId, 
 	toggleShowBrowser,
+	toggleShowCountryName,
 } from '../redux/pingpong/actions'
 import clsx from 'clsx'
 import {
@@ -11,15 +12,15 @@ import {
     FormGroup,
 	FormControlLabel,
     Checkbox,
-    Button,
+    IconButton,
     Collapse,
 } from '@material-ui/core/'
 import { Icon } from '../theme'
 
 const useStyles = makeStyles(theme => ({
 	tingFilters:{
-		marginLeft: theme.spacing(),
-		marginRight: theme.spacing(),
+		// marginLeft: theme.spacing(),
+		// marginRight: theme.spacing(),
 	},
 	btnTxt: {
 		marginRight: theme.spacing(),
@@ -42,24 +43,21 @@ export default function TingFilters( props ) {
 		showId,
 		showHost, 
 		showBrowser, 
+		showCountryName,
 	} = pingpongSlice
 
 	const [open, setOpen] = React.useState( false )
 
 	return	<div className={ clsx( classes.tingFilters ) } >
 				
-	          		<Button 
-			            variant={ `text` }
-			            color={ `default` }
+	          		<IconButton 
+			            color={ `primary` }
 			            onClick={ (e) => {
 					          		e.preventDefault() 
 					          		setOpen( !open )
 					          	}}>
-			              <Icon icon={ `settings` } color={ `primary` } />
-			              <span className={ clsx( classes.btnTxt )  }>
-			              	Filter Settings
-			              </span>
-			        </Button> 
+			              <Icon icon={ `filter` } color={ `primary` } />
+			        </IconButton> 
 
 					<Collapse 
 						in={ open } 
@@ -67,6 +65,20 @@ export default function TingFilters( props ) {
 						unmountOnExit
 					>
 						<FormGroup>
+
+						<FormControlLabel
+								label={ `Country` }
+						        control={
+						          <Checkbox 
+						          	checked={ showCountryName }
+						          	color={ `secondary` }
+						            name={ `showCountryNameToggle` }
+						          	onClick={ (e) => {
+						          		e.preventDefault() 
+						          		toggleShowCountryName( !showCountryName )
+						          	}}
+						          />
+						        }/>
 
 							<FormControlLabel
 								label={ `ID` }

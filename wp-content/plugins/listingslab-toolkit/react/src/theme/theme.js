@@ -1,6 +1,10 @@
 export const theme = { 
   palette: {
     type: 'light',
+    // background: {
+    // 	default: '#eee',
+    // 	paper: '#eee',
+    // },
     primary: {
       main: '#57b3f2',
     },

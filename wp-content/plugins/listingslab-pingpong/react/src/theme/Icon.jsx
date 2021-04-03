@@ -5,6 +5,8 @@ import Blokey from './jsx/Blokey'
 import WordPress from './jsx/WordPress'
 import IconToolKit from './jsx/ToolKit'
 import IconGithub from './jsx/Github'
+
+import IconDocs from '@material-ui/icons/Description'
 import IconMessage from '@material-ui/icons/QuestionAnswer'
 import Account from './jsx/Account'
 import IconMail from '@material-ui/icons/Mail'
@@ -323,6 +325,9 @@ class Icon extends Component {
             case `mail`:
                 return (<IconMail color={iconColor} />)
                 
+
+            case `docs`:
+                return (<IconDocs color={iconColor} />)
 
             case `menu`:
                 return (<IconMenu color={iconColor} />)

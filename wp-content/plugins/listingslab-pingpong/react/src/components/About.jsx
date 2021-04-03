@@ -109,21 +109,7 @@ export default function About( props ) {
 							<Grid item xs={ 12 }>
 								<List dense className={clsx( classes.fullWidth )}> 
 
-									<ListItem 
-										button
-										onClick={ e => {
-											e.preventDefault()
-											gotoURL(`https://listingslab.com/?s=toolkit`, `_blank`)
-											toggleDialog( false )
-										}}>
-										<ListItemIcon>
-											<Icon icon={ `listingslab` } color={ primaryColor } />
-										</ListItemIcon>
-										<ListItemText 
-											primary={ `Listingslab` }
-										/>
-									</ListItem>
-
+									
 									<ListItem 
 										button
 										onClick={ e => {
@@ -163,7 +149,7 @@ export default function About( props ) {
 											toggleDialog( false )
 										}}>
 										<ListItemIcon>
-											<Icon icon={ `info` } color={ `primary` } />
+											<Icon icon={ `docs` } color={ `primary` } />
 										</ListItemIcon>
 										<ListItemText 
 											primary={ `Docs` }
@@ -179,3 +165,21 @@ export default function About( props ) {
 				</Accordion>
 		</div>
 }
+
+
+/*
+<ListItem 
+	button
+	onClick={ e => {
+		e.preventDefault()
+		gotoURL(`https://listingslab.com/?s=toolkit`, `_blank`)
+		toggleDialog( false )
+	}}>
+	<ListItemIcon>
+		<Icon icon={ `listingslab` } color={ primaryColor } />
+	</ListItemIcon>
+	<ListItemText 
+		primary={ `Listingslab` }
+	/>
+</ListItem>
+*/

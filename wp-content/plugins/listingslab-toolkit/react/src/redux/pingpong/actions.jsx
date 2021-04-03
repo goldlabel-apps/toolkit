@@ -8,6 +8,30 @@ export const subscribingTings = createAction(`PINGPONG/TINGS/SUBSCRIBING`)
 export const showHost = createAction(`PINGPONG/TINGS/SHOWHOST`)
 export const showId = createAction(`PINGPONG/TINGS/SHOWID`)
 export const showBrowser = createAction(`PINGPONG/TINGS/SHOWBROWSER`)
+export const tingId = createAction(`PINGPONG/TINGS/SELECT`)
+export const showCountryName = createAction(`PINGPONG/TINGS/SHOWCOUNTRY`)
+
+export const toggleShowCountryName = bool => {
+	const store = getStore()
+	store.dispatch({type: `PINGPONG/TINGS/SHOWCOUNTRY`, showCountryName: bool })
+	return true
+}
+
+export const getTingFromId = tingId => {
+	const pingpongSlice = getStore().getState().pingpong
+	const { tings } = pingpongSlice
+	for (let i = 0; i < tings.length; i++ ){
+		if (tings[i].id === tingId) return tings[i]
+	}
+	return false
+}
+
+
+export const selectTing = tingId => {
+	const store = getStore()
+	store.dispatch({type: `PINGPONG/TINGS/SELECT`, tingId })
+	return true
+}
 
 export const toggleShowBrowser = bool => {
 	const store = getStore()

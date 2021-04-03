@@ -1,7 +1,12 @@
 import React, { Component } from 'react'
 import { withStyles } from '@material-ui/core/styles'
+
+import ToolKit from './jsx/ToolKit'
 import WordPress from './jsx/WordPress'
 import IconDefault from '@material-ui/icons/Help'
+
+import IconFilter from '@material-ui/icons/Sort'
+
 import IconSkip from '@material-ui/icons/SkipNextRounded'
 import IconXML from '@material-ui/icons/Code'
 import IconImport from '@material-ui/icons/ImportExport'
@@ -91,8 +96,13 @@ class Icon extends Component {
             case `none`:
                 return null
 
+            case 'toolkit': 
+                return <ToolKit className={ classes.iconButton } color={ iconColor } />
+
             case 'wordpress': 
-                return <WordPress className={classes.iconButton} color={iconColor} />
+                return <WordPress className={ classes.iconButton } color={ iconColor } />
+
+                
 
             case `cart`:
                 return (<IconCart color={iconColor} />)   
@@ -117,6 +127,10 @@ class Icon extends Component {
 
             case `right`:
                 return (<IconRight color={iconColor} />)  
+
+            case `filter`:
+                return (<IconFilter color={iconColor} />)  
+                
 
             case `photo`:
                 return (<IconPhoto color={iconColor} />)  

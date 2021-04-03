@@ -3,18 +3,19 @@ import clsx from 'clsx'
 import { useSelector } from 'react-redux'
 import {
   subscribeTings,
+  getTingFromId,
 } from '../redux/pingpong/actions'
 import {
     makeStyles,
     useScrollTrigger,
     Typography,
-    Container,
     CardContent,
     Grid,
 } from '@material-ui/core/'
 import {
   TingPanel,
   TingFilters,
+  TingDetail,
 } from './'
 
 const useStyles = makeStyles(theme => ({
@@ -49,19 +50,25 @@ function ElevationScroll(props) {
 export default function PingPong(props) {
 
   const classes = useStyles()
-
   const pingpongSlice = useSelector(state => state.pingpong)
-  const {
-    tings,
-  } = pingpongSlice
-
   React.useEffect(() => {
+        // console.log ('pingpongSlice', pingpongSlice)
         const {
           subscribedTings,
           subscribingTings,
         } = pingpongSlice 
         if ( !subscribedTings && !subscribingTings ) subscribeTings()
-    }, [pingpongSlice])
+    }, [ pingpongSlice ]) 
+
+  
+  const {
+    tingId,
+    tings,
+  } = pingpongSlice
+
+  const ting = getTingFromId( tingId )
+  let nothingSelected = false
+  if (!ting) nothingSelected = true
 
   return (
     <React.Fragment>
@@ -70,33 +77,25 @@ export default function PingPong(props) {
           <TingFilters/>
         </CardContent>
       </ElevationScroll>
-      <Container>
 
-      <Grid container>
-        
-        
+        <Grid container>
 
-        <Grid item xs={ 6 } >
-          <Typography variant={ `button` } 
-            className={ clsx( classes.btnTxt, classes.title ) }>
-            { `Selected` }
-          </Typography>
-        </Grid>
+        { nothingSelected ? null : <Grid item xs={ 8 } className={ clsx( classes.none ) }>
+            <TingDetail />
+          </Grid> }
 
-        <Grid item xs={ 6 } >
-          { tings.map ((item, i) => {
-            return  <TingPanel ting={ item } key={ `ting_${i}` }>
-                      <Typography>
-                      { item.fingerprint }
-                      </Typography>
-                    </TingPanel>
-          })}
-        </Grid>
 
-      </Grid>
-        
-          
-      </Container>
+          <Grid item xs={ nothingSelected ? 12 : 4 } >
+            { tings.map ((item, i) => {
+              return  <TingPanel ting={ item } key={ `ting_${i}` }>
+                        <Typography>
+                        { item.fingerprint }
+                        </Typography>
+                      </TingPanel>
+            })}
+          </Grid>
+                    </Grid>
+
     </React.Fragment>
   )
 }
