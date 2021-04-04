@@ -13,6 +13,8 @@
 		"build:pingpong": "$PWD/unix/build wp-content/plugins/listingslab-pingpong/react",
 		"dev:animatedsvg": "$PWD/unix/dev wp-content/plugins/listingslab-animatedsvg/react",
 		"build:animatedsvg": "$PWD/unix/build wp-content/plugins/listingslab-animatedsvg/react",
+		"dev:omninav": "$PWD/unix/dev wp-content/plugins/listingslab-omninav/react",
+		"build:omninav": "$PWD/unix/build wp-content/plugins/listingslab-omninav/react",
 		"wp": "$PWD/unix/wp",
 		"git": "$PWD/unix/git",
 		"pub": "yarn wp && yarn git"
