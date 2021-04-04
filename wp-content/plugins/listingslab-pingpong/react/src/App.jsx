@@ -74,7 +74,6 @@ export default function App() {
                   { overlay ? <Overlay /> : null }
                   { feedback ? <Feedback /> : null }
                   { dialog ? <PingPongDialog /> : <PingPongButton /> }
-                  
               </div>
             </MuiThemeProvider> 
 }
