@@ -5,7 +5,7 @@
  * @package           listingslab-boilerplate
  *
  * @wordpress-plugin
- * Version:           10.1.6
+ * Version:           10.1.7
  * Plugin Name:       @PingPong
  * Description:       Boilerplate React/WordPress plugin
  * Plugin URI:        https://github.com/listingslab-software/toolkit
@@ -18,7 +18,7 @@
  */
 
 defined( 'ABSPATH' ) or die( 'Really?' );
-define( 'boilerplate', '10.1.6' );
+define( 'boilerplate', '10.1.7' );
 
 require_once 'php/Boilerplate.php';
 $Boilerplate = Boilerplate::GetInstance();
