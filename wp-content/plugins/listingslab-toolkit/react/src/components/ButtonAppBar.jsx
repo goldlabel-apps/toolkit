@@ -6,7 +6,7 @@ import {
   AppBar, 
   Toolbar,
   Button, 
-  Typography
+  Typography,
 } from '@material-ui/core/'
 import { Icon } from '../theme'
 
@@ -29,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: theme.spacing(),
   },
 }))
+
 
 export default function ButtonAppBar() {
   
@@ -62,6 +63,7 @@ export default function ButtonAppBar() {
 
         </Toolbar>
       </AppBar>
+
     </div>
   )
 }

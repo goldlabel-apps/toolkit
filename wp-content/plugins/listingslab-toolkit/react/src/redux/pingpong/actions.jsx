@@ -1,5 +1,6 @@
 import { createAction } from '@reduxjs/toolkit'
 import { getStore, getFStore } from '../../'
+import { scrollToTop } from '../../lib'
 
 export const error = createAction(`PINGPONG/ERROR`)
 export const tings = createAction(`PINGPONG/TINGS`)
@@ -10,6 +11,13 @@ export const showId = createAction(`PINGPONG/TINGS/SHOWID`)
 export const showBrowser = createAction(`PINGPONG/TINGS/SHOWBROWSER`)
 export const tingId = createAction(`PINGPONG/TINGS/SELECT`)
 export const showCountryName = createAction(`PINGPONG/TINGS/SHOWCOUNTRY`)
+export const showMode = createAction(`PINGPONG/TINGS/SHOWMODE`)
+
+export const setShowMode = showMode => {
+	const store = getStore()
+	store.dispatch({type: `PINGPONG/TINGS/SHOWMODE`, showMode })
+	return true
+}
 
 export const toggleShowCountryName = bool => {
 	const store = getStore()
@@ -28,6 +36,7 @@ export const getTingFromId = tingId => {
 
 
 export const selectTing = tingId => {
+	scrollToTop()
 	const store = getStore()
 	store.dispatch({type: `PINGPONG/TINGS/SELECT`, tingId })
 	return true
@@ -48,6 +57,10 @@ export const toggleShowHost = bool => {
 export const toggleShowId = bool => {
 	const store = getStore()
 	store.dispatch({type: `PINGPONG/TINGS/SHOWID`, showId: bool })
+	return true
+}
+
+export const deleteTing = () => { 
 	return true
 }
 

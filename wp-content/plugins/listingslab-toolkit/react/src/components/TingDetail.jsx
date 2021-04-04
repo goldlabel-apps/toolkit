@@ -4,16 +4,21 @@ import { useSelector } from 'react-redux'
 import {
 	selectTing,
 	getTingFromId,
+	deleteTing,
 } from '../redux/pingpong/actions'
 import {
+	getFlagByCountryCode,
+	getTingTitle,
+	getTingSubheading,
+} from '../lib'
+import {
     makeStyles,
-    Button,
+    IconButton,
+    Avatar,
     Card,
     CardHeader,
-    CardContent,
-    CardActions,
 } from '@material-ui/core/'
-// import { Icon } from '../theme'
+import { Icon } from '../theme'
 
 const useStyles = makeStyles(theme => ({
 	card: {
@@ -31,27 +36,54 @@ export default function TingDetail( props ) {
 
 	const ting = getTingFromId( tingId )
 
+	const {
+		countryCode2,
+	} = ting
+
+
 	return	<Card className={ clsx( classes.card ) }>
 				<CardHeader 
-					title={ `Ting Detail` }
-					subheader={ `description` }
-					action={<Button
-								variant={ `outlined` }
-								onClick={ (e) => {
-									e.preventDefault()
-									selectTing ( false )
-								}}>
-								Close
-							</Button>}
+					title={ getTingTitle( ting ) }
+					subheader={ getTingSubheading( ting ) }
+					avatar={ <Avatar src={ getFlagByCountryCode( countryCode2 ) } /> }
+					action={<React.Fragment>
+
+								<IconButton
+									variant={ `outlined` }
+									onClick={ (e) => {
+										e.preventDefault()
+										if ( window.confirm('really really?') ){
+											deleteTing ( tingId )
+										}
+										
+									}}>
+									<Icon icon={ `delete` } color={ `primary` } />
+								</IconButton>
+
+
+								<IconButton
+									variant={ `outlined` }
+									onClick={ (e) => {
+										e.preventDefault()
+										selectTing ( false )
+									}}>
+									<Icon icon={ `close` } color={ `primary` } />
+								</IconButton>
+							</React.Fragment>}
 				/>
 
-				<CardContent>
-					<pre>
-		            	ting { JSON.stringify( ting, null, 2 ) }
-		        	</pre>
-				</CardContent>
+				
 
-				<CardActions>
+
+				
+				
+			</Card>
+}
+
+
+/*
+
+<CardActions>
 					<Button
 						variant={ `outlined` }
 						onClick={ (e) => {
@@ -62,13 +94,14 @@ export default function TingDetail( props ) {
 					</Button>
 
 				</CardActions>
+
 				
-			</Card>
-}
-
-
-/*
           <pre>
             nothingSelected { JSON.stringify( ting, null, 2 ) }
           </pre>
+ <CardContent>
+					<pre>
+		            	ting { JSON.stringify( ting, null, 2 ) }
+		        	</pre>
+				</CardContent>         
 */

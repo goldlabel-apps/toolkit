@@ -80,12 +80,12 @@ export default function PingPong(props) {
 
         <Grid container>
 
-        { nothingSelected ? null : <Grid item xs={ 8 } className={ clsx( classes.none ) }>
+        { nothingSelected ? null : <Grid item xs={ 6 } className={ clsx( classes.none ) }>
             <TingDetail />
           </Grid> }
 
 
-          <Grid item xs={ nothingSelected ? 12 : 4 } >
+          <Grid item xs={ nothingSelected ? 12 : 6 } >
             { tings.map ((item, i) => {
               return  <TingPanel ting={ item } key={ `ting_${i}` }>
                         <Typography>
