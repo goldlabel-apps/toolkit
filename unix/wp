@@ -25,6 +25,16 @@ rm -rf ./listingslab-pingpong/react
 mkdir ./listingslab-pingpong/react
 mv ./wordpressifying/react ./listingslab-pingpong
 
+echo 'wordpressifying @Animatedsvg ...'
+cd ./listingslab-animatedsvg/react && yarn build && cd ../../
+mv ./listingslab-animatedsvg/react ./wordpressifying
+mkdir ./listingslab-animatedsvg/react
+cp -r ./wordpressifying/react/build ./listingslab-animatedsvg/react
+zip -r listingslab-animatedsvg.zip listingslab-animatedsvg 
+rm -rf ./listingslab-animatedsvg/react
+mkdir ./listingslab-animatedsvg/react
+mv ./wordpressifying/react ./listingslab-animatedsvg
+
 echo 'wordpressifying @PWAify ...'
 zip -r listingslab-pwaify.zip listingslab-pwaify
 

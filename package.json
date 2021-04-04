@@ -11,6 +11,8 @@
 		"build:toolkit": "$PWD/unix/build wp-content/plugins/listingslab-toolkit/react",
 		"dev:pingpong": "$PWD/unix/dev wp-content/plugins/listingslab-pingpong/react",
 		"build:pingpong": "$PWD/unix/build wp-content/plugins/listingslab-pingpong/react",
+		"dev:animatedsvg": "$PWD/unix/dev wp-content/plugins/listingslab-animatedsvg/react",
+		"build:animatedsvg": "$PWD/unix/build wp-content/plugins/listingslab-animatedsvg/react",
 		"wp": "$PWD/unix/wp",
 		"git": "$PWD/unix/git",
 		"pub": "yarn wp && yarn git"
