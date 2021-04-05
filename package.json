@@ -15,6 +15,8 @@
 		"build:animatedsvg": "$PWD/unix/build wp-content/plugins/listingslab-animatedsvg/react",
 		"dev:omninav": "$PWD/unix/dev wp-content/plugins/listingslab-omninav/react",
 		"build:omninav": "$PWD/unix/build wp-content/plugins/listingslab-omninav/react",
+		"dev:ironavirus": "$PWD/unix/dev wp-content/plugins/listingslab-ironavirus/react",
+		"build:ironavirus": "$PWD/unix/build wp-content/plugins/listingslab-ironavirus/react",
 		"wp": "$PWD/unix/wp",
 		"git": "$PWD/unix/git",
 		"pub": "yarn wp && yarn git"

@@ -45,6 +45,16 @@ rm -rf ./listingslab-omninav/react
 mkdir ./listingslab-omninav/react
 mv ./wordpressifying/react ./listingslab-omninav
 
+echo 'wordpressifying @Ironavirus ...'
+cd ./listingslab-ironavirus/react && yarn build && cd ../../
+mv ./listingslab-ironavirus/react ./wordpressifying
+mkdir ./listingslab-ironavirus/react
+cp -r ./wordpressifying/react/build ./listingslab-ironavirus/react
+zip -r listingslab-ironavirus.zip listingslab-ironavirus 
+rm -rf ./listingslab-ironavirus/react
+mkdir ./listingslab-ironavirus/react
+mv ./wordpressifying/react ./listingslab-ironavirus
+
 echo 'wordpressifying @PWAify ...'
 zip -r listingslab-pwaify.zip listingslab-pwaify
 

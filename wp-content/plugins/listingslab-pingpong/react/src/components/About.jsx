@@ -53,6 +53,9 @@ const useStyles = makeStyles( theme => ({
 	heading: {
 		marginTop: theme.spacing( 0.45 ),
 	},
+	indented:{
+		marginLeft: theme.spacing( 2 ),
+	},
 }))
 
 export default function About( props ) {
@@ -109,12 +112,12 @@ export default function About( props ) {
 							<Grid item xs={ 12 }>
 								<List dense className={clsx( classes.fullWidth )}> 
 
-									
+
 									<ListItem 
 										button
 										onClick={ e => {
 											e.preventDefault()
-											gotoURL(`/wp-admin/admin.php?page=listingslab-toolkit%2Fphp%2FToolKit.php`, `_self`)
+											gotoURL(`/wp-admin/`, `_self`)
 											toggleDialog( false )
 										}}>
 										<ListItemIcon>
@@ -124,6 +127,71 @@ export default function About( props ) {
 											primary={ `WordPress` }
 										/>
 									</ListItem>
+									
+									<ListItem 
+										button
+										onClick={ e => {
+											e.preventDefault()
+											gotoURL(`/wp-admin/admin.php?page=listingslab-toolkit%2Fphp%2FToolKit.php`, `_self`)
+											toggleDialog( false )
+										}}>
+										<ListItemIcon className={clsx( classes.indented )}>
+											<Icon icon={ `wordpress` } color={ primaryColor } />
+										</ListItemIcon>
+										<ListItemText 
+											primary={ `@_ToolKit` }
+										/>
+									</ListItem>
+
+									<ListItem 
+										
+										button
+										onClick={ e => {
+											e.preventDefault()
+											gotoURL(`/wp-admin/plugins.php`, `_self`)
+											toggleDialog( false )
+										}}>
+										<ListItemIcon className={clsx( classes.indented )}>
+											<Icon icon={ `wordpress` } color={ primaryColor } />
+										</ListItemIcon>
+										<ListItemText 
+											primary={ `Plugins` }
+										/>
+									</ListItem>
+
+									<ListItem 
+										button
+										onClick={ e => {
+											e.preventDefault()
+											gotoURL(`/wp-admin/customize.php?return=%2Fwp-admin%2Fadmin.php%3Fpage%3Dlistingslab-toolkit%252Fphp%252FToolKit.php`, `_self`)
+											toggleDialog( false )
+										}}>
+										<ListItemIcon className={clsx( classes.indented )}>
+											<Icon icon={ `wordpress` } color={ primaryColor } />
+										</ListItemIcon>
+										<ListItemText 
+											primary={ `Customise` }
+										/>
+									</ListItem>
+
+
+
+									<ListItem 
+										
+										button
+										onClick={ e => {
+											e.preventDefault()
+											gotoURL(`/wp-admin/post-new.phpNew Post`, `_self`)
+											toggleDialog( false )
+										}}>
+										<ListItemIcon className={clsx( classes.indented )}>
+											<Icon icon={ `wordpress` } color={ primaryColor } />
+										</ListItemIcon>
+										<ListItemText 
+											primary={ `New Post` }
+										/>
+									</ListItem>
+									
 
 									<ListItem 
 										button
@@ -139,6 +207,7 @@ export default function About( props ) {
 											primary={ `GitHub` }
 										/>
 									</ListItem>
+
 
 
 									<ListItem 

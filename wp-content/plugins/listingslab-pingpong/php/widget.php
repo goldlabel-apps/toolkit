@@ -3,7 +3,7 @@
 class pingpong_Widget extends WP_Widget {
  
     function __construct() {
-        parent::__construct( false, __( 'pingpong by listingslab', 'listingslab' ) );
+        parent::__construct( false, __( '@PingPong', 'listingslab' ) );
     }
  
     function widget( $args, $instance ) {
