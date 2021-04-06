@@ -1,5 +1,4 @@
 import React from 'react'
-import { useSelector } from 'react-redux' 
 import clsx from 'clsx'
 import { 
   toggleDialog,
@@ -9,10 +8,10 @@ import {
 	useMediaQuery,
     Dialog,
     DialogActions,
-    Typography,
 } from '@material-ui/core/'
 import { 
 	About,
+	MessageSend,
 } from './'
 
 const useStyles = makeStyles((theme) => ({
@@ -22,15 +21,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function PingPongDialog( props ) {
 
-	const classes = useStyles() 
-	const pingpongSlice = useSelector(state => state.pingpong)
-    const {
-     	pJSON,
-    } = pingpongSlice
-    const { 
-    	version 
-    } = pJSON
-	
+	const classes = useStyles() 	
 	let isMobile = !useMediaQuery( '( min-width: 600px )' )
 	let fullScreen = false
 	if (isMobile){
@@ -41,18 +32,19 @@ export default function PingPongDialog( props ) {
 		toggleDialog( false )
 	}
 
+
 	return	<Dialog
 				open
 				fullWidth 
 				className={ clsx( classes.pingPongDialog )}
 				fullScreen={ fullScreen }
 				maxWidth={ `sm` }
-				onClose={ closeDialog } >
-				<About />
+				onClose={ closeDialog } 
+			>
+				<About />	
 				<DialogActions>
-					<Typography variant={ `body2` } color={ `textSecondary` } >
-						vs { version }
-					</Typography>
+					<MessageSend />
 				</DialogActions>
 			</Dialog>
 }
+

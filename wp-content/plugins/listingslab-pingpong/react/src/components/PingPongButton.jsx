@@ -7,11 +7,11 @@ import {
   makeStyles,
   AppBar,
   Toolbar,
-  Fab,
+  Button,
 } from '@material-ui/core/'
-import { 
-  Icon,
-} from '../theme'
+// import { 
+//   Icon,
+// } from '../theme'
 
 const useStyles = makeStyles( theme => ({
   appBar: {
@@ -24,14 +24,14 @@ const useStyles = makeStyles( theme => ({
   grow: {
     flexGrow: 1,
   },
+  triggerButton: {
+    position: 'absolute',
+    right: theme.spacing(),
+    textTransform: 'none',
+  },
   fabButton: {
     position: 'absolute',
-    // padding: theme.spacing(),
-    // zIndex: 123456,
-    // top: 0,
-    // left: 0,
     right: 0,
-    // margin: '0 auto',
   },
 }))
 
@@ -40,45 +40,18 @@ export default function BottomAppBar() {
 
   return <AppBar 
           className={ clsx( classes.appBar )}
-          position={ `fixed` }
-          color={ `secondary` } 
-          >
+          position={ `fixed` }>
           <Toolbar>
-            <Fab 
-              className={ clsx(classes.fabButton) }
-              color={ `primary` } 
-              aria-label={ `ToolKit` }
+            <Button
+              variant={ `contained` }
+              color={  `primary` }
+              className={ clsx(classes.triggerButton) } 
               onClick={ (e) => {
                             e.preventDefault()
                             toggleDialog( true )
-                          }}
-            >
-              <Icon icon={ `toolkit` } color={ `white` } />
-            </Fab>
+                          }}>
+              @_ToolKit
+            </Button>
           </Toolbar>
         </AppBar>
 }
-
-
-
-
-
-
-/*
-
-<IconButton 
-              edge="start" 
-              color="inherit" 
-              aria-label="open drawer">
-              <MenuIcon />
-            </IconButton>
-
-                        <div className={ clsx( classes.grow )} />
-            <IconButton color="inherit">
-              <SearchIcon />
-            </IconButton>
-            <IconButton edge="end" color="inherit">
-              <MoreIcon />
-            </IconButton>
-
-*/

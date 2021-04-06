@@ -12,18 +12,36 @@ const useStyles = makeStyles( theme => ({
 }))
 
 export default function TextBox( props ) {
-	
+
 	const classes = useStyles()
+	const { 
+		options,
+	} = props
+	if ( !options ) return null
+	const {
+		label,
+		autoFocus,
+		variant,
+	} = options
+
+	const validate = () => {
+		let isValid = false
+		return isValid
+	}
+
+	const onChange = (e) => {
+		validate()
+		console.log ('onChange', e.target.value)
+	}
+
 	return	<TextField
 				className={clsx( classes.textBox )}
+				autoFocus={ autoFocus }
 				id={ `outlined-multiline-flexible` }
-				label={`Multiline Text Input`}
-				variant={ `outlined` }
+				label={ label }
+				variant={ variant }
 				multiline
-				rowsMax={4}
-				onChange={ ( e ) => { 
-					e.preventDefault()
-						console.log ( e.target.value )
-					}}
+				rowsMax={ 4 }
+				onChange={ onChange }
 		    />
 }

@@ -4,21 +4,14 @@ import { useSelector } from 'react-redux'
 import { 
   toggleDialog,
 } from '../redux/pingpong/actions'
-import { 
-  gotoURL,
-} from '../redux/pingpong/actions'
 import {
     makeStyles,
-    useTheme,
+    // useTheme,
     Button,
     Accordion,
     AccordionSummary,
     AccordionDetails,
     Typography,
-    List,
-    ListItem,
-    ListItemText,
-    ListItemIcon,
     Grid,
 } from '@material-ui/core/'
 import { 
@@ -61,8 +54,8 @@ const useStyles = makeStyles( theme => ({
 export default function About( props ) {
 	
 	const classes = useStyles()
-	const theme = useTheme()
-	const primaryColor = theme.palette.primary.main
+	// const theme = useTheme()
+	// const primaryColor = theme.palette.primary.main
 
 	const pingpongSlice = useSelector(state => state.pingpong)
 	const {
@@ -73,7 +66,7 @@ export default function About( props ) {
     } = pJSON
 
 
- 	const isOpen = true
+ 	const isOpen = false
 
 	return	<div className={clsx( classes.help )}>
 				<Accordion 
@@ -95,8 +88,7 @@ export default function About( props ) {
 				        			<Icon icon={ `close` } color={ `inherit` } />
 				        			<span className={ clsx( classes.btnTxt )}>
 				        				Close
-				        			</span>
-									
+				        			</span>									
 								</Button>
 				        	</Grid>
 							
@@ -109,146 +101,8 @@ export default function About( props ) {
 									{ description }
 								</Typography>
 							</Grid>
-							<Grid item xs={ 12 }>
-								<List dense className={clsx( classes.fullWidth )}> 
-
-
-									<ListItem 
-										button
-										onClick={ e => {
-											e.preventDefault()
-											gotoURL(`/wp-admin/`, `_self`)
-											toggleDialog( false )
-										}}>
-										<ListItemIcon>
-											<Icon icon={ `wordpress` } color={ primaryColor } />
-										</ListItemIcon>
-										<ListItemText 
-											primary={ `WordPress` }
-										/>
-									</ListItem>
-									
-									<ListItem 
-										button
-										onClick={ e => {
-											e.preventDefault()
-											gotoURL(`/wp-admin/admin.php?page=listingslab-toolkit%2Fphp%2FToolKit.php`, `_self`)
-											toggleDialog( false )
-										}}>
-										<ListItemIcon className={clsx( classes.indented )}>
-											<Icon icon={ `wordpress` } color={ primaryColor } />
-										</ListItemIcon>
-										<ListItemText 
-											primary={ `@_ToolKit` }
-										/>
-									</ListItem>
-
-									<ListItem 
-										
-										button
-										onClick={ e => {
-											e.preventDefault()
-											gotoURL(`/wp-admin/plugins.php`, `_self`)
-											toggleDialog( false )
-										}}>
-										<ListItemIcon className={clsx( classes.indented )}>
-											<Icon icon={ `wordpress` } color={ primaryColor } />
-										</ListItemIcon>
-										<ListItemText 
-											primary={ `Plugins` }
-										/>
-									</ListItem>
-
-									<ListItem 
-										button
-										onClick={ e => {
-											e.preventDefault()
-											gotoURL(`/wp-admin/customize.php?return=%2Fwp-admin%2Fadmin.php%3Fpage%3Dlistingslab-toolkit%252Fphp%252FToolKit.php`, `_self`)
-											toggleDialog( false )
-										}}>
-										<ListItemIcon className={clsx( classes.indented )}>
-											<Icon icon={ `wordpress` } color={ primaryColor } />
-										</ListItemIcon>
-										<ListItemText 
-											primary={ `Customise` }
-										/>
-									</ListItem>
-
-
-
-									<ListItem 
-										
-										button
-										onClick={ e => {
-											e.preventDefault()
-											gotoURL(`/wp-admin/post-new.phpNew Post`, `_self`)
-											toggleDialog( false )
-										}}>
-										<ListItemIcon className={clsx( classes.indented )}>
-											<Icon icon={ `wordpress` } color={ primaryColor } />
-										</ListItemIcon>
-										<ListItemText 
-											primary={ `New Post` }
-										/>
-									</ListItem>
-									
-
-									<ListItem 
-										button
-										onClick={ e => {
-											e.preventDefault()
-											gotoURL(`https://github.com/listingslab-software/toolkit`, `_blank`)
-											toggleDialog( false )
-										}}>
-										<ListItemIcon>
-											<Icon icon={ `github` } color={ primaryColor } />
-										</ListItemIcon>
-										<ListItemText 
-											primary={ `GitHub` }
-										/>
-									</ListItem>
-
-
-
-									<ListItem 
-										button
-										onClick={ e => {
-											e.preventDefault()
-											gotoURL(`https://github.com/listingslab-software/toolkit/tree/master/docs`, `_blank`)
-											toggleDialog( false )
-										}}>
-										<ListItemIcon>
-											<Icon icon={ `docs` } color={ `primary` } />
-										</ListItemIcon>
-										<ListItemText 
-											primary={ `Docs` }
-										/>
-									</ListItem>
-
-								</List>
-							</Grid>
-
-							
 						</Grid>
 					</AccordionDetails>
 				</Accordion>
 		</div>
 }
-
-
-/*
-<ListItem 
-	button
-	onClick={ e => {
-		e.preventDefault()
-		gotoURL(`https://listingslab.com/?s=toolkit`, `_blank`)
-		toggleDialog( false )
-	}}>
-	<ListItemIcon>
-		<Icon icon={ `listingslab` } color={ primaryColor } />
-	</ListItemIcon>
-	<ListItemText 
-		primary={ `Listingslab` }
-	/>
-</ListItem>
-*/

@@ -5,7 +5,7 @@
  * @package           listingslab-ironavirus
  *
  * @wordpress-plugin
- * Version:           10.1.8
+ * Version:           10.1.9
  * Plugin Name:       @Ironavirus
  * Description:       Ironavirus. Write your own damn slogan
  * Plugin URI:        https://github.com/listingslab-software/toolkit
@@ -18,7 +18,7 @@
  */
 
 defined( 'ABSPATH' ) or die( 'Really?' );
-define( 'ironavirus', '10.1.8' );
+define( 'ironavirus', '10.1.9' );
 
 require_once 'php/Ironavirus.php';
 $Ironavirus = Ironavirus::GetInstance();

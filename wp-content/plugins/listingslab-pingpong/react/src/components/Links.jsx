@@ -62,6 +62,7 @@ export default function ToolKit( props ) {
 	const classes = useStyles()
 	const theme = useTheme()
 	const secondaryColor = theme.palette.secondary.main
+	const primaryColor = theme.palette.primary.main
 
 	return	<div className={clsx( classes.links )}>
 				<Accordion 
@@ -97,6 +98,125 @@ export default function ToolKit( props ) {
 								/>
 							</ListItem>
 						</List>
+
+						<Grid item xs={ 12 }>
+								<List dense className={clsx( classes.fullWidth )}> 
+
+
+									<ListItem 
+										button
+										onClick={ e => {
+											e.preventDefault()
+											gotoURL(`/wp-admin/`, `_self`)
+											toggleDialog( false )
+										}}>
+										<ListItemIcon>
+											<Icon icon={ `wordpress` } color={ primaryColor } />
+										</ListItemIcon>
+										<ListItemText 
+											primary={ `WordPress` }
+										/>
+									</ListItem>
+									
+									<ListItem 
+										button
+										onClick={ e => {
+											e.preventDefault()
+											gotoURL(`/wp-admin/admin.php?page=listingslab-toolkit%2Fphp%2FToolKit.php`, `_self`)
+											toggleDialog( false )
+										}}>
+										<ListItemIcon className={clsx( classes.indented )}>
+											<Icon icon={ `wordpress` } color={ primaryColor } />
+										</ListItemIcon>
+										<ListItemText 
+											primary={ `@_ToolKit` }
+										/>
+									</ListItem>
+
+									<ListItem 
+										
+										button
+										onClick={ e => {
+											e.preventDefault()
+											gotoURL(`/wp-admin/plugins.php`, `_self`)
+											toggleDialog( false )
+										}}>
+										<ListItemIcon className={clsx( classes.indented )}>
+											<Icon icon={ `wordpress` } color={ primaryColor } />
+										</ListItemIcon>
+										<ListItemText 
+											primary={ `Plugins` }
+										/>
+									</ListItem>
+
+									<ListItem 
+										button
+										onClick={ e => {
+											e.preventDefault()
+											gotoURL(`/wp-admin/customize.php?return=%2Fwp-admin%2Fadmin.php%3Fpage%3Dlistingslab-toolkit%252Fphp%252FToolKit.php`, `_self`)
+											toggleDialog( false )
+										}}>
+										<ListItemIcon className={clsx( classes.indented )}>
+											<Icon icon={ `wordpress` } color={ primaryColor } />
+										</ListItemIcon>
+										<ListItemText 
+											primary={ `Customise` }
+										/>
+									</ListItem>
+
+
+
+									<ListItem 
+										
+										button
+										onClick={ e => {
+											e.preventDefault()
+											gotoURL(`/wp-admin/post-new.phpNew Post`, `_self`)
+											toggleDialog( false )
+										}}>
+										<ListItemIcon className={clsx( classes.indented )}>
+											<Icon icon={ `wordpress` } color={ primaryColor } />
+										</ListItemIcon>
+										<ListItemText 
+											primary={ `New Post` }
+										/>
+									</ListItem>
+									
+
+									<ListItem 
+										button
+										onClick={ e => {
+											e.preventDefault()
+											gotoURL(`https://github.com/listingslab-software/toolkit`, `_blank`)
+											toggleDialog( false )
+										}}>
+										<ListItemIcon>
+											<Icon icon={ `github` } color={ primaryColor } />
+										</ListItemIcon>
+										<ListItemText 
+											primary={ `GitHub` }
+										/>
+									</ListItem>
+
+
+
+									<ListItem 
+										button
+										onClick={ e => {
+											e.preventDefault()
+											gotoURL(`https://github.com/listingslab-software/toolkit/tree/master/docs`, `_blank`)
+											toggleDialog( false )
+										}}>
+										<ListItemIcon>
+											<Icon icon={ `docs` } color={ `primary` } />
+										</ListItemIcon>
+										<ListItemText 
+											primary={ `Docs` }
+										/>
+									</ListItem>
+
+								</List>
+							</Grid>
 					</AccordionDetails>
 				</Accordion>
 		</div>
