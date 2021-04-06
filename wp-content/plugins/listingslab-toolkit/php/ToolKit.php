@@ -15,8 +15,8 @@ class ToolKit{
       public function PluginMenu(){
 
               $this->toolkit_screen_name = add_menu_page(
-                    '@_ToolKit', 
-                    '@_ToolKit', 
+                    '@ToolKit', 
+                    '@ToolKit', 
                     'manage_options',
                     __FILE__, 
                     array($this, 'RenderPage'), 
@@ -24,34 +24,15 @@ class ToolKit{
                     2
               );
 
-              // $this->toolkit_screen_name = add_submenu_page(
-              //     __FILE__, 
-              //     '@PWAify', 
-              //     '@PWAify', 
-              //     'manage_options', 
-              //     __FILE__.'/?plugin=pwaify', 
-              //     array($this, 'RenderPage')
-              // );
-
-              // $this->toolkit_screen_name = add_submenu_page(
-              //     __FILE__, 
-              //     '@PingPong', 
-              //     '@PingPong', 
-              //     'manage_options', 
-              //     __FILE__.'/?plugin=pingpong', 
-              //     array($this, 'RenderPage')
-              // );
-
-              // $this->toolkit_screen_name = add_submenu_page(
-              //     __FILE__, 
-              //     '@Kart', 
-              //     '@Kart', 
-              //     'manage_options', 
-              //     __FILE__.'/?plugin=kart', 
-              //     array($this, 'RenderPage')
-              // );
-
-
+              $this->toolkit_screen_name = add_submenu_page(
+                  __FILE__, 
+                  '@PingPong', 
+                  '@PingPong', 
+                  'manage_options', 
+                  __FILE__.'/?plugin=pingpong', 
+                  array($this, 'RenderPage')
+              );
+              
             }
 
       
@@ -59,37 +40,34 @@ class ToolKit{
 
         <div class='none'>
           <?php 
-            $toolkitData = array();
+            $wpData = array();
             $fields = array(
-                'name', 'description', 'wpurl', 
-                'admin_email', 'language'
+                'name', 
+                'description', 
+                'url', 
+                'admin_email'
             );
             foreach($fields as $field) {
-                $toolkitData[$field] = get_bloginfo($field);
+                $wpData[$field] = get_bloginfo($field);
             }
-            $toolkitData[ 'pingpong' ] = false;
-            $toolkitData[ 'pwaify' ] = false;
-            $toolkitData[ 'kart' ] = false;
-            $apl=get_option('active_plugins');
-            $plugins=get_plugins();
-            $activated_plugins=array();
-            foreach ($apl as $p){           
+            $wpData[ 'avatar' ] = get_site_icon_url();
+
+            $wpData[ 'pingpong' ] = false;
+            $activePlugins = get_option('active_plugins');
+            $plugins = get_plugins();
+            $activated_plugins = array();
+            foreach ( $activePlugins as $p ){           
                 if(isset($plugins[$p])){
                   if ( $plugins[$p]['Name'] == '@PingPong' ){
-                    $toolkitData[ 'pingpong' ] = true;
-                  }
-                  if ( $plugins[$p]['Name'] == '@PWAify' ){
-                    $toolkitData[ 'pwaify' ] = true;
-                  }
-                  if ( $plugins[$p]['Name'] == '@Kart' ){
-                    $toolkitData[ 'kart' ] = true;
+                    $wpData[ 'pingpong' ] = true;
                   }
                 }           
             }
 
             echo '<script>';
-            echo 'var toolkitData = ' . json_encode( $toolkitData ) . ';';
+            echo 'var wpData = ' . json_encode( $wpData ) . ';';
             echo '</script>';
+
             $html = file_get_contents(plugin_dir_path( __DIR__ ) . 'react/build/index.html');
             $html = str_replace('href="/static', 'href="'. plugin_dir_url( __DIR__ ) .
           'react/build/static', $html);
@@ -98,16 +76,22 @@ class ToolKit{
             echo $html;
           ?>
 
-<!-- <pre><?php echo json_encode( $toolkitData, JSON_PRETTY_PRINT ); ?></pre>
+          <style type="text/css">
+            .admin-page-footer{
+
+            }
+            
+          </style>
+          <div class="admin-page-footer">
 
 
-          <ul>
-            <li><a href="https://github.com/listingslab-software/toolkit/blob/master/wp-content/plugins/listingslab-pingpong.zip?raw=true" target="_blank">pingpong</a></li>
-            <li><a href="https://github.com/listingslab-software/toolkit/blob/master/wp-content/plugins/listingslab-pwaify.zip?raw=true" target="_blank">pwaify</a></li>
-            <li><a href="https://github.com/listingslab-software/toolkit/blob/master/wp-content/plugins/listingslab-kart.zip?raw=true" target="_blank">kart</a></li>
+            <pre><?php echo json_encode( $wpData, JSON_PRETTY_PRINT ); ?></pre>
+            <ul>
+              <li><a href="https://github.com/listingslab-software/toolkit/blob/master/wp-content/plugins/listingslab-toolkit.zip?raw=true" target="_blank">zip</a></li>
+              <li><a href="https://github.com/listingslab-software/toolkit/" target="_blank">GitHub Repo</a></li>
+            </ul>
 
-            <li><a href="https://github.com/listingslab-software/toolkit/" target="_blank">GitHub</a></li>
-          </ul> -->
+          </div>
          </div>
 
        <?php }

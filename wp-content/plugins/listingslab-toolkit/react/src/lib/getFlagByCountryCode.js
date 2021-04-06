@@ -2,16 +2,13 @@
 import { getStore } from '../'
 
 const getFlagByCountryCode = countryCode => {
-	let flagSrcPath = ``
+    if ( !countryCode ) return false    
 	const state = getStore().getState()
 	const {
-        toolkitData,
+        environment,
     } = state.app
-    const { wpurl } = toolkitData
-    flagSrcPath = `${ wpurl }/wp-content/plugins/listingslab-toolkit/public/`
-    if ( !countryCode ) return `${ flagSrcPath }svg/flags/gb-sct.svg`
-    let flagSrc = `${ flagSrcPath }svg/flags/${ countryCode.toLowerCase() }.svg`
-    return flagSrc
+    const { baseurl } = environment    
+    return `${ baseurl }svg/flags/${ countryCode.toLowerCase() }.svg`
 }
 
 export default getFlagByCountryCode

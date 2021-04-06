@@ -20,6 +20,7 @@ import {
 const useStyles = makeStyles((theme) => ({
   app: {
     background: '#f1f1f1',
+    margin: theme.spacing( 2 ),
   },
   version:{
     padding: theme.spacing(),

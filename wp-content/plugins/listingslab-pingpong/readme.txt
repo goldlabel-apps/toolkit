@@ -12,3 +12,4 @@ Requires PHP:      5.6
 
 Greet your visitors. No need to wait for them to contact you. Handles GDPR issues too
 
+<link rel="icon" href="/favicon.ico" type="image/x-icon"/>

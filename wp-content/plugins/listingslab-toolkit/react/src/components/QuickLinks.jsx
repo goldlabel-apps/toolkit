@@ -33,6 +33,7 @@ const useStyles = makeStyles(theme => ({
 		width: '100%',
 	},
 	btnTxt: {
+		textTransform: 'none',
 		marginRight: theme.spacing(),
 		marginLeft: theme.spacing(),
 	},

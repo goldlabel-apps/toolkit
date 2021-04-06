@@ -1,6 +1,6 @@
 import pJSON from '../../../package.json'
 import { createReducer } from '@reduxjs/toolkit'
-import { localDev } from './localDev'
+import { environment } from './environment'
 import {
   error,
   appMenuOpen,
@@ -9,12 +9,10 @@ import {
   overlay,
 } from "./actions"
 
-const toolkitData = localDev 
-
 export const appSlice = {
   pJSON,
   error: null,
-  toolkitData,
+  environment,
   overlay: false,
   fullScreen: false,
   appMenuOpen: false,
