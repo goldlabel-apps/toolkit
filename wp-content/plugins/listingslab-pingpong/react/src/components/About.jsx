@@ -1,13 +1,11 @@
 import React from 'react'
 import clsx from 'clsx'
 import { useSelector } from 'react-redux' 
-import { 
-  toggleDialog,
-} from '../redux/pingpong/actions'
+// import { 
+//   toggleDialog,
+// } from '../redux/pingpong/actions'
 import {
     makeStyles,
-    // useTheme,
-    Button,
     Accordion,
     AccordionSummary,
     AccordionDetails,
@@ -74,25 +72,9 @@ export default function About( props ) {
 					className={ clsx( classes.plainAccordion )} >
 					<AccordionSummary
 			          expandIcon={ <Icon icon={`panel-toggle`} color={ `primary` }/> }
-			          aria-controls={ `Help` }
-			          id={ `help` } >
-				        <Grid container>
-				        	<Grid item>
-				        		<Button
-				        			variant={ `text` }
-				        			color={ `primary` }
-				        			onClick={ (e) => {
-				        				e.preventDefault()
-				        				toggleDialog( false )
-				        			}}>
-				        			<Icon icon={ `close` } color={ `inherit` } />
-				        			<span className={ clsx( classes.btnTxt )}>
-				        				Close
-				        			</span>									
-								</Button>
-				        	</Grid>
-							
-						</Grid>
+			          aria-controls={ `About` }
+			          id={ `about` } >
+				        
         			</AccordionSummary>
         			<AccordionDetails>
         				<Grid container>
@@ -106,3 +88,9 @@ export default function About( props ) {
 				</Accordion>
 		</div>
 }
+
+/*
+<span className={ clsx( classes.btnTxt )}>
+				        				Close
+				        			</span>	
+*/

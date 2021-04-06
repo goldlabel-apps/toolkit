@@ -50,7 +50,7 @@ export default function BottomAppBar() {
                             e.preventDefault()
                             toggleDialog( true )
                           }}>
-              @_ToolKit
+              @PingPong
             </Button>
           </Toolbar>
         </AppBar>

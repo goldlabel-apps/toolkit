@@ -13,29 +13,66 @@ export const feedback = createAction(`PINGPONG/FEEDBACK`)
 export const feedbackObj = createAction(`PINGPONG/FEEDBACK/OBJ`)
 export const dialog = createAction(`PINGPONG/DIALOG`)
 export const overlay = createAction(`PINGPONG/OVERLAY`)
-export const visitor = createAction(`PINGPONG/VISITOR`) 
-export const id = createAction(`PINGPONG/ID`) 
+export const ting = createAction(`PINGPONG/TING`) 
+export const id = createAction(`PINGPONG/ID`)
+export const newMessage = createAction(`PINGPONG/MESSAGE/NEW`) 
+
+export const updateNewMessage = message => { 
+	let newNewMessage = {
+		message,
+		valid: false,
+	}
+	if ( message.length > 5 ) newNewMessage.valid = true
+	const store = getStore()
+	store.dispatch({ type: `PINGPONG/MESSAGE/NEW`, newMessage: newNewMessage })
+}
+
+export const sendNewMessage = () => { 
+	console.log ( sendNewMessage )
+	// const ting = getStore().getState().pingpong.ting
+	// const endpoint = `${ process.env.REACT_APP_LISTINGSLAB_API }/pingpong/update/`
+	// axios.post( endpoint, ting )
+	// 	.then(function( res ) {
+	// 		const store = getStore()
+	// 		store.dispatch({ type: `PINGPONG/ID`, id: res.data.response.data.id })
+	// 		return true
+	// 	})
+	// 	.catch(function( error ) {
+	// 		throwError( error )
+	// 		setFeedback({ 
+	// 			severity: `error`, 
+	// 			message: `Error connecting to API`,
+	// 		})
+	// 		toggleFeedback( true)
+	// 		return false
+	// 	})
+}
 
 export const initPingPong = () => {
 	const store = getStore()
 	store.dispatch({ type: `PINGPONG/INIT`, initting: true })
 	fetchGeo()
 	userAgent()
-	updateVisitor(`host`, window.location.host)
-	updateVisitor(`path`, window.location.pathname)
+	updateTing(`host`, window.location.host)
+	updateTing(`path`, window.location.pathname)
 	FingerprintJS.load().then(fp => {
 	      fp.get().then(result => {
-	      	updateVisitor(`fingerprint`, `${ window.location.host }_${ result.visitorId }` )
+	      	updateTing(`fingerprint`, `${ window.location.host }_${ result.visitorId }` )
 	      	completeInit()
 	      })
 	    })
 	return true
 }
 
+
+
+
+
+
 export const connectAPI = () => { 
-	const visitor = getStore().getState().pingpong.visitor
+	const ting = getStore().getState().pingpong.ting
 	const endpoint = `${ process.env.REACT_APP_LISTINGSLAB_API }/pingpong/update/`
-	axios.post( endpoint, visitor )
+	axios.post( endpoint, ting )
 		.then(function( res ) {
 			const store = getStore()
 			store.dispatch({ type: `PINGPONG/ID`, id: res.data.response.data.id })
@@ -53,11 +90,11 @@ export const connectAPI = () => {
 }
 
 export const completeInit = () => {
-	const visitor = getStore().getState().pingpong.visitor
+	const ting = getStore().getState().pingpong.ting
 	const {
 		fingerprint,
 		geonameId,
-	} = visitor
+	} = ting
 	if ( !fingerprint || !geonameId) return false
 	const store = getStore()
 	store.dispatch({ type: `PINGPONG/INITTED`, initted: true })
@@ -70,30 +107,30 @@ export const fetchGeo = () => {
 	axios.get( endpoint )
 		.then( function( response ) {
 			const ipgeo = response.data
-			updateVisitor(`callingCode`, ipgeo.calling_code)
-			updateVisitor(`city`, ipgeo.city)
-			updateVisitor(`continentCode`, ipgeo.continent_code)
-			updateVisitor(`continentName`, ipgeo.continent_name)
-			updateVisitor(`countryName`, ipgeo.country_name)
-			updateVisitor(`countryCapital`, ipgeo.country_capital)
-			updateVisitor(`countryCode2`, ipgeo.country_code2)
-			updateVisitor(`countryCode3`, ipgeo.country_code3)
-			updateVisitor(`countryTld`, ipgeo.country_tld)
-			updateVisitor(`currencyCode`, ipgeo.currency ? ipgeo.currency.code : null)
-			updateVisitor(`currencyName`, ipgeo.currency ? ipgeo.currency.name : null)
-			updateVisitor(`currencySymbol`, ipgeo.currency ? ipgeo.currency.symbol : null)
-			updateVisitor(`district`, ipgeo.district)
-			updateVisitor(`geonameId`, ipgeo.geoname_id)
-			updateVisitor(`ip`, ipgeo.ip)
-			updateVisitor(`isEu`, ipgeo.is_eu)
-			updateVisitor(`isp`, ipgeo.isp)
-			updateVisitor(`languages`, ipgeo.languages)
-			updateVisitor(`lat`, ipgeo.latitude)
-			updateVisitor(`lng`, ipgeo.longitude)
-			updateVisitor(`organization`, ipgeo.organization)
-			updateVisitor(`stateProv`, ipgeo.state_prov)
-			updateVisitor(`timeZone`, ipgeo.time_zone ? ipgeo.time_zone.name : null )
-			updateVisitor(`zipcode`, ipgeo.zipcode)
+			updateTing(`callingCode`, ipgeo.calling_code)
+			updateTing(`city`, ipgeo.city)
+			updateTing(`continentCode`, ipgeo.continent_code)
+			updateTing(`continentName`, ipgeo.continent_name)
+			updateTing(`countryName`, ipgeo.country_name)
+			updateTing(`countryCapital`, ipgeo.country_capital)
+			updateTing(`countryCode2`, ipgeo.country_code2)
+			updateTing(`countryCode3`, ipgeo.country_code3)
+			updateTing(`countryTld`, ipgeo.country_tld)
+			updateTing(`currencyCode`, ipgeo.currency ? ipgeo.currency.code : null)
+			updateTing(`currencyName`, ipgeo.currency ? ipgeo.currency.name : null)
+			updateTing(`currencySymbol`, ipgeo.currency ? ipgeo.currency.symbol : null)
+			updateTing(`district`, ipgeo.district)
+			updateTing(`geonameId`, ipgeo.geoname_id)
+			updateTing(`ip`, ipgeo.ip)
+			updateTing(`isEu`, ipgeo.is_eu)
+			updateTing(`isp`, ipgeo.isp)
+			updateTing(`languages`, ipgeo.languages)
+			updateTing(`lat`, ipgeo.latitude)
+			updateTing(`lng`, ipgeo.longitude)
+			updateTing(`organization`, ipgeo.organization)
+			updateTing(`stateProv`, ipgeo.state_prov)
+			updateTing(`timeZone`, ipgeo.time_zone ? ipgeo.time_zone.name : null )
+			updateTing(`zipcode`, ipgeo.zipcode)
 			completeInit()
 			return true
 		})
@@ -113,25 +150,25 @@ export const fetchGeo = () => {
 
 export const userAgent = () => {
 	const ua = parseUa()
-	updateVisitor(`device`, ua.device.type ? `${ ua.device.vendor } ${ua.device.model}` : `desktop` )
-	updateVisitor(`osName`, ua.os.name)
-	updateVisitor(`osVersion`, ua.os.version)
-	updateVisitor(`browserName`, ua.browser.name)
-	updateVisitor(`browserVersion`, ua.browser.version)
-	updateVisitor(`browserMajor`, ua.browser.major)
+	updateTing(`device`, ua.device.type ? `${ ua.device.vendor } ${ua.device.model}` : `desktop` )
+	updateTing(`osName`, ua.os.name)
+	updateTing(`osVersion`, ua.os.version)
+	updateTing(`browserName`, ua.browser.name)
+	updateTing(`browserVersion`, ua.browser.version)
+	updateTing(`browserMajor`, ua.browser.major)
 	completeInit()
 	return true
 }
 
-export const updateVisitor = (key, value) => {
+export const updateTing = (key, value) => {
 	const store = getStore()
-	let visitor = store.getState().pingpong.visitor
-	visitor = {
-		...visitor,
+	let ting = store.getState().pingpong.ting
+	ting = {
+		...ting,
 		[key]: value,
 		updated: Date.now(),
 	}
-	store.dispatch({type: `PINGPONG/VISITOR`, visitor })
+	store.dispatch({type: `PINGPONG/TING`, ting })
 	return true
 }
 

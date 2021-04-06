@@ -6,7 +6,7 @@ import Links from './Links'
 import TextBox from './TextBox'
 import MessageSingle from './MessageSingle'
 import PingPongButton from './PingPongButton'
-import MessageSend from './MessageSend'
+import MessageNew from './MessageNew'
 
 export {
 	Feedback,
@@ -17,5 +17,5 @@ export {
 	TextBox,
 	MessageSingle,
 	PingPongButton,
-	MessageSend,
+	MessageNew,
 }

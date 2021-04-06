@@ -279,7 +279,7 @@ class Icon extends Component {
             case `user`:
                 return (<IconUser color={iconColor} />)
 
-            case `visitor`:
+            case `ting`:
                 return (<IconUser color={iconColor} />)
 
             case `story`:

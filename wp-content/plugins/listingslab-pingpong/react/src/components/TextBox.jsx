@@ -22,23 +22,20 @@ export default function TextBox( props ) {
 		label,
 		autoFocus,
 		variant,
+		color,
+		onChange,
+		value,
+		rows,
 	} = options
-
-	const validate = () => {
-		let isValid = false
-		return isValid
-	}
-
-	const onChange = (e) => {
-		validate()
-		console.log ('onChange', e.target.value)
-	}
 
 	return	<TextField
 				className={clsx( classes.textBox )}
 				autoFocus={ autoFocus }
 				id={ `outlined-multiline-flexible` }
+				rows={ rows }
 				label={ label }
+				color={ color }
+				value={ value }
 				variant={ variant }
 				multiline
 				rowsMax={ 4 }

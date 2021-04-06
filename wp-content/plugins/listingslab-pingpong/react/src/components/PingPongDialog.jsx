@@ -8,11 +8,15 @@ import {
 	useMediaQuery,
     Dialog,
     DialogActions,
+    IconButton,
 } from '@material-ui/core/'
 import { 
-	About,
-	MessageSend,
+	// About,
+	MessageNew,
 } from './'
+import { 
+	Icon,
+} from '../theme'
 
 const useStyles = makeStyles((theme) => ({
   pingPongDialog:{
@@ -41,10 +45,25 @@ export default function PingPongDialog( props ) {
 				maxWidth={ `sm` }
 				onClose={ closeDialog } 
 			>
-				<About />	
+					
 				<DialogActions>
-					<MessageSend />
+					<MessageNew />
+				</DialogActions>	
+				<DialogActions>
+					<IconButton
+	        			variant={ `text` }
+	        			color={ `primary` }
+	        			onClick={ (e) => {
+	        				e.preventDefault()
+	        				toggleDialog( false )
+	        			}}>
+	        			<Icon icon={ `close` } color={ `inherit` } />
+	        											
+					</IconButton>
 				</DialogActions>
 			</Dialog>
 }
 
+/*
+<About />
+*/

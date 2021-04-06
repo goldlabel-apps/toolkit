@@ -117,22 +117,3 @@ export default function MessageSingle( props ) {
 
 			</div>
 }
-
-/*
-
-<CardContent>
-					<Typography>
-						{ id }
-					</Typography>
-				</CardContent>
-
-
-<pre>
-	{ JSON.stringify( visitor, null, 2 )}
-</pre>
-<CardContent>
-					<Typography>
-						ready?
-					</Typography>
-				</CardContent>
-*/
