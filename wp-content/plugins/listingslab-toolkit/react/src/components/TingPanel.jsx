@@ -20,6 +20,10 @@ import {
 
 const useStyles = makeStyles(theme => ({
 	card: {
+		background: 'none',
+	    boxRadius: 'none',
+	    boxShadow: 'none',
+	    border: 'none',
 	},
 	tingBtn:{
 		width: '100%',

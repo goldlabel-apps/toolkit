@@ -4,7 +4,7 @@ export const getTingHost = ting => {
     if ( !ting ) return false
     const {
         host
-    } = getStore().getState().pingpong
+    } = ting
     return host
 }
 
