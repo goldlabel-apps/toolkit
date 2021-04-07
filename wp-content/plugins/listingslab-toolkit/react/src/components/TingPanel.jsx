@@ -7,7 +7,7 @@ import {
 import {
 	getFlagByCountryCode,
 	getTingTitle,
-	// getTingSubheading,
+	getTingHost,
 } from '../lib'
 import {
     makeStyles,
@@ -22,7 +22,6 @@ const useStyles = makeStyles(theme => ({
 	card: {
 	},
 	tingBtn:{
-		margin: theme.spacing( 0.5 ),
 		width: '100%',
 		display: 'block',
 		textAlign: 'left',
@@ -46,8 +45,8 @@ export default function TingPanel( props ) {
 				}}>
 				<Card className={ clsx( classes.card ) } >
 					<CardHeader 
-						title={ getTingTitle( ting ) }
-						// subheader={ getTingSubheading( ting ) }
+						title={ getTingHost( ting ) }
+						subheader={ getTingTitle( ting ) }
 						avatar={<Avatar src={ getFlagByCountryCode( countryCode2 ) } />}
 					/>
 					

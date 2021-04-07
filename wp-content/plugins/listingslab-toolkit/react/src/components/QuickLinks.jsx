@@ -1,4 +1,5 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import {
 	gotoURL,
 } from '../redux/app/actions'
@@ -28,6 +29,7 @@ const useStyles = makeStyles(theme => ({
 	plainAccordion:{
 		border: 'none',
 		boxShadow: 'none',
+		background: 'none',
 	},
 	fullW: {
 		width: '100%',
@@ -48,8 +50,17 @@ export default function QuickLinks( props ) {
 	const isOpen = false
 	const theme = useTheme()
 	const primaryColor = theme.palette.primary.main
+	const appSlice = useSelector(state => state.app)
+	const {
+	    environment,
+	} = appSlice
+
+	console.log('environment', environment)
 
 	return	<React.Fragment>
+				<pre>
+					{ JSON.stringify( environment, null, 2 )}
+				</pre>
 				<Accordion 
 						defaultExpanded={ isOpen }
 						className={clsx( classes.plainAccordion )

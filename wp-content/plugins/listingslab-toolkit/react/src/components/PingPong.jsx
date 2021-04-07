@@ -90,7 +90,7 @@ export default function PingPong(props) {
               if ( i > 1 ) return null
               return  <TingPanel ting={ item } key={ `ting_${i}` }>
                         <Typography>
-                        { item.fingerprint }
+                          { item.fingerprint }
                         </Typography>
                       </TingPanel>
             })}

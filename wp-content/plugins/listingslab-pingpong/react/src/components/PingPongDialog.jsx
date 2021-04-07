@@ -1,3 +1,4 @@
+
 import React from 'react'
 import clsx from 'clsx'
 import { 
@@ -11,7 +12,7 @@ import {
     IconButton,
 } from '@material-ui/core/'
 import { 
-	// About,
+	Links,
 	MessageNew,
 } from './'
 import { 
@@ -45,9 +46,10 @@ export default function PingPongDialog( props ) {
 				maxWidth={ `sm` }
 				onClose={ closeDialog } 
 			>
-					
+					<Links />
 				<DialogActions>
 					<MessageNew />
+
 				</DialogActions>	
 				<DialogActions>
 					<IconButton

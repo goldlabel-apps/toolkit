@@ -85,7 +85,7 @@ class ToolKit{
           <div class="admin-page-footer">
 
 
-            <pre><?php echo json_encode( $wpData, JSON_PRETTY_PRINT ); ?></pre>
+            <pre>wpData=<?php echo json_encode( $wpData, JSON_PRETTY_PRINT ); ?></pre>
             <ul>
               <li><a href="https://github.com/listingslab-software/toolkit/blob/master/wp-content/plugins/listingslab-toolkit.zip?raw=true" target="_blank">zip</a></li>
               <li><a href="https://github.com/listingslab-software/toolkit/" target="_blank">GitHub Repo</a></li>

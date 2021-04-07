@@ -1,5 +1,13 @@
 import { getStore } from '../'
 
+export const getTingHost = ting => {
+    if ( !ting ) return false
+    const {
+        host
+    } = getStore().getState().pingpong
+    return host
+}
+
 export const getTingTitle = ting => {
     if ( !ting ) return false
     const {

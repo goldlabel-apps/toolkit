@@ -8,6 +8,7 @@ import scrollToTop from './scrollToTop'
 import {
 	getTingTitle,
 	getTingSubheading,
+	getTingHost,
 } from './ting'
 
 export {
@@ -18,5 +19,6 @@ export {
 	getIconByHostname,
 	getTingTitle,
 	getTingSubheading,
-	scrollToTop
+	scrollToTop,
+	getTingHost,
 }
