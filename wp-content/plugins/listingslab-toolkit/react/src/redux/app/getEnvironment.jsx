@@ -3,26 +3,28 @@ import pJSON from '../../../package.json'
 export const localDev = {
     "name": "Site Title",
     "description": "Site Owner",
-    "baseurl": "/",
+    "url": "/",
     "admin_email": "test@test.com",
-    "avatar": "https://listingslab.com/wp-content/uploads/2021/03/cropped-ListingslabIcon.png"
+    "avatar": "png/IconToolKit.png",
+    "pingpong": true,
 }
 
 export const getEnvironment = () => {
-	
 	let environment = {
 		version: pJSON.version,
 	}
 	let wpData = window.wpData
-
 	if ( !wpData ) {
-		environment = {
+		return {
 			...environment,
 			...localDev,
+			assetPath: `/`,
 		}
 	}
-	// console.log ('getEnvironment', environment)
-
+	return {
+			...environment,
+			...wpData,
+			assetPath: `/wp-content/plugins/listingslab-toolkit/react/build/`,
+	}
 	return environment
 }
-

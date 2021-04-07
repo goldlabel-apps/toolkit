@@ -78,19 +78,21 @@ class ToolKit{
 
           <style type="text/css">
             .admin-page-footer{
-
+              text-align: center;
+            }
+            .admin-page-footer a {
+              text-decoration: none;
             }
             
           </style>
           <div class="admin-page-footer">
 
 
-            <pre>wpData=<?php echo json_encode( $wpData, JSON_PRETTY_PRINT ); ?></pre>
-            <ul>
-              <li><a href="https://github.com/listingslab-software/toolkit/blob/master/wp-content/plugins/listingslab-toolkit.zip?raw=true" target="_blank">zip</a></li>
-              <li><a href="https://github.com/listingslab-software/toolkit/" target="_blank">GitHub Repo</a></li>
-            </ul>
-
+            <!-- <pre>wpData=<?php echo json_encode( $wpData, JSON_PRETTY_PRINT ); ?></pre> -->
+            
+            <a href="https://github.com/listingslab-software/toolkit/blob/master/wp-content/plugins/listingslab-toolkit.zip?raw=true" target="_blank">zip</a>
+            &nbsp;|&nbsp;
+            <a href="https://github.com/listingslab-software/toolkit/" target="_blank">GitHub</a>
           </div>
          </div>
 
