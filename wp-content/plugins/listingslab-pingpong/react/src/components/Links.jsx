@@ -11,7 +11,6 @@ import {
     AccordionSummary,
     AccordionDetails,
     Grid,
-    Typography,
     List,
     ListItem,
     ListItemText,
@@ -61,7 +60,6 @@ export default function ToolKit( props ) {
 	
 	const classes = useStyles()
 	const theme = useTheme()
-	const secondaryColor = theme.palette.secondary.main
 	const primaryColor = theme.palette.primary.main
 
 	return	<div className={clsx( classes.links )}>
@@ -72,38 +70,12 @@ export default function ToolKit( props ) {
 			          expandIcon={ <Icon icon={`panel-toggle`} color={ `primary` }/> }
 			          aria-controls={ `Help` }
 			          id={ `help` } >
-				        <Grid container>
-							<Grid item>
-								<Typography className={clsx( classes.dialogTitleText )}>
-									Links
-								</Typography>
-							</Grid>
-						</Grid>
+				        
         			</AccordionSummary>
         			<AccordionDetails>
 	        			<List dense className={clsx( classes.fullWidth )}>
-							<ListItem 
-								button
-								onClick={ e => {
-									e.preventDefault()
-									gotoURL(`/wp-admin/admin.php?page=listingslab-toolkit%2Fphp%2FToolKit.php`, `_self`)
-									toggleDialog( false )
-								}}>
-								<ListItemIcon>
-									<Icon icon={ `wordpress` } color={ secondaryColor } />
-								</ListItemIcon>
-								<ListItemText 
-									primary={ `WordPress Admin` }
-									// secondary={ `WordPress Admin Page` }
-								/>
-							</ListItem>
-						</List>
-
-						<Grid item xs={ 12 }>
-								<List dense className={clsx( classes.fullWidth )}> 
-
-
-									<ListItem 
+							
+								<ListItem 
 										button
 										onClick={ e => {
 											e.preventDefault()
@@ -114,10 +86,12 @@ export default function ToolKit( props ) {
 											<Icon icon={ `wordpress` } color={ primaryColor } />
 										</ListItemIcon>
 										<ListItemText 
-											primary={ `WordPress` }
+											primary={ `Dashboard` }
 										/>
 									</ListItem>
-									
+
+
+
 									<ListItem 
 										button
 										onClick={ e => {
@@ -129,7 +103,7 @@ export default function ToolKit( props ) {
 											<Icon icon={ `wordpress` } color={ primaryColor } />
 										</ListItemIcon>
 										<ListItemText 
-											primary={ `@_ToolKit` }
+											primary={ `@ToolKit` }
 										/>
 									</ListItem>
 
@@ -148,6 +122,7 @@ export default function ToolKit( props ) {
 											primary={ `Plugins` }
 										/>
 									</ListItem>
+
 
 									<ListItem 
 										button
@@ -181,7 +156,12 @@ export default function ToolKit( props ) {
 											primary={ `New Post` }
 										/>
 									</ListItem>
-									
+
+
+						</List>
+
+						<Grid item xs={ 12 }>
+								<List dense className={clsx( classes.fullWidth )}> 
 
 									<ListItem 
 										button

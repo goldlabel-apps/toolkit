@@ -87,7 +87,7 @@ export default function PingPong(props) {
 
           <Grid item xs={ nothingSelected ? 12 : 6 } >
             { tings.map ((item, i) => {
-              if ( i > 1 ) return null
+              if ( i > 7 ) return null
               return  <TingPanel ting={ item } key={ `ting_${i}` }>
                         <Typography>
                           { item.fingerprint }

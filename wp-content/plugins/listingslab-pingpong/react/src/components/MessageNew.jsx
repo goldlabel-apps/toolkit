@@ -58,7 +58,7 @@ export default function MessageNew( props ) {
 						id: `newMessage`,
 						label: `New Message`,
 						autoFocus: true,
-						variant: `standard`,
+						variant: `outlined`,
 						color: `primary`,
 						rows: 4,
 						value: newMessage.message,
@@ -75,7 +75,7 @@ export default function MessageNew( props ) {
 						subheader={ `${ getTingGeoStr( ting ) }`}
 						avatar={ <Avatar src={ getTingFlag( ting ) }/> }
 						action={ <Button
-							variant={ `contained` }
+							variant={ `outlined` }
 							color={ `primary` }
 							onClick={ ( e ) => {
 								e.preventDefault()

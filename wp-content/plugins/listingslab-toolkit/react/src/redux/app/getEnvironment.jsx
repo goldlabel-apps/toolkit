@@ -26,5 +26,4 @@ export const getEnvironment = () => {
 			...wpData,
 			assetPath: `/wp-content/plugins/listingslab-toolkit/react/build/`,
 	}
-	return environment
 }

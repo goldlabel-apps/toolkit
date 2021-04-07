@@ -12,7 +12,6 @@ import {
   Typography,
 } from '@material-ui/core/'
 import { 
-  QuickLinks,
   PingPong,
   Overlay,
 } from './components'
@@ -38,7 +37,6 @@ export default function App() {
     return <MuiThemeProvider theme={createMuiTheme(theme)}>
               <div className={ clsx( classes.app ) }>
                 <Overlay />
-                <QuickLinks />
                 <PingPong />
                 <Typography 
                   variant={ `body2` } 
