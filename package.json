@@ -6,6 +6,7 @@
 	"author": "listingslab <listingslab@gmail.com>",
 	"license": "MIT",
 	"scripts": {
+		"dependencies": "$PWD/unix/dependencies",
 		"api": "$PWD/unix/api",
 		"dev:toolkit": "$PWD/unix/dev wp-content/plugins/listingslab-toolkit/react",
 		"build:toolkit": "$PWD/unix/build wp-content/plugins/listingslab-toolkit/react",
@@ -17,8 +18,8 @@
 		"build:omninav": "$PWD/unix/build wp-content/plugins/listingslab-omninav/react",
 		"dev:ironavirus": "$PWD/unix/dev wp-content/plugins/listingslab-ironavirus/react",
 		"build:ironavirus": "$PWD/unix/build wp-content/plugins/listingslab-ironavirus/react",
-		"wp": "$PWD/unix/wp",
+		"wp": "$PWD/unix/wordpressify",
 		"git": "$PWD/unix/git",
-		"pub": "yarn wp && yarn git"
+		"pub": "yarn wordpressify && yarn git"
 	}
 }

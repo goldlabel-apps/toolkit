@@ -1,0 +1,16 @@
+#!/bin/bash
+# chmod ug+x dependencies
+clear
+
+echo 'Installing dependencies'
+
+echo '@ToolKit'
+cd  ./wp-content/plugins/listingslab-toolkit
+cd  ./react/
+ls -la
+yarn && yarn build
+echo '@PingPong'
+cd  ../../listingslab-pingpong
+cd  ./react/
+ls -la
+yarn && yarn build
