@@ -20,6 +20,6 @@
 		"build:ironavirus": "$PWD/unix/build wp-content/plugins/listingslab-ironavirus/react",
 		"wp": "$PWD/unix/wordpressify",
 		"git": "$PWD/unix/git",
-		"pub": "yarn wordpressify && yarn git"
+		"pub": "yarn wp && yarn git"
 	}
 }

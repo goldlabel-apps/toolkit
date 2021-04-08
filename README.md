@@ -27,5 +27,4 @@ __@ToolKit__ WordPress Admin Page to manage settings and API for all Subplugins
 
 - [listingslab-toolkit.zip](https://github.com/listingslab-software/toolkit/raw/master/wp-content/plugins/listingslab-toolkit.zip)
 - [listingslab-pingpong.zip](https://github.com/listingslab-software/toolkit/raw/master/wp-content/plugins/listingslab-pingpong.zip)
-- [listingslab-pwaify.zip](https://github.com/listingslab-software/toolkit/raw/master/wp-content/plugins/listingslab-pwaify.zip)
 
