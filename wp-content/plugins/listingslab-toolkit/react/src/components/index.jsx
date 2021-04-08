@@ -6,6 +6,7 @@ import QuickLinks from './QuickLinks'
 import TingPanel from './TingPanel'
 import TingFilters from './TingFilters'
 import TingDetail from './TingDetail'
+import Hosts from './Hosts'
 
 export {
 	PingPong,
@@ -16,4 +17,5 @@ export {
 	TingPanel,
 	TingFilters,
 	TingDetail,
+	Hosts,
 }

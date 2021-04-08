@@ -40,8 +40,9 @@ export default function App() {
                 <PingPong />
                 <Typography 
                   variant={ `body2` } 
+                  color={ `textSecondary` }
                   className={ clsx( classes.version ) }>
-                  version { version }
+                  vs { version }
                 </Typography>
               </div>
             </MuiThemeProvider> 

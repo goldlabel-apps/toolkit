@@ -13,6 +13,16 @@ export const tingId = createAction(`PINGPONG/TINGS/SELECT`)
 export const showCountryName = createAction(`PINGPONG/TINGS/SHOWCOUNTRY`)
 export const showMode = createAction(`PINGPONG/TINGS/SHOWMODE`)
 
+export const getHostList = () => {
+	const pingpongSlice = getStore().getState().pingpong
+	const { tings } = pingpongSlice
+	let hostList = []
+	// for (let i = 0; i < tings.length; i++ ){
+	// 	if (tings[i].id === tingId) return tings[i]
+	// }
+	return hostList
+}
+
 export const setShowMode = showMode => {
 	const store = getStore()
 	store.dispatch({type: `PINGPONG/TINGS/SHOWMODE`, showMode })

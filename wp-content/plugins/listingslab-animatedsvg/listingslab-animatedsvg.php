@@ -5,7 +5,7 @@
  * @package           listingslab-animatedsvg
  *
  * @wordpress-plugin
- * Version:           10.1.9
+ * Version:           10.2.0
  * Plugin Name:       @Animatedsvg
  * Description:       Animated SVG React/WordPress plugin
  * Plugin URI:        https://github.com/listingslab-software/toolkit
@@ -18,7 +18,7 @@
  */
 
 defined( 'ABSPATH' ) or die( 'Really?' );
-define( 'animatedsvg', '10.1.9' );
+define( 'animatedsvg', '10.2.0' );
 
 require_once 'php/Animatedsvg.php';
 $Animatedsvg = Animatedsvg::GetInstance();

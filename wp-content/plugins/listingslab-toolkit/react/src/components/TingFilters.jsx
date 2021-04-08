@@ -1,4 +1,5 @@
 import React from 'react'
+import clsx from 'clsx'
 import { useSelector } from 'react-redux'
 import {
 	toggleShowHost,
@@ -7,7 +8,6 @@ import {
 	toggleShowCountryName,
 	setShowMode,
 } from '../redux/pingpong/actions'
-import clsx from 'clsx'
 import {
 	withStyles,
     makeStyles,
@@ -21,6 +21,7 @@ import {
     Grid,
 } from '@material-ui/core/'
 import { Icon } from '../theme'
+import { Hosts } from './'
 
 const AntSwitch = withStyles((theme) => ({
   root: {
@@ -97,33 +98,9 @@ export default function TingFilters( props ) {
 	
 	return	<div className={ clsx( classes.tingFilters ) } >
 				<Grid container>
-
-			        <Grid item>
-				        <FormGroup>
-				            <Typography component={ `div` }>
-				              <Grid 
-				              	container
-				              	component={ `label` }  
-				              	alignItems={ `center` }
-				              	spacing={ 1 } >
-				                <Grid item>Device</Grid>
-				                <Grid item>
-				                  <AntSwitch 
-				                  	name={ `showModeSwitch` }
-				                  	checked={ showModeChecked } 
-				                  	onClick={ ( e ) => {
-				                  		e.preventDefault()
-				                  		// console.log ( 'showMode', showMode)
-				                  		setShowMode( showMode === `device` ? `location` : `device` )
-				                  	}}
-				                  />
-				                </Grid>
-				                <Grid item>Location</Grid>
-				              </Grid>
-				            </Typography>
-				          </FormGroup>
-			          </Grid>
-
+					<Grid item>
+			        	<Hosts />
+			        </Grid>
 			          <Grid item className={ clsx( classes.grow ) } />
 			           
 			         <Grid item>
@@ -203,6 +180,32 @@ export default function TingFilters( props ) {
 						          />
 						        }/>
 	    				</FormGroup>
+
+	    				<Grid item>
+				        <FormGroup>
+				            <Typography component={ `div` }>
+				              <Grid 
+				              	container
+				              	component={ `label` }  
+				              	alignItems={ `center` }
+				              	spacing={ 1 } >
+				                <Grid item>Device</Grid>
+				                <Grid item>
+				                  <AntSwitch 
+				                  	name={ `showModeSwitch` }
+				                  	checked={ showModeChecked } 
+				                  	onClick={ ( e ) => {
+				                  		e.preventDefault()
+				                  		// console.log ( 'showMode', showMode)
+				                  		setShowMode( showMode === `device` ? `location` : `device` )
+				                  	}}
+				                  />
+				                </Grid>
+				                <Grid item>Location</Grid>
+				              </Grid>
+				            </Typography>
+				          </FormGroup>
+			          </Grid>
     				</Collapse>
 			</div>
 }

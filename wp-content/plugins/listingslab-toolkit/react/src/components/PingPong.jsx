@@ -7,7 +7,6 @@ import {
 } from '../redux/pingpong/actions'
 import {
     makeStyles,
-    useScrollTrigger,
     CardContent,
     Grid,
 } from '@material-ui/core/'
@@ -19,8 +18,6 @@ import {
 
 const useStyles = makeStyles(theme => ({
   card:{
-    // margin: theme.spacing(),
-    // minHeight: 325,
   },
   btnTxt: {
     marginRight: theme.spacing(),
@@ -33,18 +30,6 @@ const useStyles = makeStyles(theme => ({
     color: theme.palette.primary.main,
   }
 }))
-
-function ElevationScroll(props) {
-  const { children, window } = props
-  const trigger = useScrollTrigger({
-    disableHysteresis: true,
-    threshold: 0,
-    target: window ? window() : undefined,
-  })
-  return React.cloneElement(children, {
-    elevation: trigger ? 4 : 0,
-  })
-}
 
 export default function PingPong(props) {
 
@@ -71,27 +56,20 @@ export default function PingPong(props) {
 
   return (
     <React.Fragment>
-      <ElevationScroll {...props}>
         <CardContent>
           <TingFilters/>
         </CardContent>
-      </ElevationScroll>
-
         <Grid container>
-
           <Grid item xs={ nothingSelected ? 12 : 6 } >
             { tings.map ((item, i) => {
-              if ( i > 7 ) return null
+              if ( i > 5 ) return null
               return  <TingPanel ting={ item } key={ `ting_${i}` } />
             })}
           </Grid>
-
            { nothingSelected ? null : <Grid item xs={ 6 } className={ clsx( classes.none ) }>
             <TingDetail />
           </Grid> }
-
         </Grid>
-
     </React.Fragment>
   )
 }

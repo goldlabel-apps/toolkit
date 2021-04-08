@@ -12,6 +12,8 @@ export const localDev = {
 export const getEnvironment = () => {
 	let environment = {
 		version: pJSON.version,
+		host: window.location.host,
+		selectedHost: window.location.host,
 	}
 	let wpData = window.wpData
 	if ( !wpData ) {
