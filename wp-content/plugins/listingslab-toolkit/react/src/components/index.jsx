@@ -8,6 +8,7 @@ import TingFilters from './TingFilters'
 import TingDetail from './TingDetail'
 import Hosts from './Hosts'
 import ComboBox from './ComboBox'
+import SimpleMenu from './SimpleMenu'
 
 export {
 	PingPong,
@@ -20,4 +21,5 @@ export {
 	TingDetail,
 	Hosts,
 	ComboBox,
+	SimpleMenu,
 }
