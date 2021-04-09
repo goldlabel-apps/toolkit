@@ -29,7 +29,7 @@ class ToolKit{
                   '@PingPong', 
                   '@PingPong', 
                   'manage_options', 
-                  __FILE__.'/?plugin=pingpong', 
+                  __FILE__.'?plugin=pingpong', 
                   array($this, 'RenderPage')
               );
               
@@ -82,15 +82,19 @@ class ToolKit{
             }
             .admin-page-footer a {
               text-decoration: none;
+              color: #444;
             }
-            
+            .admin-page-footer a:hover {
+              text-decoration: none;
+              color: #2075d0;
+            }
           </style>
+          
           <div class="admin-page-footer">
-
-
             <!-- <pre>wpData=<?php echo json_encode( $wpData, JSON_PRETTY_PRINT ); ?></pre> -->
-            
-            <a href="https://github.com/listingslab-software/toolkit/blob/master/wp-content/plugins/listingslab-toolkit.zip?raw=true" target="_blank">zip</a>
+            <a href="/" target="_self">Home</a>
+            &nbsp;|&nbsp;
+            <a href="https://github.com/listingslab-software/toolkit/blob/master/wp-content/plugins/listingslab-toolkit.zip?raw=true" target="_blank">Download</a>
             &nbsp;|&nbsp;
             <a href="https://github.com/listingslab-software/toolkit/" target="_blank">GitHub</a>
           </div>
