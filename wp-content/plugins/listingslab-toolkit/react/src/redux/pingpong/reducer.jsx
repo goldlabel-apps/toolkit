@@ -10,6 +10,7 @@ import {
   tingId,
   showCountryName,
   showMode,
+  selectedHost,
 } from "./actions"
 
 export const pingpongSlice = {
@@ -23,9 +24,15 @@ export const pingpongSlice = {
   showCountryName: true,
   tingId: false,
   showMode: `location`,
+  selectedHost: window.location.host,
 }
 
 const pingpongReducer = createReducer(pingpongSlice, {
+
+  [selectedHost]: (state, action) => {
+    state.selectedHost = action.selectedHost
+    return state
+  },
 
   [showMode]: (state, action) => {
     state.showMode = action.showMode

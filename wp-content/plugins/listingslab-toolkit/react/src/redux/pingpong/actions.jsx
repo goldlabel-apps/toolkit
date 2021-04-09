@@ -12,6 +12,13 @@ export const showBrowser = createAction(`PINGPONG/TINGS/SHOWBROWSER`)
 export const tingId = createAction(`PINGPONG/TINGS/SELECT`)
 export const showCountryName = createAction(`PINGPONG/TINGS/SHOWCOUNTRY`)
 export const showMode = createAction(`PINGPONG/TINGS/SHOWMODE`)
+export const selectedHost = createAction(`PINGPONG/HOST/SELECT`)
+
+export const selectHost = selectedHost => {
+	const store = getStore()
+	store.dispatch({type: `PINGPONG/HOST/SELECT`, selectedHost })
+	return true
+}
 
 export const getHostList = () => {
 	const pingpongSlice = getStore().getState().pingpong
@@ -21,11 +28,11 @@ export const getHostList = () => {
 		const { host } = tings[ i ]
 		let exists = false
 		for ( let j = 0; j < hostList.length; j ++ ){
-			if ( hostList[ j ] === host ){
+			if ( hostList[ j ].host === host ){
 				exists = true
 			}
 		}
-		if ( !exists ) hostList.push( host )
+		if ( !exists ) hostList.push( {host} )
 	}
 	return hostList
 }
