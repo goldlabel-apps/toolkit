@@ -3,9 +3,8 @@ import React, { Component } from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import Blokey from './jsx/Blokey'
 import WordPress from './jsx/WordPress'
-import IconToolKit from './jsx/ToolKit'
 import IconGithub from './jsx/Github'
-
+import IconBuild from '@material-ui/icons/Build'
 import IconDocs from '@material-ui/icons/Description'
 import IconMessage from '@material-ui/icons/QuestionAnswer'
 import Account from './jsx/Account'
@@ -120,14 +119,14 @@ class Icon extends Component {
             case `connected`:
                 return (<IconConnected color={iconColor} />)   
 
+            case `toolkit`:
+                return (<IconBuild color={iconColor} />) 
+
             case `notconnected`:
                 return (<IconNotConnected color={iconColor} />)   
 
             case `locale`:
                 return (<IconLocale color={iconColor} />)   
-
-           case `toolkit`:
-                return (<IconToolKit color={ iconColor } />)  
 
             case `create`:
                 return (<IconCreate color={iconColor} />)   

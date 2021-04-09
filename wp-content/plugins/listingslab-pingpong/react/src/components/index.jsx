@@ -1,4 +1,3 @@
-import Feedback from './Feedback'
 import PingPongDialog from './PingPongDialog'
 import About from './About'
 import Overlay from './Overlay'
@@ -10,7 +9,6 @@ import MessageNew from './MessageNew'
 import Feedback from './Feedback'
 
 export {
-	Feedback,
 	PingPongDialog,
 	About,
 	Overlay,
