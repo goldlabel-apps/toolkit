@@ -9,6 +9,7 @@ import TingDetail from './TingDetail'
 import Hosts from './Hosts'
 import ComboBox from './ComboBox'
 import SimpleMenu from './SimpleMenu'
+import Feedback from './Feedback'
 
 export {
 	PingPong,
@@ -22,4 +23,5 @@ export {
 	Hosts,
 	ComboBox,
 	SimpleMenu,
+	Feedback,
 }

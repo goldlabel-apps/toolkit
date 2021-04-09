@@ -7,6 +7,7 @@ import TextBox from './TextBox'
 import MessageSingle from './MessageSingle'
 import PingPongButton from './PingPongButton'
 import MessageNew from './MessageNew'
+import Feedback from './Feedback'
 
 export {
 	Feedback,
@@ -18,4 +19,5 @@ export {
 	MessageSingle,
 	PingPongButton,
 	MessageNew,
+	Feedback,
 }

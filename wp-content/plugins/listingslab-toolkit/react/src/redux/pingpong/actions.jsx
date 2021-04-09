@@ -1,6 +1,10 @@
 import { createAction } from '@reduxjs/toolkit'
 import { getStore, getFStore } from '../../'
 import { scrollToTop } from '../../lib'
+import { 
+	setFeedback,
+	toggleFeedback,
+} from '../app/actions'
 
 export const error = createAction(`PINGPONG/ERROR`)
 export const tings = createAction(`PINGPONG/TINGS`)
@@ -84,8 +88,22 @@ export const toggleShowId = bool => {
 	return true
 }
 
-export const deleteTing = () => { 
-	return true
+export const deleteTing = id => {
+	const db = getFStore()
+	db.collection( `pingpong` ).doc( id  ).delete().then(() => {
+	    setFeedback({ 
+			severity: `info`, 
+			message: `Deleted OK`,
+		})
+	    toggleFeedback(true)
+	    return true
+	}).catch((error) => {
+	    setFeedback({ 
+			severity: `error`, 
+			message: `Error deleting`,
+		})
+	    return false
+	})
 }
 
 export const subscribeTings = () => { 
@@ -95,7 +113,6 @@ export const subscribeTings = () => {
 	db.collection( `pingpong` )
 		.orderBy( `updated`, `desc` )
 		.onSnapshot((querySnapshot) => {
-			
 			const tings = []
 	        querySnapshot.forEach( data => {
 	            tings.push({

@@ -7,6 +7,8 @@ import {
   fullScreen,
   themeMode,
   overlay,
+  feedback,
+  feedbackObj,
 } from "./actions"
 
 export const appSlice = {
@@ -18,9 +20,21 @@ export const appSlice = {
   appMenuOpen: false,
   themeMode: `light`,
   apiKey: `xyza-1234-asdf-9876`,
+  feedback: false,
+  feedbackObj: {},
 }
 
 const appReducer = createReducer(appSlice, {
+
+  [feedbackObj]: (state, action) => {
+    state.feedbackObj = action.feedbackObj
+    return state
+  },
+
+  [feedback]: (state, action) => {
+    state.feedback = action.feedback
+    return state
+  },
 
   [overlay]: (state, action) => {
     state.overlay = action.overlay

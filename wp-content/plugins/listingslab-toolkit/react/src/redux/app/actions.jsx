@@ -6,6 +6,20 @@ export const appMenuOpen = createAction(`APP/APPMENUOPEN`)
 export const fullScreen = createAction(`APP/FULLSCREEN`)
 export const themeMode = createAction(`APP/THEMEMODE`)
 export const overlay = createAction(`APP/OVERLAY`)
+export const feedback = createAction(`APP/FEEDBACK`)
+export const feedbackObj = createAction(`APP/FEEDBACK/OBJ`)
+
+export const setFeedback = feedbackObj => {
+	const store = getStore()
+	store.dispatch({type: `APP/FEEDBACK/OBJ`, feedbackObj })
+	return true
+}
+
+export const toggleFeedback = bool => {
+	const store = getStore()
+	store.dispatch({type: `APP/FEEDBACK`, feedback: bool })
+	return true
+}
 
 export const gotoURL = (url, target) => { 
 	window.open(url, target)

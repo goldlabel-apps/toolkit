@@ -1,7 +1,7 @@
 import pJSON from '../package.json'
 import React from 'react'
+import { useSelector } from 'react-redux'
 import clsx from 'clsx'
-// import { useSelector } from 'react-redux'
 import {
   theme, 
 } from './theme'
@@ -14,6 +14,7 @@ import {
 import { 
   PingPong,
   Overlay,
+  Feedback,
 } from './components'
 
 const useStyles = makeStyles((theme) => ({
@@ -30,6 +31,10 @@ const useStyles = makeStyles((theme) => ({
 export default function App() {
   
     const classes = useStyles()    
+    const appSlice = useSelector(state => state.app)
+    const {
+      feedback
+    } = appSlice
     const {
       version,
     } = pJSON
@@ -37,6 +42,7 @@ export default function App() {
     return <MuiThemeProvider theme={createMuiTheme(theme)}>
               <div className={ clsx( classes.app ) }>
                 <Overlay />
+                { feedback ? <Feedback /> : null }
                 <PingPong />
                 <Typography 
                   variant={ `body2` } 
