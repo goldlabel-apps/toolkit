@@ -17,9 +17,16 @@ export const getHostList = () => {
 	const pingpongSlice = getStore().getState().pingpong
 	const { tings } = pingpongSlice
 	let hostList = []
-	// for (let i = 0; i < tings.length; i++ ){
-	// 	if (tings[i].id === tingId) return tings[i]
-	// }
+	for ( let i = 0; i < tings.length; i ++ ){
+		const { host } = tings[ i ]
+		let exists = false
+		for ( let j = 0; j < hostList.length; j ++ ){
+			if ( hostList[ j ] === host ){
+				exists = true
+			}
+		}
+		if ( !exists ) hostList.push( host )
+	}
 	return hostList
 }
 

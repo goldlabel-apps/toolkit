@@ -1,7 +1,9 @@
 import React from 'react'
+import { useSelector } from 'react-redux' 
 import clsx from 'clsx'
 import { 
   toggleDialog,
+  gotoURL,
 } from '../redux/pingpong/actions'
 import {    
   makeStyles,
@@ -11,6 +13,7 @@ import {
 } from '@material-ui/core/'
 // import { 
 //   Icon,
+
 // } from '../theme'
 
 const useStyles = makeStyles( theme => ({
@@ -24,6 +27,11 @@ const useStyles = makeStyles( theme => ({
   grow: {
     flexGrow: 1,
   },
+  triggerButton1: {
+    position: 'absolute',
+    left: theme.spacing(),
+    textTransform: 'none',
+  },
   triggerButton: {
     position: 'absolute',
     right: theme.spacing(),
@@ -36,12 +44,31 @@ const useStyles = makeStyles( theme => ({
 }))
 
 export default function BottomAppBar() {
+  
   const classes = useStyles()
+  const pingpongSlice = useSelector(state => state.pingpong)
+  const {
+     version,
+  } = pingpongSlice.pJSON
+
+  console.log ( 'version', version )
+
 
   return <AppBar 
           className={ clsx( classes.appBar )}
           position={ `fixed` }>
           <Toolbar>
+            <Button
+              variant={ `outlined` }
+              color={  `primary` }
+              className={ clsx(classes.triggerButton1) } 
+              onClick={ (e) => {
+                            e.preventDefault()
+                            gotoURL(`/wp-admin/admin.php?page=listingslab-toolkit%2Fphp%2FToolKit.php`, `_self`)
+                          }}>
+              @ToolKit { version }
+            </Button>
+
             <Button
               variant={ `contained` }
               color={  `primary` }
@@ -52,6 +79,7 @@ export default function BottomAppBar() {
                           }}>
               @PingPong
             </Button>
+
           </Toolbar>
         </AppBar>
 }

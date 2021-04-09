@@ -7,6 +7,7 @@ import TingPanel from './TingPanel'
 import TingFilters from './TingFilters'
 import TingDetail from './TingDetail'
 import Hosts from './Hosts'
+import ComboBox from './ComboBox'
 
 export {
 	PingPong,
@@ -18,4 +19,5 @@ export {
 	TingFilters,
 	TingDetail,
 	Hosts,
+	ComboBox,
 }

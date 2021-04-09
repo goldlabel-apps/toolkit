@@ -40,6 +40,8 @@ export default function Hosts( props ) {
 				<div className={ clsx( classes.none ) }>
 					selectedHost { selectedHost }
 				</div>
-				getAllHosts()
+				<pre>
+					{ JSON.stringify( getHostList () , null, 2 )  }
+				</pre>
 			</div>
 }

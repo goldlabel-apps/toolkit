@@ -12,7 +12,6 @@ import {
     IconButton,
 } from '@material-ui/core/'
 import { 
-	Links,
 	MessageNew,
 } from './'
 import { 
@@ -46,7 +45,7 @@ export default function PingPongDialog( props ) {
 				maxWidth={ `sm` }
 				onClose={ closeDialog } 
 			>
-					<Links />
+					
 				<DialogActions>
 					<MessageNew />
 
