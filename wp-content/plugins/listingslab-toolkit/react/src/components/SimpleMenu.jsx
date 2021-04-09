@@ -61,7 +61,15 @@ export default function SimpleMenu( props ) {
         open={ Boolean( anchorEl )}
         onClose={ handleClose }
       >
-        
+        <MenuItem 
+          key={ `host_all` }
+          onClick={ (e) => {
+             e.preventDefault()
+             selectHost ( `All` ) 
+             setAnchorEl( null )
+          }}>
+            { `All` }
+         </MenuItem>
         { list.map( (item, i) => {
           const { host } = item
           return   <MenuItem 

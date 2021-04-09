@@ -43,33 +43,33 @@ export default function PingPong(props) {
         } = pingpongSlice 
         if ( !subscribedTings && !subscribingTings ) subscribeTings()
     }, [ pingpongSlice ]) 
-
   
   const {
     tingId,
     tings,
+    selectedHost,
   } = pingpongSlice
 
   const ting = getTingFromId( tingId )
   let nothingSelected = false
   if (!ting) nothingSelected = true
 
-  return (
-    <React.Fragment>
-        <CardContent>
-          <TingFilters/>
-        </CardContent>
-        <Grid container>
-          <Grid item xs={ nothingSelected ? 12 : 6 } >
-            { tings.map ((item, i) => {
-              if ( i > 5 ) return null
-              return  <TingPanel ting={ item } key={ `ting_${i}` } />
-            })}
+  return <React.Fragment>
+          <CardContent>
+            <TingFilters/>
+          </CardContent>
+          <Grid container>
+            { !nothingSelected ? null : <Grid item xs={ 12 } >
+              { tings.map ((item, i) => {
+                if (item.host === selectedHost || selectedHost === `All` ){
+                  return  <TingPanel ting={ item } key={ `ting_${i}` } />
+                }
+                return null
+              })}
+              </Grid> }
+             { nothingSelected ? null : <Grid item xs={ 12 } className={ clsx( classes.none ) }>
+              <TingDetail />
+            </Grid> }
           </Grid>
-           { nothingSelected ? null : <Grid item xs={ 6 } className={ clsx( classes.none ) }>
-            <TingDetail />
-          </Grid> }
-        </Grid>
-    </React.Fragment>
-  )
+        </React.Fragment>
 }
