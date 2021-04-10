@@ -8,8 +8,9 @@ import {
 	makeStyles,
 	useMediaQuery,
     Dialog,
-    DialogActions,
+    DialogTitle,
     IconButton,
+    Typography,
 } from '@material-ui/core/'
 import { 
 	MessageNew,
@@ -21,6 +22,12 @@ import {
 const useStyles = makeStyles((theme) => ({
   pingPongDialog:{
   	padding: theme.spacing(),
+  },
+  closeTrigger: {
+    position: 'absolute',
+    right: theme.spacing(),
+    bottom: theme.spacing(),
+    background: 'white',
   },
 }))
 
@@ -52,6 +59,11 @@ export default function PingPongDialog( props ) {
 				fullScreen={ fullScreen }
 				maxWidth={ `sm` }
 				onClose={ closeDialog } >
+				<DialogTitle>
+				<Typography>
+					@PingPong
+				</Typography>
+				</DialogTitle>
 				<div className={ clsx( classes.pingPongDialog )}>
 					<MessageNew />
 					<pre>
@@ -60,8 +72,9 @@ export default function PingPongDialog( props ) {
 					<pre>
 						messages { JSON.stringify ( messages, null, 2 ) }
 					</pre>
-					<DialogActions>
+					
 						<IconButton
+							className={ clsx( classes.closeTrigger )}
 		        			variant={ `text` }
 		        			color={ `primary` }
 		        			onClick={ (e) => {
@@ -70,7 +83,7 @@ export default function PingPongDialog( props ) {
 		        			}}>
 		        			<Icon icon={ `close` } color={ `inherit` } />				
 						</IconButton>
-					</DialogActions>
+					
 				</div>
 			</Dialog>
 }

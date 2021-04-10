@@ -39,7 +39,7 @@ const useStyles = makeStyles( theme => ({
     color: 'white',
   },
   githubChip:{
-    background: 'none',
+    background: 'white',
   },
   toolkitTrigger: {
     position: 'absolute',
@@ -104,7 +104,7 @@ export default function BottomAppBar() {
                 label={ version } 
                 onClick={ ( e ) => {
                   e.preventDefault()
-                  gotoURL( `https://github.com/listingslab-software/toolkit/`, `_blank`)
+                  gotoURL( `https://github.com/listingslab-software/toolkit/tree/master/docs`, `_blank`)
                 }}
               />
                 
