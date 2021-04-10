@@ -27,27 +27,24 @@ const useStyles = makeStyles( theme => ({
   btnTxt:{
     marginRight: theme.spacing(),
     marginLeft: theme.spacing(),
+    textTransform: 'none',
   },
   grow: {
     flexGrow: 1,
   },
   toolkitTrigger: {
     position: 'absolute',
-    left: theme.spacing(),
+    right: theme.spacing(),
     textTransform: 'none',
-    border: '1px solid #eee',
+    border: '1px solid ' + theme.palette.secondary.main,
     background: 'white',
   },
   pingpongTrigger: {
     position: 'absolute',
-    right: theme.spacing(),
+    right: 55 + theme.spacing(),
     textTransform: 'none',
-    border: '1px solid #eee',
+    border: '1px solid ' + theme.palette.secondary.main,
     background: 'white',
-  },
-  fabButton: {
-    position: 'absolute',
-    right: 0,
   },
 }))
 
@@ -71,7 +68,7 @@ export default function BottomAppBar() {
                             e.preventDefault()
                             gotoURL(`/wp-admin/admin.php?page=listingslab-toolkit%2Fphp%2FToolKit.php`, `_self`)
                           }}>    
-                  <Icon icon={ `toolkit` } />
+                  <Icon icon={ `toolkit` } color={ `primary` } />
               </IconButton>
 
             
@@ -86,11 +83,10 @@ export default function BottomAppBar() {
                   badgeContent={ 4 } 
                   color={ `primary` }
                 >
-                  <Icon icon={ `pingpong` } />
+                  <Icon icon={ `pingpong` } color={ `primary` } />
                 </Badge>
               </IconButton>
-            
-
+           
           </Toolbar>
         </AppBar>
 }

@@ -13,6 +13,9 @@ import {
   selectedHost,
 } from "./actions"
 
+// const defaultHost = window.location.host
+const defaultHost = `localhost:3000`
+
 export const pingpongSlice = {
   error: null,
   tings: [],
@@ -24,7 +27,7 @@ export const pingpongSlice = {
   showCountryName: true,
   tingId: false,
   showMode: `location`,
-  selectedHost: window.location.host,
+  selectedHost: defaultHost,
 }
 
 const pingpongReducer = createReducer(pingpongSlice, {

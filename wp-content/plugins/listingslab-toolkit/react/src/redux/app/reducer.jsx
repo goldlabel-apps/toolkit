@@ -19,7 +19,6 @@ export const appSlice = {
   fullScreen: false,
   appMenuOpen: false,
   themeMode: `light`,
-  apiKey: `xyza-1234-asdf-9876`,
   feedback: false,
   feedbackObj: {},
 }

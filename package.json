@@ -12,12 +12,6 @@
 		"build:toolkit": "$PWD/unix/build wp-content/plugins/listingslab-toolkit/react",
 		"dev:pingpong": "$PWD/unix/dev wp-content/plugins/listingslab-pingpong/react",
 		"build:pingpong": "$PWD/unix/build wp-content/plugins/listingslab-pingpong/react",
-		"dev:animatedsvg": "$PWD/unix/dev wp-content/plugins/listingslab-animatedsvg/react",
-		"build:animatedsvg": "$PWD/unix/build wp-content/plugins/listingslab-animatedsvg/react",
-		"dev:omninav": "$PWD/unix/dev wp-content/plugins/listingslab-omninav/react",
-		"build:omninav": "$PWD/unix/build wp-content/plugins/listingslab-omninav/react",
-		"dev:ironavirus": "$PWD/unix/dev wp-content/plugins/listingslab-ironavirus/react",
-		"build:ironavirus": "$PWD/unix/build wp-content/plugins/listingslab-ironavirus/react",
 		"wp": "$PWD/unix/wordpressify",
 		"git": "$PWD/unix/git",
 		"pub": "yarn wp && yarn git"
