@@ -32,18 +32,21 @@ const useStyles = makeStyles( theme => ({
   grow: {
     flexGrow: 1,
   },
+  badgeText:{
+    color: 'white',
+  },
   toolkitTrigger: {
     position: 'absolute',
     right: theme.spacing(),
     textTransform: 'none',
-    border: '1px solid ' + theme.palette.secondary.main,
+    border: '1px solid ' + theme.palette.primary.main,
     background: 'white',
   },
   pingpongTrigger: {
     position: 'absolute',
     right: 55 + theme.spacing(),
     textTransform: 'none',
-    border: '1px solid ' + theme.palette.secondary.main,
+    border: '1px solid ' + theme.palette.primary.main,
     background: 'white',
   },
 }))
@@ -62,28 +65,28 @@ export default function BottomAppBar() {
           <Toolbar>
 
               <IconButton
-                color={  `primary` }
+                color={  `secondary` }
                 className={ clsx( classes.toolkitTrigger ) } 
                 onClick={ (e) => {
                             e.preventDefault()
                             gotoURL(`/wp-admin/admin.php?page=listingslab-toolkit%2Fphp%2FToolKit.php`, `_self`)
                           }}>    
-                  <Icon icon={ `toolkit` } color={ `primary` } />
+                  <Icon icon={ `toolkit` } color={ `secondary` } />
               </IconButton>
 
             
               <IconButton
-                color={  `primary` }
+                color={  `secondary` }
                 className={ clsx( classes.pingpongTrigger ) } 
                 onClick={ (e) => {
                               e.preventDefault()
                               toggleDialog( true )
                             }}>
                 <Badge
-                  badgeContent={ 4 } 
+                  badgeContent={ 0 } 
                   color={ `primary` }
                 >
-                  <Icon icon={ `pingpong` } color={ `primary` } />
+                  <Icon icon={ `pingpong` } color={ `secondary` } />
                 </Badge>
               </IconButton>
            
