@@ -45,10 +45,9 @@ export default function PingPongDialog( props ) {
 				maxWidth={ `sm` }
 				onClose={ closeDialog } 
 			>
-					
+				
 				<DialogActions>
 					<MessageNew />
-
 				</DialogActions>	
 				<DialogActions>
 					<IconButton

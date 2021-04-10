@@ -4,8 +4,9 @@ import { withStyles } from '@material-ui/core/styles'
 import Blokey from './jsx/Blokey'
 import WordPress from './jsx/WordPress'
 import IconGithub from './jsx/Github'
-import IconBuild from '@material-ui/icons/Build'
+import IconToolKit from '@material-ui/icons/Extension'
 import IconDocs from '@material-ui/icons/Description'
+import IconSend from '@material-ui/icons/Send'
 import IconMessage from '@material-ui/icons/QuestionAnswer'
 import Account from './jsx/Account'
 import IconMail from '@material-ui/icons/Mail'
@@ -120,7 +121,7 @@ class Icon extends Component {
                 return (<IconConnected color={iconColor} />)   
 
             case `toolkit`:
-                return (<IconBuild color={iconColor} />) 
+                return (<IconToolKit color={iconColor} />) 
 
             case `notconnected`:
                 return (<IconNotConnected color={iconColor} />)   
@@ -184,6 +185,9 @@ class Icon extends Component {
 
             case `share`:
                 return (<IconShare color={iconColor} />) 
+
+            case `send`:
+                return (<IconSend color={iconColor} />) 
 
             case `open`:
                 return (<IconOpen color={iconColor} />) 
