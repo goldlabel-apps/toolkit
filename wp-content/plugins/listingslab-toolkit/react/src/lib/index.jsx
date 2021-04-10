@@ -4,11 +4,11 @@ import orderByEpoch from './orderByEpoch'
 import getFlagByCountryCode from './getFlagByCountryCode'
 import getIconByHostname from './getIconByHostname'
 import scrollToTop from './scrollToTop'
-
 import {
 	getTingTitle,
 	getTingSubheading,
 	getTingHost,
+	getTingDeviceStr,
 } from './ting'
 
 export {
@@ -21,4 +21,5 @@ export {
 	getTingSubheading,
 	scrollToTop,
 	getTingHost,
+	getTingDeviceStr,
 }

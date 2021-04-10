@@ -1,5 +1,5 @@
-
 import React from 'react'
+import { useSelector } from 'react-redux'
 import clsx from 'clsx'
 import { 
   toggleDialog,
@@ -20,12 +20,21 @@ import {
 
 const useStyles = makeStyles((theme) => ({
   pingPongDialog:{
+  	padding: theme.spacing(),
   },
 }))
 
 export default function PingPongDialog( props ) {
 
 	const classes = useStyles() 	
+	const pingpongSlice = useSelector(state => state.pingpong)
+	const {
+		ting,
+	} = pingpongSlice
+	const { 
+		gdpr,
+		messages,
+	} = ting	
 	let isMobile = !useMediaQuery( '( min-width: 600px )' )
 	let fullScreen = false
 	if (isMobile){
@@ -39,31 +48,30 @@ export default function PingPongDialog( props ) {
 
 	return	<Dialog
 				open
-				fullWidth 
-				className={ clsx( classes.pingPongDialog )}
+				fullWidth
 				fullScreen={ fullScreen }
 				maxWidth={ `sm` }
-				onClose={ closeDialog } 
-			>
-				
-				<DialogActions>
+				onClose={ closeDialog } >
+				<div className={ clsx( classes.pingPongDialog )}>
 					<MessageNew />
-				</DialogActions>	
-				<DialogActions>
-					<IconButton
-	        			variant={ `text` }
-	        			color={ `primary` }
-	        			onClick={ (e) => {
-	        				e.preventDefault()
-	        				toggleDialog( false )
-	        			}}>
-	        			<Icon icon={ `close` } color={ `inherit` } />
-	        											
-					</IconButton>
-				</DialogActions>
+					<pre>
+						gdpr { JSON.stringify ( gdpr, null, 2 ) }
+					</pre>
+					<pre>
+						messages { JSON.stringify ( messages, null, 2 ) }
+					</pre>
+					<DialogActions>
+						<IconButton
+		        			variant={ `text` }
+		        			color={ `primary` }
+		        			onClick={ (e) => {
+		        				e.preventDefault()
+		        				toggleDialog( false )
+		        			}}>
+		        			<Icon icon={ `close` } color={ `inherit` } />				
+						</IconButton>
+					</DialogActions>
+				</div>
 			</Dialog>
 }
 
-/*
-<About />
-*/

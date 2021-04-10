@@ -3,6 +3,7 @@ import clsx from 'clsx'
 import { useSelector } from 'react-redux'
 import {
   initPingPong,
+  doGdpr,
 } from './redux/pingpong/actions'
 import {
   theme, 
@@ -57,8 +58,21 @@ export default function App() {
         const {
           initting,
           initted,
+          ting,
+          gdprDone,
         } = pingpongSlice 
         if ( !initting && !initted ) initPingPong()
+        const {
+          gdpr,
+          messages,
+        } = ting 
+
+        // if (){
+          // doGdpr
+        // }
+        // console.log ( 'useEffect', initted, gdprDone, gdpr,  messages)
+        if (initted && !gdprDone && !gdpr && !messages ) doGdpr()
+
     }, [pingpongSlice])
 
     if ( error ) return <MuiThemeProvider theme={ createMuiTheme(theme) }>

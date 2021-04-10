@@ -11,14 +11,15 @@ import {
   initting,
   id,
   newMessage,
+  gdprDone,
 } from "./actions"
 
 export const pingpongSlice = {
   pJSON,
-  error: null,
   dialog: false,
-  id: null,
   ting: {},
+  gdprDone: false,
+  id: null,
   overlay: false,
   feedback: false,
   feedbackObj: null,
@@ -31,9 +32,15 @@ export const pingpongSlice = {
     valid: false,
     message: ``,
   },
+  error: null,
 }
 
 const pingpongReducer = createReducer(pingpongSlice, {
+
+  [gdprDone]: (state, action) => {
+    state.gdprDone = action.gdprDone
+    return state
+  },
 
   [newMessage]: (state, action) => {
     state.newMessage = action.newMessage

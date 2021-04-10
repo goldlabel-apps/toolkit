@@ -4,10 +4,11 @@ import clsx from 'clsx'
 import {
 	selectTing,
 } from '../redux/pingpong/actions'
-import {
+import { 
+	getTingDeviceStr,
 	getFlagByCountryCode,
 	getTingTitle,
-	getTingHost,
+	// getTingHost,
 } from '../lib'
 import {
     makeStyles,
@@ -49,7 +50,7 @@ export default function TingPanel( props ) {
 				}}>
 				<Card className={ clsx( classes.card ) } >
 					<CardHeader 
-						title={ getTingHost( ting ) }
+						title={ getTingDeviceStr( ting ) }
 						subheader={ getTingTitle( ting ) }
 						avatar={<Avatar src={ getFlagByCountryCode( countryCode2 ) } />}
 					/>

@@ -1,5 +1,5 @@
 import React from 'react'
-// import { useSelector } from 'react-redux' 
+import { useSelector } from 'react-redux' 
 import clsx from 'clsx'
 import { 
   toggleDialog,
@@ -11,6 +11,7 @@ import {
   Toolbar,
   IconButton,
   Badge,
+  Chip,
 } from '@material-ui/core/'
 import { 
   Icon,
@@ -39,14 +40,14 @@ const useStyles = makeStyles( theme => ({
     position: 'absolute',
     right: theme.spacing(),
     textTransform: 'none',
-    border: '1px solid ' + theme.palette.primary.main,
+    // border: '1px solid ' + theme.palette.primary.main,
     background: 'white',
   },
   pingpongTrigger: {
     position: 'absolute',
     right: 55 + theme.spacing(),
     textTransform: 'none',
-    border: '1px solid ' + theme.palette.primary.main,
+    // border: '1px solid ' + theme.palette.primary.main,
     background: 'white',
   },
 }))
@@ -54,10 +55,10 @@ const useStyles = makeStyles( theme => ({
 export default function BottomAppBar() {
   
   const classes = useStyles()
-  // const pingpongSlice = useSelector(state => state.pingpong)
-  // const {
-  //    version,
-  // } = pingpongSlice.pJSON
+  const pingpongSlice = useSelector(state => state.pingpong)
+  const {
+     version,
+  } = pingpongSlice.pJSON
 
   return <AppBar 
           className={ clsx( classes.appBar )}
@@ -70,8 +71,8 @@ export default function BottomAppBar() {
                 onClick={ (e) => {
                             e.preventDefault()
                             gotoURL(`/wp-admin/admin.php?page=listingslab-toolkit%2Fphp%2FToolKit.php`, `_self`)
-                          }}>    
-                  <Icon icon={ `toolkit` } color={ `secondary` } />
+                          }}>
+                  <Icon icon={ `toolkit` } color={ `primary` } />
               </IconButton>
 
             
@@ -84,12 +85,18 @@ export default function BottomAppBar() {
                             }}>
                 <Badge
                   badgeContent={ 0 } 
-                  color={ `primary` }
+                  color={ `secondary` }
                 >
-                  <Icon icon={ `pingpong` } color={ `secondary` } />
+                  <Icon icon={ `pingpong` } color={ `primary` } />
                 </Badge>
               </IconButton>
            
+              <Chip 
+                size={ `small` }
+                label={ version } 
+                color={ `primary` }
+              />
+                
           </Toolbar>
         </AppBar>
 }

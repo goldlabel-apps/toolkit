@@ -16,38 +16,37 @@ export const overlay = createAction(`PINGPONG/OVERLAY`)
 export const ting = createAction(`PINGPONG/TING`) 
 export const id = createAction(`PINGPONG/ID`)
 export const newMessage = createAction(`PINGPONG/MESSAGE/NEW`) 
+export const gdprDone = createAction(`PINGPONG/GDPR/DONE`) 
 
-
+export const doGdpr = () => { 
+	console.log ('doing Gdpr')
+	const store = getStore()
+	store.dispatch({ type: `PINGPONG/GDPR/DONE`, gdprDone: true })
+	return true
+}
 
 export const sendNewMessage = () => { 
-	
 	const store = getStore()
 	const newMessage = store.getState().pingpong.newMessage.message
-	console.log ( 'sendNewMessage', newMessage )
-
+	// console.log ( 'sendNewMessage', newMessage )
 	if ( newMessage.length < 5 ) {
 		setFeedback({ 
-			severity: `warning`, 
-			message: `Message is too short`,
+			severity: `info`, 
+			message: `Your message is too short`,
 		})
 		toggleFeedback( true)
 		return false
 	}
-
 	const endpoint = `${ process.env.REACT_APP_LISTINGSLAB_API }/pingpong/new/`
 	const body = {
 		to: `blah blha`,
 		from: `asod`,
 		tingId: `daspidjpsadp`,
 	}
-	console.log ('endpoint', endpoint)
-
-	
-	
+	// console.log ('endpoint', endpoint)
 	axios.post( endpoint, body )
 		.then(function( res ) {
-			console.log ('data', res.data)
-
+			// console.log ('data', res.data)
 			// const store = getStore()
 			// store.dispatch({ type: `PINGPONG/ID`, id: res.data.response.data.id })
 			return true
@@ -73,7 +72,6 @@ export const updateNewMessage = message => {
 	store.dispatch({ type: `PINGPONG/MESSAGE/NEW`, newMessage: newNewMessage })
 }
 
-
 export const initPingPong = () => {
 	const store = getStore()
 	store.dispatch({ type: `PINGPONG/INIT`, initting: true })
@@ -89,11 +87,6 @@ export const initPingPong = () => {
 	    })
 	return true
 }
-
-
-
-
-
 
 export const connectAPI = () => { 
 	const ting = getStore().getState().pingpong.ting
