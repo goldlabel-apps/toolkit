@@ -7,6 +7,7 @@ import {
 } from '../redux/pingpong/actions'
 import {    
   makeStyles,
+  useTheme,
   AppBar,
   Toolbar,
   IconButton,
@@ -15,6 +16,7 @@ import {
 } from '@material-ui/core/'
 import { 
   Icon,
+  IconGithub,
 } from '../theme'
 
 const useStyles = makeStyles( theme => ({
@@ -36,6 +38,9 @@ const useStyles = makeStyles( theme => ({
   badgeText:{
     color: 'white',
   },
+  githubChip:{
+    background: 'none',
+  },
   toolkitTrigger: {
     position: 'absolute',
     right: theme.spacing(),
@@ -55,6 +60,8 @@ const useStyles = makeStyles( theme => ({
 export default function BottomAppBar() {
   
   const classes = useStyles()
+  const theme = useTheme()
+  const primary = theme.palette.primary.main
   const pingpongSlice = useSelector(state => state.pingpong)
   const {
      version,
@@ -92,9 +99,13 @@ export default function BottomAppBar() {
               </IconButton>
            
               <Chip 
-                size={ `small` }
+                className={ clsx( classes.githubChip ) } 
+                avatar={ <IconGithub fill={ primary } /> }
                 label={ version } 
-                color={ `primary` }
+                onClick={ ( e ) => {
+                  e.preventDefault()
+                  gotoURL( `https://github.com/listingslab-software/toolkit/`, `_blank`)
+                }}
               />
                 
           </Toolbar>

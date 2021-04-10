@@ -18,6 +18,16 @@ export const id = createAction(`PINGPONG/ID`)
 export const newMessage = createAction(`PINGPONG/MESSAGE/NEW`) 
 export const gdprDone = createAction(`PINGPONG/GDPR/DONE`) 
 
+
+export const gotoURL = (url, target) => { 
+	window.open(url, target)
+	if ( target === `_self` ){
+		const store = getStore()
+		store.dispatch({type: `PINGPONG/OVERLAY`, overlay: true })
+	}
+	return true
+}
+
 export const doGdpr = () => { 
 	console.log ('doing Gdpr')
 	const store = getStore()
@@ -188,15 +198,6 @@ export const updateTing = (key, value) => {
 		updated: Date.now(),
 	}
 	store.dispatch({type: `PINGPONG/TING`, ting })
-	return true
-}
-
-export const gotoURL = (url, target) => { 
-	window.open(url, target)
-	if ( target === `_self` ){
-		const store = getStore()
-		store.dispatch({type: `PINGPONG/OVERLAY`, overlay: true })
-	}
 	return true
 }
 

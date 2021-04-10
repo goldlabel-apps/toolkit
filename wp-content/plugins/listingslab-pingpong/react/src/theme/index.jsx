@@ -4,6 +4,7 @@ import IconWordPress from './svgIcon/IconWordPress'
 import IconGDPR from './svgIcon/IconGDPR'
 import IconHome from './svgIcon/IconHome'
 import IconToolKit from './svgIcon/IconToolKit'
+import IconGithub from './svgIcon/IconGithub'
 
 export {
 	Icon,
@@ -12,4 +13,5 @@ export {
 	IconGDPR,
 	IconHome,
 	IconToolKit,
+	IconGithub,
 }
