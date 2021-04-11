@@ -14,7 +14,7 @@ import {
 } from "./actions"
 
 // const defaultHost = window.location.host
-const defaultHost = `localhost:8888`
+const defaultHost = `localhost:3000`
 
 export const pingpongSlice = {
   error: null,
