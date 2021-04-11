@@ -13,9 +13,9 @@ export const getTingPage = ting => {
     if ( !ting ) return false
     const {
         path,
-        title,
+        docTitle,
     } = ting
-    return `${ path } ${ title }`
+    return `${ path } ${ docTitle }`
 }
 
 export const getTingTitle = ting => {

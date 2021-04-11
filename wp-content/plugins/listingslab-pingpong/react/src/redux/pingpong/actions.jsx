@@ -25,7 +25,7 @@ export const initPingPong = () => {
 	userAgent()
 	updateTing(`host`, window.location.host)
 	updateTing(`path`, window.location.pathname)
-	updateTing(`title`, window.title)
+	updateTing(`docTitle`, window.title ? window.title : `prolly local` )
 	FingerprintJS.load().then(fp => {
 	      fp.get().then(result => {
 	      	updateTing(`fingerprint`, `${ window.location.host }_${ result.visitorId }` )
