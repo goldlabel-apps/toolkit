@@ -8,6 +8,16 @@ export const getTingHost = ting => {
     return host
 }
 
+
+export const getTingPage = ting => {
+    if ( !ting ) return false
+    const {
+        path,
+        title,
+    } = ting
+    return `${ path } ${ title }`
+}
+
 export const getTingTitle = ting => {
     if ( !ting ) return false
     const {

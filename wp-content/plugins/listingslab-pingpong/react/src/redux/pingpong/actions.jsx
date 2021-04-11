@@ -18,6 +18,22 @@ export const id = createAction(`PINGPONG/ID`)
 export const newMessage = createAction(`PINGPONG/MESSAGE/NEW`) 
 export const gdprDone = createAction(`PINGPONG/GDPR/DONE`) 
 
+export const initPingPong = () => {
+	const store = getStore()
+	store.dispatch({ type: `PINGPONG/INIT`, initting: true })
+	fetchGeo()
+	userAgent()
+	updateTing(`host`, window.location.host)
+	updateTing(`path`, window.location.pathname)
+	updateTing(`title`, window.title)
+	FingerprintJS.load().then(fp => {
+	      fp.get().then(result => {
+	      	updateTing(`fingerprint`, `${ window.location.host }_${ result.visitorId }` )
+	      	completeInit()
+	      })
+	    })
+	return true
+}
 
 export const gotoURL = (url, target) => { 
 	window.open(url, target)
@@ -29,7 +45,7 @@ export const gotoURL = (url, target) => {
 }
 
 export const doGdpr = () => { 
-	console.log ('doing Gdpr')
+	// console.log ('doing Gdpr')
 	const store = getStore()
 	store.dispatch({ type: `PINGPONG/GDPR/DONE`, gdprDone: true })
 	return true
@@ -80,22 +96,6 @@ export const updateNewMessage = message => {
 	if ( message.length > 5 ) newNewMessage.valid = true
 	const store = getStore()
 	store.dispatch({ type: `PINGPONG/MESSAGE/NEW`, newMessage: newNewMessage })
-}
-
-export const initPingPong = () => {
-	const store = getStore()
-	store.dispatch({ type: `PINGPONG/INIT`, initting: true })
-	fetchGeo()
-	userAgent()
-	updateTing(`host`, window.location.host)
-	updateTing(`path`, window.location.pathname)
-	FingerprintJS.load().then(fp => {
-	      fp.get().then(result => {
-	      	updateTing(`fingerprint`, `${ window.location.host }_${ result.visitorId }` )
-	      	completeInit()
-	      })
-	    })
-	return true
 }
 
 export const connectAPI = () => { 

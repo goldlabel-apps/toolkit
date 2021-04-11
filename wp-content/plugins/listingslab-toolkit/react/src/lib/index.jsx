@@ -9,6 +9,7 @@ import {
 	getTingSubheading,
 	getTingHost,
 	getTingDeviceStr,
+	getTingPage,
 } from './ting'
 
 export {
@@ -22,4 +23,5 @@ export {
 	scrollToTop,
 	getTingHost,
 	getTingDeviceStr,
+	getTingPage,
 }

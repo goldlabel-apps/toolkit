@@ -8,7 +8,7 @@ import {
 	getTingDeviceStr,
 	getFlagByCountryCode,
 	getTingTitle,
-	// getTingHost,
+	getTingPage,
 } from '../lib'
 import {
     makeStyles,
@@ -51,7 +51,7 @@ export default function TingPanel( props ) {
 				<Card className={ clsx( classes.card ) } >
 					<CardHeader 
 						title={ getTingDeviceStr( ting ) }
-						subheader={ getTingTitle( ting ) }
+						subheader={ getTingPage( ting ) }
 						avatar={<Avatar src={ getFlagByCountryCode( countryCode2 ) } />}
 					/>
 					
