@@ -2,22 +2,25 @@ import React from 'react'
 import clsx from 'clsx'
 import { useSelector } from 'react-redux'
 import {
+    makeStyles,
+    Button,
+    IconButton,
+    Avatar,
+    Card,
+    CardHeader,
+    CardActions,
+} from '@material-ui/core/'
+import {
 	selectTing,
 	getTingFromId,
 	deleteTing,
 } from '../redux/pingpong/actions'
 import {
 	getFlagByCountryCode,
-	getTingTitle,
-	getTingHost,
+	getTingDeviceStr,
+	getTingPage,
 } from '../lib'
-import {
-    makeStyles,
-    IconButton,
-    Avatar,
-    Card,
-    CardHeader,
-} from '@material-ui/core/'
+
 import { Icon } from '../theme'
 
 const useStyles = makeStyles(theme => ({
@@ -27,6 +30,14 @@ const useStyles = makeStyles(theme => ({
 	    boxShadow: 'none',
 	    border: 'none',
 	},
+	btnTxt: {
+		marginRight: theme.spacing(),
+		marginLeft: theme.spacing(),
+		textTransform: 'none',
+	},
+	returnBtn:{
+		cursor: 'pointer',
+	}
 }))
 
 export default function TingDetail( props ) {
@@ -41,32 +52,56 @@ export default function TingDetail( props ) {
 	} = ting
 	return	<Card className={ clsx( classes.card ) }>
 				<CardHeader 
-					title={ getTingHost( ting ) }
-					subheader={ getTingTitle( ting ) }
+				 	className={ clsx( classes.returnBtn ) }
+					onClick={ (e) => {
+						e.preventDefault()
+						selectTing ( false )
+					}}
+					title={ getTingDeviceStr( ting ) }
+					subheader={ getTingPage( ting ) }
 					avatar={ <Avatar src={ getFlagByCountryCode( countryCode2 ) } /> }
-					action={<React.Fragment>
-								<IconButton
-									variant={ `outlined` }
-									onClick={ (e) => {
-										e.preventDefault()
-										if ( window.confirm('really really?') ){
-											deleteTing ( tingId )
-										}
-										
-									}}>
-									<Icon icon={ `delete` } color={ `primary` } />
-								</IconButton>
-								<IconButton
-									variant={ `outlined` }
-									onClick={ (e) => {
-										e.preventDefault()
-										selectTing ( false )
-									}}>
-									<Icon icon={ `close` } color={ `primary` } />
-								</IconButton>
-							</React.Fragment>}/>
-					<pre>
-		            	ting { JSON.stringify( ting, null, 2 ) }
-		          	</pre>
+				/>
+
+				<CardActions>
+					<React.Fragment>
+
+						<Button
+							onClick={ (e) => {
+								e.preventDefault()
+								selectTing ( false )
+							}}>
+							
+							<Icon icon={ `left` } color={ `primary` } />
+							<span className={ clsx( classes.btnTxt ) }>
+								Back
+							</span>
+						</Button>
+
+						<Button
+							variant={ `outlined` }
+							onClick={ (e) => {
+								e.preventDefault()
+								if ( window.confirm('really really?') ){
+									deleteTing ( tingId )
+								}
+								
+							}}>
+							<Icon icon={ `delete` } color={ `primary` } />
+							<span className={ clsx( classes.btnTxt ) }>
+								Delete
+							</span>
+							
+						</Button>
+
+
+					</React.Fragment>
+				</CardActions>
+					
 			</Card>
 }
+
+/*
+<pre>
+		            	ting { JSON.stringify( ting, null, 2 ) }
+		          	</pre>
+*/

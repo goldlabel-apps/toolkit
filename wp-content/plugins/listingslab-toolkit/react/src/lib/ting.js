@@ -1,5 +1,15 @@
 import { getStore } from '../'
 
+export const getTingDeviceStr = ting => {
+    if ( !ting ) return false
+    const {
+        device,
+        browserName,
+    } = ting
+    let deviceStr = `${browserName} ${ device }`
+    return deviceStr
+}
+
 export const getTingHost = ting => {
     if ( !ting ) return false
     const {
@@ -7,7 +17,6 @@ export const getTingHost = ting => {
     } = ting
     return host
 }
-
 
 export const getTingPage = ting => {
     if ( !ting ) return false
@@ -46,17 +55,7 @@ export const getTingGeoStr = ting => {
     return geoStr
 }
 
-export const getTingDeviceStr = ting => {
-    if ( !ting ) return false
-    const {
-        osName,
-        device,
-        browserName,
-        browserMajor,
-    } = ting
-    let deviceStr = `${ osName } ${browserName} ${browserMajor} ${ device }`
-    return deviceStr
-}
+
 
 
 /*
