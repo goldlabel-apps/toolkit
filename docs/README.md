@@ -32,4 +32,4 @@ Depending on your role, some of the docs will be of more use than others
 - [woocommerce hooks](https://woocommerce.github.io/code-reference/hooks/hooks.html)
 - [Unix commands](./md/012_Unix.md)
 
-![Listingslab @ToolKit](./png/react_wordpress.png) 
+![Listingslab @ToolKit](./png/toolkit_branding.png) 

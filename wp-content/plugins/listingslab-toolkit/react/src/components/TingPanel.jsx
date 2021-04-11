@@ -7,7 +7,6 @@ import {
 import { 
 	getTingDeviceStr,
 	getFlagByCountryCode,
-	getTingTitle,
 	getTingPage,
 } from '../lib'
 import {
