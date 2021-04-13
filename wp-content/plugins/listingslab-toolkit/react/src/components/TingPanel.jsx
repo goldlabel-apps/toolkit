@@ -5,9 +5,9 @@ import {
 	selectTing,
 } from '../redux/pingpong/actions'
 import { 
-	getTingDeviceStr,
 	getFlagByCountryCode,
-	getTingPage,
+	getTingPrimaryStr,
+	getTingTimeAgo,
 } from '../lib'
 import {
     makeStyles,
@@ -49,8 +49,8 @@ export default function TingPanel( props ) {
 				}}>
 				<Card className={ clsx( classes.card ) } >
 					<CardHeader 
-						title={ getTingDeviceStr( ting ) }
-						subheader={ getTingPage( ting ) }
+						title={ getTingPrimaryStr( ting ) }
+						subheader={ getTingTimeAgo( ting ) }
 						avatar={<Avatar src={ getFlagByCountryCode( countryCode2 ) } />}
 					/>
 					

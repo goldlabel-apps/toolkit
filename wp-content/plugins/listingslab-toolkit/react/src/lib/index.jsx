@@ -10,6 +10,9 @@ import {
 	getTingHost,
 	getTingDeviceStr,
 	getTingPage,
+	getTingPrimaryStr,
+	getTingSecondaryStr,
+	getTingTimeAgo,
 } from './ting'
 
 export {
@@ -24,4 +27,7 @@ export {
 	getTingHost,
 	getTingDeviceStr,
 	getTingPage,
+	getTingPrimaryStr,
+	getTingSecondaryStr,
+	getTingTimeAgo,
 }

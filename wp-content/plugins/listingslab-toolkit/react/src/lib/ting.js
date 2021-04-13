@@ -1,4 +1,37 @@
+
 import { getStore } from '../'
+import moment from 'momemt'
+
+export const getTingTimeAgo = ting => {
+    if ( !ting ) return false
+    const {
+        device,
+        browserName,
+        countryName,
+    } = ting
+    let deviceStr = `${countryName ? countryName : `` } ${browserName ? browserName : `` } ${ device ? device : `` }`
+    return deviceStr
+}
+
+
+export const getTingPrimaryStr = ting => {
+    if ( !ting ) return false
+    const {
+        device,
+        browserName,
+        countryName,
+    } = ting
+    let deviceStr = `${countryName ? countryName : `` } ${browserName ? browserName : `` } ${ device ? device : `` }`
+    return deviceStr
+}
+
+export const getTingSecondaryStr = ting => {
+    if ( !ting ) return false
+    const {
+        id
+    } = ting
+    return `id: ${ id }`
+}
 
 export const getTingDeviceStr = ting => {
     if ( !ting ) return false

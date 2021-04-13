@@ -8,6 +8,7 @@ import {
     Card,
     CardHeader,
     CardActions,
+    CardContent,
 } from '@material-ui/core/'
 import {
 	selectTing,
@@ -16,10 +17,10 @@ import {
 } from '../redux/pingpong/actions'
 import {
 	getFlagByCountryCode,
-	getTingDeviceStr,
-	getTingPage,
+	getTingPrimaryStr,
+	getTingTimeAgo,
 } from '../lib'
-
+import { TingAccordion } from './'
 import { Icon } from '../theme'
 
 const useStyles = makeStyles(theme => ({
@@ -56,10 +57,20 @@ export default function TingDetail( props ) {
 						e.preventDefault()
 						selectTing ( false )
 					}}
-					title={ getTingDeviceStr( ting ) }
-					subheader={ getTingPage( ting ) }
+					title={ getTingPrimaryStr( ting ) }
+					subheader={ getTingTimeAgo( ting ) }
 					avatar={ <Avatar src={ getFlagByCountryCode( countryCode2 ) } /> }
 				/>
+
+				<CardContent>
+
+					<TingAccordion ting={ ting }/>
+					
+					<pre>
+		            	ting { JSON.stringify( ting, null, 2 ) }
+		          	</pre>
+
+				</CardContent>
 
 				<CardActions>
 					<React.Fragment>
@@ -100,7 +111,5 @@ export default function TingDetail( props ) {
 }
 
 /*
-<pre>
-		            	ting { JSON.stringify( ting, null, 2 ) }
-		          	</pre>
+
 */
