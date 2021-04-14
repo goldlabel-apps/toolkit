@@ -41,7 +41,6 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: theme.typography.fontWeightRegular,
   },
   bottomPad:{
-    // border: '1px solid red',
     margin: theme.spacing(),
   },
   rightPad:{
@@ -63,17 +62,14 @@ export default function TingAccordion( props ) {
     continentCode,
     host,
     path,
+    bollix,
     docTitle,
   } = ting
-
-  // console.log ('ting', ting)
-
   const pingpongSlice = useSelector(state => state.pingpong)
   const {
     expandedAccordians,
     messages,
   } = pingpongSlice
-
   const {
     historyOpen,
     messagesOpen,
@@ -84,7 +80,7 @@ export default function TingAccordion( props ) {
   return <div className={ clsx( classes.tingAccordion ) }>
           <Grid container>
             <Grid item xs={ 12 }>
-              <div className={ classes.bottomPad }>
+
                 <Accordion 
                   
                   expanded={ historyOpen }
@@ -96,7 +92,7 @@ export default function TingAccordion( props ) {
                     expandIcon={ <Icon icon={ `leveldown` } color={ `primary` }/> }
                     aria-controls={ `Latest` }
                     id={ `Latest-header` }>
-                    <Typography className={ classes.heading }>Latest</Typography>
+                    <Typography className={ classes.heading }></Typography>
                   </AccordionSummary>
                   <AccordionDetails className={ clsx( classes.blockType ) }>
          
@@ -112,27 +108,28 @@ export default function TingAccordion( props ) {
                     </Typography>
 
                     <Typography variant={ `body1` }>
-                      { docTitle }
+                      { docTitle !== `dev server` ? docTitle : `` }
                     </Typography>
 
                     <Typography variant={ `body2` }>
                       { getTingTimeAgo( ting ) }
                     </Typography>
 
+                    <Typography variant={ `body2` }>
+                      bollix? { bollix }
+                    </Typography>
+                    
+
                   </AccordionDetails>
                 </Accordion>
-              </div>
             </Grid>
 
             
             
             <Grid item xs={ 12 }>
 
-            <div className={ clsx( classes.bottomPad, classes.rightPad )}>
-
               <Grid container>
                 <Grid item xs={ 12 } sm={ 6 }>
-                  <div className={ classes.rightPad }>
                     <Accordion 
                       expanded={ messagesOpen }
                       onChange={ (e, newExpanded)=> {
@@ -151,12 +148,9 @@ export default function TingAccordion( props ) {
                       </AccordionDetails>
                     
                     </Accordion>
-                  </div>
                 </Grid>
 
                 <Grid item xs={ 12 } sm={ 6 }>
-
-                    <div className={ classes.bottomPad }>
                       <Accordion 
                         expanded={ deviceOpen }
                         onChange={ (e, newExpanded)=> {
@@ -175,9 +169,7 @@ export default function TingAccordion( props ) {
                           </Typography>
                         </AccordionDetails>
                       </Accordion>
-                    </div>
-
-                <div className={ classes.bottomPad }>
+                    
                   <Accordion 
                     expanded={ locationOpen }
                     onChange={ (e, newExpanded)=> {
@@ -199,17 +191,9 @@ export default function TingAccordion( props ) {
                       </Typography></div>
                     </AccordionDetails>
                   </Accordion>
-                  </div>
                 </Grid>
-
               </Grid>
-              
-              </div>
             </Grid>
-            
-
-
-            
           </Grid>
         </div>
 }

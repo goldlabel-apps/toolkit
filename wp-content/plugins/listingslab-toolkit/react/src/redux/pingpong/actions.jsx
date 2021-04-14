@@ -1,4 +1,5 @@
 import { createAction } from '@reduxjs/toolkit'
+import firebase from '@firebase/app'
 import { getStore, getFStore } from '../../'
 import { scrollToTop } from '../../lib'
 import { 
@@ -21,6 +22,22 @@ export const showMode = createAction(`PINGPONG/TINGS/SHOWMODE`)
 export const selectedHost = createAction(`PINGPONG/HOST/SELECT`)
 export const openedFirst = createAction(`PINGPONG/OPEN/FIRST`)
 export const expandedAccordians = createAction(`PINGPONG/ACCORDIAN/TOGGLE`)
+
+export const updateTingAttribute = (tingId, attribute, value) => {
+	if ( !tingId ) return false
+	const store = getStore()
+	const db = firebase.firestore()
+	db.collection(`pingpong`).doc( tingId )
+		.set({ [attribute]: value }, { merge: true })
+		.then(function(response) {
+			return true
+		})
+		.catch(function(error) {
+			store.dispatch({type: `PINGPONG/ERROR`, error })
+			return false
+		})
+	return true	
+}
 
 export const toggleAccordian = accordian => {
 	const store = getStore()

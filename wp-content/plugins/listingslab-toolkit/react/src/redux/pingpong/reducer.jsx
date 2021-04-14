@@ -17,12 +17,18 @@ import {
 } from "./actions"
 
 const defaultHost = window.location.host
-// const defaultHost = `localhost:3000`
-
+// const defaultHost = `localhost:3000`x``
 
 export const pingpongSlice = {
   error: null,
   tings: [],
+  expandedAccordians: {
+    historyOpen: true,
+    deviceOpen: false,
+    messagesOpen: false,
+    locationOpen: false,
+    otherOpen: false,
+  },
   messages: [
     {
       to: `your name`,
@@ -33,13 +39,7 @@ export const pingpongSlice = {
     },
     
   ],
-  expandedAccordians: {
-    historyOpen: false,
-    deviceOpen: true,
-    messagesOpen: true,
-    locationOpen: true,
-    otherOpen: true,
-  },
+
   openedFirst: false,
   subscribedTings: false,
   subscribingTings: false,
