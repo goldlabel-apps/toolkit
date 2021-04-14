@@ -2,6 +2,7 @@ import { createReducer } from '@reduxjs/toolkit'
 import {
   error,
   tings,
+  messages,
   subscribedTings,
   subscribingTings,
   showId,
@@ -11,14 +12,35 @@ import {
   showCountryName,
   showMode,
   selectedHost,
+  openedFirst,
+  expandedAccordians,
 } from "./actions"
 
 const defaultHost = window.location.host
 // const defaultHost = `localhost:3000`
 
+
 export const pingpongSlice = {
   error: null,
   tings: [],
+  messages: [
+    {
+      to: `your name`,
+      from: `our name`,
+      subject: `General Data Protection Regulation`,
+      body: `Hello this is a sakh`,
+      read: false,
+    },
+    
+  ],
+  expandedAccordians: {
+    historyOpen: false,
+    deviceOpen: true,
+    messagesOpen: true,
+    locationOpen: true,
+    otherOpen: true,
+  },
+  openedFirst: false,
   subscribedTings: false,
   subscribingTings: false,
   showId: true,
@@ -32,6 +54,16 @@ export const pingpongSlice = {
 
 const pingpongReducer = createReducer(pingpongSlice, {
 
+  [expandedAccordians]: (state, action) => {
+    state.expandedAccordians = action.expandedAccordians
+    return state
+  },
+
+  [openedFirst]: (state, action) => {
+    state.openedFirst = action.openedFirst
+    return state
+  },
+  
   [selectedHost]: (state, action) => {
     state.selectedHost = action.selectedHost
     return state
@@ -79,6 +111,11 @@ const pingpongReducer = createReducer(pingpongSlice, {
 
   [tings]: (state, action) => {
     state.tings = action.tings
+    return state
+  },
+
+  [messages]: (state, action) => {
+    state.messages = action.messages
     return state
   },
 

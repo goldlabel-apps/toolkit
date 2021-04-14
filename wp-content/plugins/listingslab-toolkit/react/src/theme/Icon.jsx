@@ -10,6 +10,9 @@ import IconXML from '@material-ui/icons/Code'
 import IconImport from '@material-ui/icons/ImportExport'
 import IconFood from '@material-ui/icons/Fastfood'
 import IconFullscreen from '@material-ui/icons/Fullscreen'
+
+import IconFavouriteOff from '@material-ui/icons/FavoriteBorder'
+
 import IconFullscreenExit from '@material-ui/icons/FullscreenExit'
 import IconPhoto from '@material-ui/icons/CameraAlt'
 import IconFilm from '@material-ui/icons/MovieCreation'
@@ -267,6 +270,10 @@ class Icon extends Component {
 
             case `gamblers`:
                 return (<IconGambler color={iconColor} />)
+
+            case `favourite`:
+                return (<IconFavouriteOff color={iconColor} />)
+
                 
             case `gambler`:
                 return (<IconGambler color={iconColor} />)

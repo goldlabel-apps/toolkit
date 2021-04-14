@@ -20,7 +20,10 @@ import {
 	getTingPrimaryStr,
 	getTingTimeAgo,
 } from '../lib'
-import { TingAccordion } from './'
+import { 
+	TingAccordion,
+	
+} from './'
 import { Icon } from '../theme'
 
 const useStyles = makeStyles(theme => ({
@@ -37,7 +40,10 @@ const useStyles = makeStyles(theme => ({
 	},
 	returnBtn:{
 		cursor: 'pointer',
-	}
+	},
+	grow: {
+		flexGrow: 1,
+	},
 }))
 
 export default function TingDetail( props ) {
@@ -63,32 +69,13 @@ export default function TingDetail( props ) {
 				/>
 
 				<CardContent>
-
 					<TingAccordion ting={ ting }/>
-					
-					<pre>
-		            	ting { JSON.stringify( ting, null, 2 ) }
-		          	</pre>
-
 				</CardContent>
 
 				<CardActions>
-					<React.Fragment>
+					<React.Fragment> 
 
 						<Button
-							onClick={ (e) => {
-								e.preventDefault()
-								selectTing ( false )
-							}}>
-							
-							<Icon icon={ `left` } color={ `primary` } />
-							<span className={ clsx( classes.btnTxt ) }>
-								Back
-							</span>
-						</Button>
-
-						<Button
-							variant={ `outlined` }
 							onClick={ (e) => {
 								e.preventDefault()
 								if ( window.confirm('really really?') ){
@@ -103,6 +90,32 @@ export default function TingDetail( props ) {
 							
 						</Button>
 
+						<Button
+							onClick={ (e) => {
+								e.preventDefault()
+								console.log ('Favourite')
+								
+							}}>
+							<Icon icon={ `favourite` } color={ `primary` } />
+							<span className={ clsx( classes.btnTxt ) }>
+								Favourite
+							</span>
+							
+						</Button>
+						
+
+						<div className={ clsx( classes.grow ) } />
+
+						<Button
+							onClick={ (e) => {
+								e.preventDefault()
+								selectTing ( false )
+							}}>
+							<Icon icon={ `left` } color={ `primary` } />
+							<span className={ clsx( classes.btnTxt ) }>
+								Back
+							</span>
+						</Button>
 
 					</React.Fragment>
 				</CardActions>
@@ -111,5 +124,7 @@ export default function TingDetail( props ) {
 }
 
 /*
-
+<pre>
+	ting { JSON.stringify( ting, null, 2 ) }
+</pre>
 */

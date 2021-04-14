@@ -35,8 +35,8 @@ const useStyles = makeStyles((theme) => ({
     zIndex: 123456,
     position: 'fixed',
     width: '100%',
-    height: 1,
-    overflow: 'hidden',
+    // height: 1,
+    // overflow: 'hidden',
     top: 0,
     left: 0,
   }

@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import {
   subscribeTings,
   getTingFromId,
+  openFirst,
 } from '../redux/pingpong/actions'
 import {
     makeStyles,
@@ -40,8 +41,13 @@ export default function PingPong(props) {
         const {
           subscribedTings,
           subscribingTings,
+          openedFirst,
+          tings,
         } = pingpongSlice 
         if ( !subscribedTings && !subscribingTings ) subscribeTings()
+        if ( !openedFirst && tings.length) {
+          openFirst()
+        }
     }, [ pingpongSlice ]) 
   
   const {

@@ -11,6 +11,7 @@ import ComboBox from './ComboBox'
 import SimpleMenu from './SimpleMenu'
 import Feedback from './Feedback'
 import TingAccordion from './TingAccordion'
+import Message from './Message'
 
 export {
 	PingPong,
@@ -26,4 +27,5 @@ export {
 	SimpleMenu,
 	Feedback,
 	TingAccordion,
+	Message,
 }

@@ -5,7 +5,7 @@ export const localDev = {
     "description": "Site Owner",
     "url": "/",
     "admin_email": "test@test.com",
-    "avatar": "png/IconToolKit.png",
+    "avatar": "https://listingslab.com/wp-content/uploads/2021/03/cropped-cropped-logo192-1.png",
     "pingpong": true,
 }
 

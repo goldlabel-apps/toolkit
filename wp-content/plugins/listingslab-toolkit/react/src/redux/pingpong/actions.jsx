@@ -8,6 +8,8 @@ import {
 
 export const error = createAction(`PINGPONG/ERROR`)
 export const tings = createAction(`PINGPONG/TINGS`)
+export const messages = createAction(`PINGPONG/MESSAGES`)
+
 export const subscribedTings = createAction(`PINGPONG/TINGS/SUBSCRIBED`)
 export const subscribingTings = createAction(`PINGPONG/TINGS/SUBSCRIBING`)
 export const showHost = createAction(`PINGPONG/TINGS/SHOWHOST`)
@@ -17,10 +19,45 @@ export const tingId = createAction(`PINGPONG/TINGS/SELECT`)
 export const showCountryName = createAction(`PINGPONG/TINGS/SHOWCOUNTRY`)
 export const showMode = createAction(`PINGPONG/TINGS/SHOWMODE`)
 export const selectedHost = createAction(`PINGPONG/HOST/SELECT`)
+export const openedFirst = createAction(`PINGPONG/OPEN/FIRST`)
+export const expandedAccordians = createAction(`PINGPONG/ACCORDIAN/TOGGLE`)
+
+export const toggleAccordian = accordian => {
+	const store = getStore()
+	const pingpongSlice = store.getState().pingpong
+	const { expandedAccordians } = pingpongSlice
+	let newExpanded = {
+		...expandedAccordians,
+	}
+	newExpanded[accordian] = !expandedAccordians[accordian]
+	store.dispatch({type: `PINGPONG/ACCORDIAN/TOGGLE`, expandedAccordians: newExpanded })
+	return true
+}
+
+export const openFirst = () => {
+	const store = getStore()
+	const pingpongSlice = store.getState().pingpong
+	const { tings } = pingpongSlice
+	if ( !tings[0] ) return false
+	const {
+		id
+	} = tings[0]
+	selectTing( id )
+	store.dispatch({type: `PINGPONG/OPEN/FIRST`, openedFirst: true })
+	return true
+}
+
+export const selectTing = tingId => {
+	scrollToTop()
+	const store = getStore()
+	store.dispatch({type: `PINGPONG/TINGS/SELECT`, tingId })
+	return true
+}
 
 export const selectHost = selectedHost => {
 	const store = getStore()
 	store.dispatch({type: `PINGPONG/HOST/SELECT`, selectedHost })
+	selectTing( null )
 	return true
 }
 
@@ -60,14 +97,6 @@ export const getTingFromId = tingId => {
 		if (tings[i].id === tingId) return tings[i]
 	}
 	return false
-}
-
-
-export const selectTing = tingId => {
-	scrollToTop()
-	const store = getStore()
-	store.dispatch({type: `PINGPONG/TINGS/SELECT`, tingId })
-	return true
 }
 
 export const toggleShowBrowser = bool => {
