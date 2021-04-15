@@ -5,7 +5,7 @@
  * @package           listingslab-omninav
  *
  * @wordpress-plugin
- * Version:           10.2.4
+ * Version:           10.2.5
  * Plugin Name:       @Omninav
  * Description:       Omninav React/WordPress plugin
  * Plugin URI:        https://github.com/listingslab-software/toolkit
@@ -18,7 +18,7 @@
  */
 
 defined( 'ABSPATH' ) or die( 'Really?' );
-define( 'omninav', '10.2.4' );
+define( 'omninav', '10.2.5' );
 
 require_once 'php/Omninav.php';
 $Omninav = Omninav::GetInstance();
