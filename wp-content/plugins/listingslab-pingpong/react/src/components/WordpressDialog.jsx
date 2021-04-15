@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import clsx from 'clsx'
 import { 
-  toggleDialog,
+  toggleWordpressDialog,
 } from '../redux/pingpong/actions'
 import {
 	makeStyles,
@@ -12,9 +12,6 @@ import {
     IconButton,
     Typography,
 } from '@material-ui/core/'
-import { 
-	MessageNew,
-} from './'
 import { 
 	Icon,
 } from '../theme'
@@ -38,10 +35,6 @@ export default function PingPongDialog( props ) {
 	const {
 		ting,
 	} = pingpongSlice
-	// const { 
-	// 	gdpr,
-	// 	messages,
-	// } = ting	
 	let isMobile = !useMediaQuery( '( min-width: 600px )' )
 	let fullScreen = false
 	if (isMobile){
@@ -49,9 +42,8 @@ export default function PingPongDialog( props ) {
 	}
 
 	const closeDialog = () => {
-		toggleDialog( false )
+		toggleWordpressDialog( false )
 	}
-
 
 	return	<Dialog
 				open
@@ -61,12 +53,10 @@ export default function PingPongDialog( props ) {
 				onClose={ closeDialog } >
 				<DialogTitle>
 				<Typography>
-					@PingPong
+					WordPress
 				</Typography>
 				</DialogTitle>
-				<div className={ clsx( classes.pingPongDialog )}>
-					<MessageNew />
-								
+				<div className={ clsx( classes.pingPongDialog )}>			
 					<IconButton
 						className={ clsx( classes.closeTrigger )}
 	        			variant={ `text` }
@@ -74,7 +64,7 @@ export default function PingPongDialog( props ) {
 	        			onClick={ (e) => {
 	        				e.preventDefault()
 	        				console.log ('ting', ting )
-	        				toggleDialog( false )
+	        				toggleWordpressDialog( false )
 	        			}}>
 	        			<Icon icon={ `close` } color={ `inherit` } />				
 					</IconButton>

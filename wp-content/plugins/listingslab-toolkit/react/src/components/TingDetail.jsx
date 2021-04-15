@@ -3,11 +3,10 @@ import clsx from 'clsx'
 import { useSelector } from 'react-redux'
 import {
     makeStyles,
-    Button,
+    IconButton,
     Avatar,
     Card,
     CardHeader,
-    CardActions,
     CardContent,
 } from '@material-ui/core/'
 import {
@@ -68,36 +67,19 @@ export default function TingDetail( props ) {
 					action={ <React.Fragment>
 							
 
-							<Button
+							<IconButton
 								onClick={ (e) => {
 									e.preventDefault()
 									selectTing ( false )
 								}}>
 								<Icon icon={ `left` } color={ `primary` } />
-								<span className={ clsx( classes.btnTxt ) }>
-									Back
-								</span>
-							</Button>
+								
+							</IconButton>
 						</React.Fragment> }
 				/>
-
 				<CardContent>
 					<TingAccordion ting={ ting }/>
 				</CardContent>
-
-				<CardActions>
-					<React.Fragment> 
-
-						
-						
-						
-
-						<div className={ clsx( classes.grow ) } />
-
-						
-
-					</React.Fragment>
-				</CardActions>
 					
 			</Card>
 }

@@ -18,6 +18,7 @@ import {
 import { 
   Feedback,
   PingPongDialog,
+  WordpressDialog,
   Overlay,
   PingPongButton,
 } from './components'
@@ -49,6 +50,7 @@ export default function App() {
     const {
       error,
       dialog,
+      dialogWordpress,
       overlay,
       feedback,
       id,
@@ -90,6 +92,8 @@ export default function App() {
                   { overlay ? <Overlay /> : null }
                   { feedback ? <Feedback /> : null }
                   { dialog ? <PingPongDialog /> : <PingPongButton /> }
+                  { dialogWordpress ? <WordpressDialog /> : null }
+                  
               </div>
             </MuiThemeProvider> 
 }

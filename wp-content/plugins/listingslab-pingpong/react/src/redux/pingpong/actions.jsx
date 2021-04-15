@@ -12,11 +12,18 @@ export const initting = createAction(`PINGPONG/INIT`)
 export const feedback = createAction(`PINGPONG/FEEDBACK`)
 export const feedbackObj = createAction(`PINGPONG/FEEDBACK/OBJ`)
 export const dialog = createAction(`PINGPONG/DIALOG`)
+export const dialogWordpress = createAction(`PINGPONG/DIALOG/WORDPRESS`)
 export const overlay = createAction(`PINGPONG/OVERLAY`)
 export const ting = createAction(`PINGPONG/TING`) 
 export const id = createAction(`PINGPONG/ID`)
 export const newMessage = createAction(`PINGPONG/MESSAGE/NEW`) 
 export const gdprDone = createAction(`PINGPONG/GDPR/DONE`) 
+
+export const toggleWordpressDialog = bool => { 
+	const store = getStore()
+	store.dispatch({type: `PINGPONG/DIALOG/WORDPRESS`, dialogWordpress: bool })
+	return true
+}
 
 export const initPingPong = () => {
 	const store = getStore()

@@ -7,6 +7,7 @@ import MessageSingle from './MessageSingle'
 import PingPongButton from './PingPongButton'
 import MessageNew from './MessageNew'
 import Feedback from './Feedback'
+import WordpressDialog from './WordpressDialog'
 
 export {
 	PingPongDialog,
@@ -18,4 +19,5 @@ export {
 	PingPongButton,
 	MessageNew,
 	Feedback,
+	WordpressDialog,
 }

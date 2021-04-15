@@ -9,7 +9,10 @@ import {
   Typography,
   Grid,
   Link,
-  Button,
+  AppBar, 
+  Toolbar,
+  Tooltip,
+  IconButton,
 } from '@material-ui/core/'
 import { Icon } from '../theme'
 import {
@@ -29,7 +32,10 @@ const useStyles = makeStyles((theme) => ({
   tingAccordion: {
     width: '100%',
   },
-    btnTxt: {
+  grow:{
+    flexGrow: 1,
+  },
+  btnTxt: {
     marginRight: theme.spacing(),
     marginLeft: theme.spacing(),
     textTransform: 'none',
@@ -48,9 +54,8 @@ const useStyles = makeStyles((theme) => ({
   bottomPad:{
     margin: theme.spacing(),
   },
-  rightPad:{
-    // border: '1px solid red',
-    // marginRight: theme.spacing(),
+  noShadow: {
+    boxShadow: 'none',
   },
 }))
 
@@ -80,35 +85,10 @@ export default function TingAccordion( props ) {
   } = expandedAccordians
 
   return <div className={ clsx( classes.tingAccordion ) }>
-          <Grid container>
-            <Grid item xs={ 12 }>
-                <Button
-                        onClick={ (e) => {
-                          e.preventDefault()
-                          console.log ('Favourite')
-                          // favouriteTing ( id )
-                        }}>
-                        <Icon icon={ `favourite` } color={ `primary` } />
-                        <span className={ clsx( classes.btnTxt ) }>
-                          Favourite
-                        </span>
-                      </Button>
 
-                      <Button
-                          onClick={ (e) => {
-                            e.preventDefault()
-                            if ( window.confirm('really really?') ){
-                              // deleteTing ( tingId )
-                            }
-                            
-                          }}>
-                          <Icon icon={ `delete` } color={ `primary` } />
-                          <span className={ clsx( classes.btnTxt ) }>
-                            Delete
-                          </span>
-                          
-                        </Button>
-              </Grid>
+          <Grid container>
+            
+
             <Grid item xs={ 12 }>
 
                 <Accordion 
@@ -151,7 +131,6 @@ export default function TingAccordion( props ) {
                       { getTingTimeAgo( ting ) }
                     </Typography>
                     
-                     
 
                   </AccordionDetails>
                 </Accordion>
@@ -208,6 +187,38 @@ export default function TingAccordion( props ) {
               </Grid>
             </Grid>
           </Grid>
+
+          <AppBar 
+              className={ classes.none }
+              position={ `static` }
+              color={`default`}
+            >
+            <Toolbar >
+                
+                <Tooltip title={ `Favourite` }>
+                  <IconButton
+                      onClick={ (e) => {
+                        e.preventDefault()
+                        console.log ('Favourite')
+                      }}>
+                    <Icon icon={ `favourite` } color={ `primary` } />  
+                  </IconButton>
+                </Tooltip>
+                
+                <Tooltip title={ `Delete` }>
+                  <IconButton
+                      onClick={ (e) => {
+                        e.preventDefault()
+                        if ( window.confirm('really really?') ){
+                          // deleteTing ( tingId )
+                        }
+                      }}>
+                      <Icon icon={ `delete` } color={ `primary` } />
+                  </IconButton>
+                </Tooltip>
+            </Toolbar>
+          </AppBar>
+
         </div>
 }
 

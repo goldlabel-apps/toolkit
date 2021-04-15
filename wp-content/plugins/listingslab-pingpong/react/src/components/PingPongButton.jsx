@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import clsx from 'clsx'
 import { 
   toggleDialog,
+  toggleWordpressDialog,
   gotoURL,
 } from '../redux/pingpong/actions'
 import {    
@@ -41,18 +42,22 @@ const useStyles = makeStyles( theme => ({
   githubChip:{
     background: 'white',
   },
+  wordpressTrigger:{
+    position: 'absolute',
+    right: 115 + theme.spacing(),
+    textTransform: 'none',
+    background: 'white',
+  },
   toolkitTrigger: {
     position: 'absolute',
     right: theme.spacing(),
     textTransform: 'none',
-    // border: '1px solid ' + theme.palette.primary.main,
     background: 'white',
   },
   pingpongTrigger: {
     position: 'absolute',
     right: 55 + theme.spacing(),
     textTransform: 'none',
-    // border: '1px solid ' + theme.palette.primary.main,
     background: 'white',
   },
 }))
@@ -71,6 +76,17 @@ export default function BottomAppBar() {
           className={ clsx( classes.appBar )}
           position={ `fixed` }>
           <Toolbar>
+
+              <IconButton
+                color={  `secondary` }
+                className={ clsx( classes.wordpressTrigger ) } 
+                onClick={ (e) => {
+                            e.preventDefault()
+                            toggleWordpressDialog( true )
+                          }}>
+                  <Icon icon={ `wordpress` } color={ primary } />
+              </IconButton>
+
 
               <IconButton
                 color={  `secondary` }

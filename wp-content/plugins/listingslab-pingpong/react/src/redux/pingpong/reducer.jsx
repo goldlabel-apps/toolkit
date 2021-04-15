@@ -5,6 +5,7 @@ import {
   feedback,
   feedbackObj,
   dialog,
+  dialogWordpress,
   overlay,
   ting,
   initted,
@@ -16,7 +17,8 @@ import {
 
 export const pingpongSlice = {
   pJSON,
-  dialog: true,
+  dialog: false,
+  dialogWordpress: false,
   ting: {},
   gdprDone: false,
   id: null,
@@ -36,6 +38,11 @@ export const pingpongSlice = {
 }
 
 const pingpongReducer = createReducer(pingpongSlice, {
+
+  [dialogWordpress]: (state, action) => {
+    state.dialogWordpress = action.dialogWordpress
+    return state
+  },
 
   [gdprDone]: (state, action) => {
     state.gdprDone = action.gdprDone
