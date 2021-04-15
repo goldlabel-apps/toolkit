@@ -38,10 +38,10 @@ export default function PingPongDialog( props ) {
 	const {
 		ting,
 	} = pingpongSlice
-	const { 
-		gdpr,
-		messages,
-	} = ting	
+	// const { 
+	// 	gdpr,
+	// 	messages,
+	// } = ting	
 	let isMobile = !useMediaQuery( '( min-width: 600px )' )
 	let fullScreen = false
 	if (isMobile){
@@ -67,11 +67,9 @@ export default function PingPongDialog( props ) {
 				<div className={ clsx( classes.pingPongDialog )}>
 					<MessageNew />
 					<pre>
-						gdpr { JSON.stringify ( gdpr, null, 2 ) }
+						ting { JSON.stringify ( ting, null, 2 ) }
 					</pre>
-					<pre>
-						messages { JSON.stringify ( messages, null, 2 ) }
-					</pre>
+					
 					
 						<IconButton
 							className={ clsx( classes.closeTrigger )}

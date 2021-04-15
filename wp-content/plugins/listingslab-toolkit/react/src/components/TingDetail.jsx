@@ -14,6 +14,7 @@ import {
 	selectTing,
 	getTingFromId,
 	deleteTing,
+	favouriteTing,
 } from '../redux/pingpong/actions'
 import {
 	getFlagByCountryCode,
@@ -54,6 +55,7 @@ export default function TingDetail( props ) {
 	} = pingpongSlice
 	const ting = getTingFromId( tingId )
 	const {
+		id,
 		countryCode2,
 	} = ting
 	return	<Card className={ clsx( classes.card ) }>
@@ -90,18 +92,7 @@ export default function TingDetail( props ) {
 							
 						</Button>
 
-						<Button
-							onClick={ (e) => {
-								e.preventDefault()
-								console.log ('Favourite')
-								
-							}}>
-							<Icon icon={ `favourite` } color={ `primary` } />
-							<span className={ clsx( classes.btnTxt ) }>
-								Favourite
-							</span>
-							
-						</Button>
+						
 						
 
 						<div className={ clsx( classes.grow ) } />

@@ -23,6 +23,11 @@ export const selectedHost = createAction(`PINGPONG/HOST/SELECT`)
 export const openedFirst = createAction(`PINGPONG/OPEN/FIRST`)
 export const expandedAccordians = createAction(`PINGPONG/ACCORDIAN/TOGGLE`)
 
+export const favouriteTing = tingId => {
+	updateTingAttribute( tingId, `favourite`, true )
+	return true
+}
+
 export const updateTingAttribute = (tingId, attribute, value) => {
 	if ( !tingId ) return false
 	const store = getStore()
@@ -30,6 +35,7 @@ export const updateTingAttribute = (tingId, attribute, value) => {
 	db.collection(`pingpong`).doc( tingId )
 		.set({ [attribute]: value }, { merge: true })
 		.then(function(response) {
+			console.log ('Updated ', attribute)
 			return true
 		})
 		.catch(function(error) {

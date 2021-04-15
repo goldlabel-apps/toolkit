@@ -9,6 +9,7 @@ import {
   Typography,
   Grid,
   Link,
+  Button,
 } from '@material-ui/core/'
 import { Icon } from '../theme'
 import {
@@ -28,6 +29,11 @@ import {
 const useStyles = makeStyles((theme) => ({
   tingAccordion: {
     width: '100%',
+  },
+    btnTxt: {
+    marginRight: theme.spacing(),
+    marginLeft: theme.spacing(),
+    textTransform: 'none',
   },
   link: {
     cursor: 'pointer',
@@ -64,6 +70,7 @@ export default function TingAccordion( props ) {
     path,
     bollix,
     docTitle,
+    favourite,
   } = ting
   const pingpongSlice = useSelector(state => state.pingpong)
   const {
@@ -95,7 +102,24 @@ export default function TingAccordion( props ) {
                     <Typography className={ classes.heading }></Typography>
                   </AccordionSummary>
                   <AccordionDetails className={ clsx( classes.blockType ) }>
-         
+
+                  <Button
+                    onClick={ (e) => {
+                      e.preventDefault()
+                      console.log ('Favourite')
+                      // favouriteTing ( id )
+                    }}>
+                    <Icon icon={ `favourite` } color={ `primary` } />
+                    <span className={ clsx( classes.btnTxt ) }>
+                      Favourite
+                    </span>
+                    
+                  </Button>
+                   
+                   <Typography variant={ `body2` }>
+                     favourite? { favourite ? `yes` : `no` }
+                   </Typography>
+                   
                     <Typography variant={ `body1` }>
                       <Link 
                         className={ clsx( classes.link ) }

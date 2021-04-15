@@ -21,7 +21,6 @@ export const appSlice = {
   themeMode: `light`,
   feedback: false,
   feedbackObj: {},
-  
 }
 
 const appReducer = createReducer(appSlice, {
