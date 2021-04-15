@@ -6,8 +6,8 @@
  *
  * @wordpress-plugin
  * Version:           10.2.4
- * Plugin Name:       @_ToolKit Manager
- * Description:       This suite of WordPress Plugins opens up a world of good stuff to any tired old WordPress site. The Manager Plugin is required for all subplugins. Create a Free account to get a personal API key with access to the best new features
+ * Plugin Name:       @ToolKit
+ * Description:       Listingslab's suite of WordPress Plugins opens up a world of good stuff to any tired old WordPress site. The Manager Plugin is required for all subplugins. Create a Free account to get a personal API key with access to the best new features
  * Plugin URI:        https://github.com/listingslab-software/toolkit
  * Author:            listingslab
  * Author URI:        https://listingslab.com?s=author

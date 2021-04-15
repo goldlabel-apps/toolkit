@@ -67,22 +67,22 @@ export default function PingPongDialog( props ) {
 				<div className={ clsx( classes.pingPongDialog )}>
 					<MessageNew />
 					<pre>
-						ting { JSON.stringify ( ting, null, 2 ) }
-					</pre>
-					
-					
-						<IconButton
-							className={ clsx( classes.closeTrigger )}
-		        			variant={ `text` }
-		        			color={ `primary` }
-		        			onClick={ (e) => {
-		        				e.preventDefault()
-		        				toggleDialog( false )
-		        			}}>
-		        			<Icon icon={ `close` } color={ `inherit` } />				
-						</IconButton>
-					
+	ting { JSON.stringify ( ting, null, 2 ) }
+</pre>			
+					<IconButton
+						className={ clsx( classes.closeTrigger )}
+	        			variant={ `text` }
+	        			color={ `primary` }
+	        			onClick={ (e) => {
+	        				e.preventDefault()
+	        				toggleDialog( false )
+	        			}}>
+	        			<Icon icon={ `close` } color={ `inherit` } />				
+					</IconButton>
 				</div>
 			</Dialog>
 }
 
+/*
+
+*/

@@ -25,7 +25,6 @@ import {
   Message,
 } from './'
 
-
 const useStyles = makeStyles((theme) => ({
   tingAccordion: {
     width: '100%',
@@ -64,11 +63,8 @@ export default function TingAccordion( props ) {
   const {
     browserName,
     browserMajor,
-    isp,
-    continentCode,
     host,
     path,
-    bollix,
     docTitle,
     favourite,
   } = ting
@@ -81,11 +77,38 @@ export default function TingAccordion( props ) {
     historyOpen,
     messagesOpen,
     deviceOpen,
-    locationOpen,
   } = expandedAccordians
 
   return <div className={ clsx( classes.tingAccordion ) }>
           <Grid container>
+            <Grid item xs={ 12 }>
+                <Button
+                        onClick={ (e) => {
+                          e.preventDefault()
+                          console.log ('Favourite')
+                          // favouriteTing ( id )
+                        }}>
+                        <Icon icon={ `favourite` } color={ `primary` } />
+                        <span className={ clsx( classes.btnTxt ) }>
+                          Favourite
+                        </span>
+                      </Button>
+
+                      <Button
+                          onClick={ (e) => {
+                            e.preventDefault()
+                            if ( window.confirm('really really?') ){
+                              // deleteTing ( tingId )
+                            }
+                            
+                          }}>
+                          <Icon icon={ `delete` } color={ `primary` } />
+                          <span className={ clsx( classes.btnTxt ) }>
+                            Delete
+                          </span>
+                          
+                        </Button>
+              </Grid>
             <Grid item xs={ 12 }>
 
                 <Accordion 
@@ -103,18 +126,7 @@ export default function TingAccordion( props ) {
                   </AccordionSummary>
                   <AccordionDetails className={ clsx( classes.blockType ) }>
 
-                  <Button
-                    onClick={ (e) => {
-                      e.preventDefault()
-                      console.log ('Favourite')
-                      // favouriteTing ( id )
-                    }}>
-                    <Icon icon={ `favourite` } color={ `primary` } />
-                    <span className={ clsx( classes.btnTxt ) }>
-                      Favourite
-                    </span>
-                    
-                  </Button>
+                 
                    
                    <Typography variant={ `body2` }>
                      favourite? { favourite ? `yes` : `no` }
@@ -138,11 +150,8 @@ export default function TingAccordion( props ) {
                     <Typography variant={ `body2` }>
                       { getTingTimeAgo( ting ) }
                     </Typography>
-
-                    <Typography variant={ `body2` }>
-                      bollix? { bollix }
-                    </Typography>
                     
+                     
 
                   </AccordionDetails>
                 </Accordion>
@@ -194,27 +203,7 @@ export default function TingAccordion( props ) {
                         </AccordionDetails>
                       </Accordion>
                     
-                  <Accordion 
-                    expanded={ locationOpen }
-                    onChange={ (e, newExpanded)=> {
-                      e.preventDefault()
-                      toggleAccordian( `locationOpen` )
-                    }}>
-                    <AccordionSummary
-                      expandIcon={ <Icon icon={ `leveldown` } color={ `primary` }/> }
-                      aria-controls={ `location` }
-                      id={ `location-header` }>
-                      <Typography className={ classes.heading }>Location</Typography>
-                    </AccordionSummary>
-                    <AccordionDetails className={ clsx( classes.blockType ) }>
-                      <div><Typography>
-                      <small>continentCode</small> { continentCode}
-                      </Typography></div>
-                      <div><Typography>
-                        <small>isp</small> { isp }
-                      </Typography></div>
-                    </AccordionDetails>
-                  </Accordion>
+                  
                 </Grid>
               </Grid>
             </Grid>
@@ -248,5 +237,30 @@ export default function TingAccordion( props ) {
 <pre>
                           { JSON.stringify( messages, null, 2 ) }
                         </pre>
+
+
+
+<Accordion 
+                    expanded={ locationOpen }
+                    onChange={ (e, newExpanded)=> {
+                      e.preventDefault()
+                      toggleAccordian( `locationOpen` )
+                    }}>
+                    <AccordionSummary
+                      expandIcon={ <Icon icon={ `leveldown` } color={ `primary` }/> }
+                      aria-controls={ `location` }
+                      id={ `location-header` }>
+                      <Typography className={ classes.heading }>Location</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails className={ clsx( classes.blockType ) }>
+                      <div><Typography>
+                      <small>continentCode</small> { continentCode}
+                      </Typography></div>
+                      <div><Typography>
+                        <small>isp</small> { isp }
+                      </Typography></div>
+                    </AccordionDetails>
+                  </Accordion>
+
 
 */

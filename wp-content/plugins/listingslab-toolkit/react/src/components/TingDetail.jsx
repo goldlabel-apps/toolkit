@@ -13,8 +13,6 @@ import {
 import {
 	selectTing,
 	getTingFromId,
-	deleteTing,
-	favouriteTing,
 } from '../redux/pingpong/actions'
 import {
 	getFlagByCountryCode,
@@ -55,7 +53,6 @@ export default function TingDetail( props ) {
 	} = pingpongSlice
 	const ting = getTingFromId( tingId )
 	const {
-		id,
 		countryCode2,
 	} = ting
 	return	<Card className={ clsx( classes.card ) }>
@@ -68,6 +65,20 @@ export default function TingDetail( props ) {
 					title={ getTingPrimaryStr( ting ) }
 					subheader={ getTingTimeAgo( ting ) }
 					avatar={ <Avatar src={ getFlagByCountryCode( countryCode2 ) } /> }
+					action={ <React.Fragment>
+							
+
+							<Button
+								onClick={ (e) => {
+									e.preventDefault()
+									selectTing ( false )
+								}}>
+								<Icon icon={ `left` } color={ `primary` } />
+								<span className={ clsx( classes.btnTxt ) }>
+									Back
+								</span>
+							</Button>
+						</React.Fragment> }
 				/>
 
 				<CardContent>
@@ -77,36 +88,13 @@ export default function TingDetail( props ) {
 				<CardActions>
 					<React.Fragment> 
 
-						<Button
-							onClick={ (e) => {
-								e.preventDefault()
-								if ( window.confirm('really really?') ){
-									deleteTing ( tingId )
-								}
-								
-							}}>
-							<Icon icon={ `delete` } color={ `primary` } />
-							<span className={ clsx( classes.btnTxt ) }>
-								Delete
-							</span>
-							
-						</Button>
-
+						
 						
 						
 
 						<div className={ clsx( classes.grow ) } />
 
-						<Button
-							onClick={ (e) => {
-								e.preventDefault()
-								selectTing ( false )
-							}}>
-							<Icon icon={ `left` } color={ `primary` } />
-							<span className={ clsx( classes.btnTxt ) }>
-								Back
-							</span>
-						</Button>
+						
 
 					</React.Fragment>
 				</CardActions>

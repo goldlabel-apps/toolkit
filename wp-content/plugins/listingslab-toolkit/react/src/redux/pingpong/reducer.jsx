@@ -39,7 +39,6 @@ export const pingpongSlice = {
     },
     
   ],
-
   openedFirst: false,
   subscribedTings: false,
   subscribingTings: false,
