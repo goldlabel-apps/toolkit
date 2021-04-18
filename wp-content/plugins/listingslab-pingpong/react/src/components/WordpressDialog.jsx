@@ -10,14 +10,11 @@ import {
 	useTheme,
 	useMediaQuery,
     Dialog,
-    DialogTitle,
     IconButton,
-    Typography,
     List,
     ListItem,
     ListItemText,
     ListItemAvatar,
-    Grid,
 } from '@material-ui/core/'
 import { 
 	Icon,
@@ -26,7 +23,7 @@ import {
 const useStyles = makeStyles((theme) => ({
   wordpressDialog:{
   	padding: theme.spacing(),
-  	marginBottom:  55,
+  	marginBottom:  45,
   },
   dialogTitle:{
 	marginTop: theme.spacing(2),
@@ -67,24 +64,24 @@ export default function PingPongDialog( props ) {
 				fullScreen={ fullScreen }
 				maxWidth={ `sm` }
 				onClose={ closeDialog } >
-				<DialogTitle className={ clsx( classes.dialogTitle )}>
-					<Grid container>
-						<Grid item>
-							<Icon icon={ `wordpress` } color={ primaryColor } />
-						</Grid>
-						<Grid item>
-							<Typography className={ clsx( classes.titleTxt )}>
-								WordPress
-							</Typography>
-						</Grid>
-					</Grid>
-					
-					
-				</DialogTitle>
-
 				<div className={ clsx( classes.wordpressDialog )}>
 
 					<List>
+
+						<ListItem 
+							button
+							onClick={ (e) => { 
+								e.preventDefault()
+								gotoURL(`/wp-admin/`, `_self`)
+							}}>
+							<ListItemAvatar>
+								<Icon icon={ `wordpress` } color={ primaryColor } />
+							</ListItemAvatar>
+							<ListItemText 
+								primary={ `Dashboard` }
+							/>
+						</ListItem>
+
 						
 						<ListItem 
 							button
@@ -112,6 +109,21 @@ export default function PingPongDialog( props ) {
 							</ListItemAvatar>
 							<ListItemText 
 								primary={ `Customise Theme` }
+							/>
+						</ListItem>
+
+
+						<ListItem 
+							button
+							onClick={ (e) => { 
+								e.preventDefault()
+								gotoURL(`/wp-admin/edit.php`, `_self`)
+							}}>
+							<ListItemAvatar>
+								<Icon icon={ `edit` } color={ `primary` } />
+							</ListItemAvatar>
+							<ListItemText 
+								primary={ `Edit Posts` }
 							/>
 						</ListItem>
 
