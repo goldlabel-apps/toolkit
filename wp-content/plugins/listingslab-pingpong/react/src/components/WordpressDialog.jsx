@@ -48,6 +48,18 @@ export default function PingPongDialog( props ) {
 	const {
 		ting,
 	} = pingpongSlice
+	const wordpressSlice = useSelector(state => state.wordpress)
+	const {
+		environment,
+	} = wordpressSlice
+	const { postData } = environment
+	const {
+		ID,
+		post_title,
+	} = postData
+
+
+
 	let isMobile = !useMediaQuery( '( min-width: 600px )' )
 	let fullScreen = false
 	if (isMobile){
@@ -65,6 +77,7 @@ export default function PingPongDialog( props ) {
 				maxWidth={ `sm` }
 				onClose={ closeDialog } >
 				<div className={ clsx( classes.wordpressDialog )}>
+				
 
 					<List>
 
@@ -108,7 +121,7 @@ export default function PingPongDialog( props ) {
 								<Icon icon={ `theme` } color={ `primary` } />
 							</ListItemAvatar>
 							<ListItemText 
-								primary={ `Customise Theme` }
+								primary={ `Theme` }
 							/>
 						</ListItem>
 
@@ -120,10 +133,10 @@ export default function PingPongDialog( props ) {
 								gotoURL(`/wp-admin/edit.php`, `_self`)
 							}}>
 							<ListItemAvatar>
-								<Icon icon={ `edit` } color={ `primary` } />
+								<Icon icon={ `post` } color={ `primary` } />
 							</ListItemAvatar>
 							<ListItemText 
-								primary={ `Edit Posts` }
+								primary={ `All Posts` }
 							/>
 						</ListItem>
 
@@ -141,6 +154,21 @@ export default function PingPongDialog( props ) {
 							/>
 						</ListItem>
 
+
+						{ ID ? <ListItem 
+							button
+							onClick={ (e) => { 
+								e.preventDefault()
+								gotoURL(`/wp-admin/post.php?post=${ ID }&action=edit`, `_self`)
+							}}>
+							<ListItemAvatar>
+								<Icon icon={ `edit` } color={ `primary` } />
+							</ListItemAvatar>
+							<ListItemText 
+								primary={ `Edit ${ post_title } ` }
+							/>
+						</ListItem> : null }
+						
 					</List>
 			
 				</div>
@@ -150,10 +178,16 @@ export default function PingPongDialog( props ) {
 	        			color={ `primary` }
 	        			onClick={ (e) => {
 	        				e.preventDefault()
-	        				console.log ('wordpress', ting.host )
+	        				console.log ('ting.host', ting.host )
 	        				toggleWordpressDialog( false )
 	        			}}>
 	        			<Icon icon={ `close` } color={ `inherit` } />				
 					</IconButton>
 			</Dialog>
 }
+
+/*
+<pre>
+					{ JSON.stringify( postData, null, 2 )}
+				</pre>
+*/

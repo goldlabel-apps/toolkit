@@ -7,29 +7,18 @@ class pingpong_Widget extends WP_Widget {
     }
  
     function widget( $args, $instance ) {
-
-        // $fields = array(
-        //     'name', 
-        //     'description', 
-        //     'wpurl',
-        //     'admin_email', 
-        // );
-
-        // $data = array();
-        // foreach($fields as $field) {
-        //     $data[$field] = get_bloginfo($field);
-        // }
-        
-       
+        echo '<script>';
+        if (is_single()){
+            echo 'var postData = ' . json_encode( get_post() ) . ';';
+        } else {
+            echo 'var postData = {};';
+        }
+        echo '</script>';
         $html = file_get_contents(plugin_dir_path( __DIR__ ) . 'react/build/index.html');
         $html = str_replace('href="/static', 'href="'. plugin_dir_url( __DIR__ ) .
             'react/build/static', $html);
         $html = str_replace('src="/static', 'src="'. plugin_dir_url( __DIR__ ) .
             'react/build/static', $html);
-        // echo '<script>';
-        // echo 'var bloginfo = ' . json_encode($data) . ';';
-        // echo 'var title = "' . $instance['title'] . '";';
-        // echo '</script>';
         echo $html;
     }
 
@@ -66,3 +55,18 @@ add_action( 'widgets_init', 'pingpong_register_widget' );
 function pingpong_register_widget() {
     register_widget( 'pingpong_Widget' );
 }
+
+
+
+        // $fields = array(
+        //     'name', 
+        //     'description', 
+        //     'wpurl',
+        //     'admin_email', 
+        // );
+
+        // $data = array();
+        // foreach($fields as $field) {
+        //     $data[$field] = get_bloginfo($field);
+        // }
+

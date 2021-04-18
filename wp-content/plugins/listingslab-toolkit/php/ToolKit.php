@@ -20,7 +20,7 @@ class ToolKit{
                     'manage_options',
                     __FILE__, 
                     array($this, 'RenderPage'), 
-                    plugins_url('/listingslab-toolkit/public/png/admin20px.png'),
+                    plugins_url('/listingslab-toolkit/admin_icon.png'),
                     2
               );
 

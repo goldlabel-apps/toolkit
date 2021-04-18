@@ -11,6 +11,7 @@ import IconMessage from '@material-ui/icons/QuestionAnswer'
 import Account from './jsx/Account'
 import IconMail from '@material-ui/icons/Mail'
 import IconDefault from '@material-ui/icons/Help'
+import IconPost from '@material-ui/icons/Description'
 import IconFingerprint from '@material-ui/icons/Fingerprint'
 import IconSkip from '@material-ui/icons/SkipNextRounded'
 import IconXML from '@material-ui/icons/Code'
@@ -221,7 +222,10 @@ class Icon extends Component {
 
             case `xml`:
                 return (<IconXML color={iconColor} />)
-           
+
+            case `post`:
+                return (<IconPost color={iconColor} />)
+
             case `life`:
                 return (<IconLife color={iconColor} />) 
 
