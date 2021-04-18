@@ -22,6 +22,7 @@ import {
 const useStyles = makeStyles((theme) => ({
   pingPongDialog:{
   	padding: theme.spacing(),
+  	marginBottom: 55,
   },
   closeTrigger: {
     position: 'absolute',

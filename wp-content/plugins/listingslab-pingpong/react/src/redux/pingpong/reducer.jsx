@@ -17,7 +17,7 @@ import {
 
 export const pingpongSlice = {
   pJSON,
-  dialog: false,
+  dialog: true,
   dialogWordpress: false,
   ting: {},
   gdprDone: false,
@@ -32,7 +32,7 @@ export const pingpongSlice = {
   initting: false,
   newMessage:{
     valid: false,
-    message: ``,
+    message: `this is a new message`,
   },
   error: null,
 }

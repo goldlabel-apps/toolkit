@@ -19,6 +19,49 @@ export const id = createAction(`PINGPONG/ID`)
 export const newMessage = createAction(`PINGPONG/MESSAGE/NEW`) 
 export const gdprDone = createAction(`PINGPONG/GDPR/DONE`) 
 
+export const sendNewMessage = () => { 
+	const store = getStore()
+	const newMessage = store.getState().pingpong.newMessage.message
+	const { environment } = store.getState().wordpress
+	const { id } = store.getState().pingpong
+	
+	console.log ( 'environment', environment )
+
+	if ( newMessage.length < 5 ) {
+		setFeedback({ 
+			severity: `info`, 
+			message: `Your message is too short`,
+		})
+		toggleFeedback( true)
+		return false
+	}
+	const endpoint = `${ process.env.REACT_APP_LISTINGSLAB_API }/notify`
+	// console.log ('endpoint', endpoint)
+	// const payload = {
+	// 	to: `admin`,
+	// 	from: ``,
+	// 	tingId: id,
+	// }
+
+	// // 
+	// axios.post( endpoint, body )
+	// 	.then(function( res ) {
+	// 		// console.log ('data', res.data)
+	// 		// const store = getStore()
+	// 		// store.dispatch({ type: `PINGPONG/ID`, id: res.data.response.data.id })
+	// 		return true
+	// 	})
+	// 	.catch(function( error ) {
+	// 		throwError( error )
+	// 		setFeedback({ 
+	// 			severity: `error`, 
+	// 			message: `Error connecting to API`,
+	// 		})
+	// 		toggleFeedback( true)
+	// 		return false
+	// 	})
+}
+
 export const toggleWordpressDialog = bool => { 
 	const store = getStore()
 	store.dispatch({type: `PINGPONG/DIALOG/WORDPRESS`, dialogWordpress: bool })
@@ -56,43 +99,6 @@ export const doGdpr = () => {
 	const store = getStore()
 	store.dispatch({ type: `PINGPONG/GDPR/DONE`, gdprDone: true })
 	return true
-}
-
-export const sendNewMessage = () => { 
-	const store = getStore()
-	const newMessage = store.getState().pingpong.newMessage.message
-	// console.log ( 'sendNewMessage', newMessage )
-	if ( newMessage.length < 5 ) {
-		setFeedback({ 
-			severity: `info`, 
-			message: `Your message is too short`,
-		})
-		toggleFeedback( true)
-		return false
-	}
-	const endpoint = `${ process.env.REACT_APP_LISTINGSLAB_API }/pingpong/new/`
-	const body = {
-		to: `blah blha`,
-		from: `asod`,
-		tingId: `daspidjpsadp`,
-	}
-	// console.log ('endpoint', endpoint)
-	axios.post( endpoint, body )
-		.then(function( res ) {
-			// console.log ('data', res.data)
-			// const store = getStore()
-			// store.dispatch({ type: `PINGPONG/ID`, id: res.data.response.data.id })
-			return true
-		})
-		.catch(function( error ) {
-			throwError( error )
-			setFeedback({ 
-				severity: `error`, 
-				message: `Error connecting to API`,
-			})
-			toggleFeedback( true)
-			return false
-		})
 }
 
 export const updateNewMessage = message => { 
