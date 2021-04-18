@@ -23,8 +23,7 @@ export const sendNewMessage = () => {
 	const store = getStore()
 	const newMessage = store.getState().pingpong.newMessage.message
 	const { environment } = store.getState().wordpress
-	const { id } = store.getState().pingpong
-	
+	// const { id } = store.getState().pingpong
 	console.log ( 'environment', environment )
 
 	if ( newMessage.length < 5 ) {
@@ -35,7 +34,7 @@ export const sendNewMessage = () => {
 		toggleFeedback( true)
 		return false
 	}
-	const endpoint = `${ process.env.REACT_APP_LISTINGSLAB_API }/notify`
+	// const endpoint = `${ process.env.REACT_APP_LISTINGSLAB_API }/notify`
 	// console.log ('endpoint', endpoint)
 	// const payload = {
 	// 	to: `admin`,

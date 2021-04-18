@@ -91,9 +91,9 @@ export default function App() {
               <div className={ clsx( classes.appWrap ) }>
                   { overlay ? <Overlay /> : null }
                   { feedback ? <Feedback /> : null }
-                  { dialog ? <PingPongDialog /> : <PingPongButton /> }
+                  { dialog ? <PingPongDialog /> : null }
                   { dialogWordpress ? <WordpressDialog /> : null }
-                  
+                  { !dialog && !dialogWordpress ? <PingPongButton /> : null  }
               </div>
             </MuiThemeProvider> 
 }

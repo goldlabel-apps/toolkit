@@ -44,12 +44,6 @@ const useStyles = makeStyles( theme => ({
   },
   wordpressTrigger:{
     position: 'absolute',
-    right: 115 + theme.spacing(),
-    textTransform: 'none',
-    background: 'white',
-  },
-  toolkitTrigger: {
-    position: 'absolute',
     right: theme.spacing(),
     textTransform: 'none',
     background: 'white',
@@ -88,15 +82,6 @@ export default function BottomAppBar() {
               </IconButton>
 
 
-              <IconButton
-                color={  `secondary` }
-                className={ clsx( classes.toolkitTrigger ) } 
-                onClick={ (e) => {
-                            e.preventDefault()
-                            gotoURL(`/wp-admin/admin.php?page=listingslab-toolkit%2Fphp%2FToolKit.php`, `_self`)
-                          }}>
-                  <Icon icon={ `toolkit` } color={ `primary` } />
-              </IconButton>
 
             
               <IconButton
