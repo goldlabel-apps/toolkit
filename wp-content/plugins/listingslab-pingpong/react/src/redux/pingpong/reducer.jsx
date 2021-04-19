@@ -13,11 +13,13 @@ import {
   id,
   newMessage,
   gdprDone,
+  messagePayload,
+  messageSending,
 } from "./actions"
 
 export const pingpongSlice = {
   pJSON,
-  dialog: false,
+  dialog: true,
   dialogWordpress: false,
   ting: {},
   gdprDone: false,
@@ -32,12 +34,24 @@ export const pingpongSlice = {
   initting: false,
   newMessage:{
     valid: false,
-    message: `this is a new message`,
+    message: `Here is a new message`,
   },
+  messagePayload: null,
+  messageSending: false,
   error: null,
 }
 
 const pingpongReducer = createReducer(pingpongSlice, {
+
+  [messageSending]: (state, action) => {
+    state.messageSending = action.messageSending
+    return state
+  },
+
+  [messagePayload]: (state, action) => {
+    state.messagePayload = action.messagePayload
+    return state
+  },
 
   [dialogWordpress]: (state, action) => {
     state.dialogWordpress = action.dialogWordpress

@@ -1,34 +1,29 @@
 import pJSON from '../../../package.json'
 
-export const localDev = {
-    "name": "Site Title",
-    "description": "Site Description",
-    "url": "/",
-    "admin_email": "listingslab@gmail.com",
-    "avatar": "https://listingslab.com/wp-content/uploads/2021/03/cropped-cropped-logo192-1.png",
-}
+let postData = false
+let blogInfo = false
+let customLogo = false
 
-let postData = {}
 if ( window.postData ) postData = window.postData
+if ( window.blogInfo ) blogInfo = window.blogInfo
+if ( window.customLogo ) customLogo = window.customLogo
 
 export const getEnvironment = () => {
 	let environment = {
-		version: pJSON.version,
-		postData,
+		appVersion: pJSON.version,
 		host: window.location.host,
-		selectedHost: window.location.host,
+		postData,
+		blogInfo,
+		customLogo,
 	}
-	let wpData = window.wpData
-	if ( !wpData ) {
+	if ( !blogInfo ) {
 		return {
 			...environment,
-			...localDev,
 			assetPath: `/`,
 		}
 	}
 	return {
 			...environment,
-			...wpData,
 			assetPath: `/wp-content/plugins/listingslab-toolkit/react/build/`,
 	}
 }

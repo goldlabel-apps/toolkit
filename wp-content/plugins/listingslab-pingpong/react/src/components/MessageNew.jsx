@@ -8,6 +8,7 @@ import clsx from 'clsx'
 import {
     makeStyles,
     Button,
+    // LinearProgress,
 } from '@material-ui/core/' 
 import { TextBox } from './'
 import { 
@@ -40,37 +41,46 @@ export default function MessageNew( props ) {
 	const pingpongSlice = useSelector(state => state.pingpong)
     const {
      	newMessage,
+     	messagePayload,
+     	messageSending,
     } = pingpongSlice
 
 	return	<div className={clsx( classes.card )}>
 	
-					<TextBox options={{
-						id: `newMessage`,
-						label: `New Message`,
-						autoFocus: true,
-						variant: `outlined`,
-						color: `primary`,
-						rows: 4,
-						value: newMessage.message,
-						onChange: (e) => {
-							updateNewMessage( e.target.value )
-						}
-					}}/>					
-				
-					<Button
-						className={clsx( classes.sendBtn )}
-						fullWidth
-						variant={ `contained` }
-						color={ `primary` }
-						onClick={ ( e ) => {
-							e.preventDefault()
-							sendNewMessage()
-						}}>
-						<span className={clsx( classes.btnTxt )}>
-							Send
-						</span>
-						<Icon icon={ `send` } />
-					</Button>
+									
+					{ !messageSending ? <React.Fragment>
+						<TextBox options={{
+							id: `newMessage`,
+							label: `New Message`,
+							autoFocus: true,
+							variant: `outlined`,
+							color: `primary`,
+							rows: 4,
+							value: newMessage.message,
+							onChange: (e) => {
+								updateNewMessage( e.target.value )
+							}
+						}}/>
+						<Button
+							className={clsx( classes.sendBtn )}
+							fullWidth
+							variant={ `contained` }
+							color={ `primary` }
+							onClick={ ( e ) => {
+								e.preventDefault()
+								sendNewMessage()
+							}}>
+							<span className={clsx( classes.btnTxt )}>
+								Send
+							</span>
+							<Icon icon={ `send` } />
+						</Button>
+					</React.Fragment> : null }
+					
+					
+					<pre>
+						{ JSON.stringify( messagePayload, null, 2 ) } 
+					</pre>
 				
 			</div>
 }

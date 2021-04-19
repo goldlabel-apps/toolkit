@@ -70,9 +70,7 @@ export default function BottomAppBar() {
           className={ clsx( classes.appBar )}
           position={ `fixed` }>
           <Toolbar>
-
               <IconButton
-                color={  `secondary` }
                 className={ clsx( classes.wordpressTrigger ) } 
                 onClick={ (e) => {
                             e.preventDefault()
@@ -80,12 +78,7 @@ export default function BottomAppBar() {
                           }}>
                   <Icon icon={ `wordpress` } color={ primary } />
               </IconButton>
-
-
-
-            
               <IconButton
-                color={  `secondary` }
                 className={ clsx( classes.pingpongTrigger ) } 
                 onClick={ (e) => {
                               e.preventDefault()
@@ -93,12 +86,10 @@ export default function BottomAppBar() {
                             }}>
                 <Badge
                   badgeContent={ 0 } 
-                  color={ `secondary` }
-                >
+                  color={ `secondary` } >
                   <Icon icon={ `pingpong` } color={ `primary` } />
                 </Badge>
               </IconButton>
-           
               <Chip 
                 className={ clsx( classes.githubChip ) } 
                 avatar={ <IconGithub fill={ primary } /> }
@@ -106,9 +97,7 @@ export default function BottomAppBar() {
                 onClick={ ( e ) => {
                   e.preventDefault()
                   gotoURL( `https://github.com/listingslab-software/toolkit/tree/master/docs`, `_blank`)
-                }}
-              />
-                
+                }}/>
           </Toolbar>
         </AppBar>
 }

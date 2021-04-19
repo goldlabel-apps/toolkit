@@ -18,15 +18,15 @@ export const ting = createAction(`PINGPONG/TING`)
 export const id = createAction(`PINGPONG/ID`)
 export const newMessage = createAction(`PINGPONG/MESSAGE/NEW`) 
 export const gdprDone = createAction(`PINGPONG/GDPR/DONE`) 
+export const messagePayload = createAction(`PINGPONG/MESSAGE/PAYLOAD`)
+export const messageSending = createAction(`PINGPONG/MESSAGE/SENDING`)
 
-export const sendNewMessage = () => { 
+export const sendNewMessage = () => {
+ 
 	const store = getStore()
-	const newMessage = store.getState().pingpong.newMessage.message
-	const { environment } = store.getState().wordpress
-	// const { id } = store.getState().pingpong
-	console.log ( 'environment', environment )
-
-	if ( newMessage.length < 5 ) {
+	store.dispatch({ type: `PINGPONG/MESSAGE/SENDING`, messageSending: true })
+	const message = store.getState().pingpong.newMessage.message
+	if ( message.length < 5 ) {
 		setFeedback({ 
 			severity: `info`, 
 			message: `Your message is too short`,
@@ -34,6 +34,39 @@ export const sendNewMessage = () => {
 		toggleFeedback( true)
 		return false
 	}
+	const { environment } = store.getState().wordpress
+	const { 
+		id,
+		ting,
+	} = store.getState().pingpong
+	const {
+		browserName,
+		browserMajor,
+		osName,
+		device,
+		ip,
+		countryName,
+		city,
+		stateProv,
+	} = ting	
+	let deviceStr = `${ osName } ${ device } ${ browserName } ${ browserMajor }`
+	let locationStr = `${ city } ${ stateProv } ${ countryName }`
+	const {
+		appVersion,
+		host,
+		customLogo,
+	} = environment
+	store.dispatch({ type: `PINGPONG/MESSAGE/PAYLOAD`, messagePayload: {
+		appVersion,
+		host,
+		customLogo,
+		message,
+		tingId: id,
+		deviceStr,
+		locationStr,
+		ip,
+	}})
+
 	// const endpoint = `${ process.env.REACT_APP_LISTINGSLAB_API }/notify`
 	// console.log ('endpoint', endpoint)
 	// const payload = {
