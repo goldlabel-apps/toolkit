@@ -8,7 +8,7 @@ import clsx from 'clsx'
 import {
     makeStyles,
     Button,
-    // LinearProgress,
+    LinearProgress,
 } from '@material-ui/core/' 
 import { TextBox } from './'
 import { 
@@ -46,7 +46,6 @@ export default function MessageNew( props ) {
     } = pingpongSlice
 
 	return	<div className={clsx( classes.card )}>
-	
 									
 					{ !messageSending ? <React.Fragment>
 						<TextBox options={{
@@ -56,7 +55,7 @@ export default function MessageNew( props ) {
 							variant: `outlined`,
 							color: `primary`,
 							rows: 4,
-							value: newMessage.message,
+							value: newMessage,
 							onChange: (e) => {
 								updateNewMessage( e.target.value )
 							}
@@ -75,7 +74,7 @@ export default function MessageNew( props ) {
 							</span>
 							<Icon icon={ `send` } />
 						</Button>
-					</React.Fragment> : null }
+					</React.Fragment> : <LinearProgress /> }
 					
 					
 					<pre>

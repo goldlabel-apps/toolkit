@@ -25,8 +25,13 @@ export const sendNewMessage = () => {
  
 	const store = getStore()
 	store.dispatch({ type: `PINGPONG/MESSAGE/SENDING`, messageSending: true })
-	const message = store.getState().pingpong.newMessage.message
-	if ( message.length < 5 ) {
+	const endpoint = `${ process.env.REACT_APP_LISTINGSLAB_API }/pingpong/new-message`
+	const { 
+		id,
+		ting,
+		newMessage,
+	} = store.getState().pingpong
+	if ( newMessage.length < 5 ) {
 		setFeedback({ 
 			severity: `info`, 
 			message: `Your message is too short`,
@@ -35,10 +40,6 @@ export const sendNewMessage = () => {
 		return false
 	}
 	const { environment } = store.getState().wordpress
-	const { 
-		id,
-		ting,
-	} = store.getState().pingpong
 	const {
 		browserName,
 		browserMajor,
@@ -56,42 +57,35 @@ export const sendNewMessage = () => {
 		host,
 		customLogo,
 	} = environment
-	store.dispatch({ type: `PINGPONG/MESSAGE/PAYLOAD`, messagePayload: {
+	let messagePayload = {
 		appVersion,
 		host,
 		customLogo,
-		message,
+		message: newMessage,
 		tingId: id,
 		deviceStr,
 		locationStr,
 		ip,
-	}})
+	}	
+	
 
-	// const endpoint = `${ process.env.REACT_APP_LISTINGSLAB_API }/notify`
-	// console.log ('endpoint', endpoint)
-	// const payload = {
-	// 	to: `admin`,
-	// 	from: ``,
-	// 	tingId: id,
-	// }
-
-	// // 
-	// axios.post( endpoint, body )
-	// 	.then(function( res ) {
-	// 		// console.log ('data', res.data)
-	// 		// const store = getStore()
-	// 		// store.dispatch({ type: `PINGPONG/ID`, id: res.data.response.data.id })
-	// 		return true
-	// 	})
-	// 	.catch(function( error ) {
-	// 		throwError( error )
-	// 		setFeedback({ 
-	// 			severity: `error`, 
-	// 			message: `Error connecting to API`,
-	// 		})
-	// 		toggleFeedback( true)
-	// 		return false
-	// 	})
+	axios.post( endpoint, messagePayload )
+		.then( function( res ) {
+			const store = getStore()
+			store.dispatch({ type: `PINGPONG/MESSAGE/SENDING`, messageSending: false })
+			store.dispatch({ type: `PINGPONG/MESSAGE/PAYLOAD`, messagePayload: res.data.response.data })
+			return true
+		})
+		.catch(function( error ) {
+			const store = getStore()
+			store.dispatch({ type: `PINGPONG/MESSAGE/SENDING`, messageSending: false })
+			setFeedback({ 
+				severity: `error`, 
+				message: `Error sending message`,
+			})
+			toggleFeedback( true)
+			return false
+		})
 }
 
 export const toggleWordpressDialog = bool => { 
@@ -133,14 +127,9 @@ export const doGdpr = () => {
 	return true
 }
 
-export const updateNewMessage = message => { 
-	let newNewMessage = {
-		message,
-		valid: false,
-	}
-	if ( message.length > 5 ) newNewMessage.valid = true
+export const updateNewMessage = newMessage => { 
 	const store = getStore()
-	store.dispatch({ type: `PINGPONG/MESSAGE/NEW`, newMessage: newNewMessage })
+	store.dispatch({ type: `PINGPONG/MESSAGE/NEW`, newMessage })
 }
 
 export const connectAPI = () => { 
