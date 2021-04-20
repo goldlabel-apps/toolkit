@@ -10,7 +10,6 @@ import {
 export const error = createAction(`PINGPONG/ERROR`)
 export const tings = createAction(`PINGPONG/TINGS`)
 export const messages = createAction(`PINGPONG/MESSAGES`)
-
 export const subscribedTings = createAction(`PINGPONG/TINGS/SUBSCRIBED`)
 export const subscribingTings = createAction(`PINGPONG/TINGS/SUBSCRIBING`)
 export const showHost = createAction(`PINGPONG/TINGS/SHOWHOST`)

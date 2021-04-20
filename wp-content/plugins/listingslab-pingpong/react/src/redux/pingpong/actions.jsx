@@ -1,4 +1,5 @@
 import { createAction } from '@reduxjs/toolkit'
+import firebase from '@firebase/app'
 import { 
 	getStore,
 } from '../../'
@@ -20,6 +21,16 @@ export const newMessage = createAction(`PINGPONG/MESSAGE/NEW`)
 export const gdprDone = createAction(`PINGPONG/GDPR/DONE`) 
 export const messagePayload = createAction(`PINGPONG/MESSAGE/PAYLOAD`)
 export const messageSending = createAction(`PINGPONG/MESSAGE/SENDING`)
+
+export const subscribeTing = ( id ) => {
+	// console.log ('subscribeTing', id)
+	const db = firebase.firestore()
+	db.collection( `pingpong` ).doc( id )
+	    .onSnapshot( ( doc )  => {
+	        console.log("Ting updated ", doc.data())
+	    })
+	return true
+}
 
 export const sendNewMessage = () => {
  
@@ -74,6 +85,7 @@ export const sendNewMessage = () => {
 			const store = getStore()
 			store.dispatch({ type: `PINGPONG/MESSAGE/SENDING`, messageSending: false })
 			store.dispatch({ type: `PINGPONG/MESSAGE/PAYLOAD`, messagePayload: res.data.response.data })
+			updateNewMessage( `` )
 			return true
 		})
 		.catch(function( error ) {
@@ -138,7 +150,9 @@ export const connectAPI = () => {
 	axios.post( endpoint, ting )
 		.then(function( res ) {
 			const store = getStore()
-			store.dispatch({ type: `PINGPONG/ID`, id: res.data.response.data.id })
+			const id = res.data.response.data.id
+			store.dispatch({ type: `PINGPONG/ID`, id })
+			subscribeTing( id )
 			return true
 		})
 		.catch(function( error ) {
